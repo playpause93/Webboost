@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Temporary files
+.tmp/
+temporary screenshots/
+
+# Environment / credentials
+.env
+credentials.json
+token.json
+
+# Screenshot artifacts (root level only, not brand assets in subfolders)
+/*.png
+screenshot.js
+screenshot.mjs
+serve.mjs
+
+# Reports and audit files (internal docs)
+ACTION-PLAN.md
+FULL-AUDIT-REPORT.md
+GEO-REPORT.md
+SCHEMA-REPORT.md
+"CLAUDE (1).md"
+CLAUDE.md
+
+# Package lock (optional — remove this line if you want to commit it)
+package-lock.json
+package.json

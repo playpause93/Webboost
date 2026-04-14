@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitud recibida · WebBoost</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { background: var(--off-white); }
+
+    .gracias-page {
+      min-height: 100vh;
+      padding-top: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gracias-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 20px;
+      padding: 64px 56px;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(13,38,38,0.08);
+    }
+
+    .gracias-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(45,107,107,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+    }
+
+    .gracias-tag {
+      display: inline-block;
+      background: rgba(201,160,53,0.12);
+      border: 1px solid rgba(201,160,53,0.3);
+      color: var(--gold-dim);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .gracias-title {
+      font-family: var(--head-font);
+      font-weight: 900;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      line-height: 1.15;
+      color: var(--teal-900);
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+    }
+    .gracias-title em { font-style: normal; color: var(--gold); }
+
+    .gracias-desc {
+      font-size: 0.97rem;
+      line-height: 1.8;
+      color: var(--gray-500);
+      margin-bottom: 36px;
+    }
+
+    .gracias-steps {
+      background: var(--gray-100);
+      border-radius: 12px;
+      padding: 24px 28px;
+      text-align: left;
+      margin-bottom: 36px;
+    }
+
+    .gracias-steps-title {
+      font-family: var(--head-font);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 14px;
+    }
+
+    .gracias-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      color: var(--gray-700);
+      line-height: 1.5;
+    }
+    .gracias-step:last-child { margin-bottom: 0; }
+
+    .gracias-step-num {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--teal-900);
+      color: var(--white);
+      font-family: var(--head-font);
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .gracias-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    @media (max-width: 540px) {
+      .gracias-card { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="bnad_assets/Gemini_Generated_Image_qdhepwqdhepwqdhe.png" class="nav-logo-img" alt="WebBoost — Consultor SEO Logroño" width="36" height="36">
+      <span class="nav-logo-text">Web<span>Boost</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="seo-local.html">SEO Local</a></li>
+      <li><a href="seo-web.html">SEO Web</a></li>
+      <li><a href="caso-de-estudio.html">Caso de Estudio</a></li>
+      <li><a href="sobre-mi.html">Sobre Mí</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="contacto.html" class="btn btn-primary">Contacto</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="seo-local.html">SEO Local</a></li>
+      <li><a href="seo-web.html">SEO Web</a></li>
+      <li><a href="caso-de-estudio.html">Caso de Estudio</a></li>
+      <li><a href="sobre-mi.html">Sobre Mí</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <a href="contacto.html" class="btn btn-primary">Contacto</a>
+  </div>
+</nav>
+
+<!-- ══ GRACIAS ══════════════════════════════════════════════ -->
+<section class="gracias-page">
+  <div class="gracias-card">
+
+    <div class="gracias-icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal-400)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6L9 17l-5-5"/>
+      </svg>
+    </div>
+
+    <span class="gracias-tag">Solicitud recibida</span>
+
+    <h1 class="gracias-title">¡Perfecto, lo tengo<br><em>todo anotado!</em></h1>
+
+    <p class="gracias-desc">
+      He recibido tu solicitud con todos los datos. Te preparo un análisis personalizado de tu visibilidad local y te contacto en menos de 24 horas.
+    </p>
+
+    <div class="gracias-steps">
+      <div class="gracias-steps-title">¿Qué pasa ahora?</div>
+      <div class="gracias-step">
+        <span class="gracias-step-num">1</span>
+        <span>Reviso tu web, tu ficha de Google Maps y la competencia en tu zona.</span>
+      </div>
+      <div class="gracias-step">
+        <span class="gracias-step-num">2</span>
+        <span>Te preparo un diagnóstico gratuito con los puntos clave a mejorar.</span>
+      </div>
+      <div class="gracias-step">
+        <span class="gracias-step-num">3</span>
+        <span>Te contacto en menos de 24 h por el correo o teléfono que me dejaste.</span>
+      </div>
+    </div>
+
+    <div class="gracias-btns">
+      <a href="caso-de-estudio.html" class="btn btn-primary" style="justify-content:center;">
+        Ver caso de estudio real
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="index.html" class="btn btn-ghost" style="justify-content:center; color:var(--teal-900); border-color:var(--gray-200);">
+        Volver al inicio
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const btn = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  btn.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+</script>
+
+</body>
+</html>

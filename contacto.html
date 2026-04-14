@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto · Diagnóstico SEO Gratuito en Logroño | WebBoost</title>
+  <meta name="description" content="Contacta con Sergio, consultor SEO en Logroño. Diagnóstico gratuito para tu negocio en La Rioja. Respuesta en menos de 24 horas." />
+  <link rel="canonical" href="https://webboost.es/contacto.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contacto · Diagnóstico SEO Gratuito | WebBoost Logroño" />
+  <meta property="og:description" content="Contacta con Sergio, consultor SEO en Logroño. Diagnóstico gratuito sin compromiso para tu negocio en La Rioja." />
+  <meta property="og:url" content="https://webboost.es/contacto.html" />
+  <meta property="og:image" content="https://webboost.es/og-image.jpg" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contacto · Diagnóstico SEO Gratuito | WebBoost" />
+  <meta name="twitter:description" content="Diagnóstico SEO gratuito para tu negocio en Logroño o La Rioja. Respuesta en menos de 24h." />
+  <meta name="twitter:image" content="https://webboost.es/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Variables adicionales específicas de contacto */
+    :root {
+      --green-wa: #25D366;
+      --green-wa-dark: #1ebe5d;
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .contact-page {
+      min-height: 100vh;
+      padding-top: 66px;
+      background: var(--off-white);
+      display: flex; align-items: center;
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 64px;
+      align-items: start;
+      padding-block: 72px;
+      width: 100%;
+    }
+
+    /* ── LEFT COLUMN ── */
+    .contact-left {}
+
+    .contact-tag {
+      display: inline-block;
+      background: rgba(201,160,53,0.12); border: 1px solid rgba(201,160,53,0.3);
+      color: var(--gold-dim); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 22px;
+    }
+
+    .contact-title {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.12;
+      color: var(--teal-900); letter-spacing: -0.025em; margin-bottom: 18px;
+    }
+    .contact-title em { font-style: normal; color: var(--gold); }
+
+    .contact-desc {
+      font-size: 0.97rem; line-height: 1.8; color: var(--gray-500);
+      margin-bottom: 40px; max-width: 420px;
+    }
+
+    /* WhatsApp CTA */
+    .btn-whatsapp {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--green-wa); color: var(--white);
+      padding: 16px 24px; border-radius: 12px;
+      text-decoration: none; font-family: var(--head-font);
+      font-weight: 700; font-size: 0.95rem;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+      transition: all 0.2s; width: fit-content; margin-bottom: 16px;
+    }
+    .btn-whatsapp:hover { background: var(--green-wa-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(37,211,102,0.45); }
+    .btn-whatsapp svg { flex-shrink: 0; }
+    .btn-whatsapp-text { display: flex; flex-direction: column; gap: 1px; }
+    .btn-whatsapp-label { font-size: 0.72rem; font-weight: 600; opacity: 0.85; letter-spacing: 0.04em; }
+    .btn-whatsapp-num { font-size: 1rem; font-weight: 800; letter-spacing: 0.02em; }
+
+    .contact-email-link {
+      display: flex; align-items: center; gap: 12px;
+      color: var(--teal-400); text-decoration: none; font-size: 0.92rem; font-weight: 600;
+      transition: color 0.15s;
+    }
+    .contact-email-link:hover { color: var(--gold); }
+    .contact-email-link .email-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(45,107,107,0.12); border: 1px solid rgba(45,107,107,0.2);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    .contact-info-divider {
+      height: 1px; background: var(--gray-200); margin: 28px 0;
+      max-width: 360px;
+    }
+
+    .contact-note {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.8rem; color: var(--gray-500); margin-top: 28px;
+    }
+    .contact-note svg { color: var(--teal-400); flex-shrink: 0; }
+
+    /* ── RIGHT COLUMN — FORM ── */
+    .contact-form-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px 36px;
+      box-shadow: 0 8px 40px rgba(13,38,38,0.1);
+      border: 1px solid var(--gray-200);
+    }
+
+    .form-title {
+      font-family: var(--head-font); font-weight: 800; font-size: 1.25rem;
+      color: var(--teal-900); margin-bottom: 6px;
+    }
+    .form-subtitle { font-size: 0.85rem; color: var(--gray-500); margin-bottom: 28px; line-height: 1.6; }
+
+    .form-grid { display: flex; flex-direction: column; gap: 18px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+    .form-label {
+      font-family: var(--head-font); font-weight: 600; font-size: 0.78rem;
+      color: var(--teal-900); letter-spacing: 0.03em;
+    }
+    .form-label .req { color: var(--gold); margin-left: 2px; }
+
+    .form-input, .form-textarea {
+      width: 100%; padding: 12px 16px;
+      border: 1.5px solid var(--gray-200); border-radius: 8px;
+      font-family: var(--body-font); font-size: 0.9rem; color: var(--gray-700);
+      background: var(--off-white);
+      transition: border-color 0.15s, box-shadow 0.15s;
+      outline: none;
+    }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--teal-400);
+      box-shadow: 0 0 0 3px rgba(45,107,107,0.12);
+      background: var(--white);
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--gray-500); opacity: 0.7; }
+
+    .form-textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+
+    .form-maps-hint {
+      font-size: 0.76rem; color: var(--gray-500); margin-top: 4px; line-height: 1.5;
+    }
+
+    .form-submit {
+      width: 100%; padding: 15px; border-radius: 10px;
+      background: var(--teal-900); color: var(--white);
+      font-family: var(--head-font); font-weight: 700; font-size: 0.9rem;
+      letter-spacing: 0.04em; border: none; cursor: pointer;
+      transition: all 0.2s; margin-top: 6px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .form-submit:hover { background: var(--teal-700); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(13,38,38,0.2); }
+
+    /* ── BACKGROUND DOTS PATTERN ── */
+    .contact-page {
+      background-image: radial-gradient(rgba(13,38,38,0.13) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .contact-form-card { padding: 28px 20px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contacto — Diagnóstico SEO Gratuito | WebBoost",
+    "url": "https://webboost.es/contacto.html",
+    "description": "Solicita un diagnóstico SEO gratuito para tu negocio en Logroño o La Rioja. Respuesta en menos de 24 horas.",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Sergio",
+      "jobTitle": "Consultor SEO",
+      "email": "sergiowebboost@gmail.com",
+      "telephone": "+34 686383794",
+      "url": "https://webboost.es/sobre-mi.html"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="bnad_assets/Gemini_Generated_Image_qdhepwqdhepwqdhe.png" class="nav-logo-img" alt="WebBoost — Consultor SEO Logroño" width="36" height="36">
+      <span class="nav-logo-text">Web<span>Boost</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="seo-local.html">SEO Local</a></li>
+      <li><a href="seo-web.html">SEO Web</a></li>
+      <li><a href="caso-de-estudio.html">Caso de Estudio</a></li>
+      <li><a href="sobre-mi.html">Sobre Mí</a></li>
+      <li><a href="#">Precios</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contacto.html" class="active">Contacto</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="contacto.html" class="btn btn-primary">Contacto</a>
+    </div>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="seo-local.html">SEO Local</a></li>
+      <li><a href="seo-web.html">SEO Web</a></li>
+      <li><a href="caso-de-estudio.html">Caso de Estudio</a></li>
+      <li><a href="sobre-mi.html">Sobre Mí</a></li>
+      <li><a href="#">Precios</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <a href="contacto.html" class="btn btn-primary">Contacto</a>
+  </div>
+</nav>
+
+<!-- ══ CONTACT SECTION ══════════════════════════════════════ -->
+<section class="contact-page">
+  <div class="container">
+    <div class="contact-inner">
+
+      <!-- LEFT -->
+      <div class="contact-left">
+        <span class="contact-tag">Diagnóstico gratuito</span>
+
+        <h1 class="contact-title">
+          Solicita tu diagnóstico<br><em>gratuito</em>
+        </h1>
+
+        <p class="contact-desc">
+          Respuesta en menos de 24 horas. Te cuento exactamente qué está fallando en tu visibilidad local y cómo solucionarlo.
+        </p>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/34686383794" target="_blank" rel="noopener" class="btn-whatsapp">
+          <!-- WhatsApp SVG icon -->
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 3C9.37 3 4 8.37 4 15c0 2.64.85 5.09 2.3 7.1L4 29l7.14-2.27A12.93 12.93 0 0016 28c6.63 0 12-5.37 12-12S22.63 3 16 3z" fill="white" fill-opacity="0.2"/>
+            <path d="M16 4.5C10.2 4.5 5.5 9.2 5.5 15c0 2.48.87 4.76 2.3 6.56L6.1 26.4l5.02-1.6A10.44 10.44 0 0016 25.5c5.8 0 10.5-4.7 10.5-10.5S21.8 4.5 16 4.5zm5.6 14.38c-.23.64-1.36 1.24-1.87 1.3-.48.06-1.05.08-1.7-.1-.38-.11-.88-.27-1.5-.52-2.64-1.1-4.37-3.76-4.5-3.93-.13-.18-1.06-1.4-1.06-2.67 0-1.27.66-1.89.9-2.15.23-.26.5-.32.67-.32l.48.01c.15 0 .36-.06.56.43.22.52.74 1.8.8 1.93.07.13.11.28.02.45-.09.18-.13.28-.26.44-.13.16-.27.35-.38.47-.13.14-.26.28-.11.55.15.27.66 1.1 1.43 1.78.98.87 1.81 1.14 2.07 1.27.26.13.41.11.56-.07.15-.18.63-.74.8-1 .17-.26.34-.21.57-.13.23.08 1.46.69 1.71.81.25.13.42.19.48.3.06.1.06.6-.17 1.24z" fill="white"/>
+          </svg>
+          <div class="btn-whatsapp-text">
+            <span class="btn-whatsapp-label">Escríbeme por WhatsApp</span>
+            <span class="btn-whatsapp-num">+34 686 383 794</span>
+          </div>
+        </a>
+
+        <div class="contact-info-divider"></div>
+
+        <!-- Email -->
+        <a href="mailto:sergiowebboost@gmail.com" class="contact-email-link">
+          <span class="email-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          </span>
+          sergiowebboost@gmail.com
+        </a>
+
+        <p class="contact-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Tus datos están seguros. Nunca los compartiremos con terceros.
+        </p>
+      </div>
+
+      <!-- RIGHT — FORM -->
+      <div class="contact-form-card">
+        <div class="form-title">Cuéntame tu situación</div>
+        <div class="form-subtitle">Rellena el formulario y te preparo un análisis personalizado de tu visibilidad local.</div>
+
+
+        <form id="contact-form" class="form-grid" method="POST" action="https://formspree.io/f/meevolga">
+          <!-- Campos ocultos para Formspree -->
+          <input type="hidden" name="_subject" value="Nueva solicitud de diagnóstico SEO — WebBoost" />
+          <input type="hidden" name="_language" value="es" />
+          <input type="hidden" name="_next" value="https://webboost.es/gracias.html" />
+          <!-- Honeypot anti-spam: no rellenar -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <!-- Nombre + Email -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="nombre">Nombre <span class="req">*</span></label>
+              <input class="form-input" type="text" id="nombre" name="Nombre" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Correo electrónico <span class="req">*</span></label>
+              <input class="form-input" type="email" id="email" name="Correo" placeholder="tu@email.com" required />
+            </div>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="form-group">
+            <label class="form-label" for="telefono">Teléfono</label>
+            <input class="form-input" type="tel" id="telefono" name="Telefono" placeholder="+34 600 000 000" />
+          </div>
+
+          <!-- Web del negocio -->
+          <div class="form-group">
+            <label class="form-label" for="web">Web del negocio</label>
+            <input class="form-input" type="url" id="web" name="Web_del_negocio" placeholder="www.tunegocio.com" />
+          </div>
+
+          <!-- Ficha Google Maps -->
+          <div class="form-group">
+            <label class="form-label" for="maps">Link a tu ficha de Google Maps</label>
+            <input class="form-input" type="url" id="maps" name="Ficha_Google_Maps" placeholder="https://maps.app.goo.gl/..." />
+            <span class="form-maps-hint">Busca tu negocio en Google Maps → Compartir → Copia el enlace</span>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="form-submit" id="submit-btn">
+            Enviar solicitud
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div style="padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:24px;">
+      <address style="font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.7;font-style:normal;">
+        <strong style="color:rgba(255,255,255,0.65);">WebBoost · Sergio</strong><br>
+        Logroño, La Rioja, España
+      </address>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 WebBoost. Todos los derechos reservados.</span>
+      <div class="footer-socials">
+        <a href="#" aria-label="Twitter">𝕏</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Instagram">◈</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Menú hamburger ──
+  const btn = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  btn.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+</script>
+
+</body>
+</html>

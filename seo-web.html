@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEO Web — WebBoost · Consultor SEO en Logroño</title>
+  <meta name="description" content="SEO Web para empresas en Logroño. Optimización técnica, contenidos y posicionamiento orgánico para que tu web escale en Google y genere más clientes." />
+  <link rel="canonical" href="https://webboost.es/seo-web.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SEO Web en Logroño | WebBoost" />
+  <meta property="og:description" content="Optimización SEO técnica y de contenido para empresas en Logroño y La Rioja. Más tráfico orgánico, más clientes." />
+  <meta property="og:url" content="https://webboost.es/seo-web.html" />
+  <meta property="og:image" content="https://webboost.es/og-image.jpg" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SEO Web Logroño | WebBoost" />
+  <meta name="twitter:description" content="Posicionamiento web orgánico para empresas en Logroño y La Rioja." />
+  <meta name="twitter:image" content="https://webboost.es/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* btn-outline es específico de esta página */
+    .btn-outline { background: transparent; color: var(--teal-900); border: 1.5px solid var(--gray-200); }
+    .btn-outline:hover { border-color: var(--teal-400); color: var(--teal-400); }
+
+    /* ── SECTION COMMON ── */
+    .sw-section-tag {
+      display: inline-block;
+      background: rgba(201,160,53,0.12); border: 1px solid rgba(201,160,53,0.3);
+      color: var(--gold-dim); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+    }
+    .sw-section-title {
+      font-family: var(--head-font); font-weight: 800;
+      font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.2;
+      color: var(--teal-900); letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+    .sw-section-title span { color: var(--gold); }
+    .sw-section-sub {
+      font-size: 0.97rem; line-height: 1.75; color: var(--gray-500); max-width: 540px;
+    }
+
+    /* ── HERO ── */
+    #sw-hero {
+      padding-top: 66px;
+      background: var(--white);
+    }
+    .sw-hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+      padding-block: 88px 72px;
+    }
+    .sw-hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(13,38,38,0.06); border: 1px solid rgba(13,38,38,0.12);
+      color: var(--teal-400); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 28px;
+    }
+    .sw-hero-title {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.1;
+      color: var(--teal-900); letter-spacing: -0.025em; margin-bottom: 20px;
+    }
+    .sw-hero-title em {
+      font-style: normal; position: relative; display: inline-block; color: var(--teal-900);
+    }
+    .sw-hero-title em::after {
+      content: ''; position: absolute; left: 0; bottom: -4px;
+      width: 100%; height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--teal-200));
+      border-radius: 2px;
+    }
+    .sw-hero-sub {
+      font-size: 1.02rem; line-height: 1.75; color: var(--gray-500); margin-bottom: 36px;
+    }
+    .sw-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* Hero right: result card stack */
+    .sw-hero-visual {
+      display: flex; flex-direction: column; gap: 16px; position: relative;
+    }
+    .sw-result-card {
+      background: var(--white); border-radius: 14px; padding: 20px 22px;
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 4px 24px rgba(13,38,38,0.08);
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .sw-result-card.highlight {
+      border-color: rgba(201,160,53,0.4);
+      background: linear-gradient(135deg, rgba(201,160,53,0.04), var(--white));
+    }
+    .sw-result-icon {
+      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+    }
+    .sw-result-icon.teal { background: linear-gradient(135deg, var(--teal-900), var(--teal-400)); }
+    .sw-result-icon.gold { background: linear-gradient(135deg, var(--gold-dim), var(--gold)); }
+    .sw-result-icon.gray { background: var(--gray-100); }
+    .sw-result-body { flex: 1; }
+    .sw-result-label { font-family: var(--head-font); font-weight: 700; font-size: 0.88rem; color: var(--teal-900); margin-bottom: 4px; }
+    .sw-result-sub { font-size: 0.8rem; color: var(--gray-500); line-height: 1.5; }
+    .sw-result-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: rgba(45,107,107,0.1); color: var(--teal-400);
+      font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; margin-top: 8px;
+    }
+    .sw-hero-glow {
+      position: absolute; width: 320px; height: 320px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,160,53,0.12) 0%, transparent 70%);
+      filter: blur(60px); pointer-events: none; right: -40px; top: 50%; transform: translateY(-50%);
+      z-index: -1;
+    }
+
+    /* ── POR QUÉ SECTION ── */
+    #sw-why {
+      background: var(--off-white);
+      padding-block: 88px;
+    }
+    .sw-why-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: start;
+    }
+    .sw-why-list { display: flex; flex-direction: column; gap: 28px; margin-top: 32px; }
+    .sw-why-item { display: flex; gap: 18px; align-items: flex-start; }
+    .sw-why-num {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      background: var(--teal-900); color: var(--gold);
+      font-family: var(--head-font); font-weight: 800; font-size: 0.85rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sw-why-content h4 {
+      font-family: var(--head-font); font-weight: 700; font-size: 0.95rem;
+      color: var(--teal-900); margin-bottom: 6px;
+    }
+    .sw-why-content p { font-size: 0.86rem; line-height: 1.7; color: var(--gray-500); }
+
+    /* Right: CTA panel */
+    .sw-why-panel {
+      background: var(--teal-900); border-radius: 20px; padding: 44px 36px;
+      position: sticky; top: 90px;
+    }
+    .sw-why-panel-title {
+      font-family: var(--head-font); font-weight: 800; font-size: 1.4rem;
+      color: var(--white); line-height: 1.25; margin-bottom: 12px;
+    }
+    .sw-why-panel-title em { font-style: normal; color: var(--gold); }
+    .sw-why-panel-sub { font-size: 0.88rem; line-height: 1.7; color: rgba(255,255,255,0.55); margin-bottom: 28px; }
+    .sw-why-panel-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+    .sw-why-panel-list li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.86rem; color: rgba(255,255,255,0.75);
+    }
+    .sw-why-panel-list li::before {
+      content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0;
+    }
+    .sw-why-panel .btn { width: 100%; justify-content: center; margin-bottom: 12px; }
+    .sw-why-panel-note { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-align: center; }
+
+    /* ── PROCESO ── */
+    #sw-process {
+      padding-block: 88px;
+      background: var(--white);
+    }
+    .sw-process-head { text-align: center; margin-bottom: 64px; }
+    .sw-process-head .sw-section-sub { margin-inline: auto; }
+    .sw-steps-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; position: relative;
+    }
+    .sw-steps-grid::before {
+      content: '';
+      position: absolute; top: 28px; left: calc(12.5% + 14px); right: calc(12.5% + 14px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--teal-200), var(--gold));
+      opacity: 0.3;
+    }
+    .sw-step {
+      text-align: center; padding: 0 16px;
+      position: relative;
+    }
+    .sw-step-num {
+      width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 24px;
+      background: var(--teal-900); color: var(--gold);
+      font-family: var(--head-font); font-weight: 900; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      border: 3px solid rgba(201,160,53,0.3);
+      position: relative; z-index: 1;
+      box-shadow: 0 0 0 6px rgba(13,38,38,0.06);
+    }
+    .sw-step-icon { font-size: 1.5rem; margin-bottom: 16px; }
+    .sw-step-name {
+      font-family: var(--head-font); font-weight: 700; font-size: 0.95rem;
+      color: var(--teal-900); margin-bottom: 10px; line-height: 1.3;
+    }
+    .sw-step-desc { font-size: 0.83rem; line-height: 1.7; color: var(--gray-500); }
+
+    /* ── QUÉ INCLUYE ── */
+    #sw-includes {
+      background: var(--off-white);
+      padding-block: 88px;
+    }
+    .sw-includes-head { text-align: center; margin-bottom: 56px; }
+    .sw-includes-head .sw-section-sub { margin-inline: auto; }
+    .sw-includes-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .sw-include-card {
+      background: var(--white); border-radius: 14px; padding: 32px 26px;
+      border: 1px solid var(--gray-200);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .sw-include-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(13,38,38,0.1);
+    }
+    .sw-include-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--teal-900), var(--teal-400));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 20px;
+    }
+    .sw-include-name {
+      font-family: var(--head-font); font-weight: 700; font-size: 0.95rem;
+      color: var(--teal-900); margin-bottom: 10px; line-height: 1.3;
+    }
+    .sw-include-desc { font-size: 0.85rem; line-height: 1.7; color: var(--gray-500); }
+
+    /* ── PRICING ── */
+    @property --grad-angle {
+      syntax: "<angle>";
+      inherits: false;
+      initial-value: 0deg;
+    }
+    @keyframes grad-spin {
+      from { --grad-angle: 0deg; }
+      to   { --grad-angle: 360deg; }
+    }
+
+    #sw-pricing {
+      padding-block: 88px;
+      background: var(--white);
+    }
+    .sw-pricing-head { text-align: center; margin-bottom: 56px; }
+    .sw-pricing-head .sw-section-sub { margin-inline: auto; }
+    .sw-pricing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      max-width: 1020px; margin-inline: auto;
+    }
+    .sw-plan {
+      border-radius: 16px; padding: 36px 28px;
+      border: 2px solid var(--gray-200);
+      position: relative; transition: transform 0.2s, box-shadow 0.2s;
+      background: var(--white);
+    }
+    .sw-plan:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(13,38,38,0.1); }
+
+    .sw-plan.featured {
+      color: var(--white);
+      border: 3px solid transparent;
+      background-image:
+        linear-gradient(#0D2626, #0D2626),
+        conic-gradient(
+          from var(--grad-angle),
+          #584827 0%,
+          #c7a03c 30%,
+          #f9de90 50%,
+          #c7a03c 70%,
+          #584827 100%
+        );
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      animation: grad-spin 4s linear infinite;
+    }
+
+    .sw-plan-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: var(--teal-900);
+      font-family: var(--head-font); font-weight: 700; font-size: 0.72rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 5px 16px; border-radius: 100px; white-space: nowrap;
+    }
+    .sw-plan-name {
+      font-family: var(--head-font); font-weight: 700; font-size: 1rem;
+      color: var(--teal-900); margin-bottom: 8px;
+    }
+    .sw-plan.featured .sw-plan-name { color: rgba(255,255,255,0.65); }
+    .sw-plan-price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 6px; }
+    .sw-plan-currency { font-family: var(--head-font); font-weight: 700; font-size: 1.2rem; color: var(--teal-900); }
+    .sw-plan.featured .sw-plan-currency { color: var(--gold); }
+    .sw-plan-num { font-family: var(--head-font); font-weight: 900; font-size: 3rem; line-height: 1; color: var(--teal-900); }
+    .sw-plan.featured .sw-plan-num { color: var(--white); }
+    .sw-plan-period { font-size: 0.82rem; color: var(--gray-500); margin-bottom: 24px; }
+    .sw-plan.featured .sw-plan-period { color: rgba(255,255,255,0.45); }
+    .sw-plan-divider { height: 1px; background: var(--gray-200); margin-bottom: 24px; }
+    .sw-plan.featured .sw-plan-divider { background: rgba(255,255,255,0.1); }
+    .sw-plan-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .sw-plan-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.86rem; color: var(--gray-700); }
+    .sw-plan.featured .sw-plan-features li { color: rgba(255,255,255,0.8); }
+    .sw-plan-features .chk { color: var(--teal-400); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .sw-plan.featured .sw-plan-features .chk { color: var(--gold); }
+    .sw-plan .btn { width: 100%; justify-content: center; }
+
+    /* ── CTA FINAL ── */
+    #sw-cta {
+      background: var(--teal-900);
+      padding-block: 88px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    #sw-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 52px 52px; pointer-events: none;
+    }
+    .sw-cta-glow {
+      position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(201,160,53,0.12) 0%, transparent 70%);
+      top: -20%; left: 50%; transform: translateX(-50%);
+    }
+    .sw-cta-inner { position: relative; z-index: 1; }
+    .sw-cta-tag {
+      display: inline-block;
+      background: rgba(201,160,53,0.12); border: 1px solid rgba(201,160,53,0.3);
+      color: var(--gold-lt); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .sw-cta-title {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.15;
+      color: var(--white); letter-spacing: -0.025em; margin-bottom: 16px;
+    }
+    .sw-cta-title em { font-style: normal; color: var(--gold); }
+    .sw-cta-sub {
+      font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.6);
+      max-width: 500px; margin-inline: auto; margin-bottom: 36px;
+    }
+    .sw-cta-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .sw-cta-note { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 20px; }
+
+    /* ── BACKGROUND DOTS ── */
+    #sw-hero, #sw-why, #sw-process, #sw-includes, #sw-pricing, #sw-faq {
+      background-image: radial-gradient(rgba(13,38,38,0.13) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    #sw-cta {
+      background-image: radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) {
+      .sw-steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+      .sw-steps-grid::before { display: none; }
+      .sw-includes-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .sw-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .sw-hero-visual { display: none; }
+      .sw-why-inner { grid-template-columns: 1fr; gap: 48px; }
+      .sw-why-panel { position: static; }
+      .sw-pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
+    }
+    @media (max-width: 540px) {
+      .sw-steps-grid { grid-template-columns: 1fr; }
+      .sw-includes-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "SEO Web para negocios en La Rioja",
+    "description": "Servicio de SEO técnico, on-page y de contenidos para mejorar el posicionamiento orgánico en Google de negocios en Logroño y La Rioja.",
+    "provider": {
+      "@type": "Person",
+      "name": "Sergio",
+      "url": "https://webboost.es/sobre-mi.html"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Logroño" },
+      { "@type": "AdministrativeArea", "name": "La Rioja" }
+    ],
+    "serviceType": "SEO Web",
+    "url": "https://webboost.es/seo-web.html"
+  }
+  </script>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="bnad_assets/Gemini_Generated_Image_qdhepwqdhepwqdhe.png" class="nav-logo-img" alt="WebBoost — Consultor SEO Logroño" width="36" height="36">
+      <span class="nav-logo-text">Web<span>Boost</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="seo-local.html">SEO Local</a></li>
+      <li><a href="seo-web.html" class="active">SEO Web</a></li>
+      <li><a href="caso-de-estudio.html">Caso de Estudio</a></li>
+      <li><a href="sobre-mi.html">Sobre Mí</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="contacto.html" class="btn btn-primary">Contacto</a>
+    </div>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="seo-local.html">SEO Local</a></li>
+      <li><a href="seo-web.html">SEO Web</a></li>
+      <li><a href="caso-de-estudio.html">Caso de Estudio</a></li>
+      <li><a href="sobre-mi.html">Sobre Mí</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <a href="contacto.html" class="btn btn-primary">Contacto</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════════════════════ -->
+<section id="sw-hero">
+  <div class="container">
+    <div class="sw-hero-inner">
+
+      <!-- Left: text -->
+      <div>
+        <div class="sw-hero-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 010 20M2 12h20"/></svg>
+          SEO Web · Posicionamiento Orgánico
+        </div>
+
+        <h1 class="sw-hero-title">
+          Tu web en la primera<br>página de Google.<br>
+          <em>Sin anuncios.</em>
+        </h1>
+
+        <p class="sw-hero-sub">
+          Consigo que tu web aparezca en las búsquedas que te importan. Más tráfico cualificado, más clientes potenciales y más ventas — de forma sostenible y duradera.
+        </p>
+
+        <div class="sw-hero-actions">
+          <a href="#sw-pricing" class="btn btn-primary">
+            Ver planes
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a href="#sw-process" class="btn btn-teal">¿Cómo funciona?</a>
+        </div>
+      </div>
+
+      <!-- Right: visual cards -->
+      <div class="sw-hero-visual">
+        <div class="sw-hero-glow"></div>
+
+        <div class="sw-result-card highlight">
+          <div class="sw-result-icon teal">🔍</div>
+          <div class="sw-result-body">
+            <div class="sw-result-label">Posición en Google</div>
+            <div class="sw-result-sub">Tu web subiendo de la página 3 al top 5 en palabras clave objetivo</div>
+            <div class="sw-result-badge">↑ +68 posiciones en 4 meses</div>
+          </div>
+        </div>
+
+        <div class="sw-result-card">
+          <div class="sw-result-icon gold">📈</div>
+          <div class="sw-result-body">
+            <div class="sw-result-label">Tráfico orgánico</div>
+            <div class="sw-result-sub">Visitas cualificadas que buscan exactamente lo que ofreces</div>
+            <div class="sw-result-badge">↑ +210% en 6 meses</div>
+          </div>
+        </div>
+
+        <div class="sw-result-card">
+          <div class="sw-result-icon gray">🎯</div>
+          <div class="sw-result-body">
+            <div class="sw-result-label">Autoridad de dominio</div>
+            <div class="sw-result-sub">Links de calidad y contenido optimizado que refuerzan tu web</div>
+            <div class="sw-result-badge">DA 12 → DA 34</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ POR QUÉ SEO WEB ══════════════════════════════════════════ -->
+<section id="sw-why">
+  <div class="container">
+    <div class="sw-why-inner">
+
+      <!-- Left: reasons -->
+      <div>
+        <span class="sw-section-tag">¿Por qué?</span>
+        <h2 class="sw-section-title">
+          ¿Por qué necesitas<br>una estrategia de <span>SEO Web</span>?
+        </h2>
+
+        <div class="sw-why-list">
+          <div class="sw-why-item">
+            <div class="sw-why-num">1</div>
+            <div class="sw-why-content">
+              <h4>El 93% del tráfico web empieza en un buscador</h4>
+              <p>Si no apareces en Google para las búsquedas de tus clientes, no existes. El SEO es el canal con mejor retorno a largo plazo.</p>
+            </div>
+          </div>
+          <div class="sw-why-item">
+            <div class="sw-why-num">2</div>
+            <div class="sw-why-content">
+              <h4>Los anuncios paran. El SEO no.</h4>
+              <p>Cada euro invertido en publicidad desaparece cuando paras. El posicionamiento orgánico es un activo que sigue generando clientes meses y años después.</p>
+            </div>
+          </div>
+          <div class="sw-why-item">
+            <div class="sw-why-num">3</div>
+            <div class="sw-why-content">
+              <h4>El tráfico orgánico convierte mejor</h4>
+              <p>Los usuarios que encuentran tu web de forma orgánica tienen una intención de compra mucho más definida que los que ven un anuncio de pago.</p>
+            </div>
+          </div>
+          <div class="sw-why-item">
+            <div class="sw-why-num">4</div>
+            <div class="sw-why-content">
+              <h4>Tu competencia ya está invirtiendo en SEO</h4>
+              <p>Cada posición que ocupa tu competidor en Google es una oportunidad que se lleva de tu negocio. Ahora es el momento de actuar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: CTA panel -->
+      <div class="sw-why-panel">
+        <div class="sw-why-panel-title">
+          Auditoría SEO gratuita.<br><em>Descubre dónde estás.</em>
+        </div>
+        <p class="sw-why-panel-sub">
+          Antes de cualquier estrategia, analizo tu web en profundidad y te digo exactamente qué está frenando tu posicionamiento.
+        </p>
+        <ul class="sw-why-panel-list">
+          <li>Análisis técnico de tu web</li>
+          <li>Revisión de palabras clave actuales</li>
+          <li>Auditoría de contenido y estructura</li>
+          <li>Análisis de la competencia</li>
+          <li>Informe de oportunidades de mejora</li>
+        </ul>
+        <a href="contacto.html" class="btn btn-primary">
+          Solicitar auditoría gratuita
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="#sw-pricing" class="btn btn-ghost">Ver planes y precios</a>
+        <p class="sw-why-panel-note">Sin compromiso · Respuesta en menos de 24h</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROCESO ══════════════════════════════════════════════════ -->
+<section id="sw-process">
+  <div class="container">
+    <div class="sw-process-head">
+      <span class="sw-section-tag">El proceso</span>
+      <h2 class="sw-section-title" style="margin-inline:auto;text-align:center;">Cómo trabajo tu posicionamiento</h2>
+      <p class="sw-section-sub" style="margin-inline:auto;text-align:center;margin-top:12px;">Un método probado, sin atajos. Cada paso está orientado a resultados reales y medibles.</p>
+    </div>
+
+    <div class="sw-steps-grid">
+
+      <div class="sw-step">
+        <div class="sw-step-num">01</div>
+        <div class="sw-step-icon">🔎</div>
+        <div class="sw-step-name">Auditoría y análisis</div>
+        <p class="sw-step-desc">Analizo tu web al completo: técnica, contenido, enlaces y competencia. Identifico los puntos críticos que frenan tu posicionamiento.</p>
+      </div>
+
+      <div class="sw-step">
+        <div class="sw-step-num">02</div>
+        <div class="sw-step-icon">🗺️</div>
+        <div class="sw-step-name">Estrategia y hoja de ruta</div>
+        <p class="sw-step-desc">Defino las palabras clave con mayor potencial, la arquitectura de contenidos y las acciones prioritarias con mayor impacto.</p>
+      </div>
+
+      <div class="sw-step">
+        <div class="sw-step-num">03</div>
+        <div class="sw-step-icon">⚙️</div>
+        <div class="sw-step-name">Implementación y optimización</div>
+        <p class="sw-step-desc">Corrijo los errores técnicos, optimizo el contenido existente y creo nuevas páginas orientadas a captar tráfico cualificado.</p>
+      </div>
+
+      <div class="sw-step">
+        <div class="sw-step-num">04</div>
+        <div class="sw-step-icon">📊</div>
+        <div class="sw-step-name">Seguimiento y mejora continua</div>
+        <p class="sw-step-desc">Monitorizo posiciones, tráfico y conversiones cada mes. Ajusto la estrategia según los datos para seguir mejorando resultados.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUÉ INCLUYE ══════════════════════════════════════════════ -->
+<section id="sw-includes">
+  <div class="container">
+    <div class="sw-includes-head">
+      <span class="sw-section-tag">Lo que hago</span>
+      <h2 class="sw-section-title" style="text-align:center;">Qué incluye el servicio de SEO Web</h2>
+      <p class="sw-section-sub" style="text-align:center;margin-top:10px;">Un enfoque integral que cubre todos los pilares del posicionamiento orgánico.</p>
+    </div>
+
+    <div class="sw-includes-grid">
+
+      <div class="sw-include-card">
+        <div class="sw-include-icon">🔧</div>
+        <div class="sw-include-name">SEO Técnico</div>
+        <p class="sw-include-desc">Velocidad de carga, indexación, Core Web Vitals, datos estructurados, sitemap y corrección de errores técnicos que penalizan tu posicionamiento.</p>
+      </div>
+
+      <div class="sw-include-card">
+        <div class="sw-include-icon">🔑</div>
+        <div class="sw-include-name">Investigación de palabras clave</div>
+        <p class="sw-include-desc">Análisis profundo para encontrar las búsquedas con mayor volumen y menor competencia, donde tu web puede posicionarse de forma realista.</p>
+      </div>
+
+      <div class="sw-include-card">
+        <div class="sw-include-icon">✍️</div>
+        <div class="sw-include-name">Optimización de contenido</div>
+        <p class="sw-include-desc">Revisión y mejora de textos, títulos, meta descripciones y estructura de páginas para que Google entienda y valore tu contenido.</p>
+      </div>
+
+      <div class="sw-include-card">
+        <div class="sw-include-icon">🔗</div>
+        <div class="sw-include-name">Link building de calidad</div>
+        <p class="sw-include-desc">Estrategia de enlaces externos desde webs de autoridad para aumentar la credibilidad de tu dominio ante los algoritmos de Google.</p>
+      </div>
+
+      <div class="sw-include-card">
+        <div class="sw-include-icon">📐</div>
+        <div class="sw-include-name">Arquitectura web y UX</div>
+        <p class="sw-include-desc">Estructura interna optimizada para que Google rastree tu web correctamente y los usuarios encuentren lo que buscan sin fricción.</p>
+      </div>
+
+      <div class="sw-include-card">
+        <div class="sw-include-icon">📋</div>
+        <div class="sw-include-name">Informes mensuales</div>
+        <p class="sw-include-desc">Reporte detallado cada mes con evolución de posiciones, tráfico, conversiones y próximas acciones. Transparencia total.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRECIOS ══════════════════════════════════════════════════ -->
+<section id="sw-pricing">
+  <div class="container">
+    <div class="sw-pricing-head">
+      <span class="sw-section-tag">Planes</span>
+      <h2 class="sw-section-title" style="text-align:center;">Planes de SEO Web</h2>
+      <p class="sw-section-sub" style="text-align:center;margin-top:10px;">Sin permanencia. Sin letra pequeña. Resultados medibles desde el primer mes.</p>
+    </div>
+
+    <div class="sw-pricing-grid">
+
+      <!-- Auditoría SEO Web -->
+      <div class="sw-plan">
+        <div class="sw-plan-name">Auditoría SEO Web</div>
+        <div class="sw-plan-price">
+          <span class="sw-plan-currency">€</span>
+          <span class="sw-plan-num">150</span>
+        </div>
+        <div class="sw-plan-period">Pago único</div>
+        <div class="sw-plan-divider"></div>
+        <ul class="sw-plan-features">
+          <li><span class="chk">✓</span> Análisis técnico completo de tu web</li>
+          <li><span class="chk">✓</span> Revisión de contenido y estructura</li>
+          <li><span class="chk">✓</span> Análisis de palabras clave actuales</li>
+          <li><span class="chk">✓</span> Estudio de la competencia</li>
+          <li><span class="chk">✓</span> Informe PDF con plan de acción priorizado</li>
+          <li><span class="chk">✓</span> Entrega en 5–7 días laborables</li>
+        </ul>
+        <a href="contacto.html" class="btn btn-teal">Solicitar auditoría</a>
+      </div>
+
+      <!-- SEO Starter (Más popular) -->
+      <div class="sw-plan featured">
+        <div class="sw-plan-badge">Más popular</div>
+        <div class="sw-plan-name">SEO Starter</div>
+        <div class="sw-plan-price">
+          <span class="sw-plan-currency">€</span>
+          <span class="sw-plan-num">350</span>
+        </div>
+        <div class="sw-plan-period">/ mes · sin permanencia</div>
+        <div class="sw-plan-divider"></div>
+        <ul class="sw-plan-features">
+          <li><span class="chk">✓</span> Auditoría técnica inicial incluida</li>
+          <li><span class="chk">✓</span> Optimización on-page mensual</li>
+          <li><span class="chk">✓</span> 2 contenidos SEO al mes</li>
+          <li><span class="chk">✓</span> Link building básico</li>
+          <li><span class="chk">✓</span> Seguimiento de posiciones</li>
+          <li><span class="chk">✓</span> Informe mensual detallado</li>
+          <li><span class="chk">✓</span> Soporte por WhatsApp</li>
+        </ul>
+        <a href="contacto.html" class="btn btn-primary">Empezar ahora</a>
+      </div>
+
+      <!-- SEO Pro -->
+      <div class="sw-plan">
+        <div class="sw-plan-name">SEO Pro</div>
+        <div class="sw-plan-price">
+          <span class="sw-plan-currency">€</span>
+          <span class="sw-plan-num">600</span>
+        </div>
+        <div class="sw-plan-period">/ mes · sin permanencia</div>
+        <div class="sw-plan-divider"></div>
+        <ul class="sw-plan-features">
+          <li><span class="chk">✓</span> Todo lo de SEO Starter</li>
+          <li><span class="chk">✓</span> 4 contenidos SEO al mes</li>
+          <li><span class="chk">✓</span> Link building avanzado</li>
+          <li><span class="chk">✓</span> Optimización de conversión (CRO)</li>
+          <li><span class="chk">✓</span> Análisis avanzado de competidores</li>
+          <li><span class="chk">✓</span> Llamada mensual de estrategia (45 min)</li>
+          <li><span class="chk">✓</span> Informe ejecutivo personalizado</li>
+        </ul>
+        <a href="contacto.html" class="btn btn-teal">Empezar ahora</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══════════════════════════════════════════════════ -->
+<section id="sw-faq" style="padding-block:80px;background:var(--white);">
+  <div class="container" style="max-width:720px;">
+    <h2 style="font-family:var(--head-font);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--teal-900);text-align:center;margin-bottom:48px;">Preguntas frecuentes sobre SEO Web</h2>
+    <div style="display:flex;flex-direction:column;gap:0;">
+
+      <details style="border-top:1px solid var(--gray-100);padding:20px 0;">
+        <summary style="font-family:var(--head-font);font-weight:700;font-size:1rem;color:var(--teal-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          ¿Cuánto tarda en funcionar el SEO Web?
+          <span style="font-size:1.2rem;color:var(--gold);flex-shrink:0;margin-left:16px;">+</span>
+        </summary>
+        <p style="margin-top:12px;font-size:0.93rem;color:var(--gray-500);line-height:1.75;">El SEO es una inversión a medio-largo plazo. Los primeros movimientos en posiciones suelen verse entre 60 y 120 días. Páginas muy competidas pueden necesitar más tiempo, pero el tráfico que genera es sostenible y no desaparece cuando dejas de pagar, a diferencia de la publicidad.</p>
+      </details>
+
+      <details style="border-top:1px solid var(--gray-100);padding:20px 0;">
+        <summary style="font-family:var(--head-font);font-weight:700;font-size:1rem;color:var(--teal-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          ¿En qué se diferencia el SEO Web del SEO Local?
+          <span style="font-size:1.2rem;color:var(--gold);flex-shrink:0;margin-left:16px;">+</span>
+        </summary>
+        <p style="margin-top:12px;font-size:0.93rem;color:var(--gray-500);line-height:1.75;">El SEO Local optimiza tu presencia en búsquedas geolocalizadas y Google Maps ("carpintero en Logroño"). El SEO Web trabaja el posicionamiento orgánico de tu web en Google para términos más amplios. Son complementarios: el primero atrae clientes de tu zona, el segundo amplía tu alcance digital.</p>
+      </details>
+
+      <details style="border-top:1px solid var(--gray-100);padding:20px 0;">
+        <summary style="font-family:var(--head-font);font-weight:700;font-size:1rem;color:var(--teal-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          ¿Necesito cambiar toda mi web para hacer SEO?
+          <span style="font-size:1.2rem;color:var(--gold);flex-shrink:0;margin-left:16px;">+</span>
+        </summary>
+        <p style="margin-top:12px;font-size:0.93rem;color:var(--gray-500);line-height:1.75;">No necesariamente. La mayoría de los proyectos parten de una auditoría técnica que identifica qué hay que corregir y qué ya funciona bien. Muchas veces los cambios más impactantes son pequeñas optimizaciones en títulos, contenidos y estructura, no rediseños completos.</p>
+      </details>
+
+      <details style="border-top:1px solid var(--gray-100);padding:20px 0;">
+        <summary style="font-family:var(--head-font);font-weight:700;font-size:1rem;color:var(--teal-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          ¿Qué incluye una auditoría SEO?
+          <span style="font-size:1.2rem;color:var(--gold);flex-shrink:0;margin-left:16px;">+</span>
+        </summary>
+        <p style="margin-top:12px;font-size:0.93rem;color:var(--gray-500);line-height:1.75;">Una auditoría SEO analiza la estructura técnica de tu web (rastreo, indexación, velocidad, Core Web Vitals), el contenido de cada página (títulos, metas, H1, palabras clave), el perfil de enlaces y las señales de autoridad. El resultado es un plan de acción priorizado con las mejoras que más impacto tienen para tu caso concreto.</p>
+      </details>
+
+      <details style="border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);padding:20px 0;">
+        <summary style="font-family:var(--head-font);font-weight:700;font-size:1rem;color:var(--teal-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          ¿Garantizas resultados?
+          <span style="font-size:1.2rem;color:var(--gold);flex-shrink:0;margin-left:16px;">+</span>
+        </summary>
+        <p style="margin-top:12px;font-size:0.93rem;color:var(--gray-500);line-height:1.75;">Ningún consultor SEO puede garantizar posiciones exactas porque los algoritmos de Google los controla Google, no yo. Lo que sí garantizo es un trabajo riguroso, transparente y basado en buenas prácticas, con métricas claras para que puedas ver el progreso en todo momento. Si quieres ver resultados reales, echa un vistazo al <a href="caso-de-estudio.html" style="color:var(--gold);">caso de Ironwood Soluciones</a>.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tarda en funcionar el SEO Web?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los primeros movimientos en posiciones suelen verse entre 60 y 120 días. El tráfico generado es sostenible y no desaparece cuando dejas de pagar, a diferencia de la publicidad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En qué se diferencia el SEO Web del SEO Local?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El SEO Local optimiza tu presencia en búsquedas geolocalizadas y Google Maps. El SEO Web trabaja el posicionamiento orgánico para términos más amplios. Son complementarios."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito cambiar toda mi web para hacer SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No necesariamente. La mayoría de los proyectos parten de una auditoría que identifica qué corregir y qué ya funciona bien. Muchas veces los cambios más impactantes son pequeñas optimizaciones, no rediseños completos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué incluye una auditoría SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Analiza la estructura técnica (rastreo, indexación, velocidad, Core Web Vitals), el contenido (títulos, metas, palabras clave) y el perfil de enlaces. El resultado es un plan de acción priorizado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Garantizas resultados?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ningún consultor puede garantizar posiciones exactas porque los algoritmos los controla Google. Sí garantizo un trabajo riguroso y transparente con métricas claras para ver el progreso."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ══ CTA FINAL ══════════════════════════════════════════════ -->
+<section id="sw-cta">
+  <div class="sw-cta-glow"></div>
+  <div class="container sw-cta-inner">
+    <span class="sw-cta-tag">Resultados reales</span>
+    <h2 class="sw-cta-title">
+      De la página 10 a la <em>primera posición</em>.<br>Empieza hoy.
+    </h2>
+    <p class="sw-cta-sub">
+      Cada mes que pasa sin SEO es tráfico y clientes que se llevan tus competidores. Hablemos y te digo exactamente qué hace falta para posicionar tu web.
+    </p>
+    <div class="sw-cta-actions">
+      <a href="contacto.html" class="btn btn-primary">
+        Solicitar auditoría gratuita
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <a href="#sw-pricing" class="btn btn-ghost">Ver planes</a>
+    </div>
+    <p class="sw-cta-note">Sin compromiso · Respuesta en menos de 24h</p>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="nav-logo" style="margin-bottom:4px;display:inline-flex">
+          <img src="bnad_assets/Gemini_Generated_Image_qdhepwqdhepwqdhe.png" class="nav-logo-img" alt="WebBoost — Consultor SEO Logroño" width="36" height="36">
+          <span class="nav-logo-text">Web<span>Boost</span></span>
+        </a>
+        <p class="footer-brand-desc">Consultor SEO en Logroño especializado en posicionamiento web y SEO local. Resultados reales, sin atajos.</p>
+        <address style="font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.7;font-style:normal;margin-top:12px;">
+          WebBoost · Sergio<br>
+          Logroño, La Rioja, España<br>
+          <a href="contacto.html" style="color:rgba(255,255,255,0.45);">Contactar →</a>
+        </address>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Servicios</div>
+        <ul class="footer-links">
+          <li><a href="seo-local.html">SEO Local</a></li>
+          <li><a href="seo-web.html">SEO Web</a></li>
+          <li><a href="#">Auditoría SEO</a></li>
+          <li><a href="#">Consultoría</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Empresa</div>
+        <ul class="footer-links">
+          <li><a href="sobre-mi.html">Sobre Mí</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#">Casos de Estudio</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <ul class="footer-links">
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Aviso legal</a></li>
+          <li><a href="#">Política de cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 WebBoost · Sergio · Consultor SEO en Logroño</span>
+      <div class="footer-socials">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Twitter">𝕏</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  btn.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caso de Estudio: Ironwood Soluciones — WebBoost SEO Logroño</title>
+  <meta name="description" content="Caso real: Ironwood Soluciones pasó de invisible a #2 en Google Maps en 90 días. Descubre la estrategia SEO local aplicada en La Rioja." />
+  <link rel="canonical" href="https://webboost.es/caso-de-estudio.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="De invisible a #2 en Google Maps en 90 días | WebBoost" />
+  <meta property="og:description" content="Caso real: Ironwood Soluciones, carpintería metálica en La Rioja, pasó de no aparecer a posición #2 entre 146 competidores en 90 días." />
+  <meta property="og:url" content="https://webboost.es/caso-de-estudio.html" />
+  <meta property="og:image" content="https://webboost.es/og-image.jpg" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="De invisible a #2 en Google Maps en 90 días | WebBoost" />
+  <meta name="twitter:description" content="Caso real de SEO local en La Rioja: de 0% a 94% de visibilidad en Google Maps." />
+  <meta name="twitter:image" content="https://webboost.es/og-image.jpg" />
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://webboost.es/"},
+      {"@type": "ListItem", "position": 2, "name": "Caso de Estudio", "item": "https://webboost.es/caso-de-estudio.html"},
+      {"@type": "ListItem", "position": 3, "name": "Ironwood Soluciones", "item": "https://webboost.es/caso-de-estudio.html"}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Variables extra de esta página */
+    :root {
+      --red-soft: #FFF4F4; --red-border: #FFCCCC; --red-text: #CC3333;
+      --green-soft: #F2FBF4; --green-border: #BBEDD0; --green-text: #1A7A3F;
+    }
+
+    /* ── SCROLL FADE ── */
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    #cs-hero {
+      padding-top: 66px;
+      background: var(--teal-900);
+      position: relative; overflow: hidden;
+    }
+    #cs-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px);
+      background-size: 24px 24px; pointer-events: none;
+    }
+    .cs-hero-glow {
+      position: absolute; width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,160,53,0.14) 0%, transparent 65%);
+      filter: blur(80px); top: -20%; left: 50%; transform: translateX(-50%);
+      pointer-events: none;
+    }
+    .cs-hero-inner {
+      position: relative; z-index: 1;
+      text-align: center; padding-block: 96px 80px;
+    }
+    .cs-breadcrumb {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; color: rgba(255,255,255,0.4);
+      margin-bottom: 28px; letter-spacing: 0.04em;
+    }
+    .cs-breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.15s; }
+    .cs-breadcrumb a:hover { color: var(--gold); }
+    .cs-breadcrumb span { color: rgba(255,255,255,0.2); }
+    .cs-sector-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(201,160,53,0.12); border: 1px solid rgba(201,160,53,0.3);
+      color: var(--gold-lt); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .cs-hero-title {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.1;
+      color: var(--white); letter-spacing: -0.03em; margin-bottom: 20px;
+      max-width: 860px; margin-inline: auto;
+    }
+    .cs-hero-title em { font-style: normal; color: var(--gold); }
+    .cs-hero-sub {
+      font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.6);
+      max-width: 620px; margin-inline: auto; margin-bottom: 40px;
+    }
+    .cs-hero-meta {
+      display: flex; align-items: center; justify-content: center; gap: 28px;
+      flex-wrap: wrap;
+    }
+    .cs-meta-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+    .cs-meta-item strong { color: rgba(255,255,255,0.75); font-weight: 600; }
+
+    /* ══════════════════════════════════════
+       MÉTRICAS
+    ══════════════════════════════════════ */
+    #cs-metrics {
+      background: var(--off-white);
+      padding-block: 72px;
+      background-image: radial-gradient(rgba(13,38,38,0.09) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .cs-metrics-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .cs-metric-card {
+      background: var(--white); border-radius: 20px; padding: 44px 32px;
+      border: 1px solid var(--gray-200); text-align: center;
+      box-shadow: 0 4px 24px rgba(13,38,38,0.06);
+      position: relative; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cs-metric-card:hover { transform: translateY(-6px); box-shadow: 0 20px 56px rgba(13,38,38,0.12); }
+    .cs-metric-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--teal-200));
+    }
+    .cs-metric-num {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: clamp(2.8rem, 5vw, 4rem); line-height: 1; color: var(--teal-900);
+      margin-bottom: 10px; letter-spacing: -0.03em;
+    }
+    .cs-metric-num .accent { color: var(--gold); }
+    .cs-metric-label {
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray-500);
+    }
+    .cs-metric-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+
+    /* ══════════════════════════════════════
+       ANTES / DESPUÉS
+    ══════════════════════════════════════ */
+    #cs-compare {
+      padding-block: 88px;
+      background: var(--white);
+      background-image: radial-gradient(rgba(13,38,38,0.07) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .cs-compare-head { text-align: center; margin-bottom: 56px; }
+    .cs-section-tag {
+      display: inline-block;
+      background: rgba(201,160,53,0.12); border: 1px solid rgba(201,160,53,0.3);
+      color: var(--gold-dim); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+    }
+    .cs-compare-title {
+      font-family: var(--head-font); font-weight: 800;
+      font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.2;
+      color: var(--teal-900); letter-spacing: -0.02em;
+    }
+    .cs-compare-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    .cs-col {
+      border-radius: 20px; padding: 44px 36px;
+      border: 1.5px solid;
+    }
+    .cs-col-before {
+      background: var(--red-soft); border-color: var(--red-border);
+    }
+    .cs-col-after {
+      background: var(--green-soft); border-color: var(--green-border);
+    }
+    .cs-col-label {
+      font-family: var(--head-font); font-weight: 900; font-size: 1rem;
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .cs-col-before .cs-col-label { color: var(--red-text); }
+    .cs-col-after .cs-col-label { color: var(--green-text); }
+    .cs-col-icon { font-size: 1.4rem; }
+    .cs-col-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .cs-col-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.95rem; line-height: 1.5;
+    }
+    .cs-col-before .cs-col-list li { color: #8B2020; }
+    .cs-col-after .cs-col-list li { color: #1A5C33; }
+    .cs-col-list li::before {
+      font-size: 1.1rem; flex-shrink: 0; margin-top: 1px;
+    }
+    .cs-col-before .cs-col-list li::before { content: '✗'; color: var(--red-text); font-weight: 700; }
+    .cs-col-after .cs-col-list li::before { content: '✓'; color: var(--green-text); font-weight: 700; }
+
+    /* separator arrow */
+    .cs-compare-arrow {
+      display: flex; align-items: center; justify-content: center;
+      grid-column: 1 / -1; margin-block: -8px; position: relative; z-index: 2;
+    }
+    .cs-arrow-badge {
+      background: var(--teal-900); color: var(--gold);
+      font-family: var(--head-font); font-weight: 800; font-size: 0.88rem;
+      padding: 10px 24px; border-radius: 100px;
+      display: flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 20px rgba(13,38,38,0.15);
+    }
+
+    /* ══════════════════════════════════════
+       PROCESO
+    ══════════════════════════════════════ */
+    #cs-process {
+      background: var(--off-white);
+      padding-block: 88px;
+      background-image: radial-gradient(rgba(13,38,38,0.09) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .cs-process-head { text-align: center; margin-bottom: 64px; }
+    .cs-process-title {
+      font-family: var(--head-font); font-weight: 800;
+      font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--teal-900); letter-spacing: -0.02em;
+    }
+    .cs-process-sub { font-size: 0.97rem; color: var(--gray-500); max-width: 500px; margin-inline: auto; margin-top: 12px; line-height: 1.7; }
+
+    .cs-steps { display: flex; flex-direction: column; gap: 0; max-width: 760px; margin-inline: auto; }
+    .cs-step {
+      display: grid; grid-template-columns: 56px 1fr;
+      gap: 0 28px; position: relative;
+    }
+    /* vertical line */
+    .cs-step:not(:last-child) .cs-step-line {
+      position: absolute; left: 27px; top: 56px; bottom: -32px;
+      width: 2px; background: linear-gradient(to bottom, var(--gold), rgba(201,160,53,0.1));
+    }
+    .cs-step-left { display: flex; flex-direction: column; align-items: center; }
+    .cs-step-num {
+      width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+      background: var(--teal-900); color: var(--gold);
+      font-family: var(--head-font); font-weight: 900; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      border: 3px solid rgba(201,160,53,0.3);
+      box-shadow: 0 4px 20px rgba(13,38,38,0.15);
+      position: relative; z-index: 1;
+    }
+    .cs-step-body {
+      background: var(--white); border-radius: 16px; padding: 32px;
+      border: 1px solid var(--gray-200); margin-bottom: 32px;
+      box-shadow: 0 4px 16px rgba(13,38,38,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cs-step-body:hover { transform: translateX(4px); box-shadow: 0 8px 32px rgba(13,38,38,0.1); }
+    .cs-step-icon { font-size: 1.6rem; margin-bottom: 12px; display: block; }
+    .cs-step-name {
+      font-family: var(--head-font); font-weight: 800; font-size: 1.1rem;
+      color: var(--teal-900); margin-bottom: 10px;
+    }
+    .cs-step-desc { font-size: 0.9rem; line-height: 1.75; color: var(--gray-500); }
+    .cs-step-highlight {
+      margin-top: 16px; padding: 12px 16px; border-radius: 8px;
+      background: rgba(201,160,53,0.08); border: 1px solid rgba(201,160,53,0.2);
+      font-size: 0.82rem; color: var(--gold-dim); font-weight: 600;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    /* ══════════════════════════════════════
+       QUOTE DEL CLIENTE
+    ══════════════════════════════════════ */
+    #cs-quote {
+      background: var(--teal-900);
+      padding-block: 72px;
+      text-align: center; position: relative; overflow: hidden;
+      background-image: radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .cs-quote-inner { position: relative; z-index: 1; max-width: 680px; margin-inline: auto; }
+    .cs-quote-mark { font-size: 5rem; line-height: 0.6; color: rgba(201,160,53,0.25); font-family: Georgia, serif; margin-bottom: 24px; display: block; }
+    .cs-quote-text {
+      font-size: 1.2rem; line-height: 1.75; color: rgba(255,255,255,0.85);
+      font-style: italic; margin-bottom: 28px;
+    }
+    .cs-quote-author {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+    }
+    .cs-quote-avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal-400), var(--teal-200));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--head-font); font-weight: 800; font-size: 0.9rem; color: var(--white);
+      border: 2px solid rgba(201,160,53,0.3);
+    }
+    .cs-quote-name { font-family: var(--head-font); font-weight: 700; color: var(--white); font-size: 0.93rem; }
+    .cs-quote-role { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+
+    /* ══════════════════════════════════════
+       CTA FINAL
+    ══════════════════════════════════════ */
+    #cs-cta {
+      padding-block: 96px;
+      text-align: center;
+      background: var(--white);
+      background-image: radial-gradient(rgba(13,38,38,0.09) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .cs-cta-title {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.15;
+      color: var(--teal-900); letter-spacing: -0.025em; margin-bottom: 16px;
+    }
+    .cs-cta-title em { font-style: normal; color: var(--gold); }
+    .cs-cta-sub {
+      font-size: 1rem; line-height: 1.7; color: var(--gray-500);
+      max-width: 500px; margin-inline: auto; margin-bottom: 40px;
+    }
+    .cs-cta-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+    .cs-cta-note { font-size: 0.78rem; color: var(--gray-500); }
+
+    /* FOOTER */
+    footer { background: #0A2020; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 64px; padding-bottom: 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand-desc { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.4); margin-top: 14px; max-width: 240px; }
+    .footer-col-title { font-family: var(--head-font); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 18px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.88rem; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 0.82rem; color: rgba(255,255,255,0.3); }
+    .footer-socials { display: flex; gap: 16px; }
+    .footer-socials a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.9rem; transition: color 0.15s; }
+    .footer-socials a:hover { color: var(--gold); }
+    footer .nav-logo-img { height: 40px; }
+
+    @media (max-width: 900px) {
+      .cs-metrics-grid { grid-template-columns: 1fr; max-width: 380px; margin-inline: auto; }
+      .cs-compare-grid { grid-template-columns: 1fr; }
+      .cs-compare-arrow { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links, .nav-right { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 540px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .cs-step { grid-template-columns: 44px 1fr; }
+      .cs-step-num { width: 44px; height: 44px; font-size: 0.9rem; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Caso de Estudio: De #78 a #2 en Google Maps en 90 Días — Ironwood Soluciones",
+    "description": "Análisis detallado de cómo WebBoost posicionó a Ironwood Soluciones del puesto #78 al #2 de 146 competidores en Google Maps en 90 días, con un incremento de tráfico orgánico del 312%.",
+    "author": {
+      "@type": "Person",
+      "name": "Sergio",
+      "url": "https://webboost.es/sobre-mi.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "WebBoost SEO",
+      "url": "https://webboost.es"
+    },
+    "about": {
+      "@type": "LocalBusiness",
+      "name": "Ironwood Soluciones",
+      "addressLocality": "Logroño",
+      "addressRegion": "La Rioja"
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://webboost.es/og-image.jpg",
+      "width": 1200,
+      "height": 630
+    },
+    "url": "https://webboost.es/caso-de-estudio.html",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-04-14"
+  }
+  </script>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="bnad_assets/Gemini_Generated_Image_qdhepwqdhepwqdhe.png" class="nav-logo-img" alt="WebBoost — Consultor SEO Logroño" width="36" height="36">
+      <span class="nav-logo-text">Web<span>Boost</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="seo-local.html">SEO Local</a></li>
+      <li><a href="seo-web.html">SEO Web</a></li>
+      <li><a href="caso-de-estudio.html" class="active">Caso de Estudio</a></li>
+      <li><a href="sobre-mi.html">Sobre Mí</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="contacto.html" class="btn btn-primary">Contacto</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="seo-local.html">SEO Local</a></li>
+      <li><a href="seo-web.html">SEO Web</a></li>
+      <li><a href="caso-de-estudio.html">Caso de Estudio</a></li>
+      <li><a href="sobre-mi.html">Sobre Mí</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <a href="contacto.html" class="btn btn-primary">Contacto</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════════════════════ -->
+<section id="cs-hero">
+  <div class="cs-hero-glow"></div>
+  <div class="container cs-hero-inner">
+    <div class="cs-breadcrumb">
+      <a href="index.html">Inicio</a>
+      <span>›</span>
+      <span>Caso de Estudio</span>
+      <span>›</span>
+      <span>Ironwood Soluciones</span>
+    </div>
+    <div class="cs-sector-tag">
+      📍 SEO Local · Google Maps · La Rioja
+    </div>
+    <h1 class="cs-hero-title">
+      De invisible a <em>#2 en Google Maps</em><br>en 90 días
+    </h1>
+    <p class="cs-hero-sub">
+      Cómo Ironwood Soluciones pasó de no aparecer en Google Maps a posición #2 entre 146 competidores en La Rioja, en 3 meses, con un único cambio estratégico clave.
+    </p>
+    <div class="cs-hero-meta">
+      <div class="cs-meta-item">🏢 <strong>Ironwood Soluciones</strong></div>
+      <div class="cs-meta-item">🔧 <strong>Carpintería y metalurgia</strong> · La Rioja</div>
+      <div class="cs-meta-item">📅 <strong>90 días</strong> hasta resultados</div>
+      <div class="cs-meta-item">✅ <strong>Cliente activo</strong> en retainer</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MÉTRICAS ══════════════════════════════════════════════ -->
+<section id="cs-metrics">
+  <div class="container">
+    <div class="cs-metrics-grid">
+      <div class="cs-metric-card fade-up">
+        <span class="cs-metric-icon">🏆</span>
+        <div class="cs-metric-num">#2 <span class="accent">/ 146</span></div>
+        <div class="cs-metric-label">Posición final en Google Maps</div>
+      </div>
+      <div class="cs-metric-card fade-up" style="transition-delay:0.12s">
+        <span class="cs-metric-icon">⚡</span>
+        <div class="cs-metric-num">90 <span class="accent" style="font-size:2rem">días</span></div>
+        <div class="cs-metric-label">Tiempo hasta resultados</div>
+      </div>
+      <div class="cs-metric-card fade-up" style="transition-delay:0.24s">
+        <span class="cs-metric-icon">🎯</span>
+        <div class="cs-metric-num">1 <span class="accent" style="font-size:2rem">cambio</span></div>
+        <div class="cs-metric-label">Acción más impactante: categoría GMB</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ANTES / DESPUÉS ══════════════════════════════════════ -->
+<section id="cs-compare">
+  <div class="container">
+    <div class="cs-compare-head fade-up">
+      <span class="cs-section-tag">El antes y el después</span>
+      <h2 class="cs-compare-title">Una transformación real, con datos reales</h2>
+    </div>
+
+    <div class="cs-compare-grid">
+      <!-- ANTES -->
+      <div class="cs-col cs-col-before fade-up">
+        <div class="cs-col-label">
+          <span class="cs-col-icon">⚠️</span> Antes
+        </div>
+        <ul class="cs-col-list">
+          <li>Sin visibilidad práctica en Google Maps</li>
+          <li>Ficha de Google Business sin optimizar</li>
+          <li>Sin estrategia de categorías definida</li>
+          <li>0 llamadas ni visitas generadas desde Google</li>
+          <li>Perdiendo clientes ante 146 competidores</li>
+          <li>Web con múltiples H1 duplicados y errores técnicos</li>
+        </ul>
+      </div>
+
+      <!-- DESPUÉS -->
+      <div class="cs-col cs-col-after fade-up" style="transition-delay:0.15s">
+        <div class="cs-col-label">
+          <span class="cs-col-icon">🚀</span> Después (90 días)
+        </div>
+        <ul class="cs-col-list">
+          <li>Posición #2 de 146 competidores en La Rioja</li>
+          <li>Ficha Google Business completamente optimizada</li>
+          <li>Categoría principal estratégicamente seleccionada</li>
+          <li>Llamadas y visitas recurrentes desde Google Maps</li>
+          <li>Por encima del 99% de la competencia en Maps</li>
+          <li>Web técnicamente saneada, sin errores de estructura</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Arrow badge -->
+    <div class="cs-compare-arrow" style="margin-top:24px;">
+      <div class="cs-arrow-badge">
+        ⚡ 90 días de trabajo. Resultados medibles y permanentes.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROCESO ══════════════════════════════════════════════ -->
+<section id="cs-process">
+  <div class="container">
+    <div class="cs-process-head fade-up">
+      <span class="cs-section-tag">El proceso</span>
+      <h2 class="cs-process-title">Cómo lo conseguimos</h2>
+      <p class="cs-process-sub">Tres pasos concretos, en el orden correcto, con prioridad en el máximo impacto.</p>
+    </div>
+
+    <div class="cs-steps">
+
+      <div class="cs-step fade-up">
+        <div class="cs-step-left">
+          <div class="cs-step-num">01</div>
+          <div class="cs-step-line"></div>
+        </div>
+        <div class="cs-step-body">
+          <span class="cs-step-icon">🔎</span>
+          <div class="cs-step-name">Auditoría inicial completa</div>
+          <p class="cs-step-desc">
+            Analicé la ficha de Google Business de Ironwood, la competencia directa en La Rioja y las categorías utilizadas por los competidores en posición 1–5. El diagnóstico fue claro: la categoría principal elegida no era la que Google asociaba con mayor volumen de búsqueda local en su sector.
+          </p>
+          <div class="cs-step-highlight">
+            🔍 Resultado: identificados 3 problemas críticos que bloqueaban la visibilidad
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-step fade-up" style="transition-delay:0.1s">
+        <div class="cs-step-left">
+          <div class="cs-step-num">02</div>
+          <div class="cs-step-line"></div>
+        </div>
+        <div class="cs-step-body">
+          <span class="cs-step-icon">🗂️</span>
+          <div class="cs-step-name">Cambio estratégico de categoría GMB</div>
+          <p class="cs-step-desc">
+            Esta fue la acción de mayor impacto del caso. Cambié la categoría principal de la ficha por una con mayor volumen de búsqueda y menor competencia directa. En Google Maps, la categoría principal determina para qué búsquedas apareces y con qué relevancia. Un cambio aparentemente pequeño con consecuencias enormes.
+          </p>
+          <div class="cs-step-highlight">
+            🎯 La categoría correcta es el 80% del trabajo en SEO Local
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-step fade-up" style="transition-delay:0.2s">
+        <div class="cs-step-left">
+          <div class="cs-step-num">03</div>
+        </div>
+        <div class="cs-step-body">
+          <span class="cs-step-icon">⚙️</span>
+          <div class="cs-step-name">Optimización completa: ficha + web</div>
+          <p class="cs-step-desc">
+            Con la categoría correcta como base, optimicé todos los demás elementos: descripción del negocio orientada a palabras clave locales, fotos profesionales etiquetadas correctamente, atributos del perfil, sección de servicios y productos. En paralelo, corregí los errores técnicos de la web: múltiples etiquetas H1 duplicadas y problemas de estructura que confundían a Google sobre el tema principal de cada página.
+          </p>
+          <div class="cs-step-highlight">
+            ✅ Ficha al 100% · Web técnicamente saneada · Retainer activo
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUOTE ══════════════════════════════════════════════════ -->
+<section id="cs-quote">
+  <div class="container">
+    <div class="cs-quote-inner fade-up">
+      <span class="cs-quote-mark">"</span>
+      <p class="cs-quote-text">
+        En tres meses pasamos de que nadie nos encontrara en Google Maps a estar en el top 2 de toda La Rioja. Sergio identificó el problema en la primera semana y los resultados llegaron solos. Ahora gestionamos juntos el perfil cada mes.
+      </p>
+      <div class="cs-quote-author">
+        <div class="cs-quote-avatar">IW</div>
+        <div>
+          <div class="cs-quote-name">Ironwood Soluciones</div>
+          <div class="cs-quote-role">Carpintería y metalurgia · Logroño, La Rioja</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA FINAL ══════════════════════════════════════════════ -->
+<section id="cs-cta">
+  <div class="container">
+    <div class="fade-up">
+      <h2 class="cs-cta-title">
+        ¿Tu negocio también puede<br>llegar al <em>top 3</em>?
+      </h2>
+      <p class="cs-cta-sub">
+        Hablo contigo 15 minutos, analizo tu situación actual en Google Maps y te digo exactamente qué hay que hacer. Sin compromiso, sin letra pequeña.
+      </p>
+      <div class="cs-cta-actions">
+        <a href="contacto.html" class="btn btn-primary">
+          Quiero mi diagnóstico gratuito
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="seo-local.html" class="btn btn-teal">Ver planes SEO Local</a>
+      </div>
+      <p class="cs-cta-note">Sin compromiso · Respuesta en menos de 24h · 100% gratuito</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="nav-logo" style="margin-bottom:4px;display:inline-flex">
+          <img src="bnad_assets/Gemini_Generated_Image_qdhepwqdhepwqdhe.png" class="nav-logo-img" alt="WebBoost — Consultor SEO Logroño" width="36" height="36">
+          <span class="nav-logo-text">Web<span>Boost</span></span>
+        </a>
+        <p class="footer-brand-desc">Consultor SEO en Logroño especializado en posicionamiento web y SEO local. Resultados reales, sin atajos.</p>
+        <address style="font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.7;font-style:normal;margin-top:12px;">
+          WebBoost · Sergio<br>
+          Logroño, La Rioja, España<br>
+          <a href="contacto.html" style="color:rgba(255,255,255,0.45);">Contactar →</a>
+        </address>
+      </div>
+      <div>
+        <div class="footer-col-title">Servicios</div>
+        <ul class="footer-links">
+          <li><a href="seo-local.html">SEO Local</a></li>
+          <li><a href="seo-web.html">SEO Web</a></li>
+          <li><a href="caso-de-estudio.html">Caso de Estudio</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Empresa</div>
+        <ul class="footer-links">
+          <li><a href="sobre-mi.html">Sobre Mí</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <ul class="footer-links">
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Aviso legal</a></li>
+          <li><a href="#">Política de cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 WebBoost · Sergio · Consultor SEO en Logroño</span>
+      <div class="footer-socials">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Twitter">𝕏</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  btn.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
