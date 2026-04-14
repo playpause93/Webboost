@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cómo aparecer en Google Maps: guía para negocios en La Rioja · WebBoost</title>
+  <meta name="description" content="Guía paso a paso para que tu negocio en Logroño y La Rioja aparezca en Google Maps y en el Pack Local. Sin tecnicismos, con resultados reales." />
+  <link rel="canonical" href="https://webboost.es/blog/como-aparecer-en-google-maps" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Cómo aparecer en Google Maps: guía para negocios en La Rioja" />
+  <meta property="og:description" content="Guía paso a paso para que tu negocio en Logroño y La Rioja aparezca en Google Maps y en el Pack Local." />
+  <meta property="og:url" content="https://webboost.es/blog/como-aparecer-en-google-maps" />
+  <meta property="og:image" content="https://webboost.es/og-image.jpg" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="article:published_time" content="2026-04-14" />
+  <meta name="article:author" content="Sergio · WebBoost" />
+
+  <!-- Schema Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Cómo aparecer en Google Maps: guía para negocios en La Rioja",
+    "description": "Guía paso a paso para que tu negocio en Logroño y La Rioja aparezca en Google Maps y en el Pack Local de Google.",
+    "author": {
+      "@type": "Person",
+      "name": "Sergio",
+      "url": "https://webboost.es/sobre-mi.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "WebBoost",
+      "url": "https://webboost.es"
+    },
+    "datePublished": "2026-04-14",
+    "dateModified": "2026-04-14",
+    "url": "https://webboost.es/blog/como-aparecer-en-google-maps",
+    "inLanguage": "es",
+    "keywords": "cómo aparecer en Google Maps, Google Maps Logroño, SEO local La Rioja, Google Business Profile"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    /* ── Fade ── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Hero artículo ── */
+    .article-hero {
+      padding-top: 66px;
+      background: var(--teal-900);
+      background-image: radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .article-hero-inner {
+      max-width: 780px;
+      margin-inline: auto;
+      padding: 64px 28px 56px;
+      text-align: center;
+    }
+    .article-breadcrumb {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .article-breadcrumb a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .article-breadcrumb a:hover { color: var(--gold); }
+    .article-cat-tag {
+      display: inline-block;
+      background: rgba(201,160,53,0.12);
+      border: 1px solid rgba(201,160,53,0.3);
+      color: var(--gold-lt);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .article-hero-title {
+      font-family: var(--head-font);
+      font-weight: 900;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      color: var(--white);
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
+    }
+    .article-hero-title em { font-style: normal; color: var(--gold); }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.82rem;
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* ── Layout artículo ── */
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 56px;
+      max-width: 1100px;
+      margin-inline: auto;
+      padding: 64px 28px 88px;
+      align-items: start;
+    }
+
+    /* ── Contenido ── */
+    .article-content h2 {
+      font-family: var(--head-font);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--teal-900);
+      letter-spacing: -0.02em;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+    .article-content h3 {
+      font-family: var(--head-font);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--teal-900);
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+    .article-content p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--gray-700);
+      margin-bottom: 20px;
+    }
+    .article-content ul, .article-content ol {
+      margin: 0 0 20px 0;
+      padding-left: 24px;
+    }
+    .article-content li {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--gray-700);
+      margin-bottom: 8px;
+    }
+    .article-content strong { color: var(--teal-900); }
+    .article-content a {
+      color: var(--teal-400);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .article-content a:hover { color: var(--gold); }
+
+    /* Callout boxes */
+    .callout {
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 32px 0;
+      border-left: 4px solid;
+    }
+    .callout-tip {
+      background: rgba(90,173,173,0.08);
+      border-color: var(--teal-400);
+    }
+    .callout-warning {
+      background: rgba(201,160,53,0.08);
+      border-color: var(--gold);
+    }
+    .callout-result {
+      background: rgba(13,38,38,0.04);
+      border-color: var(--teal-900);
+    }
+    .callout-label {
+      font-family: var(--head-font);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .callout-tip .callout-label { color: var(--teal-400); }
+    .callout-warning .callout-label { color: var(--gold-dim); }
+    .callout-result .callout-label { color: var(--teal-900); }
+    .callout p { margin-bottom: 0; font-size: 0.95rem; }
+
+    /* Steps */
+    .step-block {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 36px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--teal-900);
+      color: var(--gold);
+      font-family: var(--head-font);
+      font-weight: 900;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-body h3 { margin-top: 8px; }
+    .step-body p { margin-bottom: 0; }
+
+    /* Separator */
+    .article-sep {
+      border: none;
+      border-top: 1px solid var(--gray-200);
+      margin: 40px 0;
+    }
+
+    /* ── Sidebar ── */
+    .article-sidebar {
+      position: sticky;
+      top: 88px;
+    }
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    .sidebar-card-title {
+      font-family: var(--head-font);
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--teal-900);
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc-list li {
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+    }
+    .toc-list a {
+      color: var(--gray-500);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toc-list a:hover { color: var(--teal-400); }
+    .toc-list a::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gray-300);
+      flex-shrink: 0;
+    }
+    .sidebar-cta {
+      background: var(--teal-900);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .sidebar-cta-title {
+      font-family: var(--head-font);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .sidebar-cta-sub {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* ── Related posts ── */
+    .related-section {
+      background: var(--off-white);
+      background-image: radial-gradient(rgba(13,38,38,0.07) 1px, transparent 1px);
+      background-size: 24px 24px;
+      padding-block: 72px;
+    }
+    .related-title {
+      font-family: var(--head-font);
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--teal-900);
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .related-card {
+      background: var(--white);
+      border-radius: 14px;
+      border: 1px solid var(--gray-200);
+      padding: 28px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(13,38,38,0.1); }
+    .related-card-icon { font-size: 1.8rem; margin-bottom: 14px; }
+    .related-card-cat {
+      font-family: var(--head-font);
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal-400);
+      margin-bottom: 8px;
+    }
+    .related-card-title {
+      font-family: var(--head-font);
+      font-weight: 700;
+      font-size: 0.92rem;
+      line-height: 1.4;
+      color: var(--teal-900);
+    }
+
+    /* ── CTA final ── */
+    .article-cta-section {
+      background: var(--teal-900);
+      padding-block: 80px;
+      text-align: center;
+      background-image: radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .article-cta-tag {
+      display: inline-block;
+      background: rgba(201,160,53,0.12);
+      border: 1px solid rgba(201,160,53,0.3);
+      color: var(--gold-lt);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .article-cta-title {
+      font-family: var(--head-font);
+      font-weight: 900;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      color: var(--white);
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .article-cta-title em { font-style: normal; color: var(--gold); }
+    .article-cta-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.5);
+      max-width: 500px;
+      margin-inline: auto;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; gap: 0; }
+      .article-sidebar { position: static; margin-top: 48px; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 540px) {
+      .related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
+<nav>
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../bnad_assets/Gemini_Generated_Image_qdhepwqdhepwqdhe.png" class="nav-logo-img" alt="WebBoost — Consultor SEO Logroño" width="36" height="36">
+      <span class="nav-logo-text">Web<span>Boost</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../seo-local.html">SEO Local</a></li>
+      <li><a href="../seo-web.html">SEO Web</a></li>
+      <li><a href="../caso-de-estudio.html">Caso de Estudio</a></li>
+      <li><a href="../sobre-mi.html">Sobre Mí</a></li>
+      <li><a href="../blog.html" class="active">Blog</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="../contacto.html" class="btn btn-primary">Contacto</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../seo-local.html">SEO Local</a></li>
+      <li><a href="../seo-web.html">SEO Web</a></li>
+      <li><a href="../caso-de-estudio.html">Caso de Estudio</a></li>
+      <li><a href="../sobre-mi.html">Sobre Mí</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+    </ul>
+    <a href="../contacto.html" class="btn btn-primary">Contacto</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════════════════════ -->
+<section class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-breadcrumb">
+      <a href="../index.html">Inicio</a>
+      <span>›</span>
+      <a href="../blog.html">Blog</a>
+      <span>›</span>
+      <span>Google Maps</span>
+    </div>
+    <div class="article-cat-tag">🗺️ Google Maps · SEO Local</div>
+    <h1 class="article-hero-title">
+      Cómo aparecer en <em>Google Maps</em>:<br>guía paso a paso para negocios en La Rioja
+    </h1>
+    <div class="article-meta">
+      <span>📅 Abril 2026</span>
+      <span>⏱ 8 min de lectura</span>
+      <span>✍️ Sergio · WebBoost</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CUERPO DEL ARTÍCULO ══════════════════════════════════ -->
+<section style="background: var(--white);">
+  <div class="article-layout">
+
+    <!-- ─ Contenido principal ─ -->
+    <article class="article-content">
+
+      <p>
+        Si tienes un negocio en Logroño o en cualquier municipio de La Rioja y no apareces en Google Maps cuando alguien busca lo que ofreces, estás perdiendo clientes cada día. No es hipérbole: <strong>el 76% de las personas que buscan un negocio local desde el móvil visitan uno en menos de 24 horas</strong>, según datos de Google.
+      </p>
+
+      <p>
+        En esta guía te explico exactamente cómo conseguir que tu negocio aparezca en Google Maps, qué es el Pack Local, y qué señales prioriza Google para decidir quién aparece primero. Lo que te cuento aquí es lo mismo que aplico con mis clientes en La Rioja.
+      </p>
+
+      <div class="callout callout-result">
+        <div class="callout-label">✦ Resultado real</div>
+        <p>Aplicando estos pasos, un cliente de Logroño pasó de ser invisible en Maps a aparecer en el <strong>puesto #2 entre 146 competidores en La Rioja</strong> en 90 días. <a href="../caso-de-estudio.html">Ver el caso completo →</a></p>
+      </div>
+
+      <hr class="article-sep">
+
+      <h2 id="que-es-pack-local">¿Qué es el Pack Local de Google y por qué importa tanto?</h2>
+
+      <p>
+        Cuando alguien busca en Google "peluquería Logroño" o "fontanero La Rioja", lo primero que aparece no son webs normales: es un mapa con tres negocios destacados. Eso es el <strong>Pack Local</strong> (o mapa 3-pack).
+      </p>
+
+      <p>
+        Estar en esos tres resultados es oro puro. Tienen una tasa de clics entre 3 y 5 veces mayor que los resultados orgánicos normales. Y para muchos negocios locales, aparecer ahí genera más llamadas que tener la mejor web del mundo.
+      </p>
+
+      <p>
+        La buena noticia: no hace falta tener una web perfecta ni gastar en publicidad. Las señales que usa Google para el Pack Local son distintas a las del SEO web tradicional, y muchas de ellas están al alcance de cualquier negocio.
+      </p>
+
+      <h2 id="paso-a-paso">Los 6 pasos para aparecer en Google Maps</h2>
+
+      <div class="step-block">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Crea y verifica tu perfil en Google Business Profile</h3>
+          <p>
+            Ve a <strong>business.google.com</strong> y crea tu perfil si no lo tienes. Si ya existe (a veces Google los crea automáticamente con datos incompletos), reclámalo. El proceso de verificación suele hacerse por postal: Google te manda un código a tu dirección física. Sin verificar, no apareces.
+          </p>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Elige la categoría principal correcta — este es el paso más crítico</h3>
+          <p>
+            La categoría principal es la señal más poderosa que le das a Google. No elijas algo genérico. Si eres fontanero, no pongas "Empresa de construcción". Si tienes una clínica dental, no pongas "Clínica". Google tiene cientos de categorías específicas: úsalas.
+          </p>
+          <p>
+            El truco: busca a tus competidores directos en Google Maps, entra en su perfil y mira qué categoría usan los que aparecen primero. Esa es tu referencia.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-label">💡 Consejo práctico</div>
+        <p>Puedes añadir hasta 9 categorías secundarias. Úsalas para cubrir servicios relacionados, pero nunca sacrifiques la precisión de la categoría principal por querer abarcar más.</p>
+      </div>
+
+      <div class="step-block">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Completa el perfil al 100%</h3>
+          <p>
+            Google premia los perfiles completos. Rellena absolutamente todo: nombre exacto del negocio, dirección, teléfono, horario (incluyendo festivos), web, descripción de 750 caracteres con tus servicios y localización, atributos (acceso silla de ruedas, zona de parking, etc.) y productos o servicios si procede.
+          </p>
+          <p>
+            Un perfil al 100% tiene hasta un <strong>70% más de probabilidades de ser visitado</strong> que uno incompleto, según datos del propio Google.
+          </p>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Sube fotos reales y actualizadas</h3>
+          <p>
+            No uses fotos de stock. Sube fotos del local, del equipo, de los trabajos realizados, del producto. Los perfiles con más de 10 fotos reciben el doble de solicitudes de ruta que los que tienen menos de 3.
+          </p>
+          <p>
+            Frecuencia recomendada: al menos 2–3 fotos nuevas al mes. Google lo interpreta como una señal de actividad, igual que las reseñas recientes.
+          </p>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h3>Consigue reseñas — y respóndelas todas</h3>
+          <p>
+            Las reseñas son el tercer factor más importante en el posicionamiento local. No el único, pero sin reseñas es muy difícil competir. Pide a tus clientes satisfechos que te dejen una, preferiblemente con texto (no solo estrellas): que mencionen el servicio y la localización.
+          </p>
+          <p>
+            Y responde a todas, incluyendo las negativas. Google valora que el negocio esté activo. Además, responder a críticas negativas con educación y soluciones convierte un problema en una oportunidad de confianza.
+          </p>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <h3>Publica actualizaciones regularmente</h3>
+          <p>
+            Google Business Profile tiene una función de "Publicaciones" que muy pocos negocios usan. Son como mini posts: oferta del mes, novedad, evento, consejo. Publicas uno a la semana y le demuestras a Google que el negocio está activo. Es una señal directa de relevancia que muchos competidores ignoran.
+          </p>
+        </div>
+      </div>
+
+      <hr class="article-sep">
+
+      <h2 id="factores-ranking">Los 3 factores que usa Google para ordenar el Pack Local</h2>
+
+      <p>Google es bastante transparente sobre esto. Usa tres señales principales:</p>
+
+      <h3>1. Relevancia</h3>
+      <p>
+        ¿Tu perfil coincide con lo que el usuario está buscando? Aquí es donde entra la categoría, la descripción y los servicios que has añadido. Cuanto más específico y completo esté tu perfil, más relevante te considera Google para esa búsqueda.
+      </p>
+
+      <h3>2. Distancia</h3>
+      <p>
+        Google tiene en cuenta la ubicación del usuario cuando busca. No puedes controlar dónde está el cliente, pero sí puedes asegurarte de que tu dirección esté correctamente marcada en el mapa y que el área de servicio esté bien definida si vas a domicilio.
+      </p>
+
+      <h3>3. Prominencia</h3>
+      <p>
+        Es la señal más compleja: cuánto hablan de ti en internet. Reseñas, menciones en otros sitios web, links hacia tu web, presencia en directorios locales (Páginas Amarillas, Yelp, TripAdvisor si aplica...). La prominencia se construye con el tiempo, pero hay acciones concretas para acelerarla.
+      </p>
+
+      <div class="callout callout-warning">
+        <div class="callout-label">⚠️ Error frecuente</div>
+        <p>Añadir keywords al nombre del negocio en Google Business Profile (ej: "Fontanero Logroño 24h · Juan García") está <strong>explícitamente prohibido</strong> por Google y puede resultar en la suspensión del perfil. Tu nombre en GBP debe ser exactamente el nombre real de tu negocio.</p>
+      </div>
+
+      <hr class="article-sep">
+
+      <h2 id="logrono-rioja">Particularidades del mercado local en Logroño y La Rioja</h2>
+
+      <p>
+        Logroño tiene unos 150.000 habitantes. No es una gran capital, y eso es una ventaja para los negocios locales: la competencia en Maps es mucho menor que en Madrid o Barcelona. He visto perfiles con 8–10 reseñas y una ficha básica en el top 3 de categorías con poca competencia.
+      </p>
+
+      <p>
+        Algunas observaciones del mercado riojano que afectan al SEO local:
+      </p>
+
+      <ul>
+        <li>El sector de <strong>hostelería y restauración</strong> es extremadamente competido. Si tienes un bar o restaurante en el Casco Antiguo, necesitas una estrategia más agresiva de reseñas.</li>
+        <li>El sector de <strong>servicios profesionales</strong> (abogados, fisioterapeutas, dentistas, asesorías) tiene mucha demanda local pero perfiles de Maps muy poco optimizados — gran oportunidad.</li>
+        <li>El <strong>enoturismo y bodegas</strong> es un nicho único de La Rioja con búsquedas muy específicas y competencia relativa baja en SEO local.</li>
+        <li>Muchos negocios de La Rioja tienen el perfil de Maps sin reclamar o con datos incorrectos. Simplemente <strong>reclamarlo y completarlo bien</strong> ya te pone por delante de varios competidores.</li>
+      </ul>
+
+      <hr class="article-sep">
+
+      <h2 id="cuanto-tarda">¿Cuánto tiempo tardas en aparecer en Google Maps?</h2>
+
+      <p>
+        Depende del punto de partida y de la competencia del sector. Una estimación realista:
+      </p>
+
+      <ul>
+        <li><strong>Semanas 1–2:</strong> El perfil está verificado, completo y optimizado. Google empieza a indexarlo correctamente.</li>
+        <li><strong>Mes 1–2:</strong> Empiezas a aparecer para búsquedas de cola larga (servicios muy específicos) y en zonas donde la competencia es baja.</li>
+        <li><strong>Mes 2–4:</strong> Con reseñas acumulándose y publicaciones regulares, el perfil gana prominencia y sube posiciones para búsquedas más genéricas.</li>
+        <li><strong>Mes 4–6:</strong> Si la estrategia es consistente, deberías estar en el Pack Local para las búsquedas principales de tu sector en Logroño.</li>
+      </ul>
+
+      <p>
+        No existen atajos garantizados. Cualquier agencia o consultor que te prometa aparecer en el #1 de Maps en 2 semanas o te está mintiendo o está usando técnicas que pueden conseguirte una suspensión.
+      </p>
+
+      <div class="callout callout-result">
+        <div class="callout-label">✦ Ejemplo real — Logroño</div>
+        <p>Con un cliente de servicios industriales en La Rioja, aplicamos estos pasos entre enero y abril de 2026. En 90 días pasó de no aparecer en el Pack Local a estar en el <strong>puesto #2 de Google Maps</strong> para su categoría principal. El único cambio inicial fue corregir la categoría y completar el perfil. <a href="../caso-de-estudio.html">Ver el caso completo →</a></p>
+      </div>
+
+      <hr class="article-sep">
+
+      <h2 id="conclusion">Conclusión: por dónde empezar hoy</h2>
+
+      <p>
+        Si tuvieras que hacer solo una cosa hoy, sería esta: <strong>entra en business.google.com, reclama tu perfil si no está verificado, y elige la categoría principal correcta</strong>. Ese único paso ya te pone por delante del 40% de la competencia local en La Rioja.
+      </p>
+
+      <p>
+        Después, completa el perfil al 100%, empieza a pedir reseñas de forma sistemática y publica una actualización a la semana. En 3 meses verás resultados.
+      </p>
+
+      <p>
+        Si quieres que lo analice yo directamente para tu negocio — qué está frenando tu visibilidad en Maps y qué hay que hacer exactamente — puedo hacer una revisión gratuita de tu perfil.
+      </p>
+
+      <div style="margin-top: 36px;">
+        <a href="../contacto.html" class="btn btn-primary">Pedir revisión gratuita de mi perfil</a>
+      </div>
+
+    </article>
+
+    <!-- ─ Sidebar ─ -->
+    <aside class="article-sidebar">
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">En este artículo</div>
+        <ul class="toc-list">
+          <li><a href="#que-es-pack-local">¿Qué es el Pack Local?</a></li>
+          <li><a href="#paso-a-paso">Los 6 pasos para aparecer en Maps</a></li>
+          <li><a href="#factores-ranking">Los 3 factores de Google</a></li>
+          <li><a href="#logrono-rioja">El mercado en Logroño y La Rioja</a></li>
+          <li><a href="#cuanto-tarda">¿Cuánto tiempo tarda?</a></li>
+          <li><a href="#conclusion">Por dónde empezar hoy</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-title">¿Tu negocio no aparece en Google Maps?</div>
+        <div class="sidebar-cta-sub">Reviso tu perfil gratis y te digo exactamente qué está frenando tu visibilidad.</div>
+        <a href="../contacto.html" class="btn btn-primary" style="width:100%; justify-content:center;">Revisión gratuita</a>
+      </div>
+
+      <div class="sidebar-card" style="background: var(--off-white); border-color: var(--gray-100);">
+        <div class="sidebar-card-title">Sergio · WebBoost</div>
+        <p style="font-size:0.85rem; line-height:1.7; color:var(--gray-500); margin-bottom:16px;">
+          Consultor SEO local en Logroño. Ayudo a negocios de La Rioja a aparecer donde sus clientes buscan.
+        </p>
+        <a href="../sobre-mi.html" style="font-size:0.82rem; color:var(--teal-400); text-decoration:none; font-weight:600;">Conocer más sobre mí →</a>
+      </div>
+
+    </aside>
+  </div>
+</section>
+
+<!-- ══ ARTÍCULOS RELACIONADOS ══════════════════════════════ -->
+<section class="related-section">
+  <div class="container">
+    <div class="related-title fade-up">Seguir leyendo</div>
+    <div class="related-grid">
+
+      <a href="que-es-el-seo-local.html" class="related-card fade-up">
+        <div class="related-card-icon">📍</div>
+        <div class="related-card-cat">SEO Local</div>
+        <div class="related-card-title">¿Qué es el SEO Local y por qué tu negocio en Logroño lo necesita?</div>
+      </a>
+
+      <a href="cuanto-tarda-el-seo.html" class="related-card fade-up" style="transition-delay:0.08s">
+        <div class="related-card-icon">⏳</div>
+        <div class="related-card-cat">SEO General</div>
+        <div class="related-card-title">¿Cuánto tarda el SEO en dar resultados? Lo que debes saber antes de empezar</div>
+      </a>
+
+      <a href="../caso-de-estudio.html" class="related-card fade-up" style="transition-delay:0.16s">
+        <div class="related-card-icon">🏆</div>
+        <div class="related-card-cat">Caso real</div>
+        <div class="related-card-title">De invisible a #2 en Google Maps en 90 días: el caso Ironwood Logroño</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA FINAL ═════════════════════════════════════════════ -->
+<section class="article-cta-section">
+  <div class="container">
+    <div class="article-cta-tag">📍 SEO Local en Logroño</div>
+    <h2 class="article-cta-title">¿Tu negocio no aparece<br>donde deberían encontrarte?</h2>
+    <p class="article-cta-sub">
+      Analizo tu situación en Google Maps y te digo qué hace falta para que tus clientes te encuentren antes que a la competencia. Sin coste.
+    </p>
+    <a href="../contacto.html" class="btn btn-primary">Quiero que analices mi negocio</a>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="../index.html" class="nav-logo" style="margin-bottom:12px;display:inline-flex">
+        <img src="../bnad_assets/Gemini_Generated_Image_qdhepwqdhepwqdhe.png" class="nav-logo-img" alt="WebBoost" width="32" height="32">
+        <span class="nav-logo-text">Web<span>Boost</span></span>
+      </a>
+      <p class="footer-tagline">Consultor SEO local en Logroño.<br>Más visibilidad. Más clientes.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">Servicios</div>
+        <ul>
+          <li><a href="../seo-local.html">SEO Local</a></li>
+          <li><a href="../seo-web.html">SEO Web</a></li>
+          <li><a href="../caso-de-estudio.html">Caso de Estudio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Blog</div>
+        <ul>
+          <li><a href="como-aparecer-en-google-maps.html">Google Maps</a></li>
+          <li><a href="que-es-el-seo-local.html">SEO Local</a></li>
+          <li><a href="cuanto-tarda-el-seo.html">Resultados SEO</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contacto</div>
+        <ul>
+          <li><a href="../sobre-mi.html">Sobre mí</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 WebBoost · Logroño, La Rioja</span>
+      <span>Consultor SEO Local · webboost.es</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav hamburger
+  const btn = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      btn.classList.toggle('open');
+    });
+  }
+
+  // Fade on scroll
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
