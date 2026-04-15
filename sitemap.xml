@@ -31,15 +31,58 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://webboost.es/contacto.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://webboost.es/blog.html</loc>
     <lastmod>2026-04-14</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
+  <!-- Blog articles -->
   <url>
-    <loc>https://webboost.es/contacto.html</loc>
+    <loc>https://webboost.es/blog/como-aparecer-en-google-maps</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://webboost.es/blog/que-es-el-seo-local</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://webboost.es/blog/cuanto-tarda-el-seo</loc>
     <lastmod>2026-04-14</lastmod>
     <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://webboost.es/blog/seo-para-restaurantes-logrono</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://webboost.es/blog/seo-para-bodegas-la-rioja</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://webboost.es/blog/seo-para-dentistas-logrono</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://webboost.es/blog/seo-para-hoteles-logrono</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>
