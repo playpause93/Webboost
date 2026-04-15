@@ -42,6 +42,12 @@
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://webboost.es/precios.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
   <!-- Blog articles -->
   <url>
     <loc>https://webboost.es/blog/como-aparecer-en-google-maps</loc>

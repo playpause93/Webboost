@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Precios SEO Logroño — Planes y Tarifas · WebBoost</title>
+  <meta name="description" content="Planes y precios de SEO local, SEO web y auditoría SEO para negocios en Logroño y La Rioja. Sin permanencia. Sin letra pequeña." />
+  <link rel="canonical" href="https://webboost.es/precios.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Precios SEO Logroño — Planes y Tarifas · WebBoost" />
+  <meta property="og:description" content="Planes y precios de SEO local, SEO web y auditoría SEO para negocios en Logroño y La Rioja." />
+  <meta property="og:url" content="https://webboost.es/precios.html" />
+  <meta property="og:locale" content="es_ES" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "WebBoost",
+    "description": "Consultor SEO local en Logroño. Planes de SEO local, SEO web y auditoría SEO.",
+    "url": "https://webboost.es",
+    "areaServed": { "@type": "City", "name": "Logroño" },
+    "priceRange": "€€"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .fade-up { opacity:0; transform:translateY(24px); transition:opacity .55s ease,transform .55s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+
+    /* ── Hero ── */
+    .pricing-hero {
+      padding-top: 66px;
+      background: var(--teal-900);
+      background-image: radial-gradient(rgba(255,255,255,.18) 1px, transparent 1px);
+      background-size: 24px 24px;
+      padding-block: 66px 0;
+    }
+    .pricing-hero-inner {
+      text-align: center;
+      padding: 64px 28px 0;
+      max-width: 680px;
+      margin-inline: auto;
+    }
+    .pricing-hero-tag {
+      display: inline-block;
+      background: rgba(201,160,53,.12); border: 1px solid rgba(201,160,53,.3);
+      color: var(--gold-lt); font-size: .72rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 20px;
+    }
+    .pricing-hero-title {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: clamp(2rem,4.5vw,3rem); line-height: 1.1;
+      color: var(--white); letter-spacing: -.025em; margin-bottom: 14px;
+    }
+    .pricing-hero-title em { font-style: normal; color: var(--gold); }
+    .pricing-hero-sub {
+      font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,.55);
+      margin-bottom: 40px;
+    }
+
+    /* ── Quick-nav tabs ── */
+    .pricing-quicknav {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-block: 20px;
+    }
+    .pnav-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 22px; border-radius: 100px;
+      font-family: var(--head-font); font-weight: 700; font-size: .82rem;
+      letter-spacing: .03em; cursor: pointer; border: none;
+      text-decoration: none; transition: all .2s;
+    }
+    .pnav-active { background: var(--gold); color: var(--teal-900); }
+    .pnav-idle { background: rgba(255,255,255,.08); color: rgba(255,255,255,.65); border: 1px solid rgba(255,255,255,.12); }
+    .pnav-idle:hover { background: rgba(255,255,255,.14); color: var(--white); }
+
+    /* ── Section titles ── */
+    .pricing-section { padding-block: 80px; }
+    .pricing-section:nth-child(odd) { background: var(--white); }
+    .pricing-section:nth-child(even) {
+      background: var(--off-white);
+      background-image: radial-gradient(rgba(13,38,38,.07) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(13,38,38,.06); border: 1px solid rgba(13,38,38,.1);
+      color: var(--teal-400); font-size: .72rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: clamp(1.6rem,3vw,2.2rem); color: var(--teal-900);
+      letter-spacing: -.02em; margin-bottom: 12px;
+    }
+    .section-sub { font-size: .97rem; color: var(--gray-500); line-height: 1.7; max-width: 520px; margin-inline: auto; }
+
+    /* ── Pricing grid ── */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .plan-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 20px;
+      padding: 36px 32px;
+      position: relative;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .plan-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(13,38,38,.12); }
+
+    .plan-card.featured {
+      border-color: var(--teal-400);
+      box-shadow: 0 8px 40px rgba(13,38,38,.12);
+      transform: translateY(-8px);
+    }
+    .plan-card.featured:hover { transform: translateY(-14px); box-shadow: 0 28px 72px rgba(13,38,38,.18); }
+
+    .plan-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--teal-900); color: var(--gold);
+      font-family: var(--head-font); font-weight: 800; font-size: .7rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 5px 16px; border-radius: 100px; white-space: nowrap;
+    }
+
+    .plan-name {
+      font-family: var(--head-font); font-weight: 800;
+      font-size: 1rem; color: var(--teal-400);
+      letter-spacing: .06em; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .plan-price {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: 2.8rem; color: var(--teal-900);
+      letter-spacing: -.03em; line-height: 1;
+      margin-bottom: 4px;
+    }
+    .plan-price sup { font-size: 1.4rem; vertical-align: top; margin-top: 8px; }
+    .plan-price span { font-size: 1rem; font-weight: 600; color: var(--gray-500); }
+    .plan-price-note { font-size: .78rem; color: var(--gray-500); margin-bottom: 20px; }
+
+    .plan-desc {
+      font-size: .88rem; line-height: 1.7; color: var(--gray-500);
+      padding-bottom: 20px; border-bottom: 1px solid var(--gray-200);
+      margin-bottom: 24px;
+    }
+
+    .plan-features { list-style: none; padding: 0; margin: 0 0 32px; }
+    .plan-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .88rem; line-height: 1.6; color: var(--gray-700);
+      margin-bottom: 10px;
+    }
+    .plan-features li .check {
+      flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%;
+      background: rgba(90,173,173,.15); color: var(--teal-400);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .plan-features li .check svg { width: 10px; height: 10px; }
+    .plan-features li.disabled { opacity: .35; }
+    .plan-features li.disabled .check { background: var(--gray-200); color: var(--gray-300); }
+
+    .plan-cta { width: 100%; justify-content: center; }
+    .plan-cta-ghost {
+      width: 100%; justify-content: center;
+      background: transparent; color: var(--teal-900);
+      border: 1.5px solid var(--gray-200);
+    }
+    .plan-cta-ghost:hover { border-color: var(--teal-400); color: var(--teal-400); }
+
+    /* ── One-time card (auditoría) ── */
+    .audit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .audit-grid .plan-card:last-child { border-color: var(--teal-400); }
+
+    /* ── Comparison table ── */
+    .compare-wrap { overflow-x: auto; margin-top: 48px; }
+    .compare-table {
+      width: 100%; border-collapse: collapse;
+      font-size: .88rem; border-radius: 12px; overflow: hidden;
+    }
+    .compare-table th {
+      background: var(--teal-900); color: var(--white);
+      font-family: var(--head-font); font-weight: 700;
+      font-size: .78rem; letter-spacing: .05em;
+      text-align: left; padding: 14px 20px;
+    }
+    .compare-table th:first-child { width: 40%; }
+    .compare-table td {
+      padding: 13px 20px; border-bottom: 1px solid var(--gray-200);
+      color: var(--gray-700); line-height: 1.5;
+    }
+    .compare-table tr:nth-child(even) td { background: var(--off-white); }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .td-check { color: var(--teal-400); font-size: 1.1rem; }
+    .td-cross { color: var(--gray-300); font-size: 1.1rem; }
+
+    /* ── Guarantee strip ── */
+    .guarantee-strip {
+      background: var(--teal-900);
+      padding-block: 56px;
+      background-image: radial-gradient(rgba(255,255,255,.18) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .guarantee-inner {
+      display: flex; align-items: center; gap: 48px;
+      flex-wrap: wrap; justify-content: center; text-align: center;
+    }
+    .guarantee-item { flex: 1; min-width: 180px; }
+    .guarantee-icon { font-size: 2rem; margin-bottom: 10px; }
+    .guarantee-title {
+      font-family: var(--head-font); font-weight: 800;
+      font-size: 1rem; color: var(--white); margin-bottom: 6px;
+    }
+    .guarantee-desc { font-size: .85rem; color: rgba(255,255,255,.5); line-height: 1.6; }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--white); padding-block: 80px; }
+    .faq-block { border: 1px solid var(--gray-200); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+    .faq-q {
+      font-family: var(--head-font); font-weight: 700;
+      font-size: .97rem; color: var(--teal-900);
+      padding: 20px 24px; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      background: var(--white); transition: background .2s;
+    }
+    .faq-q:hover { background: var(--off-white); }
+    .faq-q-icon {
+      flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+      border: 1.5px solid var(--gray-200);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--teal-400); transition: transform .3s;
+    }
+    .faq-a { font-size: .95rem; line-height: 1.8; color: var(--gray-700); padding: 0 24px 20px; display: none; }
+    .faq-block.open .faq-a { display: block; }
+    .faq-block.open .faq-q-icon { transform: rotate(45deg); }
+
+    /* ── Final CTA ── */
+    .final-cta {
+      background: var(--teal-900); padding-block: 88px; text-align: center;
+      background-image: radial-gradient(rgba(255,255,255,.18) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .final-cta-tag {
+      display: inline-block;
+      background: rgba(201,160,53,.12); border: 1px solid rgba(201,160,53,.3);
+      color: var(--gold-lt); font-size: .72rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 20px;
+    }
+    .final-cta-title {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: clamp(1.8rem,4vw,2.8rem); color: var(--white);
+      letter-spacing: -.025em; margin-bottom: 14px; line-height: 1.2;
+    }
+    .final-cta-title em { font-style: normal; color: var(--gold); }
+    .final-cta-sub {
+      font-size: 1rem; color: rgba(255,255,255,.5);
+      max-width: 500px; margin-inline: auto; line-height: 1.7; margin-bottom: 36px;
+    }
+    .final-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Sticky quick-nav (desktop) ── */
+    .sticky-nav {
+      position: sticky; top: 66px; z-index: 90;
+      background: rgba(13,38,38,.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 12px 24px; flex-wrap: wrap;
+    }
+    .sticky-nav a {
+      font-family: var(--head-font); font-weight: 700; font-size: .78rem;
+      letter-spacing: .04em; text-decoration: none;
+      padding: 7px 18px; border-radius: 100px;
+      color: rgba(255,255,255,.6); transition: all .2s;
+      border: 1px solid transparent;
+    }
+    .sticky-nav a:hover { color: var(--white); background: rgba(255,255,255,.08); }
+    .sticky-nav a.active { color: var(--gold); border-color: rgba(201,160,53,.4); background: rgba(201,160,53,.08); }
+
+    @media (max-width: 900px) {
+      .plans-grid { grid-template-columns: 1fr; }
+      .plan-card.featured { transform: none; }
+      .plan-card.featured:hover { transform: translateY(-6px); }
+      .audit-grid { grid-template-columns: 1fr; }
+      .guarantee-inner { gap: 32px; }
+    }
+    @media (max-width: 600px) {
+      .sticky-nav { gap: 6px; }
+      .sticky-nav a { font-size: .72rem; padding: 6px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="bnad_assets/Gemini_Generated_Image_qdhepwqdhepwqdhe.png" class="nav-logo-img" alt="WebBoost" width="36" height="36">
+      <span class="nav-logo-text">Web<span>Boost</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="seo-local.html">SEO Local</a></li>
+      <li><a href="seo-web.html">SEO Web</a></li>
+      <li><a href="caso-de-estudio.html">Caso de Estudio</a></li>
+      <li><a href="sobre-mi.html">Sobre Mí</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="precios.html" class="active">Precios</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="contacto.html" class="btn btn-primary">Contacto</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="seo-local.html">SEO Local</a></li>
+      <li><a href="seo-web.html">SEO Web</a></li>
+      <li><a href="caso-de-estudio.html">Caso de Estudio</a></li>
+      <li><a href="sobre-mi.html">Sobre Mí</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="precios.html">Precios</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <a href="contacto.html" class="btn btn-primary">Contacto</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════════════════════ -->
+<section class="pricing-hero">
+  <div class="pricing-hero-inner">
+    <div class="pricing-hero-tag">💰 Planes y Tarifas · WebBoost</div>
+    <h1 class="pricing-hero-title">Precios <em>transparentes</em>,<br>resultados reales</h1>
+    <p class="pricing-hero-sub">
+      Sin permanencia. Sin letra pequeña. Sin sorpresas. Elige el plan que encaja con tu negocio en Logroño o La Rioja.
+    </p>
+    <div class="pricing-quicknav">
+      <a href="#seo-local" class="pnav-btn pnav-active">📍 SEO Local</a>
+      <a href="#seo-web" class="pnav-btn pnav-idle">🌐 SEO Web</a>
+      <a href="#auditoria" class="pnav-btn pnav-idle">🔍 Auditoría SEO</a>
+      <a href="#faq" class="pnav-btn pnav-idle">❓ FAQ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STICKY NAV ══════════════════════════════════════════ -->
+<div class="sticky-nav" id="stickyNav">
+  <a href="#seo-local" class="active">📍 SEO Local</a>
+  <a href="#seo-web">🌐 SEO Web</a>
+  <a href="#auditoria">🔍 Auditoría SEO</a>
+  <a href="#faq">❓ Preguntas frecuentes</a>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECCIÓN 1 — SEO LOCAL
+══════════════════════════════════════════════════════════ -->
+<section class="pricing-section" id="seo-local">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">📍 SEO Local · Google Maps</div>
+      <h2 class="section-title">Planes de SEO Local</h2>
+      <p class="section-sub">Para negocios en Logroño y La Rioja que quieren aparecer en el Pack Local de Google Maps y atraer clientes de su zona.</p>
+    </div>
+
+    <div class="plans-grid">
+
+      <!-- Plan Básico -->
+      <div class="plan-card fade-up">
+        <div class="plan-name">Arranque</div>
+        <div class="plan-price"><sup>€</sup>299<span>/mes</span></div>
+        <div class="plan-price-note">Sin permanencia · Cancela cuando quieras</div>
+        <p class="plan-desc">Para negocios que empiezan desde cero o tienen el perfil de Google sin optimizar. Base sólida para aparecer en Maps.</p>
+        <ul class="plan-features">
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Optimización Google Business Profile completa
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Elección de categoría principal y secundarias
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Descripción optimizada con keywords locales
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Estrategia básica de reseñas
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            4 publicaciones en GBP al mes
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Informe mensual de posiciones
+          </li>
+          <li class="disabled">
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Optimización web con señales locales
+          </li>
+          <li class="disabled">
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Citas y directorios locales
+          </li>
+          <li class="disabled">
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Artículo de blog mensual SEO
+          </li>
+        </ul>
+        <a href="contacto.html?plan=seo-local-arranque" class="btn plan-cta-ghost btn">Empezar con Arranque</a>
+      </div>
+
+      <!-- Plan Estándar (featured) -->
+      <div class="plan-card featured fade-up" style="transition-delay:.08s">
+        <div class="plan-badge">⭐ Más popular</div>
+        <div class="plan-name">Crecimiento</div>
+        <div class="plan-price"><sup>€</sup>499<span>/mes</span></div>
+        <div class="plan-price-note">Sin permanencia · Cancela cuando quieras</div>
+        <p class="plan-desc">El plan más elegido. Combina Maps + web local para dominar los resultados en Logroño tanto en el mapa como en resultados orgánicos.</p>
+        <ul class="plan-features">
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Todo lo del plan Arranque
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Optimización web con señales locales
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Citas en 10 directorios locales clave
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Schema markup local implementado
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Estrategia activa de reseñas + respuestas
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            8 publicaciones en GBP al mes
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Informe mensual detallado con posiciones y leads
+          </li>
+          <li class="disabled">
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Artículo de blog mensual SEO
+          </li>
+        </ul>
+        <a href="contacto.html?plan=seo-local-crecimiento" class="btn btn-primary plan-cta">Empezar con Crecimiento</a>
+      </div>
+
+      <!-- Plan Premium -->
+      <div class="plan-card fade-up" style="transition-delay:.16s">
+        <div class="plan-name">Dominancia</div>
+        <div class="plan-price"><sup>€</sup>799<span>/mes</span></div>
+        <div class="plan-price-note">Sin permanencia · Cancela cuando quieras</div>
+        <p class="plan-desc">Para negocios que quieren ser el referente SEO de su sector en La Rioja. Estrategia completa de autoridad local y contenido.</p>
+        <ul class="plan-features">
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Todo lo del plan Crecimiento
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            1 artículo de blog SEO mensual
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Citas en 25+ directorios y plataformas sectoriales
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Análisis de competencia mensual
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Estrategia de link building local
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Reunión mensual de seguimiento (30 min)
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Soporte WhatsApp prioritario
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Dashboard de posiciones en tiempo real
+          </li>
+        </ul>
+        <a href="contacto.html?plan=seo-local-dominancia" class="btn plan-cta-ghost btn">Empezar con Dominancia</a>
+      </div>
+
+    </div>
+
+    <!-- Tabla comparativa -->
+    <div class="compare-wrap fade-up" style="margin-top:56px">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>¿Qué incluye?</th>
+            <th>Arranque<br><span style="font-weight:400;opacity:.7">299€/mes</span></th>
+            <th>Crecimiento<br><span style="font-weight:400;opacity:.7">499€/mes</span></th>
+            <th>Dominancia<br><span style="font-weight:400;opacity:.7">799€/mes</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Optimización GBP completa</td><td class="td-check">✓</td><td class="td-check">✓</td><td class="td-check">✓</td></tr>
+          <tr><td>Publicaciones en GBP</td><td>4/mes</td><td>8/mes</td><td>12/mes</td></tr>
+          <tr><td>Estrategia de reseñas</td><td>Básica</td><td>Activa + respuestas</td><td>Activa + respuestas</td></tr>
+          <tr><td>Optimización web local</td><td class="td-cross">✗</td><td class="td-check">✓</td><td class="td-check">✓</td></tr>
+          <tr><td>Schema markup</td><td class="td-cross">✗</td><td class="td-check">✓</td><td class="td-check">✓</td></tr>
+          <tr><td>Directorios locales</td><td class="td-cross">✗</td><td>10 directorios</td><td>25+ directorios</td></tr>
+          <tr><td>Artículo blog SEO</td><td class="td-cross">✗</td><td class="td-cross">✗</td><td>1/mes</td></tr>
+          <tr><td>Link building local</td><td class="td-cross">✗</td><td class="td-cross">✗</td><td class="td-check">✓</td></tr>
+          <tr><td>Reunión mensual</td><td class="td-cross">✗</td><td class="td-cross">✗</td><td class="td-check">✓</td></tr>
+          <tr><td>Informe mensual</td><td>Básico</td><td>Detallado</td><td>Detallado + dashboard</td></tr>
+          <tr><td>Soporte</td><td>Email</td><td>Email</td><td>WhatsApp prioritario</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECCIÓN 2 — SEO WEB
+══════════════════════════════════════════════════════════ -->
+<section class="pricing-section" id="seo-web">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">🌐 SEO Web · Posicionamiento orgánico</div>
+      <h2 class="section-title">Planes de SEO Web</h2>
+      <p class="section-sub">Para negocios con web propia que quieren posicionar en los resultados orgánicos de Google, más allá del mapa local.</p>
+    </div>
+
+    <div class="plans-grid">
+
+      <!-- Plan Básico -->
+      <div class="plan-card fade-up">
+        <div class="plan-name">Base</div>
+        <div class="plan-price"><sup>€</sup>399<span>/mes</span></div>
+        <div class="plan-price-note">Sin permanencia · Mínimo 3 meses recomendado</div>
+        <p class="plan-desc">Optimización técnica y on-page para webs que necesitan una base sólida antes de competir por tráfico orgánico relevante.</p>
+        <ul class="plan-features">
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Auditoría técnica inicial completa
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Optimización on-page (hasta 5 páginas/mes)
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Research de keywords mensual
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Optimización de metaetiquetas
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Configuración Google Search Console + Analytics
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Informe mensual de tráfico y posiciones
+          </li>
+          <li class="disabled">
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Creación de contenido SEO
+          </li>
+          <li class="disabled">
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Link building
+          </li>
+        </ul>
+        <a href="contacto.html?plan=seo-web-base" class="btn plan-cta-ghost btn">Empezar con Base</a>
+      </div>
+
+      <!-- Plan Estándar (featured) -->
+      <div class="plan-card featured fade-up" style="transition-delay:.08s">
+        <div class="plan-badge">⭐ Más completo</div>
+        <div class="plan-name">Autoridad</div>
+        <div class="plan-price"><sup>€</sup>649<span>/mes</span></div>
+        <div class="plan-price-note">Sin permanencia · Mínimo 4 meses recomendado</div>
+        <p class="plan-desc">SEO técnico + contenido + link building. El plan completo para negocios que quieren crecer en tráfico orgánico de forma sostenida.</p>
+        <ul class="plan-features">
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Todo lo del plan Base
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            2 artículos de blog SEO al mes
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Optimización on-page (hasta 10 páginas/mes)
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Link building básico (3 enlaces/mes)
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Optimización Core Web Vitals
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Estrategia de enlazado interno
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Schema markup completo
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Análisis competencia mensual
+          </li>
+        </ul>
+        <a href="contacto.html?plan=seo-web-autoridad" class="btn btn-primary plan-cta">Empezar con Autoridad</a>
+      </div>
+
+      <!-- Plan Premium -->
+      <div class="plan-card fade-up" style="transition-delay:.16s">
+        <div class="plan-name">Liderazgo</div>
+        <div class="plan-price"><sup>€</sup>999<span>/mes</span></div>
+        <div class="plan-price-note">Sin permanencia · Mínimo 6 meses recomendado</div>
+        <p class="plan-desc">Para negocios ambiciosos que quieren liderar su sector en Google. Estrategia de contenido y autoridad a máxima velocidad.</p>
+        <ul class="plan-features">
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Todo lo del plan Autoridad
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            4 artículos de blog SEO al mes
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Link building avanzado (6+ enlaces/mes)
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Páginas de aterrizaje SEO nuevas
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Estrategia de contenido a 6 meses
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Reunión mensual de estrategia (60 min)
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Dashboard de keywords en tiempo real
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Soporte prioritario ilimitado
+          </li>
+        </ul>
+        <a href="contacto.html?plan=seo-web-liderazgo" class="btn plan-cta-ghost btn">Empezar con Liderazgo</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECCIÓN 3 — AUDITORÍA SEO
+══════════════════════════════════════════════════════════ -->
+<section class="pricing-section" id="auditoria">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">🔍 Auditoría SEO · Pago único</div>
+      <h2 class="section-title">Auditorías SEO</h2>
+      <p class="section-sub">Análisis profesional de tu web y presencia local. Pago único, sin mensualidades. Recibes un informe accionable con todo lo que hay que mejorar y por dónde empezar.</p>
+    </div>
+
+    <div class="audit-grid">
+
+      <!-- Auditoría Local -->
+      <div class="plan-card fade-up">
+        <div class="plan-name">Auditoría Local</div>
+        <div class="plan-price"><sup>€</sup>149<span style="font-size:.9rem;color:var(--gray-500)"> único</span></div>
+        <div class="plan-price-note">Entrega en 5 días hábiles</div>
+        <p class="plan-desc">Análisis completo de tu presencia en Google Maps y Google Business Profile. Ideal antes de empezar con cualquier plan mensual.</p>
+        <ul class="plan-features">
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Análisis del perfil de Google Business Profile
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Análisis de posición en Pack Local
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Análisis de competidores en Maps
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Revisión de reseñas y reputación
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Análisis de citas y NAP consistency
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Informe PDF con prioridades y plan de acción
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Videollamada de 30 min para resolver dudas
+          </li>
+        </ul>
+        <a href="contacto.html?plan=auditoria-local" class="btn plan-cta-ghost btn">Pedir Auditoría Local</a>
+      </div>
+
+      <!-- Auditoría Completa (featured) -->
+      <div class="plan-card featured fade-up" style="transition-delay:.08s">
+        <div class="plan-badge">🔍 Más completa</div>
+        <div class="plan-name">Auditoría Completa</div>
+        <div class="plan-price"><sup>€</sup>299<span style="font-size:.9rem;color:var(--gray-500)"> único</span></div>
+        <div class="plan-price-note">Entrega en 7 días hábiles</div>
+        <p class="plan-desc">Análisis SEO integral: web + Maps + contenido + técnico. El punto de partida perfecto para cualquier estrategia SEO seria.</p>
+        <ul class="plan-features">
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Todo lo de la Auditoría Local
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Auditoría técnica web completa (rastreo, índice, velocidad)
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Análisis de keywords actuales y oportunidades
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Análisis de contenido y estructura del sitio
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Análisis de backlinks y autoridad de dominio
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Revisión de Core Web Vitals
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Análisis de competidores (top 3 en tu sector)
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Informe PDF de 30+ páginas con hoja de ruta 6 meses
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+            Videollamada de 60 min de presentación y Q&amp;A
+          </li>
+        </ul>
+        <a href="contacto.html?plan=auditoria-completa" class="btn btn-primary plan-cta">Pedir Auditoría Completa</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ GARANTÍAS ══════════════════════════════════════════ -->
+<div class="guarantee-strip">
+  <div class="container">
+    <div class="guarantee-inner">
+      <div class="guarantee-item fade-up">
+        <div class="guarantee-icon">🚫</div>
+        <div class="guarantee-title">Sin permanencia</div>
+        <div class="guarantee-desc">Cancela cualquier plan mensual cuando quieras. Sin penalizaciones ni letra pequeña.</div>
+      </div>
+      <div class="guarantee-item fade-up" style="transition-delay:.08s">
+        <div class="guarantee-icon">📊</div>
+        <div class="guarantee-title">Transparencia total</div>
+        <div class="guarantee-desc">Informe mensual con posiciones reales. Sabes exactamente qué estoy haciendo y qué resultados da.</div>
+      </div>
+      <div class="guarantee-item fade-up" style="transition-delay:.16s">
+        <div class="guarantee-icon">🎯</div>
+        <div class="guarantee-title">Resultados en 90 días</div>
+        <div class="guarantee-desc">Primeros resultados visibles en Google Maps en 60-90 días con estrategia consistente.</div>
+      </div>
+      <div class="guarantee-item fade-up" style="transition-delay:.24s">
+        <div class="guarantee-icon">🤝</div>
+        <div class="guarantee-title">Trato directo</div>
+        <div class="guarantee-desc">Trabajas directamente conmigo, no con un equipo de juniors. Un cliente, toda la atención.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FAQ ════════════════════════════════════════════════ -->
+<section class="faq-section" id="faq">
+  <div class="container" style="max-width:780px">
+    <div class="section-header fade-up">
+      <div class="section-tag">❓ Preguntas frecuentes</div>
+      <h2 class="section-title">Todo lo que necesitas saber</h2>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-q">¿Los precios incluyen IVA?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">No, los precios mostrados son sin IVA. A la hora de facturar se añadirá el IVA correspondiente (21%). Si eres autónomo o empresa con CIF, podrás deducirlo íntegramente.</div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-q">¿Cuándo empiezo a ver resultados?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">Para SEO Local en Logroño, los primeros resultados visibles en Google Maps suelen aparecer entre 4 y 10 semanas. Para SEO Web, entre 3 y 6 meses. El mercado riojano tiene menos competencia que grandes capitales, lo que acelera los resultados respecto a la media nacional.</div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-q">¿Puedo combinar SEO Local y SEO Web?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">Sí, y es lo más recomendable. Muchos clientes empiezan con el plan de Crecimiento de SEO Local (que ya incluye optimización web básica) y escalan a un plan de SEO Web cuando quieren ir más lejos. Si quieres combinar ambos desde el inicio, hablamos y diseñamos un plan personalizado.</div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-q">¿Hay permanencia o contrato de duración mínima?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">No hay permanencia obligatoria. Puedes cancelar cualquier plan mensual con 15 días de antelación. Dicho esto, el SEO necesita tiempo para dar resultados: cancelar antes de 3 meses es como dejar de regar una planta justo cuando empieza a crecer. Te lo digo con transparencia, no para atarte.</div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-q">¿Cómo es el proceso de trabajo?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">1) Primera llamada gratuita (30 min) para entender tu negocio y objetivos. 2) Si hay encaje, te mando una propuesta específica. 3) Si la aceptas, arrancamos con una auditoría inicial y planificación del primer mes. 4) Cada mes: trabajo, informe de resultados y ajuste de estrategia.</div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-q">¿Trabajas solo con negocios de Logroño?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">Me especializo en La Rioja y Logroño porque conozco el mercado local a fondo. Para SEO Web (sin componente local), trabajo con negocios de cualquier parte de España. Para SEO Local, prefiero mercados que conozco bien para poder darte resultados reales, no promesas genéricas.</div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-q">¿Qué necesito tener para empezar?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">Para SEO Local: acceso a tu cuenta de Google Business Profile (te guío si no lo tienes). Para SEO Web: acceso a tu web (WordPress, Shopify, etc.) y a Google Search Console y Analytics. Si no tienes estas herramientas configuradas, las configuramos en el primer mes sin coste adicional.</div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-q">¿Puedo empezar con una auditoría antes de contratar un plan mensual?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">Sí, y lo recomiendo. La auditoría te da una foto clara de la situación actual y las prioridades. Si después decides contratar un plan mensual, el coste de la auditoría se descuenta del primer mes. Es una forma de empezar sin riesgo.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA FINAL ══════════════════════════════════════════ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-tag">💬 Hablemos sin compromiso</div>
+    <h2 class="final-cta-title">¿No tienes claro qué plan<br>necesita tu negocio?</h2>
+    <p class="final-cta-sub">
+      Cuéntame tu situación en una llamada de 30 minutos y te digo exactamente qué plan encaja con tus objetivos y tu presupuesto. Sin presión. Sin venta agresiva.
+    </p>
+    <div class="final-cta-btns">
+      <a href="contacto.html" class="btn btn-primary">
+        Hablar con Sergio
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <a href="caso-de-estudio.html" class="btn btn-ghost">Ver caso de estudio real</a>
+    </div>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.3);margin-top:24px">Sin permanencia · Sin letra pequeña · Resultados en 90 días</p>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="margin-bottom:12px;display:inline-flex">
+        <img src="bnad_assets/Gemini_Generated_Image_qdhepwqdhepwqdhe.png" class="nav-logo-img" alt="WebBoost" width="32" height="32">
+        <span class="nav-logo-text">Web<span>Boost</span></span>
+      </a>
+      <p class="footer-tagline">Consultor SEO local en Logroño.<br>Más visibilidad. Más clientes.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">Servicios</div>
+        <ul>
+          <li><a href="seo-local.html">SEO Local</a></li>
+          <li><a href="seo-web.html">SEO Web</a></li>
+          <li><a href="precios.html">Precios</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contenido</div>
+        <ul>
+          <li><a href="caso-de-estudio.html">Caso de Estudio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="sobre-mi.html">Sobre Mí</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contacto</div>
+        <ul>
+          <li><a href="contacto.html">Contactar</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 WebBoost · Logroño, La Rioja</span>
+      <span>Consultor SEO Local · webboost.es</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav hamburger
+  const btn = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  if(btn && menu) btn.addEventListener('click', () => { menu.classList.toggle('open'); btn.classList.toggle('open'); });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-block').forEach(b => {
+    b.querySelector('.faq-q').addEventListener('click', () => b.classList.toggle('open'));
+  });
+
+  // Fade on scroll
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: .1 });
+  fadeEls.forEach(el => observer.observe(el));
+
+  // Sticky nav active state
+  const sections = ['seo-local','seo-web','auditoria','faq'];
+  const stickyLinks = document.querySelectorAll('.sticky-nav a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        stickyLinks.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`.sticky-nav a[href="#${e.target.id}"]`);
+        if(link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+  sections.forEach(id => { const el = document.getElementById(id); if(el) io.observe(el); });
+</script>
+</body>
+</html>
