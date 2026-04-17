@@ -20,4 +20,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://webboost.es/sitemap.xml
+Sitemap: https://www.webboost.es/sitemap.xml
