@@ -1,4 +1,12 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "webboost.es" }],
+      "destination": "https://www.webboost.es/$1",
+      "permanent": true
+    }
+  ]
 }
