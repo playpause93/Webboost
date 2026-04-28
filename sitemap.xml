@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Páginas principales -->
   <url>
     <loc>https://www.webboost.es/</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.webboost.es/seo-local.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.webboost.es/seo-web.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://www.webboost.es/precios.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.webboost.es/caso-de-estudio.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.webboost.es/sobre-mi.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -38,14 +46,35 @@
   </url>
   <url>
     <loc>https://www.webboost.es/blog.html</loc>
-    <lastmod>2026-04-17</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
+
+  <!-- Artículos del blog -->
   <url>
-    <loc>https://www.webboost.es/precios.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://www.webboost.es/blog/ficha-de-google.html</loc>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://www.webboost.es/blog/como-aparecer-en-google-maps.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.webboost.es/blog/alta-en-google-maps.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.webboost.es/blog/cuanto-cuesta-el-posicionamiento-seo.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
 </urlset>
