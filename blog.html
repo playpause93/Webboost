@@ -288,6 +288,28 @@
     .blog-nl-input:focus { border-color: rgba(201,160,53,0.5); }
     .blog-nl-note { font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 14px; }
 
+    /* ── MID NEWSLETTER STRIP ── */
+    #blog-nl-mid {
+      background: linear-gradient(135deg, #0d2626 0%, #1a4040 100%);
+      border-top: 1px solid rgba(201,160,53,0.2);
+      border-bottom: 1px solid rgba(201,160,53,0.2);
+      padding-block: 36px;
+    }
+    .blog-nl-mid-inner {
+      display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .blog-nl-mid-text { flex: 1; min-width: 220px; }
+    .blog-nl-mid-title {
+      font-family: var(--head-font); font-weight: 800; font-size: 1.05rem;
+      color: var(--white); letter-spacing: -0.01em; margin-bottom: 4px;
+    }
+    .blog-nl-mid-title span { color: var(--gold); }
+    .blog-nl-mid-sub { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+    .blog-nl-mid-form {
+      display: flex; gap: 8px; flex: 1; min-width: 280px; max-width: 420px;
+    }
+
     @media (max-width: 900px) {
       .blog-featured-card { grid-template-columns: 1fr; }
       .blog-featured-img { min-height: 220px; }
@@ -296,6 +318,8 @@
     @media (max-width: 540px) {
       .blog-posts-grid { grid-template-columns: 1fr; }
       .blog-nl-form { flex-direction: column; }
+      .blog-nl-mid-inner { flex-direction: column; gap: 20px; }
+      .blog-nl-mid-form { max-width: 100%; width: 100%; }
     }
   </style>
 
@@ -403,10 +427,10 @@
       <div class="blog-featured-body">
         <span class="blog-post-cat">SEO Local · Caso de Estudio</span>
         <h2 class="blog-featured-title">
-          De invisible a #2 en Google Maps en 90 días: el caso Ironwood Soluciones
+          De invisible a GeoRank #1 en Google Maps: el caso Ironwood Soluciones
         </h2>
         <p class="blog-featured-excerpt">
-          Cómo un único cambio estratégico en la categoría de Google Business Profile llevó a una empresa de carpintería y metalurgia de Logroño al puesto #2 entre 146 competidores en La Rioja. El caso más claro que tengo de que el 80% del SEO local depende de una sola decisión.
+          Cómo Ironwood Soluciones pasó de no aparecer en Google Maps a GeoRank #1 entre 91 competidores en La Rioja, con 100% de cobertura en el área y 56 reseñas con 4.9★. El caso más claro que tengo de que la categoría de Google Business Profile lo cambia todo.
         </p>
         <div class="blog-post-meta">
           <span>📅 Abril 2026</span>
@@ -416,6 +440,23 @@
         <span class="blog-read-more">Leer el caso completo →</span>
       </div>
     </a>
+  </div>
+</section>
+
+<!-- ══ NEWSLETTER MID STRIP ══════════════════════════════════ -->
+<section id="blog-nl-mid">
+  <div class="container">
+    <div class="blog-nl-mid-inner">
+      <div class="blog-nl-mid-text">
+        <div class="blog-nl-mid-title">SEO local directo a tu correo. <span>Sin spam.</span></div>
+        <div class="blog-nl-mid-sub">Un email al mes con lo que funciona de verdad para cualquier negocio local.</div>
+      </div>
+      <div class="blog-nl-mid-form" id="nlForm2">
+        <input class="blog-nl-input" type="email" id="nlEmail2" placeholder="tu@email.com" style="flex:1;min-width:0;" />
+        <button class="btn btn-primary" id="nlBtn2" onclick="handleSubscribe2(event)">Suscribirme</button>
+      </div>
+    </div>
+    <p class="blog-nl-note" id="nlNote2" style="margin-top:10px;text-align:right;"></p>
   </div>
 </section>
 
@@ -704,12 +745,12 @@
     <div class="fade-up" style="max-width:560px;margin-inline:auto;text-align:center;">
       <div class="blog-nl-tag">📬 Newsletter SEO</div>
       <h2 class="blog-nl-title">Cómo poner tu negocio en Google Maps.<br><em>Directo a tu correo.</em></h2>
-      <p class="blog-nl-sub">Un email al mes con estrategias reales de SEO local, Google Business y posicionamiento web para negocios de Logroño y La Rioja. Sin spam.</p>
-      <div class="blog-nl-form">
-        <input class="blog-nl-input" type="email" placeholder="tu@email.com" />
-        <button class="btn btn-primary">Suscribirme</button>
+      <p class="blog-nl-sub">Un email al mes con estrategias reales de SEO local, Google Business y posicionamiento web para tu negocio. Sin spam.</p>
+      <div class="blog-nl-form" id="nlForm">
+        <input class="blog-nl-input" type="email" id="nlEmail" placeholder="tu@email.com" />
+        <button class="btn btn-primary" id="nlBtn" onclick="handleSubscribe(event)">Suscribirme</button>
       </div>
-      <p class="blog-nl-note">+200 suscriptores · Cancela cuando quieras · Sin spam</p>
+      <p class="blog-nl-note" id="nlNote">Cancela cuando quieras · Sin spam</p>
     </div>
   </div>
 </section>
@@ -789,6 +830,50 @@
       cat.classList.add('blog-cat-active');
     });
   });
+
+  /* Newsletter shared */
+  async function subscribeEmail(email, formId, btnId, noteId) {
+    const formEl = document.getElementById(formId);
+    const btn = document.getElementById(btnId);
+    const note = document.getElementById(noteId);
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      note.textContent = 'Introduce un email válido.';
+      note.style.color = '#f97316';
+      return;
+    }
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json();
+      if (data.success) {
+        formEl.innerHTML = '<p style="color:#c9a035;font-family:var(--head-font);font-weight:700;font-size:1rem;">✓ ¡Suscrito! Revisa tu email.</p>';
+        note.textContent = 'Te hemos enviado un email de bienvenida.';
+        note.style.color = 'rgba(255,255,255,0.5)';
+      } else { throw new Error(data.error); }
+    } catch {
+      btn.textContent = 'Suscribirme';
+      btn.disabled = false;
+      note.textContent = 'Algo ha fallado. Inténtalo de nuevo.';
+      note.style.color = '#f97316';
+    }
+  }
+
+  async function handleSubscribe2(e) {
+    e.preventDefault();
+    const email = document.getElementById('nlEmail2').value.trim();
+    await subscribeEmail(email, 'nlForm2', 'nlBtn2', 'nlNote2');
+  }
+
+  async function handleSubscribe(e) {
+    e.preventDefault();
+    const email = document.getElementById('nlEmail').value.trim();
+    await subscribeEmail(email, 'nlForm', 'nlBtn', 'nlNote');
+  }
 </script>
 </body>
 </html>

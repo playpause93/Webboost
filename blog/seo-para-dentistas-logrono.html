@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -310,7 +310,7 @@
 
       <p>A diferencia de otras búsquedas informativas, alguien que busca "dentista Logroño" en Google normalmente tiene dolor de muelas, quiere iniciar un tratamiento o lleva tiempo pensando en arreglar la boca. Esa intención de compra es inmediata.</p>
 
-      <p>El SEO local para clínicas dentales en Logroño es una inversión con ROI muy claro: apareces en el momento en que el paciente te necesita, sin coste por clic, y construyes una reputación digital que funciona 24 horas al día.</p>
+      <p>El <a href="../seo-local.html">SEO local para clínicas dentales en Logroño</a> es una inversión con ROI muy claro: apareces en el momento en que el paciente te necesita, sin coste por clic, y construyes una reputación digital que funciona 24 horas al día.</p>
 
       <p>Si quieres saber cómo está posicionada tu clínica ahora mismo frente a la competencia en Logroño, puedo hacer el análisis sin coste.</p>
 
@@ -377,6 +377,52 @@
   </div>
 </section>
 
+
+<!-- ══ NEWSLETTER ══════════════════════════════════════════ -->
+<section style="background:#0d2626;background-image:radial-gradient(rgba(255,255,255,0.18) 1px,transparent 1px);background-size:24px 24px;padding:40px 0;border-top:1px solid rgba(201,160,53,0.2);">
+  <div class="container">
+    <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:space-between;">
+      <div style="flex:1;min-width:220px;">
+        <div style="font-family:var(--head-font);font-weight:800;font-size:1.05rem;color:#fff;margin-bottom:4px;">Más estrategias SEO. <span style="color:#c9a035;">Directo a tu correo.</span></div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.5;">Un email al mes con lo que funciona de verdad para tu negocio local. Sin spam.</div>
+      </div>
+      <div style="display:flex;gap:8px;flex:1;min-width:280px;max-width:420px;" id="nlFormArt">
+        <input type="email" id="nlEmailArt" placeholder="tu@email.com" style="flex:1;min-width:0;padding:13px 18px;border-radius:6px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:#fff;font-size:0.93rem;outline:none;" />
+        <button id="nlBtnArt" onclick="handleSubscribeArt(event)" style="background:#c9a035;color:#0d2626;padding:13px 22px;border-radius:6px;border:none;font-weight:700;font-size:0.9rem;cursor:pointer;white-space:nowrap;">Suscribirme</button>
+      </div>
+    </div>
+    <p id="nlNoteArt" style="font-size:0.75rem;color:rgba(255,255,255,0.3);margin-top:10px;text-align:right;"></p>
+  </div>
+</section>
+<script>
+async function handleSubscribeArt(e) {
+  e.preventDefault();
+  const email = document.getElementById('nlEmailArt').value.trim();
+  const btn = document.getElementById('nlBtnArt');
+  const note = document.getElementById('nlNoteArt');
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    note.textContent = 'Introduce un email válido.';
+    note.style.color = '#f97316';
+    return;
+  }
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
+    const data = await res.json();
+    if (data.success) {
+      document.getElementById('nlFormArt').innerHTML = '<p style="color:#c9a035;font-weight:700;font-size:1rem;">✓ ¡Suscrito! Revisa tu email.</p>';
+      note.textContent = 'Te hemos enviado un email de bienvenida.';
+      note.style.color = 'rgba(255,255,255,0.5)';
+    } else { throw new Error(data.error); }
+  } catch {
+    btn.textContent = 'Suscribirme';
+    btn.disabled = false;
+    note.textContent = 'Algo ha fallado. Inténtalo de nuevo.';
+    note.style.color = '#f97316';
+  }
+}
+</script>
 <footer>
   <div class="container footer-inner">
     <div class="footer-brand">
@@ -430,3 +476,4 @@
 </script>
 </body>
 </html>
+

@@ -27,3 +27,5 @@ CLAUDE.md
 # Package lock (optional — remove this line if you want to commit it)
 package-lock.json
 package.json
+
+.vercel

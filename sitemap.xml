@@ -112,5 +112,11 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://www.webboost.es/blog/seo-para-fontaneros-logrono</loc>
+    <lastmod>2026-05-03</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 
 </urlset>

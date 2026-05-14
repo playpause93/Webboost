@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -519,7 +519,7 @@
 
       <div class="callout callout-result">
         <div class="callout-label">✦ Caso real</div>
-        <p>Con una inversión en SEO Local, Ironwood Soluciones pasó de la posición #78 al <strong>#2 de 146 competidores en Google Maps en 90 días</strong>. El tráfico orgánico creció un 312%. <a href="../caso-de-estudio.html">Ver el caso de estudio completo →</a></p>
+        <p>Con una inversión en SEO Local, Ironwood Soluciones pasó de <strong>no aparecer en Google Maps a GeoRank #1 de 91 competidores en 90 días</strong>, con 100% de cobertura en el área. <a href="../caso-de-estudio.html">Ver el caso de estudio completo →</a></p>
       </div>
 
       <hr class="article-sep">
@@ -527,7 +527,7 @@
       <h2 id="precios-webboost">¿Cuánto cuesta el SEO con WebBoost en Logroño?</h2>
 
       <p>
-        En WebBoost trabajo con precios transparentes, sin letra pequeña y sin permanencia. Los planes están pensados para negocios locales en Logroño y La Rioja:
+        En WebBoost trabajo con precios transparentes, sin letra pequeña y sin permanencia. <a href="../precios.html">Los planes</a> están pensados para negocios locales en Logroño y La Rioja:
       </p>
 
       <ul>
@@ -633,7 +633,7 @@
       <a href="../caso-de-estudio.html" class="related-card">
         <div class="related-card-icon">📊</div>
         <div class="related-card-cat">Caso real</div>
-        <div class="related-card-title">De #78 a #2 en Google Maps en 90 días — caso de estudio real</div>
+        <div class="related-card-title">De invisible a GeoRank #1 en Google Maps en 90 días — caso Ironwood Soluciones</div>
       </a>
 
     </div>
@@ -654,6 +654,52 @@
 </section>
 
 <!-- ══ FOOTER ══════════════════════════════════════════════════ -->
+
+<!-- ══ NEWSLETTER ══════════════════════════════════════════ -->
+<section style="background:#0d2626;background-image:radial-gradient(rgba(255,255,255,0.18) 1px,transparent 1px);background-size:24px 24px;padding:40px 0;border-top:1px solid rgba(201,160,53,0.2);">
+  <div class="container">
+    <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:space-between;">
+      <div style="flex:1;min-width:220px;">
+        <div style="font-family:var(--head-font);font-weight:800;font-size:1.05rem;color:#fff;margin-bottom:4px;">Más estrategias SEO. <span style="color:#c9a035;">Directo a tu correo.</span></div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.5;">Un email al mes con lo que funciona de verdad para tu negocio local. Sin spam.</div>
+      </div>
+      <div style="display:flex;gap:8px;flex:1;min-width:280px;max-width:420px;" id="nlFormArt">
+        <input type="email" id="nlEmailArt" placeholder="tu@email.com" style="flex:1;min-width:0;padding:13px 18px;border-radius:6px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:#fff;font-size:0.93rem;outline:none;" />
+        <button id="nlBtnArt" onclick="handleSubscribeArt(event)" style="background:#c9a035;color:#0d2626;padding:13px 22px;border-radius:6px;border:none;font-weight:700;font-size:0.9rem;cursor:pointer;white-space:nowrap;">Suscribirme</button>
+      </div>
+    </div>
+    <p id="nlNoteArt" style="font-size:0.75rem;color:rgba(255,255,255,0.3);margin-top:10px;text-align:right;"></p>
+  </div>
+</section>
+<script>
+async function handleSubscribeArt(e) {
+  e.preventDefault();
+  const email = document.getElementById('nlEmailArt').value.trim();
+  const btn = document.getElementById('nlBtnArt');
+  const note = document.getElementById('nlNoteArt');
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    note.textContent = 'Introduce un email válido.';
+    note.style.color = '#f97316';
+    return;
+  }
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
+    const data = await res.json();
+    if (data.success) {
+      document.getElementById('nlFormArt').innerHTML = '<p style="color:#c9a035;font-weight:700;font-size:1rem;">✓ ¡Suscrito! Revisa tu email.</p>';
+      note.textContent = 'Te hemos enviado un email de bienvenida.';
+      note.style.color = 'rgba(255,255,255,0.5)';
+    } else { throw new Error(data.error); }
+  } catch {
+    btn.textContent = 'Suscribirme';
+    btn.disabled = false;
+    note.textContent = 'Algo ha fallado. Inténtalo de nuevo.';
+    note.style.color = '#f97316';
+  }
+}
+</script>
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -710,3 +756,4 @@
 
 </body>
 </html>
+
