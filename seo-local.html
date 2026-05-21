@@ -241,6 +241,47 @@
     .sl-plan.featured .sl-plan-features .chk { color: var(--gold); }
     .sl-plan .btn { width: 100%; justify-content: center; }
 
+    /* ── Fichas pricing ── */
+    .sl-fichas-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+      max-width: 1020px; margin: 0 auto 32px;
+    }
+    .sl-ficha-card {
+      background: var(--white); border: 1.5px solid var(--gray-200);
+      border-radius: 16px; padding: 28px 20px; text-align: center;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .sl-ficha-card:hover {
+      transform: translateY(-4px); box-shadow: 0 12px 40px rgba(13,38,38,.1);
+      border-color: var(--teal-400);
+    }
+    .sl-ficha-num {
+      font-family: var(--head-font); font-weight: 800;
+      font-size: .85rem; color: var(--teal-400);
+      letter-spacing: .06em; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .sl-ficha-price {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: 2.2rem; color: var(--teal-900);
+      letter-spacing: -.03em; line-height: 1; margin-bottom: 6px;
+    }
+    .sl-ficha-price sup { font-size: 1.1rem; vertical-align: top; margin-top: 6px; }
+    .sl-ficha-price span { font-size: .9rem; font-weight: 600; color: var(--gray-500); }
+    .sl-ficha-note { font-size: .75rem; color: var(--gray-500); }
+    .sl-service-card {
+      max-width: 580px; margin: 0 auto;
+      background: var(--white); border: 1.5px solid var(--teal-400);
+      border-radius: 20px; padding: 36px 32px;
+    }
+    .sl-service-card-desc {
+      font-size: .9rem; color: var(--gray-500); line-height: 1.7;
+      text-align: center; margin-bottom: 28px;
+      padding-bottom: 24px; border-bottom: 1px solid var(--gray-200);
+    }
+    @media (max-width: 700px) {
+      .sl-fichas-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* ── CTA FINAL ── */
     #sl-cta {
       background: var(--teal-900);
@@ -514,67 +555,41 @@
       </p>
     </div>
 
-    <div class="sl-pricing-grid">
-
-      <!-- Auditoría SEO Local -->
-      <div class="sl-plan">
-        <div class="sl-plan-name">Auditoría SEO Local</div>
-        <div class="sl-plan-price">
-          <span class="sl-plan-currency">€</span>
-          <span class="sl-plan-num">100</span>
-        </div>
-        <div class="sl-plan-period">Pago único</div>
-        <div class="sl-plan-divider"></div>
-        <ul class="sl-plan-features">
-          <li><span class="chk">✓</span> Análisis completo de tu ficha de Google</li>
-          <li><span class="chk">✓</span> Revisión de categorías y atributos</li>
-          <li><span class="chk">✓</span> Identificación de errores y oportunidades</li>
-          <li><span class="chk">✓</span> Análisis de reseñas y valoraciones</li>
-          <li><span class="chk">✓</span> Informe PDF con plan de acción</li>
-          <li><span class="chk">✓</span> Entrega en 48–72 horas</li>
-        </ul>
-        <a href="/contacto" class="btn btn-teal">Solicitar auditoría</a>
+    <!-- Precio por número de fichas -->
+    <div class="sl-fichas-grid">
+      <div class="sl-ficha-card">
+        <div class="sl-ficha-num">1 Ficha</div>
+        <div class="sl-ficha-price"><sup>€</sup>200<span>/mes</span></div>
+        <div class="sl-ficha-note">Sin permanencia</div>
       </div>
-
-      <!-- GMB Starter (Más popular) -->
-      <div class="sl-plan featured">
-        <div class="sl-plan-badge">Más popular</div>
-        <div class="sl-plan-name">GMB Starter</div>
-        <div class="sl-plan-price">
-          <span class="sl-plan-currency">€</span>
-          <span class="sl-plan-num">200</span>
-        </div>
-        <div class="sl-plan-period">/ mes · sin permanencia</div>
-        <div class="sl-plan-divider"></div>
-        <ul class="sl-plan-features">
-          <li><span class="chk">✓</span> Optimización completa de ficha GMB</li>
-          <li><span class="chk">✓</span> Publicaciones semanales de contenido</li>
-          <li><span class="chk">✓</span> Gestión y respuesta de reseñas</li>
-          <li><span class="chk">✓</span> Seguimiento frente a competidores</li>
-          <li><span class="chk">✓</span> Soporte por WhatsApp</li>
-        </ul>
-        <a href="/contacto" class="btn btn-primary">Empezar ahora</a>
+      <div class="sl-ficha-card">
+        <div class="sl-ficha-num">2 Fichas</div>
+        <div class="sl-ficha-price"><sup>€</sup>400<span>/mes</span></div>
+        <div class="sl-ficha-note">Sin permanencia</div>
       </div>
-
-      <!-- GMB Pro -->
-      <div class="sl-plan">
-        <div class="sl-plan-name">GMB Pro</div>
-        <div class="sl-plan-price">
-          <span class="sl-plan-currency">€</span>
-          <span class="sl-plan-num">300</span>
-        </div>
-        <div class="sl-plan-period">/ mes · sin permanencia</div>
-        <div class="sl-plan-divider"></div>
-        <ul class="sl-plan-features">
-          <li><span class="chk">✓</span> Todo lo de GMB Starter</li>
-          <li><span class="chk">✓</span> Seguimiento mensual de posiciones</li>
-          <li><span class="chk">✓</span> Análisis mensual de competidores</li>
-          <li><span class="chk">✓</span> Llamada mensual de estrategia (30 min)</li>
-          <li><span class="chk">✓</span> Informe avanzado de rendimiento</li>
-        </ul>
-        <a href="/contacto" class="btn btn-teal">Empezar ahora</a>
+      <div class="sl-ficha-card">
+        <div class="sl-ficha-num">3 Fichas</div>
+        <div class="sl-ficha-price"><sup>€</sup>600<span>/mes</span></div>
+        <div class="sl-ficha-note">Sin permanencia</div>
       </div>
+      <div class="sl-ficha-card">
+        <div class="sl-ficha-num">4+ Fichas</div>
+        <div class="sl-ficha-price"><sup>€</sup>800<span>/mes</span></div>
+        <div class="sl-ficha-note">Sin permanencia</div>
+      </div>
+    </div>
 
+    <!-- Servicio incluido en todas las fichas -->
+    <div class="sl-service-card">
+      <p class="sl-service-card-desc">El mismo servicio completo para cada ubicación. El precio sube según el número de fichas de Google Maps que gestionamos.</p>
+      <ul class="sl-plan-features">
+        <li><span class="chk">✓</span> Setup completo del perfil de Google Maps (fotos, servicios, información...)</li>
+        <li><span class="chk">✓</span> Publicaciones semanales en la ficha</li>
+        <li><span class="chk">✓</span> Respuesta a reseñas nuevas antes de 24h</li>
+        <li><span class="chk">✓</span> Alta en directorios locales clave</li>
+        <li><span class="chk">✓</span> Informe mensual con posiciones y llamadas generadas</li>
+      </ul>
+      <a href="/contacto" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px">Solicita tu diagnóstico gratuito</a>
     </div>
   </div>
 </section>

@@ -282,6 +282,55 @@
     }
     .final-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
+    /* ── Fichas pricing ── */
+    .fichas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .ficha-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .ficha-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(13,38,38,.1);
+      border-color: var(--teal-400);
+    }
+    .ficha-num {
+      font-family: var(--head-font); font-weight: 800;
+      font-size: .85rem; color: var(--teal-400);
+      letter-spacing: .06em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .ficha-price {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: 2.2rem; color: var(--teal-900);
+      letter-spacing: -.03em; line-height: 1; margin-bottom: 6px;
+    }
+    .ficha-price sup { font-size: 1.1rem; vertical-align: top; margin-top: 6px; }
+    .ficha-price span { font-size: .9rem; font-weight: 600; color: var(--gray-500); }
+    .ficha-note { font-size: .75rem; color: var(--gray-500); }
+    .service-card {
+      max-width: 580px; margin: 0 auto;
+      background: var(--white);
+      border: 1.5px solid var(--teal-400);
+      border-radius: 20px; padding: 36px 32px;
+    }
+    .service-card-desc {
+      font-size: .9rem; color: var(--gray-500); line-height: 1.7;
+      text-align: center; margin-bottom: 28px;
+      padding-bottom: 24px; border-bottom: 1px solid var(--gray-200);
+    }
+    @media (max-width: 700px) {
+      .fichas-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* ── Sticky quick-nav (desktop) ── */
     .sticky-nav {
       position: sticky; top: 66px; z-index: 90;
@@ -424,169 +473,56 @@
       <p class="section-sub">Para negocios en Logroño y La Rioja que quieren aparecer en el Pack Local de Google Maps y atraer clientes de su zona sin pagar publicidad.</p>
     </div>
 
-    <div class="plans-grid">
-
-      <!-- Plan Básico -->
-      <div class="plan-card fade-up">
-        <div class="plan-name">Auditoría SEO Local</div>
-        <div class="plan-price"><sup>€</sup>100<span style="font-size:.9rem;color:var(--gray-500)"> único</span></div>
-        <div class="plan-price-note">Entrega en 5 días hábiles · Pago único</div>
-        <p class="plan-desc">Para negocios que empiezan desde cero o tienen el perfil de Google sin optimizar. Informe PDF con plan de acción priorizado.</p>
-        <ul class="plan-features">
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Optimización Google Business Profile completa
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Elección de categoría principal y secundarias
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Descripción optimizada con keywords locales
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Estrategia básica de reseñas
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            4 publicaciones en GBP al mes
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Informe mensual de posiciones
-          </li>
-          <li class="disabled">
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Optimización web con señales locales
-          </li>
-          <li class="disabled">
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Citas y directorios locales
-          </li>
-          <li class="disabled">
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Artículo de blog mensual SEO
-          </li>
-        </ul>
-        <a href="contacto.html?plan=seo-local-auditoria" class="btn plan-cta-ghost btn">Pedir auditoría local</a>
+    <!-- Precio por número de fichas -->
+    <div class="fichas-grid fade-up">
+      <div class="ficha-card">
+        <div class="ficha-num">1 Ficha</div>
+        <div class="ficha-price"><sup>€</sup>200<span>/mes</span></div>
+        <div class="ficha-note">Sin permanencia</div>
       </div>
-
-      <!-- Plan Estándar (featured) -->
-      <div class="plan-card featured fade-up" style="transition-delay:.08s">
-        <div class="plan-badge">⭐ Más popular</div>
-        <div class="plan-name">GMB Starter</div>
-        <div class="plan-price"><sup>€</sup>200<span>/mes</span></div>
-        <div class="plan-price-note">Sin permanencia · Cancela cuando quieras</div>
-        <p class="plan-desc">El plan más elegido. Combina Maps + web local para dominar los resultados en Logroño tanto en el mapa como en resultados orgánicos.</p>
-        <ul class="plan-features">
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Todo lo de la Auditoría SEO Local
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Optimización web con señales locales
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Citas en 10 directorios locales clave
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Schema markup local implementado
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Estrategia activa de reseñas + respuestas
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            8 publicaciones en GBP al mes
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Informe mensual detallado con posiciones y leads
-          </li>
-          <li class="disabled">
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Artículo de blog mensual SEO
-          </li>
-        </ul>
-        <a href="contacto.html?plan=seo-local-gmb-starter" class="btn btn-primary plan-cta">Empezar con GMB Starter</a>
+      <div class="ficha-card">
+        <div class="ficha-num">2 Fichas</div>
+        <div class="ficha-price"><sup>€</sup>400<span>/mes</span></div>
+        <div class="ficha-note">Sin permanencia</div>
       </div>
-
-      <!-- Plan Premium -->
-      <div class="plan-card fade-up" style="transition-delay:.16s">
-        <div class="plan-name">GMB Pro</div>
-        <div class="plan-price"><sup>€</sup>300<span>/mes</span></div>
-        <div class="plan-price-note">Sin permanencia · Cancela cuando quieras</div>
-        <p class="plan-desc">Para negocios que quieren ser el referente SEO de su sector en La Rioja. Estrategia completa de autoridad local y contenido.</p>
-        <ul class="plan-features">
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Todo lo del plan GMB Starter
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            1 artículo de blog SEO mensual
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Citas en 25+ directorios y plataformas sectoriales
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Análisis de competencia mensual
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Estrategia de link building local
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Reunión mensual de seguimiento (30 min)
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Soporte WhatsApp prioritario
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Dashboard de posiciones en tiempo real
-          </li>
-        </ul>
-        <a href="contacto.html?plan=seo-local-gmb-pro" class="btn plan-cta-ghost btn">Empezar con GMB Pro</a>
+      <div class="ficha-card">
+        <div class="ficha-num">3 Fichas</div>
+        <div class="ficha-price"><sup>€</sup>600<span>/mes</span></div>
+        <div class="ficha-note">Sin permanencia</div>
       </div>
-
+      <div class="ficha-card">
+        <div class="ficha-num">4+ Fichas</div>
+        <div class="ficha-price"><sup>€</sup>800<span>/mes</span></div>
+        <div class="ficha-note">Sin permanencia</div>
+      </div>
     </div>
 
-    <!-- Tabla comparativa -->
-    <div class="compare-wrap fade-up" style="margin-top:56px">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>¿Qué incluye?</th>
-            <th>Auditoría Local<br><span style="font-weight:400;opacity:.7">100€ único</span></th>
-            <th>GMB Starter<br><span style="font-weight:400;opacity:.7">200€/mes</span></th>
-            <th>GMB Pro<br><span style="font-weight:400;opacity:.7">300€/mes</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Optimización GBP completa</td><td class="td-check">✓</td><td class="td-check">✓</td><td class="td-check">✓</td></tr>
-          <tr><td>Publicaciones en GBP</td><td>4/mes</td><td>8/mes</td><td>12/mes</td></tr>
-          <tr><td>Estrategia de reseñas</td><td>Básica</td><td>Activa + respuestas</td><td>Activa + respuestas</td></tr>
-          <tr><td>Optimización web local</td><td class="td-cross">✗</td><td class="td-check">✓</td><td class="td-check">✓</td></tr>
-          <tr><td>Schema markup</td><td class="td-cross">✗</td><td class="td-check">✓</td><td class="td-check">✓</td></tr>
-          <tr><td>Directorios locales</td><td class="td-cross">✗</td><td>10 directorios</td><td>25+ directorios</td></tr>
-          <tr><td>Artículo blog SEO</td><td class="td-cross">✗</td><td class="td-cross">✗</td><td>1/mes</td></tr>
-          <tr><td>Link building local</td><td class="td-cross">✗</td><td class="td-cross">✗</td><td class="td-check">✓</td></tr>
-          <tr><td>Reunión mensual</td><td class="td-cross">✗</td><td class="td-cross">✗</td><td class="td-check">✓</td></tr>
-          <tr><td>Informe mensual</td><td>Básico</td><td>Detallado</td><td>Detallado + dashboard</td></tr>
-          <tr><td>Soporte</td><td>Email</td><td>Email</td><td>WhatsApp prioritario</td></tr>
-        </tbody>
-      </table>
+    <!-- Servicio incluido en todas las fichas -->
+    <div class="service-card fade-up" style="transition-delay:.08s">
+      <p class="service-card-desc">El mismo servicio completo para cada ubicación. El precio sube según el número de fichas de Google Maps que gestionamos.</p>
+      <ul class="plan-features">
+        <li>
+          <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+          Setup completo del perfil de Google Maps (fotos, servicios, información...)
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+          Publicaciones semanales en la ficha
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+          Respuesta a reseñas nuevas antes de 24h
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+          Alta en directorios locales clave
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
+          Informe mensual con posiciones y llamadas generadas
+        </li>
+      </ul>
+      <a href="/contacto" class="btn btn-primary plan-cta" style="margin-top:8px">Solicita tu diagnóstico gratuito</a>
     </div>
   </div>
 </section>
