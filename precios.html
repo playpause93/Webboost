@@ -331,6 +331,47 @@
       .fichas-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
+    /* ── Two-column pricing layout ── */
+    .pricing-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .features-col-title {
+      font-family: var(--head-font); font-weight: 800;
+      font-size: .82rem; color: var(--teal-400);
+      letter-spacing: .1em; text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .pricing-price-col { display: flex; flex-direction: column; gap: 10px; }
+    .price-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--white); border: 1.5px solid var(--gray-200);
+      border-radius: 14px; padding: 18px 24px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .price-row:hover {
+      border-color: var(--teal-400);
+      box-shadow: 0 4px 20px rgba(13,38,38,.08);
+    }
+    .price-row-left { display: flex; flex-direction: column; gap: 2px; }
+    .price-row-name {
+      font-family: var(--head-font); font-weight: 700;
+      font-size: .92rem; color: var(--teal-900);
+    }
+    .price-row-note { font-size: .72rem; color: var(--gray-400); }
+    .price-row-amount {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: 1.5rem; color: var(--teal-900);
+      letter-spacing: -.02em; white-space: nowrap;
+    }
+    .price-row-amount sup { font-size: .8rem; vertical-align: top; margin-top: 4px; }
+    .price-row-amount span { font-size: .78rem; font-weight: 600; color: var(--gray-500); }
+    @media (max-width: 800px) {
+      .pricing-two-col { grid-template-columns: 1fr; gap: 32px; }
+    }
+
     /* ── Sticky quick-nav (desktop) ── */
     .sticky-nav {
       position: sticky; top: 66px; z-index: 90;
@@ -448,7 +489,6 @@
     <div class="pricing-quicknav">
       <a href="#seo-local" class="pnav-btn pnav-active">📍 SEO Local</a>
       <a href="#seo-web" class="pnav-btn pnav-idle">🌐 SEO Web</a>
-      <a href="#auditoria" class="pnav-btn pnav-idle">🔍 Auditoría SEO</a>
       <a href="#faq" class="pnav-btn pnav-idle">❓ FAQ</a>
     </div>
   </div>
@@ -458,7 +498,6 @@
 <div class="sticky-nav" id="stickyNav">
   <a href="#seo-local" class="active">📍 SEO Local</a>
   <a href="#seo-web">🌐 SEO Web</a>
-  <a href="#auditoria">🔍 Auditoría SEO</a>
   <a href="#faq">❓ Preguntas frecuentes</a>
 </div>
 
@@ -473,56 +512,38 @@
       <p class="section-sub">Para negocios en Logroño y La Rioja que quieren aparecer en el Pack Local de Google Maps y atraer clientes de su zona sin pagar publicidad.</p>
     </div>
 
-    <!-- Precio por número de fichas -->
-    <div class="fichas-grid fade-up">
-      <div class="ficha-card">
-        <div class="ficha-num">1 Ficha</div>
-        <div class="ficha-price"><sup>€</sup>200<span>/mes</span></div>
-        <div class="ficha-note">Sin permanencia</div>
+    <div class="pricing-two-col fade-up">
+      <!-- Izquierda: qué incluye -->
+      <div>
+        <div class="features-col-title">Qué incluye cada ficha</div>
+        <ul class="plan-features">
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>Setup completo de la ficha (fotos, productos, servicios, información…)</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>Auditoría para la redacción de contenidos a posicionar</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>1 redacción semanal de post para la ficha de Google Maps</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>Respuesta de reseñas positivas antes de 24h</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>Informe de situación mensual</li>
+        </ul>
       </div>
-      <div class="ficha-card">
-        <div class="ficha-num">2 Fichas</div>
-        <div class="ficha-price"><sup>€</sup>400<span>/mes</span></div>
-        <div class="ficha-note">Sin permanencia</div>
+      <!-- Derecha: precios por ficha -->
+      <div class="pricing-price-col">
+        <div class="price-row">
+          <div class="price-row-left"><div class="price-row-name">1 Ficha</div><div class="price-row-note">Sin permanencia</div></div>
+          <div class="price-row-amount"><sup>€</sup>200<span>/mes</span></div>
+        </div>
+        <div class="price-row">
+          <div class="price-row-left"><div class="price-row-name">2 Fichas</div><div class="price-row-note">Sin permanencia</div></div>
+          <div class="price-row-amount"><sup>€</sup>400<span>/mes</span></div>
+        </div>
+        <div class="price-row">
+          <div class="price-row-left"><div class="price-row-name">3 Fichas</div><div class="price-row-note">Sin permanencia</div></div>
+          <div class="price-row-amount"><sup>€</sup>600<span>/mes</span></div>
+        </div>
+        <div class="price-row">
+          <div class="price-row-left"><div class="price-row-name">4+ Fichas</div><div class="price-row-note">Sin permanencia</div></div>
+          <div class="price-row-amount"><sup>€</sup>800<span>/mes</span></div>
+        </div>
+        <a href="/contacto" class="btn btn-primary" style="justify-content:center;margin-top:8px">Solicita tu diagnóstico gratuito</a>
       </div>
-      <div class="ficha-card">
-        <div class="ficha-num">3 Fichas</div>
-        <div class="ficha-price"><sup>€</sup>600<span>/mes</span></div>
-        <div class="ficha-note">Sin permanencia</div>
-      </div>
-      <div class="ficha-card">
-        <div class="ficha-num">4+ Fichas</div>
-        <div class="ficha-price"><sup>€</sup>800<span>/mes</span></div>
-        <div class="ficha-note">Sin permanencia</div>
-      </div>
-    </div>
-
-    <!-- Servicio incluido en todas las fichas -->
-    <div class="service-card fade-up" style="transition-delay:.08s">
-      <p class="service-card-desc">El mismo servicio completo para cada ubicación. El precio sube según el número de fichas de Google Maps que gestionamos.</p>
-      <ul class="plan-features">
-        <li>
-          <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-          Setup completo de la ficha (fotos, productos, servicios, información…)
-        </li>
-        <li>
-          <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-          Auditoría para la redacción de contenidos a posicionar
-        </li>
-        <li>
-          <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-          1 redacción semanal de post para la ficha de Google Maps
-        </li>
-        <li>
-          <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-          Respuesta de reseñas positivas antes de 24h
-        </li>
-        <li>
-          <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-          Informe de situación mensual
-        </li>
-      </ul>
-      <a href="/contacto" class="btn btn-primary plan-cta" style="margin-top:8px">Solicita tu diagnóstico gratuito</a>
     </div>
   </div>
 </section>
@@ -538,242 +559,34 @@
       <p class="section-sub">Para negocios con web propia que quieren posicionar en los resultados orgánicos de Google más allá del mapa local, con tráfico cualificado de La Rioja.</p>
     </div>
 
-    <div class="plans-grid">
-
-      <!-- Plan Básico -->
-      <div class="plan-card fade-up">
-        <div class="plan-name">Auditoría SEO Web</div>
-        <div class="plan-price"><sup>€</sup>150<span style="font-size:.9rem;color:var(--gray-500)"> único</span></div>
-        <div class="plan-price-note">Entrega en 5 días hábiles · Pago único</div>
-        <p class="plan-desc">Análisis técnico completo de tu web: errores de rastreo, velocidad, on-page y oportunidades de mejora. Informe PDF con plan de acción priorizado.</p>
+    <div class="pricing-two-col fade-up">
+      <!-- Izquierda: qué incluye -->
+      <div>
+        <div class="features-col-title">Qué incluye el servicio</div>
         <ul class="plan-features">
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Auditoría técnica inicial completa
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Optimización on-page (hasta 5 páginas/mes)
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Research de keywords mensual
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Optimización de metaetiquetas
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Configuración Google Search Console + Analytics
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Informe mensual de tráfico y posiciones
-          </li>
-          <li class="disabled">
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Creación de contenido SEO
-          </li>
-          <li class="disabled">
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Link building
-          </li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>Auditoría técnica completa de tu web</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>Optimización mensual de páginas y contenidos</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>Artículos de blog SEO para atraer tráfico cualificado</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>Link building para aumentar la autoridad de tu dominio</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>Informe mensual de tráfico y posiciones en Google</li>
         </ul>
-        <a href="contacto.html?plan=seo-web-auditoria" class="btn plan-cta-ghost btn">Pedir auditoría web</a>
       </div>
-
-      <!-- Plan Estándar (featured) -->
-      <div class="plan-card featured fade-up" style="transition-delay:.08s">
-        <div class="plan-badge">⭐ Más popular</div>
-        <div class="plan-name">SEO Starter</div>
-        <div class="plan-price"><sup>€</sup>350<span>/mes</span></div>
-        <div class="plan-price-note">Sin permanencia · Mínimo 4 meses recomendado</div>
-        <p class="plan-desc">SEO técnico + contenido + link building. El plan completo para negocios que quieren crecer en tráfico orgánico de forma sostenida.</p>
-        <ul class="plan-features">
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Todo lo de la Auditoría SEO Web
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            2 artículos de blog SEO al mes
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Optimización on-page (hasta 10 páginas/mes)
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Link building básico (3 enlaces/mes)
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Optimización Core Web Vitals
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Estrategia de enlazado interno
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Schema markup completo
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Análisis competencia mensual
-          </li>
-        </ul>
-        <a href="contacto.html?plan=seo-web-starter" class="btn btn-primary plan-cta">Empezar con SEO Starter</a>
+      <!-- Derecha: planes y precios -->
+      <div class="pricing-price-col">
+        <div class="price-row">
+          <div class="price-row-left"><div class="price-row-name">Auditoría SEO Web</div><div class="price-row-note">Pago único · Entrega en 5 días</div></div>
+          <div class="price-row-amount"><sup>€</sup>150<span> único</span></div>
+        </div>
+        <div class="price-row">
+          <div class="price-row-left"><div class="price-row-name">SEO Starter</div><div class="price-row-note">Sin permanencia</div></div>
+          <div class="price-row-amount"><sup>€</sup>350<span>/mes</span></div>
+        </div>
+        <div class="price-row">
+          <div class="price-row-left"><div class="price-row-name">SEO Pro</div><div class="price-row-note">Sin permanencia</div></div>
+          <div class="price-row-amount"><sup>€</sup>600<span>/mes</span></div>
+        </div>
+        <a href="/contacto" class="btn btn-primary" style="justify-content:center;margin-top:8px">Solicita presupuesto</a>
       </div>
-
-      <!-- Plan Premium -->
-      <div class="plan-card fade-up" style="transition-delay:.16s">
-        <div class="plan-name">SEO Pro</div>
-        <div class="plan-price"><sup>€</sup>600<span>/mes</span></div>
-        <div class="plan-price-note">Sin permanencia · Mínimo 6 meses recomendado</div>
-        <p class="plan-desc">Para negocios ambiciosos que quieren liderar su sector en Google. Estrategia de contenido y autoridad a máxima velocidad.</p>
-        <ul class="plan-features">
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Todo lo del plan SEO Starter
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            4 artículos de blog SEO al mes
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Link building avanzado (6+ enlaces/mes)
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Páginas de aterrizaje SEO nuevas
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Estrategia de contenido a 6 meses
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Reunión mensual de estrategia (60 min)
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Dashboard de keywords en tiempo real
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Soporte prioritario ilimitado
-          </li>
-        </ul>
-        <a href="contacto.html?plan=seo-web-pro" class="btn plan-cta-ghost btn">Empezar con SEO Pro</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════
-     SECCIÓN 3 — AUDITORÍA SEO
-══════════════════════════════════════════════════════════ -->
-<section class="pricing-section" id="auditoria">
-  <div class="container">
-    <div class="section-header fade-up">
-      <div class="section-tag">🔍 Auditoría SEO · Pago único</div>
-      <h2 class="section-title">Auditoría SEO para negocios en La Rioja</h2>
-      <p class="section-sub">Análisis profesional de tu web y presencia local. Pago único, sin mensualidades. Recibes un informe accionable con todo lo que hay que mejorar y por dónde empezar.</p>
-    </div>
-
-    <div class="audit-grid">
-
-      <!-- Auditoría Local -->
-      <div class="plan-card fade-up">
-        <div class="plan-name">Auditoría Local</div>
-        <div class="plan-price"><sup>€</sup>100<span style="font-size:.9rem;color:var(--gray-500)"> único</span></div>
-        <div class="plan-price-note">Entrega en 5 días hábiles</div>
-        <p class="plan-desc">Análisis completo de tu presencia en Google Maps y Google Business Profile. Ideal antes de empezar con cualquier plan mensual.</p>
-        <ul class="plan-features">
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Análisis del perfil de Google Business Profile
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Análisis de posición en Pack Local
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Análisis de competidores en Maps
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Revisión de reseñas y reputación
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Análisis de citas y NAP consistency
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Informe PDF con prioridades y plan de acción
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Videollamada de 30 min para resolver dudas
-          </li>
-        </ul>
-        <a href="contacto.html?plan=auditoria-local" class="btn plan-cta-ghost btn">Pedir Auditoría Local</a>
-      </div>
-
-      <!-- Auditoría Completa (featured) -->
-      <div class="plan-card featured fade-up" style="transition-delay:.08s">
-        <div class="plan-badge">🔍 Más completa</div>
-        <div class="plan-name">Auditoría Completa</div>
-        <div class="plan-price"><sup>€</sup>250<span style="font-size:.9rem;color:var(--gray-500)"> único</span></div>
-        <div class="plan-price-note">Entrega en 7 días hábiles</div>
-        <p class="plan-desc">Análisis SEO integral: web + Maps + contenido + técnico. El punto de partida perfecto para cualquier estrategia SEO seria.</p>
-        <ul class="plan-features">
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Todo lo de la Auditoría Local
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Auditoría técnica web completa (rastreo, índice, velocidad)
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Análisis de keywords actuales y oportunidades
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Análisis de contenido y estructura del sitio
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Análisis de backlinks y autoridad de dominio
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Revisión de Core Web Vitals
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Análisis de competidores (top 3 en tu sector)
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Informe PDF de 30+ páginas con hoja de ruta 6 meses
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></span>
-            Videollamada de 60 min de presentación y Q&amp;A
-          </li>
-        </ul>
-        <a href="contacto.html?plan=auditoria-completa" class="btn btn-primary plan-cta">Pedir Auditoría Completa</a>
-      </div>
-
     </div>
   </div>
 </section>
@@ -937,7 +750,7 @@
   fadeEls.forEach(el => observer.observe(el));
 
   // Sticky nav active state
-  const sections = ['seo-local','seo-web','auditoria','faq'];
+  const sections = ['seo-local','seo-web','faq'];
   const stickyLinks = document.querySelectorAll('.sticky-nav a');
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
