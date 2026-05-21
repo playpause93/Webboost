@@ -306,6 +306,37 @@
     .sw-plan.featured .sw-plan-features .chk { color: var(--gold); }
     .sw-plan .btn { width: 100%; justify-content: center; }
 
+    /* ── Two-column pricing layout ── */
+    .sw-pricing-two-col {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
+      max-width: 1020px; margin-inline: auto;
+    }
+    .sw-features-col-title {
+      font-family: var(--head-font); font-weight: 800;
+      font-size: .82rem; color: var(--teal-400);
+      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 24px;
+    }
+    .sw-price-col { display: flex; flex-direction: column; gap: 10px; }
+    .sw-price-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--white); border: 1.5px solid var(--gray-200);
+      border-radius: 14px; padding: 18px 24px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .sw-price-row:hover { border-color: var(--teal-400); box-shadow: 0 4px 20px rgba(13,38,38,.08); }
+    .sw-price-row-left { display: flex; flex-direction: column; gap: 2px; }
+    .sw-price-row-name { font-family: var(--head-font); font-weight: 700; font-size: .92rem; color: var(--teal-900); }
+    .sw-price-row-note { font-size: .72rem; color: var(--gray-400); }
+    .sw-price-row-amount {
+      font-family: var(--head-font); font-weight: 900;
+      font-size: 1.5rem; color: var(--teal-900); letter-spacing: -.02em; white-space: nowrap;
+    }
+    .sw-price-row-amount sup { font-size: .8rem; vertical-align: top; margin-top: 4px; }
+    .sw-price-row-amount span { font-size: .78rem; font-weight: 600; color: var(--gray-500); }
+    @media (max-width: 800px) {
+      .sw-pricing-two-col { grid-template-columns: 1fr; gap: 32px; }
+    }
+
     /* ── CTA FINAL ── */
     #sw-cta {
       background: var(--teal-900);
@@ -682,71 +713,34 @@
       <p class="sw-section-sub" style="text-align:center;margin-top:10px;">Sin permanencia. Sin letra pequeña. Resultados medibles desde el primer mes.</p>
     </div>
 
-    <div class="sw-pricing-grid">
-
-      <!-- Auditoría SEO Web -->
-      <div class="sw-plan">
-        <div class="sw-plan-name">Auditoría SEO Web</div>
-        <div class="sw-plan-price">
-          <span class="sw-plan-currency">€</span>
-          <span class="sw-plan-num">150</span>
-        </div>
-        <div class="sw-plan-period">Pago único</div>
-        <div class="sw-plan-divider"></div>
+    <div class="sw-pricing-two-col">
+      <!-- Izquierda: qué incluye -->
+      <div>
+        <div class="sw-features-col-title">Qué incluye el servicio</div>
         <ul class="sw-plan-features">
-          <li><span class="chk">✓</span> Análisis técnico completo de tu web</li>
-          <li><span class="chk">✓</span> Revisión de contenido y estructura</li>
-          <li><span class="chk">✓</span> Análisis de palabras clave actuales</li>
-          <li><span class="chk">✓</span> Estudio de la competencia</li>
-          <li><span class="chk">✓</span> Informe PDF con plan de acción priorizado</li>
-          <li><span class="chk">✓</span> Entrega en 5–7 días laborables</li>
+          <li><span class="chk">✓</span> Auditoría técnica completa de tu web</li>
+          <li><span class="chk">✓</span> Optimización mensual de páginas y contenidos</li>
+          <li><span class="chk">✓</span> Artículos de blog SEO para atraer tráfico cualificado</li>
+          <li><span class="chk">✓</span> Link building para aumentar la autoridad de tu dominio</li>
+          <li><span class="chk">✓</span> Informe mensual de tráfico y posiciones en Google</li>
         </ul>
-        <a href="/contacto" class="btn btn-teal">Solicitar auditoría</a>
       </div>
-
-      <!-- SEO Starter (Más popular) -->
-      <div class="sw-plan featured">
-        <div class="sw-plan-badge">Más popular</div>
-        <div class="sw-plan-name">SEO Starter</div>
-        <div class="sw-plan-price">
-          <span class="sw-plan-currency">€</span>
-          <span class="sw-plan-num">350</span>
+      <!-- Derecha: planes y precios -->
+      <div class="sw-price-col">
+        <div class="sw-price-row">
+          <div class="sw-price-row-left"><div class="sw-price-row-name">Auditoría SEO Web</div><div class="sw-price-row-note">Pago único · Entrega en 5 días</div></div>
+          <div class="sw-price-row-amount"><sup>€</sup>150<span> único</span></div>
         </div>
-        <div class="sw-plan-period">/ mes · sin permanencia</div>
-        <div class="sw-plan-divider"></div>
-        <ul class="sw-plan-features">
-          <li><span class="chk">✓</span> Auditoría técnica inicial incluida</li>
-          <li><span class="chk">✓</span> Optimización on-page mensual</li>
-          <li><span class="chk">✓</span> 2 contenidos SEO al mes</li>
-          <li><span class="chk">✓</span> Link building básico</li>
-          <li><span class="chk">✓</span> Seguimiento de posiciones</li>
-          <li><span class="chk">✓</span> Informe mensual detallado</li>
-          <li><span class="chk">✓</span> Soporte por WhatsApp</li>
-        </ul>
-        <a href="/contacto" class="btn btn-primary">Empezar ahora</a>
-      </div>
-
-      <!-- SEO Pro -->
-      <div class="sw-plan">
-        <div class="sw-plan-name">SEO Pro</div>
-        <div class="sw-plan-price">
-          <span class="sw-plan-currency">€</span>
-          <span class="sw-plan-num">600</span>
+        <div class="sw-price-row">
+          <div class="sw-price-row-left"><div class="sw-price-row-name">SEO Starter</div><div class="sw-price-row-note">Sin permanencia</div></div>
+          <div class="sw-price-row-amount"><sup>€</sup>350<span>/mes</span></div>
         </div>
-        <div class="sw-plan-period">/ mes · sin permanencia</div>
-        <div class="sw-plan-divider"></div>
-        <ul class="sw-plan-features">
-          <li><span class="chk">✓</span> Todo lo de SEO Starter</li>
-          <li><span class="chk">✓</span> 4 contenidos SEO al mes</li>
-          <li><span class="chk">✓</span> Link building avanzado</li>
-          <li><span class="chk">✓</span> Optimización de conversión (CRO)</li>
-          <li><span class="chk">✓</span> Análisis avanzado de competidores</li>
-          <li><span class="chk">✓</span> Llamada mensual de estrategia (45 min)</li>
-          <li><span class="chk">✓</span> Informe ejecutivo personalizado</li>
-        </ul>
-        <a href="/contacto" class="btn btn-teal">Empezar ahora</a>
+        <div class="sw-price-row">
+          <div class="sw-price-row-left"><div class="sw-price-row-name">SEO Pro</div><div class="sw-price-row-note">Sin permanencia</div></div>
+          <div class="sw-price-row-amount"><sup>€</sup>600<span>/mes</span></div>
+        </div>
+        <a href="/contacto" class="btn btn-primary" style="justify-content:center;margin-top:8px">Solicita presupuesto</a>
       </div>
-
     </div>
   </div>
 </section>
