@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Política de Cookies · WebBoost</title>
   <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.webboost.es/cookies" />
   <link rel="icon" type="image/png" href="/bnad_assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,13 +16,18 @@
     .legal-hero-inner { max-width: 780px; margin-inline: auto; padding: 64px 28px 56px; text-align: center; }
     .legal-hero-title { font-family: var(--head-font); font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--white); letter-spacing: -0.025em; margin-bottom: 12px; }
     .legal-content { max-width: 780px; margin-inline: auto; padding: 64px 28px 88px; }
-    .legal-content h2 { font-family: var(--head-font); font-weight: 800; font-size: 1.3rem; color: var(--teal-900); margin-top: 40px; margin-bottom: 12px; }
-    .legal-content p, .legal-content li { font-size: 0.97rem; line-height: 1.85; color: var(--gray-700); margin-bottom: 16px; }
+    .legal-content h2 { font-family: var(--head-font); font-weight: 800; font-size: 1.2rem; color: var(--teal-900); margin-top: 40px; margin-bottom: 12px; border-bottom: 2px solid var(--gray-100); padding-bottom: 8px; }
+    .legal-content p, .legal-content li { font-size: 0.95rem; line-height: 1.85; color: var(--gray-700); margin-bottom: 14px; }
     .legal-content ul { padding-left: 24px; margin-bottom: 20px; }
-    .cookie-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 0.88rem; }
-    .cookie-table th { background: var(--teal-900); color: var(--white); padding: 12px 16px; text-align: left; font-family: var(--head-font); font-weight: 700; }
-    .cookie-table td { padding: 12px 16px; border-bottom: 1px solid var(--gray-200); color: var(--gray-700); }
+    .legal-content strong { color: var(--teal-900); }
+    .cookie-table { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 0.88rem; border-radius: 12px; overflow: hidden; }
+    .cookie-table th { background: var(--teal-900); color: var(--white); padding: 13px 16px; text-align: left; font-family: var(--head-font); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.04em; }
+    .cookie-table td { padding: 13px 16px; border-bottom: 1px solid var(--gray-200); color: var(--gray-700); vertical-align: top; }
     .cookie-table tr:nth-child(even) td { background: var(--off-white); }
+    .cookie-table tr:last-child td { border-bottom: none; }
+    .browser-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
+    .browser-item { background: var(--off-white); border-radius: 8px; padding: 12px 16px; font-size: 0.88rem; color: var(--gray-700); }
+    @media (max-width: 540px) { .browser-list { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -43,41 +49,91 @@
 </section>
 
 <div class="legal-content">
-  <h2>¿Qué son las cookies?</h2>
-  <p>Las cookies son pequeños archivos de texto que los sitios web guardan en tu dispositivo para recordar preferencias y analizar el uso de la web.</p>
 
-  <h2>Cookies que utilizamos</h2>
+  <p>En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información, y del Reglamento (UE) 2016/679 (RGPD), le informamos sobre el uso de cookies en el sitio web <strong>www.webboost.es</strong>.</p>
+
+  <h2>1. ¿Qué son las cookies?</h2>
+  <p>Las cookies son pequeños archivos de texto que los sitios web almacenan en el dispositivo del usuario cuando éste los visita. Permiten recordar información sobre la visita, como el idioma preferido o las páginas vistas, lo que facilita la navegación y hace que el sitio sea más útil.</p>
+
+  <h2>2. Tipos de cookies que utilizamos</h2>
+
   <table class="cookie-table">
     <thead>
-      <tr><th>Cookie</th><th>Proveedor</th><th>Finalidad</th><th>Duración</th></tr>
+      <tr>
+        <th>Cookie</th>
+        <th>Proveedor</th>
+        <th>Tipo</th>
+        <th>Finalidad</th>
+        <th>Duración</th>
+      </tr>
     </thead>
     <tbody>
-      <tr><td>_ga</td><td>Google Analytics</td><td>Distinguir usuarios únicos</td><td>2 años</td></tr>
-      <tr><td>_ga_*</td><td>Google Analytics</td><td>Mantener el estado de sesión</td><td>2 años</td></tr>
-      <tr><td>_gtm</td><td>Google Tag Manager</td><td>Gestión de etiquetas</td><td>Sesión</td></tr>
+      <tr>
+        <td><strong>_ga</strong></td>
+        <td>Google Analytics</td>
+        <td>Analítica</td>
+        <td>Distingue usuarios únicos mediante un número identificador generado aleatoriamente.</td>
+        <td>2 años</td>
+      </tr>
+      <tr>
+        <td><strong>_ga_*</strong></td>
+        <td>Google Analytics</td>
+        <td>Analítica</td>
+        <td>Mantiene el estado de la sesión y registra las páginas vistas.</td>
+        <td>2 años</td>
+      </tr>
+      <tr>
+        <td><strong>_gtm*</strong></td>
+        <td>Google Tag Manager</td>
+        <td>Técnica</td>
+        <td>Gestiona las etiquetas de seguimiento sin modificar el código del sitio.</td>
+        <td>Sesión</td>
+      </tr>
     </tbody>
   </table>
 
-  <h2>Cómo desactivar las cookies</h2>
-  <p>Puedes configurar tu navegador para rechazar todas las cookies o para que te avise cuando se envía una. Ten en cuenta que algunas partes del sitio pueden no funcionar correctamente sin cookies.</p>
+  <h2>3. Clasificación por finalidad</h2>
   <ul>
-    <li><strong>Chrome:</strong> Configuración → Privacidad y seguridad → Cookies</li>
-    <li><strong>Firefox:</strong> Opciones → Privacidad y seguridad</li>
-    <li><strong>Safari:</strong> Preferencias → Privacidad</li>
+    <li><strong>Cookies técnicas o necesarias:</strong> imprescindibles para el funcionamiento básico del sitio web. No requieren consentimiento del usuario.</li>
+    <li><strong>Cookies analíticas:</strong> permiten conocer el comportamiento de los usuarios en el sitio de forma agregada y anónima. Se utilizan para mejorar el funcionamiento del sitio web.</li>
+  </ul>
+  <p>Este sitio web <strong>no utiliza cookies publicitarias</strong> ni de perfilado para mostrar anuncios personalizados.</p>
+
+  <h2>4. Cómo gestionar y desactivar las cookies</h2>
+  <p>Puede permitir, bloquear o eliminar las cookies instaladas en su dispositivo mediante la configuración de su navegador. A continuación le indicamos cómo hacerlo en los principales navegadores:</p>
+
+  <div class="browser-list">
+    <div class="browser-item"><strong>Google Chrome</strong><br>Configuración → Privacidad y seguridad → Cookies y otros datos de sitios</div>
+    <div class="browser-item"><strong>Mozilla Firefox</strong><br>Opciones → Privacidad y seguridad → Cookies y datos del sitio</div>
+    <div class="browser-item"><strong>Safari</strong><br>Preferencias → Privacidad → Gestionar datos del sitio web</div>
+    <div class="browser-item"><strong>Microsoft Edge</strong><br>Configuración → Privacidad, búsqueda y servicios → Cookies</div>
+  </div>
+
+  <p>Tenga en cuenta que la desactivación de cookies puede afectar al correcto funcionamiento de algunas funciones del sitio web.</p>
+
+  <h2>5. Cookies de terceros</h2>
+  <p>Algunas cookies son instaladas por servicios de terceros. Para más información sobre cómo gestionan los datos estos proveedores, puede consultar sus respectivas políticas de privacidad:</p>
+  <ul>
+    <li><strong>Google Analytics:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+    <li><strong>Google Tag Manager:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
   </ul>
 
-  <h2>Más información</h2>
-  <p>Para cualquier duda sobre el uso de cookies, escríbenos a <a href="mailto:sergiowebboost@gmail.com">sergiowebboost@gmail.com</a>.</p>
+  <h2>6. Actualizaciones de esta política</h2>
+  <p>Esta política de cookies puede ser actualizada en función de cambios legislativos o de los servicios utilizados. Le recomendamos revisarla periódicamente. La fecha de última actualización figura en la parte superior de este documento.</p>
+
+  <h2>7. Contacto</h2>
+  <p>Para cualquier consulta relacionada con el uso de cookies en este sitio web, puede contactar con el responsable a través de: <a href="mailto:sergiowebboost@gmail.com">sergiowebboost@gmail.com</a>.</p>
+
 </div>
 
-<footer>
+<footer style="background:#0A2020;border-top:1px solid rgba(255,255,255,0.05);padding:32px 0;">
   <div class="container">
-    <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,0.05);padding-top:24px;display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-size:0.82rem;color:rgba(255,255,255,0.3);">© 2026 WebBoost · Sergio · Consultor SEO en Logroño</span>
-      <div style="display:flex;gap:16px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <span style="font-size:0.82rem;color:rgba(255,255,255,0.3);">© 2026 WebBoost · Sergio de la Torre Palacio · Consultor SEO en Logroño</span>
+      <div style="display:flex;gap:20px;">
         <a href="/privacidad" style="color:rgba(255,255,255,0.35);text-decoration:none;font-size:0.82rem;">Privacidad</a>
         <a href="/aviso-legal" style="color:rgba(255,255,255,0.35);text-decoration:none;font-size:0.82rem;">Aviso legal</a>
-        <a href="/cookies" style="color:rgba(255,255,255,0.35);text-decoration:none;font-size:0.82rem;">Cookies</a>
+        <a href="/cookies" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.82rem;font-weight:600;">Cookies</a>
       </div>
     </div>
   </div>
