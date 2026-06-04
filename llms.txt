@@ -1,24 +1,38 @@
 # WebBoost
 
-> Sergio es consultor SEO independiente especializado en posicionamiento local y Google Maps para negocios en Logroño y La Rioja (España). Caso real documentado: Ironwood Soluciones pasó del puesto #78 al #2 de 146 competidores en Google Maps en 90 días, con un incremento de tráfico orgánico del +312%.
+> Sergio es consultor SEO independiente especializado en posicionamiento local y Google Maps para negocios en Logroño y La Rioja (España). Caso real documentado: Ironwood Soluciones pasó de ser invisible en Google Maps a GeoRank #1 entre 91 competidores en 90 días, con 100% de cobertura en el área y 56 reseñas con 4.9 estrellas.
 
 ## Servicios
 
-- [SEO Local](https://webboost.es/seo-local.html): Posicionamiento en Google Maps, optimización de Google Business Profile y estrategia de Local Pack para negocios en Logroño y La Rioja.
-- [SEO Web](https://webboost.es/seo-web.html): SEO técnico, on-page y de contenidos para mejorar el posicionamiento orgánico en Google.
+- [SEO Local](https://www.webboost.es/seo-local): Posicionamiento en Google Maps, optimización de Google Business Profile y estrategia de Local Pack para negocios en Logroño y La Rioja.
+- [SEO Web](https://www.webboost.es/seo-web): SEO técnico, on-page y de contenidos para mejorar el posicionamiento orgánico en Google.
+- [Precios SEO](https://www.webboost.es/precios): Tarifas de consultoría SEO local en Logroño sin permanencia.
 
 ## Caso de estudio
 
-- [Ironwood Soluciones](https://webboost.es/caso-de-estudio.html): De posición #78 a #2/146 en Google Maps en 90 días. Tráfico orgánico +312%. Metodología detallada disponible.
+- [Ironwood Soluciones](https://www.webboost.es/caso-de-estudio): De invisible a GeoRank #1/91 en Google Maps en 90 días. 100% de cobertura en 81 puntos del área. 56 reseñas con 4.9★. Datos verificados con Collac.io (mayo 2026). Metodología detallada disponible.
 
 ## Sobre el consultor
 
-- [Sobre Sergio](https://webboost.es/sobre-mi.html): Consultor SEO con foco exclusivo en negocios locales de La Rioja. Trabaja con un número limitado de clientes para garantizar resultados.
+- [Sobre Sergio](https://www.webboost.es/sobre-mi): Consultor SEO con foco exclusivo en negocios locales de La Rioja. Trabaja con un número limitado de clientes para garantizar resultados.
 
 ## Contacto
 
-- [Diagnóstico gratuito](https://webboost.es/contacto.html): Consulta inicial sin compromiso. Respuesta en menos de 24 horas.
+- [Diagnóstico gratuito](https://www.webboost.es/contacto): Consulta inicial sin compromiso. Respuesta en menos de 24 horas.
 
-## Opcional
+## Guías SEO — Google Maps y Google Business Profile
 
-- [Blog SEO](https://webboost.es/blog.html): Artículos sobre posicionamiento local, Google Maps y SEO para negocios en La Rioja.
+- [Qué es el SEO Local](https://www.webboost.es/blog/que-es-el-seo-local): El SEO local explicado sin tecnicismos: qué es, cómo funciona y por qué es la estrategia más rentable para negocios en Logroño y La Rioja.
+- [Cómo aparecer en Google Maps](https://www.webboost.es/blog/como-aparecer-en-google-maps): Guía paso a paso para aparecer en el Pack Local de Google Maps. Verificación, categoría, reseñas y publicaciones.
+- [Cómo crear tu Ficha de Google Business](https://www.webboost.es/blog/ficha-de-google): Guía completa para crear y optimizar tu perfil de Google Business Profile en 2026.
+- [Dar de alta en Google Maps](https://www.webboost.es/blog/alta-en-google-maps): Proceso completo para registrar tu negocio en Google Maps desde cero.
+- [Cuánto tarda el SEO en dar resultados](https://www.webboost.es/blog/cuanto-tarda-el-seo): Plazos reales del SEO: qué esperar los primeros 6 meses y cómo saber si la estrategia funciona.
+- [Cuánto cuesta el posicionamiento SEO](https://www.webboost.es/blog/cuanto-cuesta-el-posicionamiento-seo): Precios reales del SEO en España: qué incluye cada tarifa y cómo saber si es razonable.
+
+## SEO por sector en Logroño y La Rioja
+
+- [SEO para Restaurantes en Logroño](https://www.webboost.es/blog/seo-para-restaurantes-logrono): Cómo aparecer en Google Maps y llenar el local sin pagar publicidad. Estrategia específica para restaurantes.
+- [SEO para Fontaneros en Logroño](https://www.webboost.es/blog/seo-para-fontaneros-logrono): Cómo conseguir llamadas desde Google Maps cuando alguien busca un fontanero urgente en Logroño.
+- [SEO para Hoteles en Logroño](https://www.webboost.es/blog/seo-para-hoteles-logrono): Cómo reducir la dependencia de Booking y captar reservas directas con SEO local.
+- [SEO para Dentistas en Logroño](https://www.webboost.es/blog/seo-para-dentistas-logrono): Cómo posicionar una clínica dental en Google Maps y conseguir más pacientes desde Google.
+- [SEO para Bodegas en La Rioja](https://www.webboost.es/blog/seo-para-bodegas-la-rioja): Cómo atraer enoturistas y visitas de cata con posicionamiento en Google Maps para bodegas riojanas.
