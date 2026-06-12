@@ -791,8 +791,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
       cat.classList.remove('blog-cat-idle');
       cat.classList.add('blog-cat-active');
+      filterCards();
     });
   });
+
+  /* Search + category filter */
+  function filterCards() {
+    const query = document.querySelector('.blog-search').value.trim().toLowerCase();
+    const activecat = document.querySelector('.blog-cat-active');
+    const catLabel = activecat ? activecat.textContent.trim().toLowerCase() : 'todos';
+
+    document.querySelectorAll('.blog-card').forEach(card => {
+      const text = card.textContent.toLowerCase();
+      const matchesQuery = !query || text.includes(query);
+      const matchesCat = catLabel === 'todos' || text.includes(catLabel);
+      card.style.display = (matchesQuery && matchesCat) ? '' : 'none';
+    });
+
+    const anyVisible = [...document.querySelectorAll('.blog-card')].some(c => c.style.display !== 'none');
+    let noResults = document.getElementById('no-results-msg');
+    if (!anyVisible) {
+      if (!noResults) {
+        noResults = document.createElement('p');
+        noResults.id = 'no-results-msg';
+        noResults.style.cssText = 'text-align:center;color:var(--gray-500);padding:40px 0;grid-column:1/-1;';
+        noResults.textContent = 'No se encontraron artículos para tu búsqueda.';
+        document.querySelector('.blog-posts-grid').appendChild(noResults);
+      }
+    } else if (noResults) {
+      noResults.remove();
+    }
+  }
+
+  const searchInput = document.querySelector('.blog-search');
+  searchInput.addEventListener('input', filterCards);
+  searchInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') filterCards(); });
 
   /* Newsletter shared */
   async function subscribeEmail(email, formId, btnId, noteId) {
