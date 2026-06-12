@@ -37,7 +37,7 @@ export default async function handler(req, res) {
     }
 
     if (contactRes.status !== 201 && contactRes.status !== 204) {
-      return res.status(500).json({ error: 'Error al añadir contacto' });
+      return res.status(500).json({ error: 'Error al añadir contacto', brevo_status: contactRes.status, brevo_detail: contactData });
     }
 
     // Email de bienvenida
