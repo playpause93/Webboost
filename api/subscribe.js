@@ -40,8 +40,9 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Error al añadir contacto', brevo_status: contactRes.status, brevo_detail: contactData });
     }
 
-    // Email de bienvenida
-    await fetch('https://api.brevo.com/v3/smtp/email', {
+    // Email de bienvenida (fallo no bloquea la suscripción)
+    try {
+      await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
         'accept': 'application/json',
@@ -89,7 +90,8 @@ export default async function handler(req, res) {
           </div>
         `
       }),
-    });
+      });
+    } catch (_) {}
 
     return res.status(200).json({ success: true });
 
