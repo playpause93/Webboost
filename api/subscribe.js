@@ -49,7 +49,7 @@ export default async function handler(req, res) {
         'api-key': process.env.BREVO_API_KEY,
       },
       body: JSON.stringify({
-        sender: { name: 'Sergio · WebBoost', email: 'info@webboost.es' },
+        sender: { name: 'Sergio · WebBoost', email: 'sergiowebboost@gmail.com' },
         to: [{ email }],
         subject: '¡Bienvenido a la newsletter de WebBoost!',
         htmlContent: `
