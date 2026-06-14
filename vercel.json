@@ -7,26 +7,6 @@
       "has": [{ "type": "host", "value": "webboost.es" }],
       "destination": "https://www.webboost.es/$1",
       "permanent": true
-    },
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/seo-local.html", "destination": "/seo-local", "permanent": true },
-    { "source": "/seo-web.html", "destination": "/seo-web", "permanent": true },
-    { "source": "/precios.html", "destination": "/precios", "permanent": true },
-    { "source": "/caso-de-estudio.html", "destination": "/caso-de-estudio", "permanent": true },
-    { "source": "/sobre-mi.html", "destination": "/sobre-mi", "permanent": true },
-    { "source": "/contacto.html", "destination": "/contacto", "permanent": true },
-    { "source": "/blog.html", "destination": "/blog", "permanent": true },
-    { "source": "/blog/ficha-de-google.html", "destination": "/blog/ficha-de-google", "permanent": true },
-    { "source": "/blog/como-aparecer-en-google-maps.html", "destination": "/blog/como-aparecer-en-google-maps", "permanent": true },
-    { "source": "/blog/alta-en-google-maps.html", "destination": "/blog/alta-en-google-maps", "permanent": true },
-    { "source": "/blog/cuanto-cuesta-el-posicionamiento-seo.html", "destination": "/blog/cuanto-cuesta-el-posicionamiento-seo", "permanent": true },
-    { "source": "/blog/cuanto-tarda-el-seo.html", "destination": "/blog/cuanto-tarda-el-seo", "permanent": true },
-    { "source": "/blog/que-es-el-seo-local.html", "destination": "/blog/que-es-el-seo-local", "permanent": true },
-    { "source": "/blog/seo-para-restaurantes-logrono.html", "destination": "/blog/seo-para-restaurantes-logrono", "permanent": true },
-    { "source": "/blog/seo-para-bodegas-la-rioja.html", "destination": "/blog/seo-para-bodegas-la-rioja", "permanent": true },
-    { "source": "/blog/seo-para-dentistas-logrono.html", "destination": "/blog/seo-para-dentistas-logrono", "permanent": true },
-    { "source": "/blog/seo-para-hoteles-logrono.html", "destination": "/blog/seo-para-hoteles-logrono", "permanent": true },
-    { "source": "/blog/seo-para-fontaneros-logrono.html", "destination": "/blog/seo-para-fontaneros-logrono", "permanent": true },
-    { "source": "/blog/que-es-google-business.html", "destination": "/blog/que-es-google-business", "permanent": true }
+    }
   ]
 }
