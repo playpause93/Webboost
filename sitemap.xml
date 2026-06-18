@@ -83,6 +83,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://www.webboost.es/blog/seo-local-logrono</loc>
+    <lastmod>2026-06-17</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.webboost.es/blog/que-es-el-seo-local</loc>
     <lastmod>2026-04-17</lastmod>
     <priority>0.7</priority>
