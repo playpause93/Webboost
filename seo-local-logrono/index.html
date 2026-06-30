@@ -36,255 +36,511 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
+      --void:   #060a0a;
       --dark:   #0D2626;
+      --dark2:  #0a1e1e;
       --gold:   #C9A035;
-      --bg:     #F7F6F3;
+      --gold2:  #f0d070;
       --white:  #FFFFFF;
       --text:   #1A1A1A;
       --muted:  #5C5C5C;
       --border: #E5E2DC;
+      --bg:     #F7F6F3;
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.7; color: var(--text); background: var(--bg); }
-
-    .container { max-width: 1100px; margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 2.5rem); }
-    .section-pad { padding-block: clamp(4rem, 8vw, 7rem); }
-
-    .eyebrow { font-size: 0.875rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
-    h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; line-height: 1.15; }
-    h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; line-height: 1.25; }
-
-    .btn-primary {
-      background: var(--gold); color: var(--dark); font-weight: 700;
-      padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none;
-      display: inline-block; transition: filter 0.2s; border: none; cursor: pointer;
-      font-size: 1rem; font-family: 'Inter', sans-serif;
+    body {
+      font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.7;
+      color: var(--white); background: var(--void); overflow-x: hidden;
     }
-    .btn-primary:hover { filter: brightness(1.08); }
-    .btn-secondary {
-      border: 2px solid var(--dark); color: var(--dark); font-weight: 600;
-      padding: 0.85rem 2rem; border-radius: 4px; text-decoration: none; display: inline-block;
-      transition: background 0.2s; background: transparent; font-size: 1rem;
-    }
-    .btn-secondary:hover { background: rgba(13,38,38,0.06); }
-    .btn-outline-white {
-      border: 2px solid rgba(255,255,255,0.6); color: #fff; font-weight: 600;
-      padding: 0.85rem 2rem; border-radius: 4px; text-decoration: none; display: inline-block;
-      transition: background 0.2s; background: transparent;
-    }
-    .btn-outline-white:hover { background: rgba(255,255,255,0.1); }
 
-    /* NAV */
+    /* LAYOUT */
+    .wrap { max-width: 1200px; margin-inline: auto; padding-inline: clamp(1.5rem, 5vw, 3rem); }
+    .section-pad { padding-block: clamp(5rem, 9vw, 8rem); }
+
+    /* PANELS — GTA VI style full-width rounded cards */
+    .panel {
+      margin-inline: clamp(0.75rem, 2vw, 1.5rem);
+      margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* REVEAL ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1); }
+    .reveal.v { opacity: 1; transform: translateY(0); }
+    .reveal-l { opacity: 0; transform: translateX(-50px); transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1); }
+    .reveal-l.v { opacity: 1; transform: translateX(0); }
+    .reveal-r { opacity: 0; transform: translateX(50px); transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1); }
+    .reveal-r.v { opacity: 1; transform: translateX(0); }
+
+    /* EYEBROW */
+    .eyebrow {
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;
+    }
+    .eyebrow::before { content: ''; width: 28px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold2)); border-radius: 2px; }
+
+    /* BUTTONS */
+    .btn-gold {
+      background: linear-gradient(120deg, #b8891e 0%, #C9A035 35%, #f0d070 65%, #C9A035 100%);
+      background-size: 250% auto;
+      color: var(--dark); font-weight: 800; font-size: 1rem;
+      padding: 1rem 2.5rem; border-radius: 100px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.6rem; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background-position 0.5s, box-shadow 0.3s, transform 0.2s;
+      box-shadow: 0 6px 32px rgba(201,160,53,0.4);
+    }
+    .btn-gold:hover { background-position: right center; box-shadow: 0 8px 48px rgba(201,160,53,0.65); transform: translateY(-3px) scale(1.02); }
+    .btn-ghost {
+      background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.25);
+      color: #fff; font-weight: 700; font-size: 0.95rem;
+      padding: 0.95rem 2.25rem; border-radius: 100px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: border-color 0.3s, background 0.3s, transform 0.2s; backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,160,53,0.08); transform: translateY(-2px); }
+    .btn-dark {
+      background: var(--dark); color: var(--gold); font-weight: 800; font-size: 0.9rem;
+      padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      border: 1.5px solid rgba(201,160,53,0.3);
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    }
+    .btn-dark:hover { background: #0f3030; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(201,160,53,0.2); }
+
+    /* ====== NAV ====== */
     .nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--white); border-bottom: 1px solid var(--border);
-      padding: 1rem 0;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      padding: 1rem clamp(1.5rem, 4vw, 3rem);
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s, backdrop-filter 0.4s;
     }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .nav-logo { text-decoration: none; display: flex; align-items: center; gap: 0.6rem; }
-    .nav-logo-text { font-size: 1.2rem; font-weight: 800; color: var(--dark); }
-    .nav-logo-text span { color: var(--gold); }
+    .nav.scrolled { background: rgba(6,10,10,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(201,160,53,0.12); }
+    .nav-logo { font-size: 1.3rem; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo span { color: var(--gold); }
 
-    /* HERO */
-    .hero { background: var(--dark); color: #fff; padding-block: clamp(5rem, 10vw, 8rem); }
-    .hero-inner { max-width: 760px; }
-    .hero h1 { color: #fff; margin-bottom: 1.25rem; }
-    .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.75); max-width: 560px; margin-bottom: 2rem; line-height: 1.7; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
-    .trust-micro { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .trust-micro span { font-size: 0.85rem; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 0.35rem; }
-    .trust-micro span::before { content: '✓'; color: var(--gold); font-weight: 700; }
-
-    /* TRUST BAR */
-    .trust-bar { background: var(--gold); padding-block: 2.5rem; }
-    .trust-bar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
-    .trust-stat-num { font-size: 2.5rem; font-weight: 800; color: var(--dark); line-height: 1; }
-    .trust-stat-label { font-size: 0.8rem; font-weight: 500; opacity: 0.75; color: var(--dark); margin-top: 0.25rem; }
-
-    /* DOLOR */
-    .dolor { background: var(--white); }
-    .dolor-intro { max-width: 600px; margin-bottom: 2.5rem; }
-    .dolor-intro h2 { margin-bottom: 0.75rem; }
-    .dolor-intro p { color: var(--muted); }
-    .dolor-list { list-style: none; max-width: 700px; }
-    .dolor-list li {
-      display: flex; gap: 1rem; padding: 1rem 0;
-      border-bottom: 1px solid var(--border); align-items: flex-start;
+    /* ====== HERO ====== */
+    .hero-wrap {
+      min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+      background: radial-gradient(ellipse 120% 80% at 60% 40%, #0f3535 0%, #061212 40%, var(--void) 80%);
     }
-    .dolor-list li:first-child { border-top: 1px solid var(--border); }
-    .dolor-x { color: #C0392B; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
-    .dolor-cta { margin-top: 2rem; }
-    .dolor-cta a { color: var(--dark); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 1px; }
-
-    /* SERVICIOS */
-    .servicios { background: var(--bg); }
-    .servicios-intro { max-width: 600px; margin-bottom: 3rem; }
-    .servicios-intro h2 { margin-bottom: 0.75rem; }
-    .servicios-intro p { color: var(--muted); }
-    .servicios-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    .servicio-card {
-      background: var(--white); border-radius: 6px; padding: 1.5rem;
-      border-left: 3px solid var(--gold);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    /* Animated noise / grain */
+    .hero-wrap::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      opacity: 0.6;
     }
-    .servicio-card-title { font-weight: 700; margin-bottom: 0.4rem; color: var(--dark); display: flex; align-items: center; gap: 0.5rem; }
-    .servicio-card-title .icon { font-size: 1.1rem; }
-    .servicio-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin: 0; }
-
-    /* IRONWOOD */
-    .ironwood { background: var(--dark); color: #fff; }
-    .ironwood-intro { max-width: 700px; margin-bottom: 3rem; }
-    .ironwood-intro h2 { color: #fff; margin-bottom: 0.5rem; }
-    .antes-despues {
-      display: grid; grid-template-columns: 1fr 1fr;
-      border-radius: 6px; overflow: hidden; margin-bottom: 2.5rem;
-      border: 1px solid rgba(255,255,255,0.1);
+    /* Animated gradient orbs */
+    .orb { position: absolute; border-radius: 50%; pointer-events: none; will-change: transform; }
+    .orb-1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(201,160,53,0.18) 0%, transparent 65%);
+      top: -200px; right: -150px;
+      animation: floatA 10s ease-in-out infinite;
     }
-    .antes { background: #1a3a3a; padding: 2rem; }
-    .despues { background: var(--gold); padding: 2rem; }
-    .ad-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem; }
-    .antes .ad-label { color: rgba(255,255,255,0.4); }
-    .despues .ad-label { color: var(--dark); }
-    .ad-item { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.25rem; }
-    .ad-item:last-child { margin-bottom: 0; }
-    .ad-icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
-    .antes .ad-text { color: rgba(255,255,255,0.55); font-size: 0.95rem; line-height: 1.5; }
-    .despues .ad-text { color: var(--dark); font-size: 0.95rem; font-weight: 600; line-height: 1.5; }
-    .ironwood-quote {
-      border-left: 3px solid var(--gold); padding-left: 1.5rem;
-      margin-bottom: 1.5rem; max-width: 680px;
+    .orb-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(13,120,100,0.22) 0%, transparent 65%);
+      bottom: -100px; left: -100px;
+      animation: floatB 13s ease-in-out infinite;
     }
-    .ironwood-quote p { font-size: 1.05rem; color: rgba(255,255,255,0.85); font-style: italic; line-height: 1.7; }
-    .ironwood-dato { font-size: 0.82rem; color: var(--gold); font-weight: 600; letter-spacing: 0.05em; margin-bottom: 2rem; }
-
-    /* PROCESO */
-    .proceso { background: var(--bg); }
-    .proceso-intro { max-width: 600px; margin-bottom: 3rem; }
-    .proceso-intro h2 { margin-bottom: 0.75rem; }
-    .proceso-intro p { color: var(--muted); }
-    .proceso-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; position: relative; }
-    .proceso-grid::before {
-      content: ''; position: absolute; top: 1.5rem; left: 12.5%; right: 12.5%;
-      height: 1px; border-top: 2px dashed rgba(201,160,53,0.3); pointer-events: none;
+    .orb-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(201,160,53,0.12) 0%, transparent 65%);
+      top: 40%; left: 40%;
+      animation: floatA 17s ease-in-out infinite reverse;
     }
-    .paso { text-align: center; padding: 1.5rem 1rem; }
-    .paso-num { font-size: 3rem; font-weight: 800; color: var(--gold); opacity: 0.25; line-height: 1; margin-bottom: 0.75rem; }
-    .paso-title { font-weight: 700; margin-bottom: 0.5rem; color: var(--dark); }
-    .paso p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+    @keyframes floatA { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-40px,-50px) scale(1.1); } }
+    @keyframes floatB { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(50px,40px) scale(1.08); } }
 
-    /* PRECIO */
-    .precio { background: var(--white); }
-    .precio-inner { display: flex; flex-direction: column; align-items: center; }
-    .precio-intro { text-align: center; max-width: 560px; margin-bottom: 2.5rem; }
-    .precio-intro h2 { margin-bottom: 0.75rem; }
-    .precio-intro p { color: var(--muted); }
+    /* Hero grid lines */
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(201,160,53,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,160,53,0.05) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 20%, transparent 75%);
+    }
+
+    .hero-content { position: relative; z-index: 2; padding-block: clamp(8rem, 15vw, 12rem) clamp(5rem, 8vw, 7rem); }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: rgba(201,160,53,0.1); border: 1px solid rgba(201,160,53,0.25);
+      color: var(--gold2); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-bottom: 2rem;
+    }
+    .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(0.8); } }
+
+    .hero-h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 900; line-height: 0.95;
+      letter-spacing: -0.04em; margin-bottom: 2rem; max-width: 900px;
+    }
+    .hero-h1 .line2 {
+      background: linear-gradient(120deg, #C9A035, #f0d070, #C9A035, #e8c050);
+      background-size: 300% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      animation: textShimmer 5s linear infinite;
+      display: block;
+    }
+    @keyframes textShimmer { 0% { background-position: 0% center; } 100% { background-position: 300% center; } }
+
+    .hero-sub { font-size: clamp(1rem, 1.8vw, 1.2rem); color: rgba(255,255,255,0.55); max-width: 520px; margin-bottom: 3rem; line-height: 1.75; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
+    .hero-trust { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .hero-trust span { font-size: 0.8rem; color: rgba(255,255,255,0.35); display: flex; align-items: center; gap: 0.5rem; }
+    .hero-trust span::before { content: '✓'; color: var(--gold); font-weight: 900; }
+
+    /* ====== STATS PANEL ====== */
+    .stats-panel {
+      background: linear-gradient(120deg, #b0800c, #C9A035, #e8c050, #C9A035, #a07020);
+      background-size: 300% auto; animation: shimmerBg 5s linear infinite;
+    }
+    @keyframes shimmerBg { 0% { background-position: 0% center; } 100% { background-position: 300% center; } }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .stat-item {
+      text-align: center; padding: 3rem 1.5rem;
+      position: relative;
+    }
+    .stat-item + .stat-item::before { content: ''; position: absolute; left: 0; top: 20%; bottom: 20%; width: 1px; background: rgba(13,38,38,0.15); }
+    .stat-num { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: var(--dark); line-height: 1; letter-spacing: -0.04em; }
+    .stat-lbl { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(13,38,38,0.55); margin-top: 0.5rem; }
+
+    /* ====== DOLOR PANEL ====== */
+    .dolor-panel { background: var(--white); color: var(--text); }
+    .dolor-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .dolor-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; letter-spacing: -0.03em; color: var(--dark); line-height: 1.15; margin-bottom: 1rem; }
+    .dolor-head p { color: var(--muted); font-size: 1.05rem; margin-bottom: 2rem; }
+    .dolor-list { list-style: none; }
+    .dolor-item {
+      display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      transition: padding-left 0.25s;
+    }
+    .dolor-item:first-child { border-top: 1px solid rgba(0,0,0,0.07); }
+    .dolor-item:hover { padding-left: 0.5rem; }
+    .dolor-icon {
+      width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+      background: rgba(192,57,43,0.1); color: #c0392b; font-size: 0.8rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center; margin-top: 0.15rem;
+    }
+    .dolor-text { font-size: 0.95rem; color: var(--muted); line-height: 1.6; }
+    .dolor-cta-link { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 700; color: var(--dark); text-decoration: none; margin-top: 2rem; padding-bottom: 2px; border-bottom: 2px solid var(--gold); transition: gap 0.2s; }
+    .dolor-cta-link:hover { gap: 0.9rem; }
+
+    /* Big number decoration */
+    .dolor-deco {
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(160deg, var(--dark), #0f3535);
+      border-radius: 20px; padding: 3rem; position: relative; overflow: hidden;
+    }
+    .dolor-deco::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(201,160,53,0.15) 0%, transparent 65%);
+    }
+    .dolor-deco-inner { text-align: center; position: relative; z-index: 1; }
+    .dolor-deco-num { font-size: clamp(5rem, 12vw, 9rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.85; background: linear-gradient(135deg, #C9A035, #f0d070); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .dolor-deco-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 1rem; }
+    .dolor-deco-sub { font-size: 1.1rem; font-weight: 700; color: rgba(255,255,255,0.7); margin-top: 0.25rem; }
+
+    /* ====== SERVICIOS PANEL ====== */
+    .servicios-panel {
+      background: linear-gradient(150deg, #080e0e 0%, #0d2020 50%, #060c0c 100%);
+      position: relative; overflow: hidden;
+    }
+    .servicios-panel::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 85% 30%, rgba(201,160,53,0.1) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 15% 70%, rgba(13,120,100,0.12) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .servicios-head { max-width: 600px; margin-bottom: 4rem; position: relative; z-index: 1; }
+    .servicios-head h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.75rem; }
+    .servicios-head p { color: rgba(255,255,255,0.4); font-size: 1.05rem; }
+    .servicios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.04); border-radius: 16px; overflow: hidden; position: relative; z-index: 1; }
+    .svc-card {
+      padding: 2.5rem 2rem; background: rgba(255,255,255,0.02);
+      transition: background 0.3s; cursor: default; position: relative; overflow: hidden;
+    }
+    .svc-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(201,160,53,0.12) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .svc-card:hover { background: rgba(201,160,53,0.06); }
+    .svc-card:hover::after { opacity: 1; }
+    .svc-icon { font-size: 2.25rem; margin-bottom: 1.25rem; display: block; }
+    .svc-title { font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: 0.6rem; letter-spacing: -0.01em; }
+    .svc-desc { font-size: 0.85rem; color: rgba(255,255,255,0.38); line-height: 1.7; }
+
+    /* ====== IRONWOOD PANEL ====== */
+    .ironwood-panel {
+      background: linear-gradient(140deg, #040a0a 0%, #0d1e1e 60%, #060e0e 100%);
+      position: relative; overflow: hidden;
+    }
+    .ironwood-panel::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 80% 60% at 80% 50%, rgba(201,160,53,0.12) 0%, transparent 55%);
+    }
+    .ironwood-label { position: relative; z-index: 1; }
+    .ironwood-title { font-size: clamp(1.8rem, 4vw, 3.2rem); font-weight: 900; letter-spacing: -0.03em; color: #fff; line-height: 1.1; margin-bottom: 3rem; position: relative; z-index: 1; }
+    .ironwood-title span { color: var(--gold); }
+
+    /* Split card */
+    .split-card {
+      display: grid; grid-template-columns: 1fr 1fr; border-radius: 20px; overflow: hidden;
+      margin-bottom: 3rem; position: relative; z-index: 1;
+      box-shadow: 0 0 0 1px rgba(201,160,53,0.2), 0 40px 80px rgba(0,0,0,0.5);
+    }
+    .split-before {
+      background: linear-gradient(150deg, #0e1e1e, #162525);
+      padding: clamp(2rem, 4vw, 3rem); position: relative;
+    }
+    .split-before::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(transparent, rgba(201,160,53,0.25) 50%, transparent); }
+    .split-after {
+      background: linear-gradient(150deg, #b8891e, #C9A035, #d4ab38);
+      padding: clamp(2rem, 4vw, 3rem);
+    }
+    .split-lbl { font-size: 0.65rem; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; }
+    .split-before .split-lbl { color: rgba(255,255,255,0.25); }
+    .split-after .split-lbl { color: rgba(13,38,38,0.5); }
+    .split-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+    .split-row:last-child { margin-bottom: 0; }
+    .split-badge {
+      width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900;
+    }
+    .split-before .split-badge { background: rgba(192,57,43,0.15); color: #e74c3c; }
+    .split-after .split-badge { background: rgba(13,38,38,0.18); color: #0D2626; }
+    .split-before .split-txt { color: rgba(255,255,255,0.45); font-size: 0.92rem; line-height: 1.45; }
+    .split-after .split-txt { color: #0D2626; font-size: 0.92rem; font-weight: 700; line-height: 1.45; }
+
+    .ironwood-quote-box {
+      background: rgba(201,160,53,0.07); border: 1px solid rgba(201,160,53,0.2);
+      border-radius: 16px; padding: 2rem 2.5rem; margin-bottom: 2rem;
+      position: relative; z-index: 1; max-width: 720px;
+    }
+    .ironwood-quote-box p { font-size: 1.1rem; color: rgba(255,255,255,0.75); font-style: italic; line-height: 1.75; }
+    .ironwood-quote-box::before { content: '"'; position: absolute; top: -0.5rem; left: 1.5rem; font-size: 5rem; color: var(--gold); opacity: 0.2; font-style: italic; line-height: 1; }
+    .ironwood-badge {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: rgba(201,160,53,0.1); border: 1px solid rgba(201,160,53,0.25);
+      color: var(--gold); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 8px 18px; border-radius: 100px; margin-bottom: 2rem;
+    }
+    .ironwood-badge::before { content: '✦'; }
+
+    /* ====== PROCESO ====== */
+    .proceso-panel { background: var(--bg); color: var(--text); }
+    .proceso-head { max-width: 600px; margin-bottom: 4rem; }
+    .proceso-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; letter-spacing: -0.03em; color: var(--dark); line-height: 1.15; margin-bottom: 0.75rem; }
+    .proceso-head p { color: var(--muted); }
+    .proceso-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .paso-card {
+      background: #fff; border-radius: 16px; padding: 2rem 1.75rem;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .paso-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+    }
+    .paso-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+    .paso-card:hover::before { transform: scaleX(1); }
+    .paso-n {
+      font-size: 3.5rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, rgba(201,160,53,0.3), rgba(201,160,53,0.1));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .paso-title { font-size: 1rem; font-weight: 800; color: var(--dark); margin-bottom: 0.6rem; }
+    .paso-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ====== PRECIO ====== */
+    .precio-panel {
+      background: linear-gradient(150deg, #060c0c 0%, #0c1e1e 60%, #060c0c 100%);
+      position: relative; overflow: hidden;
+    }
+    .precio-panel::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(201,160,53,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,160,53,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .precio-head { text-align: center; max-width: 560px; margin-inline: auto; margin-bottom: 4rem; position: relative; z-index: 1; }
+    .precio-head h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+    .precio-head p { color: rgba(255,255,255,0.4); }
+    .precio-solo { max-width: 520px; margin-inline: auto; position: relative; z-index: 1; }
     .precio-card {
-      max-width: 480px; width: 100%;
-      background: var(--white); border-radius: 6px;
-      border-top: 4px solid var(--gold);
-      box-shadow: 0 2px 24px rgba(0,0,0,0.09);
-      padding: 2.5rem;
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(201,160,53,0.25);
+      border-radius: 24px; padding: clamp(2rem, 4vw, 3rem); position: relative; overflow: hidden;
+      box-shadow: 0 0 60px rgba(201,160,53,0.12), inset 0 1px 0 rgba(201,160,53,0.2);
     }
-    .precio-card-name { font-size: 0.85rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
-    .precio-card-amount { font-size: 3rem; font-weight: 800; color: var(--dark); line-height: 1; margin-bottom: 0.25rem; }
-    .precio-card-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.75rem; }
-    .precio-divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
-    .precio-features { list-style: none; margin-bottom: 2rem; }
-    .precio-features li { padding: 0.5rem 0; font-size: 0.95rem; display: flex; gap: 0.75rem; align-items: flex-start; }
-    .precio-check { color: var(--gold); font-weight: 700; flex-shrink: 0; }
-
-    /* GARANTÍA */
-    .garantia { background: var(--dark); color: #fff; text-align: center; }
-    .garantia-icon { font-size: 3.5rem; margin-bottom: 1.25rem; }
-    .garantia h2 { color: #fff; margin-bottom: 1.25rem; }
-    .garantia-text { max-width: 560px; margin-inline: auto; color: rgba(255,255,255,0.75); margin-bottom: 1rem; }
-    .garantia-sub { color: var(--gold); font-size: 0.9rem; font-weight: 600; }
-
-    /* FAQ */
-    .faq { background: var(--bg); }
-    .faq-intro { max-width: 600px; margin-bottom: 2.5rem; }
-    .faq-list { max-width: 700px; }
-    .faq-item { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 0.75rem; background: var(--white); overflow: hidden; }
-    .faq-q {
-      width: 100%; text-align: left; padding: 1.25rem 1.5rem;
-      font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--dark);
-      background: transparent; border: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    .precio-card::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 60%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
-    .faq-icon { font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: transform 0.3s; }
-    .faq-a { padding: 0 1.5rem 1.25rem; font-size: 0.92rem; color: var(--muted); line-height: 1.7; display: none; }
+    .precio-card::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,160,53,0.08) 0%, transparent 60%);
+    }
+    .precio-name { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1.5rem; }
+    .precio-amount { font-size: clamp(3.5rem, 7vw, 5.5rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.9; background: linear-gradient(135deg, #C9A035, #f0d070, #C9A035); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.25rem; }
+    .precio-period { font-size: 0.85rem; color: rgba(255,255,255,0.25); margin-bottom: 2.5rem; }
+    .precio-divider { border: none; border-top: 1px solid rgba(201,160,53,0.15); margin: 2rem 0; }
+    .precio-feats { list-style: none; margin-bottom: 2.5rem; }
+    .precio-feats li { padding: 0.75rem 0; font-size: 0.95rem; color: rgba(255,255,255,0.6); display: flex; gap: 1rem; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .precio-feats li:last-child { border-bottom: none; }
+    .feat-check { color: var(--gold); font-weight: 900; font-size: 1rem; }
+
+    /* ====== GARANTIA ====== */
+    .garantia-panel {
+      background: linear-gradient(135deg, #080e0e, #0d2020, #050a0a);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .garantia-panel::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 70% 70% at 50% 60%, rgba(201,160,53,0.12) 0%, transparent 60%);
+    }
+    .garantia-ring {
+      width: 140px; height: 140px; margin-inline: auto; margin-bottom: 2.5rem;
+      border-radius: 50%; position: relative; display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem; z-index: 1;
+    }
+    .garantia-ring::before {
+      content: ''; position: absolute; inset: -4px; border-radius: 50%;
+      background: conic-gradient(var(--gold) 0%, var(--gold2) 25%, transparent 50%, var(--gold) 75%, var(--gold2) 100%);
+      animation: rotateBorder 4s linear infinite;
+    }
+    .garantia-ring::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: #0d2020; }
+    .garantia-ring span { position: relative; z-index: 1; }
+    @keyframes rotateBorder { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .garantia-h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 900; letter-spacing: -0.03em; color: #fff; margin-bottom: 1.5rem; position: relative; z-index: 1; line-height: 1.15; }
+    .garantia-text { max-width: 540px; margin-inline: auto; color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.25rem; position: relative; z-index: 1; }
+    .garantia-sub { color: var(--gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; position: relative; z-index: 1; }
+
+    /* ====== FAQ ====== */
+    .faq-panel { background: #f7f6f3; color: var(--text); }
+    .faq-head { max-width: 560px; margin-bottom: 3rem; }
+    .faq-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; letter-spacing: -0.03em; color: var(--dark); }
+    .faq-list { max-width: 740px; }
+    .faq-item { border-radius: 12px; border: 1px solid #e5e2dc; background: #fff; margin-bottom: 0.75rem; overflow: hidden; transition: border-color 0.3s, box-shadow 0.3s; }
+    .faq-item.open { border-color: rgba(201,160,53,0.4); box-shadow: 0 6px 28px rgba(201,160,53,0.1); }
+    .faq-q { width: 100%; text-align: left; padding: 1.5rem 1.75rem; background: transparent; border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--dark); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .faq-icon { width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid #e5e2dc; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.1rem; flex-shrink: 0; transition: transform 0.35s, background 0.3s, border-color 0.3s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--gold); color: var(--dark); border-color: var(--gold); }
+    .faq-a { padding: 0 1.75rem 1.5rem; font-size: 0.92rem; color: var(--muted); line-height: 1.8; display: none; }
     .faq-item.open .faq-a { display: block; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
 
-    /* CONTACTO */
-    .contacto { background: var(--white); }
-    .contacto-intro { text-align: center; max-width: 600px; margin-inline: auto margin-bottom: 3rem; }
-    .contacto-intro h2 { margin-bottom: 0.75rem; }
-    .contacto-intro p { color: var(--muted); }
-    .contacto-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; margin-top: 3rem; }
-    .contacto-sep { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; color: var(--muted); font-size: 0.85rem; }
-    .contacto-sep::before, .contacto-sep::after { content: ''; display: block; width: 1px; height: 60px; background: var(--border); }
-
-    .form-group { margin-bottom: 1.25rem; }
-    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--dark); margin-bottom: 0.4rem; }
-    .form-group input {
-      width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 4px;
-      font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--text);
-      background: var(--bg); transition: border-color 0.2s;
+    /* ====== CONTACTO PANEL ====== */
+    .contacto-panel {
+      background: linear-gradient(150deg, #060c0c, #0a1c1c, #060c0c);
+      position: relative; overflow: hidden;
     }
-    .form-group input:focus { outline: none; border-color: var(--dark); }
-    .form-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; }
+    .contacto-panel::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(201,160,53,0.06) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .contacto-head { text-align: center; max-width: 580px; margin-inline: auto; margin-bottom: 4rem; position: relative; z-index: 1; }
+    .contacto-head h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 0.75rem; line-height: 1.1; }
+    .contacto-head p { color: rgba(255,255,255,0.4); font-size: 1.05rem; }
+    .contacto-cols { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 3rem; align-items: stretch; max-width: 900px; margin-inline: auto; position: relative; z-index: 1; }
+    .contacto-divider { background: rgba(255,255,255,0.06); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+    .contacto-divider-label { background: #0a1c1c; color: rgba(255,255,255,0.3); font-size: 0.75rem; font-weight: 600; padding: 0.5rem 0; }
+
+    .form-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 2.5rem; }
+    .form-card-title { font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
+    .fg { margin-bottom: 1.25rem; }
+    .fg label { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.5rem; }
+    .fg input {
+      width: 100%; padding: 0.9rem 1.1rem; border: 1.5px solid rgba(255,255,255,0.08); border-radius: 10px;
+      font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #fff;
+      background: rgba(255,255,255,0.04); transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .fg input::placeholder { color: rgba(255,255,255,0.2); }
+    .fg input:focus { outline: none; border-color: rgba(201,160,53,0.5); box-shadow: 0 0 0 3px rgba(201,160,53,0.1); }
+    .form-note { font-size: 0.72rem; color: rgba(255,255,255,0.2); margin-top: 1rem; text-align: center; }
 
     .wa-card {
-      background: var(--dark); border-radius: 6px; padding: 2rem;
-      text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1rem;
+      border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;
+      background: linear-gradient(150deg, #0f2020, #0d1c1c);
+      border: 1px solid rgba(201,160,53,0.15);
     }
-    .wa-card p { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+    .wa-card-top { padding: 2.5rem 2.5rem 1.5rem; flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; }
+    .wa-title { font-size: 1.2rem; font-weight: 800; color: rgba(255,255,255,0.85); margin-bottom: 0.75rem; line-height: 1.3; }
+    .wa-sub { font-size: 0.85rem; color: rgba(255,255,255,0.3); line-height: 1.6; margin-bottom: 2rem; }
     .btn-wa {
-      background: #25D366; color: #fff; font-weight: 700;
-      padding: 0.9rem 1.75rem; border-radius: 4px; text-decoration: none;
-      display: flex; align-items: center; gap: 0.6rem; width: 100%; justify-content: center;
-      font-size: 0.95rem; transition: filter 0.2s;
+      background: linear-gradient(120deg, #1db954, #25D366, #20bf5a);
+      background-size: 200% auto;
+      color: #fff; font-weight: 800; font-size: 1rem; padding: 1.1rem 2rem;
+      border-radius: 12px; text-decoration: none; display: flex; align-items: center;
+      justify-content: center; gap: 0.6rem; width: 100%;
+      transition: background-position 0.4s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 6px 28px rgba(37,211,102,0.3);
     }
-    .btn-wa:hover { filter: brightness(1.08); }
-    .wa-icon { font-size: 1.2rem; }
+    .btn-wa:hover { background-position: right center; transform: translateY(-2px); box-shadow: 0 10px 36px rgba(37,211,102,0.45); }
+    .wa-card-bottom {
+      padding: 1.25rem 2.5rem; border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex; justify-content: center; gap: 1.5rem;
+    }
+    .wa-trust { font-size: 0.72rem; color: rgba(255,255,255,0.2); display: flex; align-items: center; gap: 0.35rem; }
+    .wa-trust::before { content: '✓'; color: var(--gold); font-size: 0.8rem; }
 
-    .trust-row { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-    .trust-row span { font-size: 0.875rem; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; }
-    .trust-row span::before { content: '✓'; color: var(--gold); font-weight: 700; }
+    .trust-strip { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-top: 3rem; position: relative; z-index: 1; }
+    .trust-strip span { font-size: 0.8rem; color: rgba(255,255,255,0.25); display: flex; align-items: center; gap: 0.5rem; }
+    .trust-strip span::before { content: '✓'; color: var(--gold); font-weight: 900; }
 
-    /* FOOTER */
-    .footer { background: var(--dark); padding-block: 2rem; }
-    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center; }
-    .footer-brand { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
-    .footer-copy { color: rgba(255,255,255,0.35); font-size: 0.8rem; }
-    .footer-links { display: flex; gap: 1.25rem; }
-    .footer-links a { color: rgba(255,255,255,0.35); font-size: 0.8rem; text-decoration: none; }
-    .footer-links a:hover { color: rgba(255,255,255,0.6); }
+    /* ====== FOOTER ====== */
+    .footer-wrap {
+      margin-inline: clamp(0.75rem, 2vw, 1.5rem);
+      margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+      border-radius: 24px; overflow: hidden;
+      background: linear-gradient(135deg, #040808, #060e0e, #030606);
+      border: 1px solid rgba(201,160,53,0.1);
+      padding: 2.5rem clamp(1.5rem, 5vw, 3rem);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+    }
+    .footer-logo { font-size: 1.2rem; font-weight: 900; color: #fff; }
+    .footer-logo span { color: var(--gold); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.2); font-size: 0.8rem; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { color: rgba(255,255,255,0.15); font-size: 0.75rem; }
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .trust-bar-grid { grid-template-columns: 1fr 1fr; }
-      .servicios-grid { grid-template-columns: 1fr; }
-      .antes-despues { grid-template-columns: 1fr; }
-      .proceso-grid { grid-template-columns: 1fr 1fr; }
-      .proceso-grid::before { display: none; }
-      .contacto-grid { grid-template-columns: 1fr; }
-      .contacto-sep { flex-direction: row; }
-      .contacto-sep::before, .contacto-sep::after { width: 60px; height: 1px; }
-      .hero-btns { flex-direction: column; }
-      .hero-btns a { text-align: center; }
+    @media (max-width: 900px) {
+      .dolor-inner { grid-template-columns: 1fr; }
+      .servicios-grid { grid-template-columns: 1fr 1fr; }
+      .proceso-steps { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 480px) {
-      .proceso-grid { grid-template-columns: 1fr; }
-      .trust-micro { gap: 0.75rem; }
+    @media (max-width: 700px) {
+      .split-card { grid-template-columns: 1fr; }
+      .split-before::after { display: none; }
+      .contacto-cols { grid-template-columns: 1fr; }
+      .contacto-divider { flex-direction: row; height: 40px; }
+    }
+    @media (max-width: 540px) {
+      .servicios-grid { grid-template-columns: 1fr; }
+      .proceso-steps { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; }
+      .orb-1, .orb-2, .orb-3 { display: none; }
     }
   </style>
 </head>
@@ -292,376 +548,275 @@
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T7DH4TXB"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <!-- NAV -->
-<nav class="nav">
-  <div class="container nav-inner">
-    <a href="/" class="nav-logo">
-      <span class="nav-logo-text">Web<span>Boost</span></span>
-    </a>
-    <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-primary" target="_blank" rel="noopener">
-      Habla con Sergio
-    </a>
-  </div>
+<nav class="nav" id="mainNav">
+  <a href="/" class="nav-logo">Web<span>Boost</span></a>
+  <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-gold" target="_blank" rel="noopener">
+    Habla con Sergio
+  </a>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <p class="eyebrow">Especialista SEO Local · Logroño, La Rioja</p>
-      <h1>Aparece el primero en Google Maps cuando buscan lo que tú ofreces</h1>
-      <p class="hero-sub">Gestión profesional de tu Google Business Profile. Resultados verificables en 90 días o te devuelvo el primer mes. Sin permanencia. Sin contratos.</p>
-      <div class="hero-btns">
-        <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-primary" target="_blank" rel="noopener">
-          Habla con Sergio en WhatsApp
-        </a>
-        <a href="#ironwood" class="btn-outline-white">Ver caso de éxito ↓</a>
-      </div>
-      <div class="trust-micro">
-        <span>Sin permanencia</span>
-        <span>Garantía 90 días</span>
-        <span>Solo pymes locales</span>
-      </div>
+<section class="hero-wrap">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-grid"></div>
+  <div class="wrap hero-content">
+    <div class="hero-tag reveal">📍 Especialista SEO Local · Logroño, La Rioja</div>
+    <h1 class="hero-h1 reveal" style="transition-delay:.1s">
+      Aparece el primero<br>
+      <span class="line2">en Google Maps</span><br>
+      en Logroño
+    </h1>
+    <p class="hero-sub reveal" style="transition-delay:.2s">Gestión profesional de tu Google Business Profile. Resultados verificables en 90 días o te devuelvo el primer mes. Sin permanencia. Sin contratos.</p>
+    <div class="hero-btns reveal" style="transition-delay:.3s">
+      <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-gold" target="_blank" rel="noopener">💬 Habla con Sergio en WhatsApp</a>
+      <a href="#ironwood" class="btn-ghost">Ver caso de éxito ↓</a>
+    </div>
+    <div class="hero-trust reveal" style="transition-delay:.4s">
+      <span>Sin permanencia</span>
+      <span>Garantía 90 días</span>
+      <span>Solo pymes locales</span>
     </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<section class="trust-bar">
-  <div class="container">
-    <div class="trust-bar-grid">
-      <div>
-        <div class="trust-stat-num">#1</div>
-        <div class="trust-stat-label">Entre 91 competidores</div>
-      </div>
-      <div>
-        <div class="trust-stat-num">63</div>
-        <div class="trust-stat-label">Reseñas · 4.9★</div>
-      </div>
-      <div>
-        <div class="trust-stat-num">100%</div>
-        <div class="trust-stat-label">Cobertura LocalPack</div>
-      </div>
-      <div>
-        <div class="trust-stat-num">90 días</div>
-        <div class="trust-stat-label">Para resultados verificables</div>
-      </div>
-    </div>
+<!-- STATS -->
+<div class="panel stats-panel">
+  <div class="stats-grid">
+    <div class="stat-item reveal"><div class="stat-num">#1</div><div class="stat-lbl">Entre 91 competidores</div></div>
+    <div class="stat-item reveal" style="transition-delay:.08s"><div class="stat-num">63</div><div class="stat-lbl">Reseñas · 4.9★</div></div>
+    <div class="stat-item reveal" style="transition-delay:.16s"><div class="stat-num">100%</div><div class="stat-lbl">Cobertura LocalPack</div></div>
+    <div class="stat-item reveal" style="transition-delay:.24s"><div class="stat-num">90d</div><div class="stat-lbl">Para resultados verificables</div></div>
   </div>
-</section>
+</div>
 
-<!-- PUNTOS DE DOLOR -->
-<section class="dolor section-pad" id="dolor">
-  <div class="container">
-    <div class="dolor-intro">
-      <h2>¿Te sientes identificado?</h2>
-      <p>Estos son los problemas más comunes que tienen los negocios de Logroño antes de trabajar con WebBoost.</p>
-    </div>
-    <ul class="dolor-list">
-      <li>
-        <span class="dolor-x">✕</span>
-        <span>Buscas tu negocio en Google Maps y apareces en la cuarta página, si es que apareces</span>
-      </li>
-      <li>
-        <span class="dolor-x">✕</span>
-        <span>Tu competencia sale antes que tú aunque llevas más tiempo abierto</span>
-      </li>
-      <li>
-        <span class="dolor-x">✕</span>
-        <span>Tu ficha de Google tiene fotos antiguas o está sin completar</span>
-      </li>
-      <li>
-        <span class="dolor-x">✕</span>
-        <span>No sabes si Google Maps te está trayendo clientes o cuántos</span>
-      </li>
-      <li>
-        <span class="dolor-x">✕</span>
-        <span>Has probado cosas pero no ves resultados claros ni medibles</span>
-      </li>
-    </ul>
-    <div class="dolor-cta">
-      <a href="#contacto">Eso tiene solución. Cuéntame tu caso →</a>
+<!-- DOLOR -->
+<div class="panel dolor-panel">
+  <div class="wrap section-pad">
+    <div class="dolor-inner">
+      <div>
+        <div class="reveal"><span class="eyebrow" style="color:var(--dark);">El problema</span></div>
+        <div class="dolor-head reveal" style="transition-delay:.1s">
+          <h2>¿Te sientes<br>identificado?</h2>
+          <p>Problemas comunes en negocios de Logroño antes de trabajar con WebBoost.</p>
+        </div>
+        <ul class="dolor-list">
+          <li class="dolor-item reveal" style="transition-delay:.1s"><div class="dolor-icon">✕</div><span class="dolor-text">Buscas tu negocio en Google Maps y apareces en la cuarta página</span></li>
+          <li class="dolor-item reveal" style="transition-delay:.15s"><div class="dolor-icon">✕</div><span class="dolor-text">Tu competencia sale antes aunque llevas más tiempo abierto</span></li>
+          <li class="dolor-item reveal" style="transition-delay:.2s"><div class="dolor-icon">✕</div><span class="dolor-text">Tu ficha de Google tiene fotos antiguas o está sin completar</span></li>
+          <li class="dolor-item reveal" style="transition-delay:.25s"><div class="dolor-icon">✕</div><span class="dolor-text">No sabes si Google Maps te está trayendo clientes o cuántos</span></li>
+          <li class="dolor-item reveal" style="transition-delay:.3s"><div class="dolor-icon">✕</div><span class="dolor-text">Has probado cosas pero no ves resultados claros ni medibles</span></li>
+        </ul>
+        <a href="#contacto" class="dolor-cta-link reveal" style="transition-delay:.35s">Eso tiene solución →</a>
+      </div>
+      <div class="dolor-deco reveal-r" style="transition-delay:.15s">
+        <div class="dolor-deco-inner">
+          <div class="dolor-deco-num">#1</div>
+          <div class="dolor-deco-label">posición en Google Maps</div>
+          <div class="dolor-deco-sub">Logroño · La Rioja</div>
+        </div>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- SERVICIOS -->
-<section class="servicios section-pad" id="servicios">
-  <div class="container">
-    <div class="servicios-intro">
-      <p class="eyebrow">El servicio</p>
-      <h2>Lo que hacemos cada mes por tu negocio</h2>
-      <p>Gestión completa para que tú te olvides de Google Maps y yo me encargo de que funcione.</p>
+<div class="panel servicios-panel">
+  <div class="wrap section-pad">
+    <div class="servicios-head reveal">
+      <span class="eyebrow">El servicio</span>
+      <h2>Lo que hacemos cada mes<br>por tu negocio</h2>
+      <p>Gestión completa para que tú te olvides de Google Maps y yo me encargue de que funcione.</p>
     </div>
-    <div class="servicios-grid">
-      <div class="servicio-card">
-        <div class="servicio-card-title"><span class="icon">⚙️</span> Setup y optimización completa</div>
-        <p>Fotos, servicios, categorías, descripción, horarios. Ficha al 100%.</p>
-      </div>
-      <div class="servicio-card">
-        <div class="servicio-card-title"><span class="icon">🔍</span> Auditoría de palabras clave locales</div>
-        <p>Investigamos cómo buscan tus clientes en La Rioja y optimizamos para eso.</p>
-      </div>
-      <div class="servicio-card">
-        <div class="servicio-card-title"><span class="icon">📝</span> Posts semanales en Google Maps</div>
-        <p>Mantenemos la ficha activa con contenido que Google valora.</p>
-      </div>
-      <div class="servicio-card">
-        <div class="servicio-card-title"><span class="icon">⭐</span> Gestión de reseñas</div>
-        <p>Positivas respondidas en 24h. Negativas gestionadas en 12h.</p>
-      </div>
-      <div class="servicio-card">
-        <div class="servicio-card-title"><span class="icon">📊</span> Control semanal de posiciones</div>
-        <p>Seguimiento de dónde apareces en el LocalPack para las keywords clave.</p>
-      </div>
-      <div class="servicio-card">
-        <div class="servicio-card-title"><span class="icon">📞</span> Llamada mensual de 30 minutos</div>
-        <p>Repasamos avances juntos. Dashboard en tiempo real disponible siempre.</p>
-      </div>
+    <div class="servicios-grid reveal" style="transition-delay:.15s">
+      <div class="svc-card"><span class="svc-icon">⚙️</span><div class="svc-title">Setup y optimización completa</div><p class="svc-desc">Fotos, servicios, categorías, descripción, horarios. Ficha al 100%.</p></div>
+      <div class="svc-card"><span class="svc-icon">🔍</span><div class="svc-title">Auditoría de palabras clave locales</div><p class="svc-desc">Investigamos cómo buscan tus clientes en La Rioja y optimizamos para eso.</p></div>
+      <div class="svc-card"><span class="svc-icon">📝</span><div class="svc-title">Posts semanales en Google Maps</div><p class="svc-desc">Mantenemos la ficha activa con contenido que Google valora.</p></div>
+      <div class="svc-card"><span class="svc-icon">⭐</span><div class="svc-title">Gestión de reseñas</div><p class="svc-desc">Positivas respondidas en 24h. Negativas gestionadas en 12h.</p></div>
+      <div class="svc-card"><span class="svc-icon">📊</span><div class="svc-title">Control semanal de posiciones</div><p class="svc-desc">Seguimiento en el LocalPack para las keywords clave de tu sector.</p></div>
+      <div class="svc-card"><span class="svc-icon">📞</span><div class="svc-title">Llamada mensual de 30 minutos</div><p class="svc-desc">Repasamos avances juntos. Dashboard en tiempo real siempre disponible.</p></div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- IRONWOOD -->
-<section class="ironwood section-pad" id="ironwood">
-  <div class="container">
-    <div class="ironwood-intro">
-      <p class="eyebrow">Caso de éxito real</p>
-      <h2>Ironwood Soluciones · Carpintería Metálica · Logroño</h2>
-    </div>
-    <div class="antes-despues">
-      <div class="antes">
-        <div class="ad-label">Antes</div>
-        <div class="ad-item">
-          <span class="ad-icon">✕</span>
-          <span class="ad-text">Sin visibilidad en Google Maps</span>
-        </div>
-        <div class="ad-item">
-          <span class="ad-icon">✕</span>
-          <span class="ad-text">0 reseñas</span>
-        </div>
-        <div class="ad-item">
-          <span class="ad-icon">✕</span>
-          <span class="ad-text">Sin posición en el LocalPack</span>
-        </div>
-        <div class="ad-item">
-          <span class="ad-icon">✕</span>
-          <span class="ad-text">Llamadas desde Google: 0</span>
-        </div>
+<div class="panel ironwood-panel" id="ironwood">
+  <div class="wrap section-pad">
+    <div class="ironwood-label reveal"><span class="eyebrow">Caso de éxito real</span></div>
+    <h2 class="ironwood-title reveal" style="transition-delay:.1s">Ironwood Soluciones<br><span>De invisible a #1 en Google Maps</span></h2>
+    <div class="split-card reveal" style="transition-delay:.15s">
+      <div class="split-before">
+        <div class="split-lbl">Antes</div>
+        <div class="split-row"><div class="split-badge">✕</div><span class="split-txt">Sin visibilidad en Google Maps</span></div>
+        <div class="split-row"><div class="split-badge">✕</div><span class="split-txt">0 reseñas</span></div>
+        <div class="split-row"><div class="split-badge">✕</div><span class="split-txt">Sin posición en el LocalPack</span></div>
+        <div class="split-row"><div class="split-badge">✕</div><span class="split-txt">Llamadas desde Google: 0</span></div>
       </div>
-      <div class="despues">
-        <div class="ad-label">Después</div>
-        <div class="ad-item">
-          <span class="ad-icon">✓</span>
-          <span class="ad-text">#1 entre 91 competidores</span>
-        </div>
-        <div class="ad-item">
-          <span class="ad-icon">✓</span>
-          <span class="ad-text">63 reseñas · 4.9★</span>
-        </div>
-        <div class="ad-item">
-          <span class="ad-icon">✓</span>
-          <span class="ad-text">100% cobertura LocalPack</span>
-        </div>
-        <div class="ad-item">
-          <span class="ad-icon">✓</span>
-          <span class="ad-text">Llamadas y presupuestos diarios</span>
-        </div>
+      <div class="split-after">
+        <div class="split-lbl">Después</div>
+        <div class="split-row"><div class="split-badge">✓</div><span class="split-txt">#1 entre 91 competidores</span></div>
+        <div class="split-row"><div class="split-badge">✓</div><span class="split-txt">63 reseñas · 4.9★</span></div>
+        <div class="split-row"><div class="split-badge">✓</div><span class="split-txt">100% cobertura LocalPack</span></div>
+        <div class="split-row"><div class="split-badge">✓</div><span class="split-txt">Llamadas y presupuestos diarios</span></div>
       </div>
     </div>
-    <div class="ironwood-quote">
+    <div class="ironwood-badge reveal" style="transition-delay:.2s">Resultado conseguido en menos de 90 días</div>
+    <div class="ironwood-quote-box reveal" style="transition-delay:.25s">
       <p>"Hoy Ironwood recibe llamadas y solicitudes de presupuesto directamente desde Google Maps, sin pagar un euro en publicidad."</p>
     </div>
-    <p class="ironwood-dato">Resultado conseguido en menos de 90 días</p>
-    <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-primary" target="_blank" rel="noopener">
-      Quiero resultados como Ironwood
-    </a>
+    <div class="reveal" style="transition-delay:.3s">
+      <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-gold" target="_blank" rel="noopener">
+        Quiero resultados como Ironwood
+      </a>
+    </div>
   </div>
-</section>
+</div>
 
 <!-- PROCESO -->
-<section class="proceso section-pad">
-  <div class="container">
-    <div class="proceso-intro">
-      <p class="eyebrow">Cómo trabajamos</p>
-      <h2>Sencillo, directo y con foco en resultados</h2>
-      <p>Sin pasos innecesarios.</p>
+<div class="panel proceso-panel">
+  <div class="wrap section-pad">
+    <div class="proceso-head reveal">
+      <span class="eyebrow" style="color:var(--dark);">El método</span>
+      <h2>Sencillo, directo<br>y con foco en resultados</h2>
+      <p style="color:var(--muted)">Sin pasos innecesarios. Sin informes que nadie lee.</p>
     </div>
-    <div class="proceso-grid">
-      <div class="paso">
-        <div class="paso-num">01</div>
-        <div class="paso-title">Análisis inicial</div>
-        <p>Estudiamos tu negocio, tu sector y tu competencia local en La Rioja.</p>
-      </div>
-      <div class="paso">
-        <div class="paso-num">02</div>
-        <div class="paso-title">Estrategia a medida</div>
-        <p>No hay dos negocios iguales. Diseñamos el plan para tu mercado.</p>
-      </div>
-      <div class="paso">
-        <div class="paso-num">03</div>
-        <div class="paso-title">Ejecución constante</div>
-        <p>Trabajamos mes a mes con bloques de tiempo dedicados. Sin excusas.</p>
-      </div>
-      <div class="paso">
-        <div class="paso-num">04</div>
-        <div class="paso-title">Seguimiento y ajuste</div>
-        <p>Dashboard en tiempo real + llamada mensual. Medimos y repetimos lo que funciona.</p>
-      </div>
+    <div class="proceso-steps">
+      <div class="paso-card reveal" style="transition-delay:.05s"><div class="paso-n">01</div><div class="paso-title">Análisis inicial</div><p class="paso-desc">Estudiamos tu negocio, tu sector y tu competencia local en La Rioja.</p></div>
+      <div class="paso-card reveal" style="transition-delay:.15s"><div class="paso-n">02</div><div class="paso-title">Estrategia a medida</div><p class="paso-desc">No hay dos negocios iguales. Diseñamos el plan para tu mercado.</p></div>
+      <div class="paso-card reveal" style="transition-delay:.25s"><div class="paso-n">03</div><div class="paso-title">Ejecución constante</div><p class="paso-desc">Trabajamos mes a mes con bloques de tiempo dedicados. Sin excusas.</p></div>
+      <div class="paso-card reveal" style="transition-delay:.35s"><div class="paso-n">04</div><div class="paso-title">Seguimiento y ajuste</div><p class="paso-desc">Dashboard en tiempo real + llamada mensual. Medimos lo que funciona.</p></div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- PRECIO -->
-<section class="precio section-pad">
-  <div class="container precio-inner">
-    <div class="precio-intro">
-      <p class="eyebrow">La inversión</p>
+<div class="panel precio-panel" id="precio">
+  <div class="wrap section-pad">
+    <div class="precio-head reveal">
+      <span class="eyebrow">La inversión</span>
       <h2>Al grano. Esto es lo que cuesta.</h2>
-      <p>Sin letras pequeñas. Sin sorpresas.</p>
+      <p>Sin letras pequeñas. Sin sorpresas. Sin permanencia.</p>
     </div>
-    <div class="precio-card">
-      <div class="precio-card-name">SEO Local · Google Maps</div>
-      <div class="precio-card-amount">200€<span style="font-size:1.2rem;font-weight:500;color:var(--muted)">/mes</span></div>
-      <div class="precio-card-sub">Sin IVA · Sin permanencia</div>
-      <hr class="precio-divider" />
-      <ul class="precio-features">
-        <li><span class="precio-check">✓</span> Setup y optimización completa de tu ficha</li>
-        <li><span class="precio-check">✓</span> Auditoría de palabras clave locales</li>
-        <li><span class="precio-check">✓</span> Posts semanales en Google Maps</li>
-        <li><span class="precio-check">✓</span> Gestión de reseñas (positivas 24h / negativas 12h)</li>
-        <li><span class="precio-check">✓</span> Control semanal de posiciones</li>
-        <li><span class="precio-check">✓</span> Llamada mensual de seguimiento (30 min)</li>
-      </ul>
-      <a href="#contacto" class="btn-primary" style="display:block;text-align:center;">Empezar ahora</a>
+    <div class="precio-solo reveal" style="transition-delay:.15s">
+      <div class="precio-card">
+        <div class="precio-name">SEO Local · Google Maps</div>
+        <div class="precio-amount">200€</div>
+        <div class="precio-period">al mes · sin IVA · sin permanencia</div>
+        <hr class="precio-divider" />
+        <ul class="precio-feats">
+          <li><span class="feat-check">✓</span> Setup y optimización completa de tu ficha</li>
+          <li><span class="feat-check">✓</span> Auditoría de palabras clave locales</li>
+          <li><span class="feat-check">✓</span> Posts semanales en Google Maps</li>
+          <li><span class="feat-check">✓</span> Gestión de reseñas (positivas 24h / negativas 12h)</li>
+          <li><span class="feat-check">✓</span> Control semanal de posiciones</li>
+          <li><span class="feat-check">✓</span> Llamada mensual de seguimiento (30 min)</li>
+        </ul>
+        <a href="#contacto" class="btn-gold" style="width:100%;justify-content:center;">Empezar ahora →</a>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- GARANTÍA -->
-<section class="garantia section-pad" id="garantia">
-  <div class="container" style="text-align:center;">
-    <div class="garantia-icon">🛡️</div>
-    <h2>Garantía de resultados · 90 días</h2>
-    <p class="garantia-text">Si sigues mi metodología durante 90 días y no ves una mejora verificable en tu visibilidad en Google Maps, te devuelvo el primer mes. Sin preguntas.</p>
-    <p class="garantia-sub">Porque si no hay resultados, no mereces pagar.</p>
+<!-- GARANTIA -->
+<div class="panel garantia-panel" id="garantia">
+  <div class="wrap section-pad">
+    <div class="garantia-ring reveal"><span>🛡️</span></div>
+    <h2 class="garantia-h2 reveal" style="transition-delay:.1s">Garantía de resultados<br><span style="background:linear-gradient(120deg,#C9A035,#f0d070);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">90 días</span></h2>
+    <p class="garantia-text reveal" style="transition-delay:.2s">Si sigues mi metodología durante 90 días y no ves una mejora verificable en tu visibilidad en Google Maps, te devuelvo el primer mes. Sin preguntas.</p>
+    <p class="garantia-sub reveal" style="transition-delay:.3s">✦ Porque si no hay resultados, no mereces pagar.</p>
   </div>
-</section>
+</div>
 
 <!-- FAQ -->
-<section class="faq section-pad">
-  <div class="container">
-    <div class="faq-intro">
+<div class="panel faq-panel">
+  <div class="wrap section-pad">
+    <div class="faq-head reveal">
+      <span class="eyebrow" style="color:var(--dark);">FAQ</span>
       <h2>Preguntas frecuentes</h2>
     </div>
     <div class="faq-list">
-      <div class="faq-item open">
-        <button class="faq-q">
-          ¿Hay que pagar a Google para aparecer?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">No. Google Maps orgánico es gratuito. Pagas la gestión profesional, no a Google.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">
-          ¿Cuánto tarda en verse resultados?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Entre 2 y 3 meses para posiciones consolidadas. Las primeras señales de mejora aparecen antes.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">
-          ¿Puedo cancelar cuando quiera?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Sí. Sin permanencia. Avisa antes de que empiece el siguiente mes. Sin penalizaciones.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">
-          ¿Funciona para mi sector?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Sí. Clínicas dentales, fisioterapeutas, mecánicos, estéticas, veterinarios, gimnasios... Cualquier negocio que dependa de clientes locales.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">
-          ¿Qué necesito para empezar?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Acceso a tu ficha de Google y 30 minutos para la primera reunión. Yo me encargo del resto.</div>
-      </div>
+      <div class="faq-item open reveal"><button class="faq-q">¿Hay que pagar a Google para aparecer?<div class="faq-icon">+</div></button><div class="faq-a">No. Google Maps orgánico es gratuito. Pagas la gestión profesional, no a Google.</div></div>
+      <div class="faq-item reveal" style="transition-delay:.05s"><button class="faq-q">¿Cuánto tarda en verse resultados?<div class="faq-icon">+</div></button><div class="faq-a">Entre 2 y 3 meses para posiciones consolidadas. Las primeras señales de mejora aparecen antes.</div></div>
+      <div class="faq-item reveal" style="transition-delay:.1s"><button class="faq-q">¿Puedo cancelar cuando quiera?<div class="faq-icon">+</div></button><div class="faq-a">Sí. Sin permanencia. Avisa antes de que empiece el siguiente mes. Sin penalizaciones.</div></div>
+      <div class="faq-item reveal" style="transition-delay:.15s"><button class="faq-q">¿Funciona para mi sector?<div class="faq-icon">+</div></button><div class="faq-a">Sí. Clínicas dentales, fisioterapeutas, mecánicos, estéticas, veterinarios, gimnasios... Cualquier negocio que dependa de clientes locales.</div></div>
+      <div class="faq-item reveal" style="transition-delay:.2s"><button class="faq-q">¿Qué necesito para empezar?<div class="faq-icon">+</div></button><div class="faq-a">Acceso a tu ficha de Google y 30 minutos para la primera reunión. Yo me encargo del resto.</div></div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- CONTACTO -->
-<section class="contacto section-pad" id="contacto">
-  <div class="container">
-    <div style="text-align:center;max-width:600px;margin-inline:auto;margin-bottom:3rem;">
+<div class="panel contacto-panel" id="contacto">
+  <div class="wrap section-pad">
+    <div class="contacto-head reveal">
+      <span class="eyebrow">Hablemos</span>
       <h2>¿Empezamos?</h2>
-      <p style="color:var(--muted);margin-top:0.75rem;">Cuéntame tu situación. Sin compromiso, sin presión. Solo una conversación de 15 minutos para ver si puedo ayudarte.</p>
+      <p>Sin compromiso, sin presión. Solo una conversación de 15 minutos para ver si puedo ayudarte.</p>
     </div>
-    <div class="contacto-grid">
-      <div>
+    <div class="contacto-cols">
+      <div class="form-card reveal-l">
+        <div class="form-card-title">📝 Envíame un mensaje</div>
         <form action="https://formspree.io/f/meevolga" method="POST">
           <input type="hidden" name="_next" value="https://webboost.es/seo-local-logrono/gracias" />
-          <div class="form-group">
-            <label for="nombre">Tu nombre</label>
-            <input type="text" id="nombre" name="nombre" required placeholder="Nombre" />
-          </div>
-          <div class="form-group">
-            <label for="negocio">Nombre de tu negocio</label>
-            <input type="text" id="negocio" name="negocio" required placeholder="Negocio" />
-          </div>
-          <div class="form-group">
-            <label for="telefono">Teléfono o WhatsApp</label>
-            <input type="tel" id="telefono" name="telefono" required placeholder="+34 600 000 000" />
-          </div>
-          <button type="submit" class="btn-primary" style="width:100%">Enviar mensaje →</button>
+          <div class="fg"><label for="nombre">Tu nombre</label><input type="text" id="nombre" name="nombre" required placeholder="Nombre" /></div>
+          <div class="fg"><label for="negocio">Tu negocio</label><input type="text" id="negocio" name="negocio" required placeholder="Nombre del negocio" /></div>
+          <div class="fg"><label for="tel">WhatsApp o teléfono</label><input type="tel" id="tel" name="telefono" required placeholder="+34 600 000 000" /></div>
+          <button type="submit" class="btn-gold" style="width:100%;justify-content:center;">Enviar mensaje →</button>
           <p class="form-note">Sergio te contactará en menos de 24 horas.</p>
         </form>
       </div>
-
-      <div class="contacto-sep">o si lo prefieres</div>
-
-      <div>
-        <div class="wa-card">
-          <p>¿Prefieres escribir directamente?</p>
-          <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-wa" target="_blank" rel="noopener">
-            <span class="wa-icon">💬</span> Escríbeme por WhatsApp
-          </a>
+      <div class="contacto-divider reveal"><div class="contacto-divider-label">o</div></div>
+      <div class="wa-card reveal-r">
+        <div class="wa-card-top">
+          <div class="wa-title">¿Prefieres hablar directamente?</div>
+          <div class="wa-sub">Escríbeme ahora. Respondo en menos de 24h.</div>
+          <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-wa" target="_blank" rel="noopener">💬 Escríbeme por WhatsApp</a>
+        </div>
+        <div class="wa-card-bottom">
+          <span class="wa-trust">Sin compromiso</span>
+          <span class="wa-trust">Respuesta rápida</span>
+          <span class="wa-trust">Consulta gratuita</span>
         </div>
       </div>
     </div>
-    <div class="trust-row">
+    <div class="trust-strip reveal">
       <span>Respuesta en menos de 24h</span>
       <span>Sin compromiso</span>
       <span>Primera consulta gratuita</span>
     </div>
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="container footer-inner">
-    <p class="footer-brand">WebBoost · Logroño, La Rioja</p>
-    <div class="footer-links">
-      <a href="/privacidad">Política de privacidad</a>
-      <a href="mailto:info@webboost.es">info@webboost.es</a>
-    </div>
-    <p class="footer-copy">© 2026 WebBoost · Todos los derechos reservados</p>
+<footer class="footer-wrap">
+  <div class="footer-logo">Web<span>Boost</span></div>
+  <div class="footer-links">
+    <a href="/privacidad">Política de privacidad</a>
+    <a href="mailto:info@webboost.es">info@webboost.es</a>
   </div>
+  <p class="footer-copy">© 2026 WebBoost · Logroño, La Rioja</p>
 </footer>
 
 <script>
+  // Nav scroll
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+  // Reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
+
+  // FAQ
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
+      const open = item.classList.contains('open');
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+      if (!open) item.classList.add('open');
     });
   });
 </script>
