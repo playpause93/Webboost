@@ -36,14 +36,16 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --dark:   #0D2626;
+      --dark2:  #0a1e1e;
       --gold:   #C9A035;
+      --gold2:  #e8be55;
       --bg:     #F7F6F3;
       --white:  #FFFFFF;
       --text:   #1A1A1A;
@@ -52,191 +54,490 @@
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.7; color: var(--text); background: var(--bg); }
+    body { font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.7; color: var(--text); background: var(--bg); overflow-x: hidden; }
 
     .container { max-width: 1100px; margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 2.5rem); }
     .section-pad { padding-block: clamp(4rem, 8vw, 7rem); }
 
-    .eyebrow { font-size: 0.875rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
-    h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; line-height: 1.15; }
-    h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; line-height: 1.25; }
+    /* SCROLL ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
 
+    /* TYPOGRAPHY */
+    .eyebrow {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.6rem;
+    }
+    .eyebrow::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--gold); }
+    h1 { font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; }
+    .gradient-text {
+      background: linear-gradient(135deg, #e8be55 0%, #C9A035 40%, #f0d080 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    /* BUTTONS */
     .btn-primary {
-      background: var(--gold); color: var(--dark); font-weight: 700;
-      padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none;
-      display: inline-block; transition: filter 0.2s; border: none; cursor: pointer;
-      font-size: 1rem; font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #C9A035, #e8be55, #C9A035);
+      background-size: 200% auto;
+      color: var(--dark); font-weight: 800; padding: 1rem 2.25rem; border-radius: 6px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+      border: none; cursor: pointer; font-size: 1rem; font-family: 'Inter', sans-serif;
+      transition: background-position 0.4s, box-shadow 0.3s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(201,160,53,0.35);
     }
-    .btn-primary:hover { filter: brightness(1.08); }
-    .btn-secondary {
-      border: 2px solid var(--dark); color: var(--dark); font-weight: 600;
-      padding: 0.85rem 2rem; border-radius: 4px; text-decoration: none;
-      display: inline-block; transition: background 0.2s; background: transparent; font-size: 1rem;
+    .btn-primary:hover {
+      background-position: right center;
+      box-shadow: 0 6px 32px rgba(201,160,53,0.55);
+      transform: translateY(-2px);
     }
-    .btn-secondary:hover { background: rgba(13,38,38,0.06); }
     .btn-outline-white {
-      border: 2px solid rgba(255,255,255,0.6); color: #fff; font-weight: 600;
-      padding: 0.85rem 2rem; border-radius: 4px; text-decoration: none;
-      display: inline-block; transition: background 0.2s; background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.35); color: #fff; font-weight: 600;
+      padding: 0.95rem 2.25rem; border-radius: 6px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: border-color 0.3s, background 0.3s, transform 0.2s; background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(4px);
     }
-    .btn-outline-white:hover { background: rgba(255,255,255,0.1); }
+    .btn-outline-white:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+    .btn-secondary {
+      border: 1.5px solid rgba(13,38,38,0.3); color: var(--dark); font-weight: 700;
+      padding: 0.95rem 2rem; border-radius: 6px; text-decoration: none;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      transition: border-color 0.3s, background 0.3s, transform 0.2s; background: transparent;
+      font-size: 0.95rem;
+    }
+    .btn-secondary:hover { border-color: var(--dark); background: rgba(13,38,38,0.05); transform: translateY(-2px); }
 
     /* NAV */
-    .nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(13,38,38,0.85); backdrop-filter: blur(16px) saturate(1.5);
+      border-bottom: 1px solid rgba(201,160,53,0.15); padding: 1rem 0;
+      transition: background 0.3s;
+    }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .nav-logo { text-decoration: none; }
-    .nav-logo-text { font-size: 1.2rem; font-weight: 800; color: var(--dark); }
+    .nav-logo-text { font-size: 1.25rem; font-weight: 900; color: #fff; letter-spacing: -0.02em; }
     .nav-logo-text span { color: var(--gold); }
 
     /* HERO */
-    .hero { background: var(--dark); color: #fff; padding-block: clamp(5rem, 10vw, 8rem); }
-    .hero-inner { max-width: 760px; }
-    .hero h1 { color: #fff; margin-bottom: 1.25rem; }
-    .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.75); max-width: 560px; margin-bottom: 2rem; line-height: 1.7; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
-    .trust-micro { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .trust-micro span { font-size: 0.85rem; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 0.35rem; }
-    .trust-micro span::before { content: '✓'; color: var(--gold); font-weight: 700; }
+    .hero {
+      position: relative; overflow: hidden;
+      background: var(--dark2);
+      padding-block: clamp(6rem, 12vw, 10rem);
+      min-height: 90vh; display: flex; align-items: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,160,53,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 10% 80%, rgba(13,90,90,0.3) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 50% 10%, rgba(201,160,53,0.07) 0%, transparent 50%);
+    }
+    .hero-grid-overlay {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        linear-gradient(rgba(201,160,53,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,160,53,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+    }
+    .hero-orb-1 {
+      position: absolute; width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,160,53,0.15) 0%, transparent 70%);
+      top: -100px; right: -100px; animation: orbFloat 8s ease-in-out infinite;
+      pointer-events: none; z-index: 0;
+    }
+    .hero-orb-2 {
+      position: absolute; width: 350px; height: 350px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(13,120,120,0.2) 0%, transparent 70%);
+      bottom: -80px; left: 10%; animation: orbFloat 11s ease-in-out infinite reverse;
+      pointer-events: none; z-index: 0;
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 780px; }
+    .hero h1 { color: #fff; margin-bottom: 1.5rem; }
+    .hero-sub { font-size: 1.15rem; color: rgba(255,255,255,0.65); max-width: 560px; margin-bottom: 2.5rem; line-height: 1.75; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .trust-micro { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+    .trust-micro span {
+      font-size: 0.82rem; color: rgba(255,255,255,0.45);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .trust-micro span::before { content: '✓'; color: var(--gold); font-weight: 800; }
 
     /* TRUST BAR */
-    .trust-bar { background: var(--gold); padding-block: 2.5rem; }
+    .trust-bar {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #b8891e 0%, #C9A035 30%, #e8be55 60%, #C9A035 80%, #b8891e 100%);
+      background-size: 300% auto; animation: shimmerBg 6s linear infinite;
+      padding-block: 2.75rem;
+    }
+    @keyframes shimmerBg {
+      0% { background-position: 0% center; }
+      100% { background-position: 300% center; }
+    }
     .trust-bar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
-    .trust-stat-num { font-size: 2.5rem; font-weight: 800; color: var(--dark); line-height: 1; }
-    .trust-stat-label { font-size: 0.8rem; font-weight: 500; opacity: 0.75; color: var(--dark); margin-top: 0.25rem; }
+    .trust-stat { position: relative; }
+    .trust-stat-num {
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: var(--dark);
+      line-height: 1; letter-spacing: -0.03em;
+    }
+    .trust-stat-label { font-size: 0.78rem; font-weight: 600; opacity: 0.7; color: var(--dark); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.06em; }
 
     /* DOLOR */
-    .dolor { background: var(--white); }
-    .dolor-intro { max-width: 600px; margin-bottom: 2.5rem; }
+    .dolor {
+      background: var(--white);
+      background-image: radial-gradient(rgba(201,160,53,0.06) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .dolor-intro { max-width: 580px; margin-bottom: 2.5rem; }
     .dolor-intro h2 { margin-bottom: 0.75rem; }
-    .dolor-intro p { color: var(--muted); }
-    .dolor-list { list-style: none; max-width: 700px; }
-    .dolor-list li { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
-    .dolor-list li:first-child { border-top: 1px solid var(--border); }
-    .dolor-x { color: #C0392B; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .dolor-intro p { color: var(--muted); font-size: 1.05rem; }
+    .dolor-list { list-style: none; max-width: 720px; }
+    .dolor-list li {
+      display: flex; gap: 1.25rem; padding: 1.25rem 1.5rem;
+      border-radius: 8px; margin-bottom: 0.75rem;
+      background: rgba(192,57,43,0.04); border: 1px solid rgba(192,57,43,0.1);
+      align-items: flex-start; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .dolor-list li:hover { transform: translateX(4px); box-shadow: -3px 0 0 #C0392B; background: rgba(192,57,43,0.07); }
+    .dolor-x { color: #C0392B; font-weight: 800; font-size: 1rem; flex-shrink: 0; margin-top: 0.15rem; background: rgba(192,57,43,0.12); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .dolor-cta { margin-top: 2rem; }
-    .dolor-cta a { color: var(--dark); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 1px; }
+    .dolor-cta a { color: var(--dark); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; padding-bottom: 2px; border-bottom: 2px solid var(--gold); transition: gap 0.2s; }
+    .dolor-cta a:hover { gap: 0.85rem; }
 
     /* SERVICIOS */
-    .servicios { background: var(--bg); }
-    .servicios-intro { max-width: 600px; margin-bottom: 3rem; }
-    .servicios-intro h2 { margin-bottom: 0.75rem; }
-    .servicios-intro p { color: var(--muted); }
-    .servicios-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    .servicio-card { background: var(--white); border-radius: 6px; padding: 1.5rem; border-left: 3px solid var(--gold); box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
-    .servicio-card-title { font-weight: 700; margin-bottom: 0.4rem; color: var(--dark); display: flex; align-items: center; gap: 0.5rem; }
-    .servicio-card-title .icon { font-size: 1.1rem; }
-    .servicio-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin: 0; }
+    .servicios {
+      background: linear-gradient(160deg, var(--dark2) 0%, #0f2e2e 50%, #0a2020 100%);
+      position: relative; overflow: hidden;
+    }
+    .servicios::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(201,160,53,0.08) 0%, transparent 60%);
+    }
+    .servicios-intro { max-width: 580px; margin-bottom: 3rem; position: relative; z-index: 1; }
+    .servicios-intro h2 { color: #fff; margin-bottom: 0.75rem; }
+    .servicios-intro p { color: rgba(255,255,255,0.5); }
+    .servicios-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(201,160,53,0.1); border-radius: 12px; overflow: hidden; position: relative; z-index: 1; }
+    .servicio-card {
+      background: rgba(255,255,255,0.03); backdrop-filter: blur(10px);
+      padding: 2rem; transition: background 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .servicio-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .servicio-card:hover { background: rgba(201,160,53,0.07); }
+    .servicio-card:hover::before { opacity: 1; }
+    .servicio-card-icon { font-size: 1.75rem; margin-bottom: 1rem; display: block; }
+    .servicio-card-title { font-weight: 700; margin-bottom: 0.5rem; color: #fff; font-size: 1rem; }
+    .servicio-card p { font-size: 0.875rem; color: rgba(255,255,255,0.45); line-height: 1.65; margin: 0; }
 
     /* IRONWOOD */
-    .ironwood { background: var(--dark); color: #fff; }
-    .ironwood-intro { max-width: 700px; margin-bottom: 3rem; }
+    .ironwood {
+      background: var(--dark2);
+      position: relative; overflow: hidden;
+    }
+    .ironwood::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 70% at 90% 50%, rgba(201,160,53,0.1) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 50% at 10% 30%, rgba(13,100,100,0.15) 0%, transparent 50%);
+    }
+    .ironwood-intro { max-width: 680px; margin-bottom: 3rem; position: relative; z-index: 1; }
     .ironwood-intro h2 { color: #fff; margin-bottom: 0.5rem; }
-    .antes-despues { display: grid; grid-template-columns: 1fr 1fr; border-radius: 6px; overflow: hidden; margin-bottom: 2.5rem; border: 1px solid rgba(255,255,255,0.1); }
-    .antes { background: #1a3a3a; padding: 2rem; }
-    .despues { background: var(--gold); padding: 2rem; }
-    .ad-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem; }
-    .antes .ad-label { color: rgba(255,255,255,0.4); }
-    .despues .ad-label { color: var(--dark); }
-    .ad-item { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .ironwood-intro p { color: rgba(255,255,255,0.45); font-size: 0.95rem; }
+    .antes-despues {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-radius: 16px; overflow: hidden; margin-bottom: 3rem;
+      position: relative; z-index: 1;
+      box-shadow: 0 0 0 1px rgba(201,160,53,0.2), 0 24px 60px rgba(0,0,0,0.4);
+    }
+    .antes {
+      background: linear-gradient(160deg, #111e1e, #1a2f2f);
+      padding: 2.5rem; position: relative;
+    }
+    .antes::after { content: ''; position: absolute; right: 0; top: 10%; bottom: 10%; width: 1px; background: linear-gradient(transparent, rgba(201,160,53,0.3), transparent); }
+    .despues {
+      background: linear-gradient(160deg, #b8891e, #C9A035, #d4aa40);
+      padding: 2.5rem;
+    }
+    .ad-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .antes .ad-label { color: rgba(255,255,255,0.3); }
+    .antes .ad-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+    .despues .ad-label { color: rgba(13,38,38,0.6); }
+    .despues .ad-label::after { content: ''; flex: 1; height: 1px; background: rgba(13,38,38,0.15); }
+    .ad-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; }
     .ad-item:last-child { margin-bottom: 0; }
-    .ad-icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
-    .antes .ad-text { color: rgba(255,255,255,0.55); font-size: 0.95rem; line-height: 1.5; }
-    .despues .ad-text { color: var(--dark); font-size: 0.95rem; font-weight: 600; line-height: 1.5; }
-    .ironwood-quote { border-left: 3px solid var(--gold); padding-left: 1.5rem; margin-bottom: 1.5rem; max-width: 680px; }
-    .ironwood-quote p { font-size: 1.05rem; color: rgba(255,255,255,0.85); font-style: italic; line-height: 1.7; }
-    .ironwood-dato { font-size: 0.82rem; color: var(--gold); font-weight: 600; letter-spacing: 0.05em; margin-bottom: 2rem; }
+    .ad-icon-wrap {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800;
+    }
+    .antes .ad-icon-wrap { background: rgba(192,57,43,0.2); color: #e74c3c; }
+    .despues .ad-icon-wrap { background: rgba(13,38,38,0.2); color: var(--dark); }
+    .antes .ad-text { color: rgba(255,255,255,0.45); font-size: 0.92rem; line-height: 1.5; }
+    .despues .ad-text { color: var(--dark2); font-size: 0.92rem; font-weight: 700; line-height: 1.5; }
+    .ironwood-quote {
+      border-left: 3px solid var(--gold); padding: 1.25rem 1.75rem;
+      background: rgba(201,160,53,0.06); border-radius: 0 8px 8px 0;
+      margin-bottom: 1.5rem; max-width: 680px; position: relative; z-index: 1;
+    }
+    .ironwood-quote p { font-size: 1.05rem; color: rgba(255,255,255,0.8); font-style: italic; line-height: 1.75; }
+    .ironwood-dato { font-size: 0.78rem; color: var(--gold); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; position: relative; z-index: 1; }
 
     /* PROCESO */
-    .proceso { background: var(--bg); }
-    .proceso-intro { max-width: 600px; margin-bottom: 3rem; }
+    .proceso {
+      background: linear-gradient(180deg, var(--bg) 0%, #f0efe9 100%);
+      position: relative;
+    }
+    .proceso::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(201,160,53,0.08) 1.5px, transparent 1.5px);
+      background-size: 40px 40px; pointer-events: none;
+    }
+    .proceso-intro { max-width: 580px; margin-bottom: 3.5rem; position: relative; z-index: 1; }
     .proceso-intro h2 { margin-bottom: 0.75rem; }
     .proceso-intro p { color: var(--muted); }
-    .proceso-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; position: relative; }
-    .proceso-grid::before { content: ''; position: absolute; top: 1.5rem; left: 12.5%; right: 12.5%; height: 1px; border-top: 2px dashed rgba(201,160,53,0.3); pointer-events: none; }
-    .paso { text-align: center; padding: 1.5rem 1rem; }
-    .paso-num { font-size: 3rem; font-weight: 800; color: var(--gold); opacity: 0.25; line-height: 1; margin-bottom: 0.75rem; }
-    .paso-title { font-weight: 700; margin-bottom: 0.5rem; color: var(--dark); }
-    .paso p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+    .proceso-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; z-index: 1; }
+    .proceso-connector {
+      position: absolute; top: 44px; left: calc(12.5% + 1.5rem); right: calc(12.5% + 1.5rem);
+      height: 2px; background: linear-gradient(90deg, var(--gold) 0%, rgba(201,160,53,0.3) 100%);
+      z-index: 0;
+    }
+    .paso {
+      text-align: center; padding: 0 1.5rem;
+      position: relative; z-index: 1;
+    }
+    .paso-num-wrap {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--dark), #1a4040);
+      border: 2px solid rgba(201,160,53,0.4);
+      display: flex; align-items: center; justify-content: center;
+      margin-inline: auto; margin-bottom: 1.25rem;
+      box-shadow: 0 0 20px rgba(201,160,53,0.2);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .paso:hover .paso-num-wrap { box-shadow: 0 0 32px rgba(201,160,53,0.45); transform: scale(1.05); }
+    .paso-num { font-size: 1rem; font-weight: 900; color: var(--gold); }
+    .paso-title { font-weight: 700; margin-bottom: 0.5rem; color: var(--dark); font-size: 1rem; }
+    .paso p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
 
     /* PRECIO */
-    .precio { background: var(--white); }
-    .precio-intro { text-align: center; max-width: 560px; margin-inline: auto; margin-bottom: 3rem; }
-    .precio-intro h2 { margin-bottom: 0.75rem; }
-    .precio-intro p { color: var(--muted); }
-    .precio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 860px; margin-inline: auto; }
-    .precio-card { background: var(--white); border-radius: 6px; border-top: 4px solid var(--border); box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 2.5rem; position: relative; }
-    .precio-card.recomendado { border-top-color: var(--gold); box-shadow: 0 4px 28px rgba(201,160,53,0.18); }
-    .precio-badge { position: absolute; top: -1px; right: 1.5rem; background: var(--gold); color: var(--dark); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 0 0 6px 6px; }
-    .precio-card-name { font-size: 0.85rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
-    .precio-card-amount { font-size: 2.8rem; font-weight: 800; color: var(--dark); line-height: 1; margin-bottom: 0.25rem; }
-    .precio-card-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.75rem; }
-    .precio-divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
+    .precio {
+      background: linear-gradient(160deg, var(--dark2) 0%, #0f2e2e 100%);
+      position: relative; overflow: hidden;
+    }
+    .precio::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(201,160,53,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,160,53,0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+    .precio-intro { text-align: center; max-width: 560px; margin-inline: auto; margin-bottom: 3.5rem; position: relative; z-index: 1; }
+    .precio-intro h2 { color: #fff; margin-bottom: 0.75rem; }
+    .precio-intro p { color: rgba(255,255,255,0.45); }
+    .precio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 860px; margin-inline: auto; position: relative; z-index: 1; }
+    .precio-card {
+      border-radius: 16px; padding: 2.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      position: relative; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .precio-card:hover { transform: translateY(-6px); }
+    .precio-card.recomendado {
+      background: rgba(201,160,53,0.08);
+      border-color: rgba(201,160,53,0.4);
+      box-shadow: 0 0 40px rgba(201,160,53,0.15), inset 0 1px 0 rgba(201,160,53,0.3);
+    }
+    .precio-card.recomendado:hover { box-shadow: 0 20px 60px rgba(201,160,53,0.25), inset 0 1px 0 rgba(201,160,53,0.3); }
+    .precio-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    }
+    .precio-card.recomendado::before { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .precio-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: var(--dark); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 1.5rem;
+    }
+    .precio-card-name { font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+    .precio-card-amount { font-size: 3rem; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 0.25rem; letter-spacing: -0.04em; }
+    .precio-card.recomendado .precio-card-amount { color: var(--gold2); }
+    .precio-card-sub { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin-bottom: 2rem; }
+    .precio-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0; }
+    .precio-card.recomendado .precio-divider { border-color: rgba(201,160,53,0.2); }
     .precio-features { list-style: none; margin-bottom: 2rem; }
-    .precio-features li { padding: 0.5rem 0; font-size: 0.92rem; display: flex; gap: 0.75rem; align-items: flex-start; }
-    .precio-check { color: var(--gold); font-weight: 700; flex-shrink: 0; }
+    .precio-features li { padding: 0.6rem 0; font-size: 0.9rem; color: rgba(255,255,255,0.65); display: flex; gap: 0.75rem; align-items: flex-start; }
+    .precio-card.recomendado .precio-features li { color: rgba(255,255,255,0.8); }
+    .precio-check { color: var(--gold); font-weight: 800; flex-shrink: 0; }
 
-    /* GARANTÍA */
-    .garantia { background: var(--dark); color: #fff; text-align: center; }
-    .garantia-icon { font-size: 3.5rem; margin-bottom: 1.25rem; }
-    .garantia h2 { color: #fff; margin-bottom: 1.25rem; }
-    .garantia-text { max-width: 560px; margin-inline: auto; color: rgba(255,255,255,0.75); margin-bottom: 1rem; }
-    .garantia-sub { color: var(--gold); font-size: 0.9rem; font-weight: 600; }
+    /* GARANTIA */
+    .garantia {
+      background: linear-gradient(135deg, #0a1a1a 0%, var(--dark) 50%, #0a2020 100%);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .garantia::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(201,160,53,0.1) 0%, transparent 60%);
+    }
+    .garantia-shield {
+      width: 100px; height: 100px; margin-inline: auto; margin-bottom: 2rem;
+      background: linear-gradient(135deg, rgba(201,160,53,0.15), rgba(201,160,53,0.05));
+      border: 2px solid rgba(201,160,53,0.3); border-radius: 20px;
+      display: flex; align-items: center; justify-content: center; font-size: 3rem;
+      box-shadow: 0 0 40px rgba(201,160,53,0.2); position: relative; z-index: 1;
+      animation: shieldPulse 3s ease-in-out infinite;
+    }
+    @keyframes shieldPulse {
+      0%, 100% { box-shadow: 0 0 30px rgba(201,160,53,0.2); }
+      50% { box-shadow: 0 0 60px rgba(201,160,53,0.4), 0 0 100px rgba(201,160,53,0.1); }
+    }
+    .garantia h2 { color: #fff; margin-bottom: 1.25rem; position: relative; z-index: 1; }
+    .garantia-text { max-width: 560px; margin-inline: auto; color: rgba(255,255,255,0.6); margin-bottom: 1rem; font-size: 1.05rem; line-height: 1.8; position: relative; z-index: 1; }
+    .garantia-sub { color: var(--gold); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.04em; position: relative; z-index: 1; }
 
     /* FAQ */
-    .faq { background: var(--bg); }
-    .faq-intro { max-width: 600px; margin-bottom: 2.5rem; }
-    .faq-list { max-width: 700px; }
-    .faq-item { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 0.75rem; background: var(--white); overflow: hidden; }
-    .faq-q { width: 100%; text-align: left; padding: 1.25rem 1.5rem; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--dark); background: transparent; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .faq-icon { font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: transform 0.3s; }
-    .faq-a { padding: 0 1.5rem 1.25rem; font-size: 0.92rem; color: var(--muted); line-height: 1.7; display: none; }
+    .faq {
+      background: var(--bg);
+      background-image: linear-gradient(160deg, #f7f6f3 0%, #f0efe9 100%);
+    }
+    .faq-intro { max-width: 580px; margin-bottom: 2.5rem; }
+    .faq-list { max-width: 720px; }
+    .faq-item {
+      border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem;
+      background: var(--white); overflow: hidden;
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    .faq-item:hover { border-color: rgba(201,160,53,0.3); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .faq-item.open { border-color: rgba(201,160,53,0.4); box-shadow: 0 4px 24px rgba(201,160,53,0.1); }
+    .faq-q {
+      width: 100%; text-align: left; padding: 1.35rem 1.75rem;
+      font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--dark);
+      background: transparent; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .faq-icon {
+      width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--gold); flex-shrink: 0; transition: transform 0.35s, background 0.3s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--gold); color: var(--dark); border-color: var(--gold); }
+    .faq-a { padding: 0 1.75rem 1.35rem; font-size: 0.92rem; color: var(--muted); line-height: 1.8; display: none; }
     .faq-item.open .faq-a { display: block; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
 
     /* CONTACTO */
-    .contacto { background: var(--white); }
-    .contacto-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; margin-top: 3rem; }
-    .contacto-sep { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; color: var(--muted); font-size: 0.85rem; }
-    .contacto-sep::before, .contacto-sep::after { content: ''; display: block; width: 1px; height: 60px; background: var(--border); }
+    .contacto {
+      background: linear-gradient(160deg, #f7f6f3 0%, #eeede8 100%);
+      position: relative;
+    }
+    .contacto::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(201,160,53,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .contacto-header { text-align: center; max-width: 580px; margin-inline: auto; margin-bottom: 3.5rem; position: relative; z-index: 1; }
+    .contacto-header h2 { margin-bottom: 0.75rem; }
+    .contacto-header p { color: var(--muted); font-size: 1.05rem; }
+    .contacto-grid { display: grid; grid-template-columns: 1fr 80px 1fr; gap: 0; align-items: stretch; position: relative; z-index: 1; max-width: 900px; margin-inline: auto; }
+    .contacto-sep { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; color: var(--muted); font-size: 0.8rem; font-weight: 600; }
+    .contacto-sep::before, .contacto-sep::after { content: ''; display: block; width: 1px; flex: 1; background: linear-gradient(transparent, var(--border), transparent); }
+
+    .form-box {
+      background: var(--white); border-radius: 16px; padding: 2.5rem;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.08); border: 1px solid var(--border);
+    }
+    .form-box-title { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 1.75rem; display: flex; align-items: center; gap: 0.5rem; }
     .form-group { margin-bottom: 1.25rem; }
-    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--dark); margin-bottom: 0.4rem; }
-    .form-group input { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--text); background: var(--bg); transition: border-color 0.2s; }
-    .form-group input:focus { outline: none; border-color: var(--dark); }
-    .form-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; }
-    .wa-card { background: var(--dark); border-radius: 6px; padding: 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-    .wa-card p { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
-    .btn-wa { background: #25D366; color: #fff; font-weight: 700; padding: 0.9rem 1.75rem; border-radius: 4px; text-decoration: none; display: flex; align-items: center; gap: 0.6rem; width: 100%; justify-content: center; font-size: 0.95rem; transition: filter 0.2s; }
-    .btn-wa:hover { filter: brightness(1.08); }
-    .trust-row { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-    .trust-row span { font-size: 0.875rem; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; }
-    .trust-row span::before { content: '✓'; color: var(--gold); font-weight: 700; }
+    .form-group label { display: block; font-size: 0.82rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem; letter-spacing: 0.02em; }
+    .form-group input {
+      width: 100%; padding: 0.85rem 1.1rem; border: 1.5px solid var(--border); border-radius: 8px;
+      font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--text);
+      background: var(--bg); transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,160,53,0.12); }
+    .form-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; text-align: center; }
+
+    .wa-box {
+      background: linear-gradient(160deg, var(--dark) 0%, #0f2e2e 100%);
+      border-radius: 16px; padding: 2.5rem;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; gap: 1.25rem;
+      border: 1px solid rgba(201,160,53,0.15);
+      box-shadow: 0 4px 40px rgba(0,0,0,0.15);
+      position: relative; overflow: hidden;
+    }
+    .wa-box::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,160,53,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .wa-box-title { font-size: 1rem; font-weight: 700; color: rgba(255,255,255,0.85); position: relative; z-index: 1; line-height: 1.4; }
+    .btn-wa {
+      background: linear-gradient(135deg, #20c25e, #25D366, #20c25e);
+      background-size: 200% auto;
+      color: #fff; font-weight: 800; padding: 1rem 1.75rem; border-radius: 8px;
+      text-decoration: none; display: flex; align-items: center; gap: 0.6rem;
+      width: 100%; justify-content: center; font-size: 0.95rem;
+      transition: background-position 0.4s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3); position: relative; z-index: 1;
+    }
+    .btn-wa:hover { background-position: right center; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.45); }
+    .wa-box-note { font-size: 0.75rem; color: rgba(255,255,255,0.3); position: relative; z-index: 1; line-height: 1.5; }
+
+    .trust-row {
+      display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;
+      margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--border);
+      position: relative; z-index: 1; max-width: 900px; margin-inline: auto;
+      margin-top: 2.5rem;
+    }
+    .trust-row span { font-size: 0.875rem; color: var(--muted); display: flex; align-items: center; gap: 0.5rem; }
+    .trust-row span::before { content: '✓'; color: var(--gold); font-weight: 800; font-size: 1rem; }
 
     /* FOOTER */
-    .footer { background: var(--dark); padding-block: 2rem; }
-    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center; }
-    .footer-brand { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
-    .footer-copy { color: rgba(255,255,255,0.35); font-size: 0.8rem; }
-    .footer-links { display: flex; gap: 1.25rem; }
-    .footer-links a { color: rgba(255,255,255,0.35); font-size: 0.8rem; text-decoration: none; }
-    .footer-links a:hover { color: rgba(255,255,255,0.6); }
+    .footer {
+      background: linear-gradient(135deg, #070f0f, var(--dark2), #050d0d);
+      padding-block: 2.5rem; border-top: 1px solid rgba(201,160,53,0.15);
+    }
+    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+    .footer-logo { font-size: 1.1rem; font-weight: 900; color: #fff; }
+    .footer-logo span { color: var(--gold); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.3); font-size: 0.82rem; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { color: rgba(255,255,255,0.2); font-size: 0.78rem; }
 
     /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .servicios-grid { grid-template-columns: 1fr; }
+      .precio-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 768px) {
       .trust-bar-grid { grid-template-columns: 1fr 1fr; }
-      .servicios-grid { grid-template-columns: 1fr; }
       .antes-despues { grid-template-columns: 1fr; }
       .proceso-grid { grid-template-columns: 1fr 1fr; }
-      .proceso-grid::before { display: none; }
-      .precio-grid { grid-template-columns: 1fr; }
+      .proceso-connector { display: none; }
       .contacto-grid { grid-template-columns: 1fr; }
       .contacto-sep { flex-direction: row; }
-      .contacto-sep::before, .contacto-sep::after { width: 60px; height: 1px; }
-      .hero-btns { flex-direction: column; }
-      .hero-btns a { text-align: center; }
+      .contacto-sep::before, .contacto-sep::after { width: 80px; height: 1px; flex: none; }
+      .hero-btns { flex-direction: column; align-items: flex-start; }
+      .servicios-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
       .proceso-grid { grid-template-columns: 1fr; }
-      .trust-micro { gap: 0.75rem; }
+      .trust-micro { gap: 0.9rem; }
+      .hero-orb-1, .hero-orb-2 { display: none; }
     }
   </style>
 </head>
@@ -260,18 +561,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-orb-1"></div>
+  <div class="hero-orb-2"></div>
   <div class="container">
     <div class="hero-inner">
-      <p class="eyebrow">Consultor SEO · Logroño, La Rioja</p>
-      <h1>Tu consultor SEO en Logroño para pymes locales</h1>
-      <p class="hero-sub">Posicionamiento web orgánico para que tu negocio aparezca antes que tu competencia en Google. Sin agencias genéricas, sin contratos largos.</p>
-      <div class="hero-btns">
+      <p class="eyebrow reveal">Consultor SEO · Logroño, La Rioja</p>
+      <h1 class="reveal" style="transition-delay:0.1s">
+        Tu consultor SEO<br>en Logroño para<br>
+        <span class="gradient-text">pymes locales</span>
+      </h1>
+      <p class="hero-sub reveal" style="transition-delay:0.2s">
+        Posicionamiento web orgánico para que tu negocio aparezca antes que tu competencia en Google. Sin agencias genéricas, sin contratos largos.
+      </p>
+      <div class="hero-btns reveal" style="transition-delay:0.3s">
         <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Web+para+mi+negocio" class="btn-primary" target="_blank" rel="noopener">
-          Habla con Sergio en WhatsApp
+          💬 Habla con Sergio en WhatsApp
         </a>
         <a href="#ironwood" class="btn-outline-white">Ver caso de éxito ↓</a>
       </div>
-      <div class="trust-micro">
+      <div class="trust-micro reveal" style="transition-delay:0.4s">
         <span>Sin permanencia</span>
         <span>Consulta inicial gratuita</span>
         <span>Solo pymes de La Rioja</span>
@@ -284,19 +594,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="trust-bar">
   <div class="container">
     <div class="trust-bar-grid">
-      <div>
+      <div class="trust-stat">
         <div class="trust-stat-num">#1</div>
         <div class="trust-stat-label">Entre 91 competidores</div>
       </div>
-      <div>
+      <div class="trust-stat">
         <div class="trust-stat-num">63</div>
         <div class="trust-stat-label">Reseñas · 4.9★</div>
       </div>
-      <div>
+      <div class="trust-stat">
         <div class="trust-stat-num">100%</div>
         <div class="trust-stat-label">Cobertura LocalPack</div>
       </div>
-      <div>
+      <div class="trust-stat">
         <div class="trust-stat-num">90 días</div>
         <div class="trust-stat-label">Para resultados verificables</div>
       </div>
@@ -304,36 +614,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- PUNTOS DE DOLOR -->
+<!-- DOLOR -->
 <section class="dolor section-pad" id="dolor">
   <div class="container">
-    <div class="dolor-intro">
+    <div class="dolor-intro reveal">
+      <p class="eyebrow">El problema</p>
       <h2>¿Te sientes identificado?</h2>
       <p>Estos son los problemas más comunes antes de trabajar con un consultor SEO especializado en negocios locales.</p>
     </div>
     <ul class="dolor-list">
-      <li>
-        <span class="dolor-x">✕</span>
-        <span>Tu web no aparece en la primera página de Google para tus búsquedas clave</span>
-      </li>
-      <li>
-        <span class="dolor-x">✕</span>
-        <span>Tienes web pero no sabes si te está trayendo clientes de verdad</span>
-      </li>
-      <li>
-        <span class="dolor-x">✕</span>
-        <span>Has contratado una agencia genérica que no entiende tu mercado local</span>
-      </li>
-      <li>
-        <span class="dolor-x">✕</span>
-        <span>No sabes qué palabras clave usa realmente tu cliente en Logroño</span>
-      </li>
-      <li>
-        <span class="dolor-x">✕</span>
-        <span>Inviertes en la web pero el tráfico no se traduce en llamadas o contactos</span>
-      </li>
+      <li class="reveal" style="transition-delay:0.05s"><span class="dolor-x">✕</span><span>Tu web no aparece en la primera página de Google para tus búsquedas clave</span></li>
+      <li class="reveal" style="transition-delay:0.1s"><span class="dolor-x">✕</span><span>Tienes web pero no sabes si te está trayendo clientes de verdad</span></li>
+      <li class="reveal" style="transition-delay:0.15s"><span class="dolor-x">✕</span><span>Has contratado una agencia genérica que no entiende tu mercado local</span></li>
+      <li class="reveal" style="transition-delay:0.2s"><span class="dolor-x">✕</span><span>No sabes qué palabras clave usa realmente tu cliente en Logroño</span></li>
+      <li class="reveal" style="transition-delay:0.25s"><span class="dolor-x">✕</span><span>Inviertes en la web pero el tráfico no se traduce en llamadas o contactos</span></li>
     </ul>
-    <div class="dolor-cta">
+    <div class="dolor-cta reveal" style="transition-delay:0.3s">
       <a href="#contacto">Eso tiene solución. Cuéntame tu caso →</a>
     </div>
   </div>
@@ -342,34 +638,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- SERVICIOS -->
 <section class="servicios section-pad" id="servicios">
   <div class="container">
-    <div class="servicios-intro">
+    <div class="servicios-intro reveal">
       <p class="eyebrow">El servicio</p>
-      <h2>Lo que hacemos para posicionar tu web</h2>
+      <h2>Lo que hacemos para <span class="gradient-text">posicionar tu web</span></h2>
       <p>Trabajo de fondo y constante para que Google entienda que tu negocio es la mejor respuesta en tu sector.</p>
     </div>
-    <div class="servicios-grid">
+    <div class="servicios-grid reveal" style="transition-delay:0.15s">
       <div class="servicio-card">
-        <div class="servicio-card-title"><span class="icon">🔧</span> Auditoría técnica completa</div>
+        <span class="servicio-card-icon">🔧</span>
+        <div class="servicio-card-title">Auditoría técnica completa</div>
         <p>Errores, velocidad, estructura. Identificamos qué frena tu posición.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-card-title"><span class="icon">🔍</span> Investigación de palabras clave</div>
+        <span class="servicio-card-icon">🔍</span>
+        <div class="servicio-card-title">Investigación de palabras clave</div>
         <p>Las búsquedas reales de tus clientes en Logroño y La Rioja.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-card-title"><span class="icon">✏️</span> Optimización on-page</div>
+        <span class="servicio-card-icon">✏️</span>
+        <div class="servicio-card-title">Optimización on-page</div>
         <p>Títulos, metadescripciones, estructura de contenido orientada a SEO.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-card-title"><span class="icon">📄</span> Contenido SEO mensual</div>
+        <span class="servicio-card-icon">📄</span>
+        <div class="servicio-card-title">Contenido SEO mensual</div>
         <p>Artículos y páginas pensadas para posicionar, no para rellenar.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-card-title"><span class="icon">🔗</span> Linkbuilding local</div>
+        <span class="servicio-card-icon">🔗</span>
+        <div class="servicio-card-title">Linkbuilding local</div>
         <p>Enlaces de calidad desde sitios relevantes de La Rioja.</p>
       </div>
       <div class="servicio-card">
-        <div class="servicio-card-title"><span class="icon">📊</span> Informe + llamada mensual</div>
+        <span class="servicio-card-icon">📊</span>
+        <div class="servicio-card-title">Informe + llamada mensual</div>
         <p>Dashboard en tiempo real. Repasamos avances juntos cada mes.</p>
       </div>
     </div>
@@ -379,64 +681,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- IRONWOOD -->
 <section class="ironwood section-pad" id="ironwood">
   <div class="container">
-    <div class="ironwood-intro">
+    <div class="ironwood-intro reveal">
       <p class="eyebrow">Caso de éxito real</p>
-      <h2>Ironwood Soluciones · Carpintería Metálica · Logroño</h2>
+      <h2 style="color:#fff">Ironwood Soluciones · <span class="gradient-text">Carpintería Metálica · Logroño</span></h2>
     </div>
-    <div class="antes-despues">
+    <div class="antes-despues reveal" style="transition-delay:0.15s">
       <div class="antes">
         <div class="ad-label">Antes</div>
-        <div class="ad-item"><span class="ad-icon">✕</span><span class="ad-text">Sin visibilidad en Google Maps</span></div>
-        <div class="ad-item"><span class="ad-icon">✕</span><span class="ad-text">0 reseñas</span></div>
-        <div class="ad-item"><span class="ad-icon">✕</span><span class="ad-text">Sin posición en el LocalPack</span></div>
-        <div class="ad-item"><span class="ad-icon">✕</span><span class="ad-text">Llamadas desde Google: 0</span></div>
+        <div class="ad-item"><div class="ad-icon-wrap">✕</div><span class="ad-text">Sin visibilidad en Google Maps</span></div>
+        <div class="ad-item"><div class="ad-icon-wrap">✕</div><span class="ad-text">0 reseñas</span></div>
+        <div class="ad-item"><div class="ad-icon-wrap">✕</div><span class="ad-text">Sin posición en el LocalPack</span></div>
+        <div class="ad-item"><div class="ad-icon-wrap">✕</div><span class="ad-text">Llamadas desde Google: 0</span></div>
       </div>
       <div class="despues">
         <div class="ad-label">Después</div>
-        <div class="ad-item"><span class="ad-icon">✓</span><span class="ad-text">#1 entre 91 competidores</span></div>
-        <div class="ad-item"><span class="ad-icon">✓</span><span class="ad-text">63 reseñas · 4.9★</span></div>
-        <div class="ad-item"><span class="ad-icon">✓</span><span class="ad-text">100% cobertura LocalPack</span></div>
-        <div class="ad-item"><span class="ad-icon">✓</span><span class="ad-text">Llamadas y presupuestos diarios</span></div>
+        <div class="ad-item"><div class="ad-icon-wrap">✓</div><span class="ad-text">#1 entre 91 competidores</span></div>
+        <div class="ad-item"><div class="ad-icon-wrap">✓</div><span class="ad-text">63 reseñas · 4.9★</span></div>
+        <div class="ad-item"><div class="ad-icon-wrap">✓</div><span class="ad-text">100% cobertura LocalPack</span></div>
+        <div class="ad-item"><div class="ad-icon-wrap">✓</div><span class="ad-text">Llamadas y presupuestos diarios</span></div>
       </div>
     </div>
-    <div class="ironwood-quote">
+    <div class="ironwood-quote reveal" style="transition-delay:0.2s">
       <p>"Hoy Ironwood recibe llamadas y solicitudes de presupuesto directamente desde Google Maps, sin pagar un euro en publicidad."</p>
     </div>
-    <p class="ironwood-dato">Resultado conseguido en menos de 90 días</p>
-    <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Web+para+mi+negocio" class="btn-primary" target="_blank" rel="noopener">
-      Quiero resultados como Ironwood
-    </a>
+    <p class="ironwood-dato reveal" style="transition-delay:0.25s">✦ Resultado conseguido en menos de 90 días</p>
+    <div class="reveal" style="transition-delay:0.3s">
+      <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Web+para+mi+negocio" class="btn-primary" target="_blank" rel="noopener">
+        Quiero resultados como Ironwood
+      </a>
+    </div>
   </div>
 </section>
 
 <!-- PROCESO -->
 <section class="proceso section-pad">
   <div class="container">
-    <div class="proceso-intro">
-      <p class="eyebrow">Cómo trabajamos</p>
+    <div class="proceso-intro reveal">
+      <p class="eyebrow">El método</p>
       <h2>Sencillo, directo y con foco en resultados</h2>
-      <p>Sin pasos innecesarios.</p>
+      <p>Sin pasos innecesarios. Sin informes que nadie lee.</p>
     </div>
-    <div class="proceso-grid">
-      <div class="paso">
-        <div class="paso-num">01</div>
+    <div class="proceso-grid" style="position:relative">
+      <div class="proceso-connector"></div>
+      <div class="paso reveal" style="transition-delay:0.05s">
+        <div class="paso-num-wrap"><span class="paso-num">01</span></div>
         <div class="paso-title">Análisis inicial</div>
-        <p>Estudiamos tu negocio, tu sector y tu competencia local en La Rioja.</p>
+        <p>Estudiamos tu negocio, sector y competencia local en La Rioja.</p>
       </div>
-      <div class="paso">
-        <div class="paso-num">02</div>
+      <div class="paso reveal" style="transition-delay:0.15s">
+        <div class="paso-num-wrap"><span class="paso-num">02</span></div>
         <div class="paso-title">Estrategia a medida</div>
         <p>No hay dos negocios iguales. Diseñamos el plan para tu mercado.</p>
       </div>
-      <div class="paso">
-        <div class="paso-num">03</div>
+      <div class="paso reveal" style="transition-delay:0.25s">
+        <div class="paso-num-wrap"><span class="paso-num">03</span></div>
         <div class="paso-title">Ejecución constante</div>
-        <p>Trabajamos mes a mes con bloques de tiempo dedicados. Sin excusas.</p>
+        <p>Trabajamos mes a mes con bloques de tiempo dedicados.</p>
       </div>
-      <div class="paso">
-        <div class="paso-num">04</div>
+      <div class="paso reveal" style="transition-delay:0.35s">
+        <div class="paso-num-wrap"><span class="paso-num">04</span></div>
         <div class="paso-title">Seguimiento y ajuste</div>
-        <p>Dashboard en tiempo real + llamada mensual. Medimos y repetimos lo que funciona.</p>
+        <p>Dashboard en tiempo real + llamada mensual. Medimos lo que funciona.</p>
       </div>
     </div>
   </div>
@@ -445,15 +750,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- PRECIO -->
 <section class="precio section-pad" id="precio">
   <div class="container">
-    <div class="precio-intro">
+    <div class="precio-intro reveal">
       <p class="eyebrow">La inversión</p>
-      <h2>Al grano. Esto es lo que cuesta.</h2>
-      <p>Dos planes según el tamaño de tu proyecto.</p>
+      <h2>Al grano. <span class="gradient-text">Esto es lo que cuesta.</span></h2>
+      <p>Dos planes según el tamaño de tu proyecto. Sin letras pequeñas.</p>
     </div>
     <div class="precio-grid">
-      <div class="precio-card">
+      <div class="precio-card reveal" style="transition-delay:0.1s">
         <div class="precio-card-name">SEO Web Starter</div>
-        <div class="precio-card-amount">350€<span style="font-size:1.1rem;font-weight:500;color:var(--muted)">/mes</span></div>
+        <div class="precio-card-amount">350€<span style="font-size:1.1rem;font-weight:500;color:rgba(255,255,255,0.3)">/mes</span></div>
         <div class="precio-card-sub">Sin IVA · Sin permanencia</div>
         <hr class="precio-divider" />
         <ul class="precio-features">
@@ -463,12 +768,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><span class="precio-check">✓</span> 1 artículo SEO al mes</li>
           <li><span class="precio-check">✓</span> Informe mensual + llamada</li>
         </ul>
-        <a href="#contacto" class="btn-secondary" style="display:block;text-align:center;">Empezar con Starter</a>
+        <a href="#contacto" class="btn-outline-white" style="width:100%;justify-content:center;">Empezar con Starter</a>
       </div>
-      <div class="precio-card recomendado">
+      <div class="precio-card recomendado reveal" style="transition-delay:0.2s">
         <div class="precio-badge">⭐ Recomendado</div>
         <div class="precio-card-name">SEO Web Pro</div>
-        <div class="precio-card-amount">600€<span style="font-size:1.1rem;font-weight:500;color:var(--muted)">/mes</span></div>
+        <div class="precio-card-amount">600€<span style="font-size:1.1rem;font-weight:500;color:rgba(201,160,53,0.5)">/mes</span></div>
         <div class="precio-card-sub">Sin IVA · Sin permanencia</div>
         <hr class="precio-divider" />
         <ul class="precio-features">
@@ -478,47 +783,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><span class="precio-check">✓</span> Informe quincenal</li>
           <li><span class="precio-check">✓</span> Llamada quincenal de seguimiento</li>
         </ul>
-        <a href="#contacto" class="btn-primary" style="display:block;text-align:center;">Empezar con Pro</a>
+        <a href="#contacto" class="btn-primary" style="width:100%;justify-content:center;">Empezar con Pro</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GARANTÍA -->
+<!-- GARANTIA -->
 <section class="garantia section-pad" id="garantia">
   <div class="container">
-    <div class="garantia-icon">🛡️</div>
-    <h2>Garantía de resultados · 90 días</h2>
-    <p class="garantia-text">Si sigues mi metodología durante 90 días y no ves una mejora verificable en tu posicionamiento orgánico, te devuelvo el primer mes. Sin preguntas.</p>
-    <p class="garantia-sub">Porque si no hay resultados, no mereces pagar.</p>
+    <div class="garantia-shield reveal">🛡️</div>
+    <h2 class="reveal" style="transition-delay:0.1s">Garantía de resultados · <span class="gradient-text">90 días</span></h2>
+    <p class="garantia-text reveal" style="transition-delay:0.2s">Si sigues mi metodología durante 90 días y no ves una mejora verificable en tu posicionamiento orgánico, te devuelvo el primer mes. Sin preguntas.</p>
+    <p class="garantia-sub reveal" style="transition-delay:0.3s">✦ Porque si no hay resultados, no mereces pagar.</p>
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="faq section-pad">
   <div class="container">
-    <div class="faq-intro">
+    <div class="faq-intro reveal">
+      <p class="eyebrow">FAQ</p>
       <h2>Preguntas frecuentes</h2>
     </div>
     <div class="faq-list">
-      <div class="faq-item open">
-        <button class="faq-q">¿Hay que pagar a Google para posicionar?<span class="faq-icon">+</span></button>
+      <div class="faq-item open reveal" style="transition-delay:0.05s">
+        <button class="faq-q">¿Hay que pagar a Google para posicionar?<div class="faq-icon">+</div></button>
         <div class="faq-a">No. El SEO orgánico es gratuito. Pagas la estrategia y el trabajo, no a Google.</div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q">¿Cuánto tarda en verse resultados?<span class="faq-icon">+</span></button>
+      <div class="faq-item reveal" style="transition-delay:0.1s">
+        <button class="faq-q">¿Cuánto tarda en verse resultados?<div class="faq-icon">+</div></button>
         <div class="faq-a">Entre 2 y 4 meses para posiciones consolidadas, según la competencia de tu sector.</div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q">¿Puedo cancelar cuando quiera?<span class="faq-icon">+</span></button>
+      <div class="faq-item reveal" style="transition-delay:0.15s">
+        <button class="faq-q">¿Puedo cancelar cuando quiera?<div class="faq-icon">+</div></button>
         <div class="faq-a">Sí. Sin permanencia. Avisa antes de que empiece el siguiente mes. Sin penalizaciones.</div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q">¿Mi web tiene que ser de WordPress?<span class="faq-icon">+</span></button>
+      <div class="faq-item reveal" style="transition-delay:0.2s">
+        <button class="faq-q">¿Mi web tiene que ser de WordPress?<div class="faq-icon">+</div></button>
         <div class="faq-a">No. Trabajamos sobre cualquier web: WordPress, Wix, HTML, Shopify...</div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q">¿Qué diferencia hay entre Starter y Pro?<span class="faq-icon">+</span></button>
+      <div class="faq-item reveal" style="transition-delay:0.25s">
+        <button class="faq-q">¿Qué diferencia hay entre Starter y Pro?<div class="faq-icon">+</div></button>
         <div class="faq-a">El volumen de contenido y linkbuilding. Pro es para sectores más competidos o negocios que quieren acelerar resultados.</div>
       </div>
     </div>
@@ -528,12 +834,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- CONTACTO -->
 <section class="contacto section-pad" id="contacto">
   <div class="container">
-    <div style="text-align:center;max-width:600px;margin-inline:auto;margin-bottom:3rem;">
+    <div class="contacto-header reveal">
+      <p class="eyebrow">Hablemos</p>
       <h2>¿Empezamos?</h2>
-      <p style="color:var(--muted);margin-top:0.75rem;">Cuéntame tu situación. Sin compromiso, sin presión. Solo una conversación de 15 minutos para ver si puedo ayudarte.</p>
+      <p>Cuéntame tu situación. Sin compromiso, sin presión. Solo una conversación de 15 minutos para ver si puedo ayudarte.</p>
     </div>
     <div class="contacto-grid">
-      <div>
+      <div class="form-box reveal-left">
+        <div class="form-box-title">📝 Envíame un mensaje</div>
         <form action="https://formspree.io/f/meevolga" method="POST">
           <input type="hidden" name="_next" value="https://webboost.es/consultor-seo-logrono/gracias" />
           <div class="form-group">
@@ -548,21 +856,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <label for="telefono">Teléfono o WhatsApp</label>
             <input type="tel" id="telefono" name="telefono" required placeholder="+34 600 000 000" />
           </div>
-          <button type="submit" class="btn-primary" style="width:100%">Enviar mensaje →</button>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Enviar mensaje →</button>
           <p class="form-note">Sergio te contactará en menos de 24 horas.</p>
         </form>
       </div>
-      <div class="contacto-sep">o si lo prefieres</div>
-      <div>
-        <div class="wa-card">
-          <p>¿Prefieres escribir directamente?</p>
-          <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Web+para+mi+negocio" class="btn-wa" target="_blank" rel="noopener">
-            <span>💬</span> Escríbeme por WhatsApp
-          </a>
-        </div>
+
+      <div class="contacto-sep">o</div>
+
+      <div class="wa-box reveal-right">
+        <div class="wa-box-title">¿Prefieres hablar directamente?<br>Escríbeme por WhatsApp ahora.</div>
+        <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Web+para+mi+negocio" class="btn-wa" target="_blank" rel="noopener">
+          💬 Escríbeme por WhatsApp
+        </a>
+        <p class="wa-box-note">Respuesta en menos de 24h · Sin compromiso</p>
       </div>
     </div>
-    <div class="trust-row">
+    <div class="trust-row reveal">
       <span>Respuesta en menos de 24h</span>
       <span>Sin compromiso</span>
       <span>Primera consulta gratuita</span>
@@ -573,7 +882,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container footer-inner">
-    <p class="footer-brand">WebBoost · Logroño, La Rioja</p>
+    <div class="footer-logo">Web<span>Boost</span></div>
+    <p style="color:rgba(255,255,255,0.3);font-size:0.82rem;">Consultor SEO · Logroño, La Rioja</p>
     <div class="footer-links">
       <a href="/privacidad">Política de privacidad</a>
       <a href="mailto:info@webboost.es">info@webboost.es</a>
@@ -583,6 +893,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <script>
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+  // FAQ
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
