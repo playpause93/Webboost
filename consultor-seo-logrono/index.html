@@ -353,6 +353,7 @@
       backdrop-filter: blur(10px);
       position: relative; overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column;
     }
     .precio-card:hover { transform: translateY(-6px); }
     .precio-card.recomendado {
@@ -378,7 +379,7 @@
     .precio-card-sub { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin-bottom: 2rem; }
     .precio-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0; }
     .precio-card.recomendado .precio-divider { border-color: rgba(201,160,53,0.2); }
-    .precio-features { list-style: none; margin-bottom: 2rem; }
+    .precio-features { list-style: none; margin-bottom: 2rem; flex: 1; }
     .precio-features li { padding: 0.6rem 0; font-size: 0.9rem; color: rgba(255,255,255,0.65); display: flex; gap: 0.75rem; align-items: flex-start; }
     .precio-card.recomendado .precio-features li { color: rgba(255,255,255,0.8); }
     .precio-check { color: var(--gold); font-weight: 800; flex-shrink: 0; }
