@@ -843,8 +843,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="contacto-grid">
       <div class="form-box reveal-left">
         <div class="form-box-title">📝 Envíame un mensaje</div>
-        <form action="https://formspree.io/f/meevolga" method="POST">
-          <input type="hidden" name="_next" value="https://webboost.es/consultor-seo-logrono/gracias" />
+        <form id="contactForm">
           <div class="form-group">
             <label for="nombre">Tu nombre</label>
             <input type="text" id="nombre" name="nombre" required placeholder="Nombre" />
@@ -901,6 +900,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+  // Formulario AJAX — evita redirección Formspree, permite tracking GTM
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    const btn = form.querySelector('button[type="submit"]');
+    const orig = btn.textContent;
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://formspree.io/f/meevolga', {
+        method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        window.location.href = '/consultor-seo-logrono/gracias';
+      } else {
+        btn.textContent = orig; btn.disabled = false;
+        alert('Hubo un error al enviar. Inténtalo de nuevo.');
+      }
+    } catch {
+      btn.textContent = orig; btn.disabled = false;
+      alert('Hubo un error al enviar. Inténtalo de nuevo.');
+    }
+  });
 
   // FAQ
   document.querySelectorAll('.faq-q').forEach(btn => {
