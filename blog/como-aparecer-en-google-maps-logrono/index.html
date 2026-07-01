@@ -15,30 +15,21 @@
   <meta property="og:locale" content="es_ES" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="article:published_time" content="2026-07-01" />
-  <meta name="article:author" content="Sergio De La Torre · WebBoost" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Cómo aparecer en Google Maps en Logroño: la guía definitiva para pymes",
-    "description": "Guía completa para aparecer en los primeros resultados de Google Maps en Logroño. Estrategias reales con caso de éxito probado: Ironwood Soluciones, #1 entre 91 competidores.",
-    "author": {
-      "@type": "Person",
-      "name": "Sergio De La Torre",
-      "url": "https://www.webboost.es/sobre-mi"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "WebBoost",
-      "url": "https://www.webboost.es"
-    },
+    "description": "Guía completa para aparecer en los primeros resultados de Google Maps en Logroño.",
+    "author": { "@type": "Person", "name": "Sergio De La Torre", "url": "https://www.webboost.es/sobre-mi" },
+    "publisher": { "@type": "Organization", "name": "WebBoost", "url": "https://www.webboost.es" },
     "datePublished": "2026-07-01",
     "dateModified": "2026-07-01",
     "url": "https://www.webboost.es/blog/como-aparecer-en-google-maps-logrono",
-    "image": "https://www.webboost.es/assets/blog/google-maps-logrono.jpg",
+    "image": "https://www.webboost.es/og-image.jpg",
     "inLanguage": "es",
-    "keywords": "cómo aparecer en google maps logroño, posicionamiento google maps logroño, seo local logroño, google business profile logroño, aparecer primero google maps"
+    "keywords": "cómo aparecer en google maps logroño, posicionamiento google maps logroño, seo local logroño, google business profile logroño"
   }
   </script>
 
@@ -48,301 +39,242 @@
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-T7DH4TXB');</script>
-  <!-- End Google Tag Manager -->
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18114394231"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-18114394231');
-  </script>
-  <!-- Google tag (gtag.js) -->
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18114394231');</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W63WMT1Y06"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-W63WMT1Y06');
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W63WMT1Y06');</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
-    /* Fade-in */
-    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark:   #0D2626;
+      --dark2:  #163030;
+      --gold:   #C9A035;
+      --gold2:  #e8c050;
+      --white:  #ffffff;
+      --text:   #1A1A1A;
+      --muted:  #5C5C5C;
+      --light:  #F7F6F3;
+      --border: #E5E2DC;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.7; color: var(--text); background: #fff; overflow-x: hidden; }
 
-    /* Hero */
-    .article-hero {
-      padding-top: 66px;
-      background: var(--teal-900);
-      background-image: radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px);
-      background-size: 24px 24px;
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      background: rgba(13,38,38,0.97); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,160,53,0.15);
+      padding: 0 clamp(1.25rem,4vw,2.5rem);
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
     }
-    .article-hero-inner { max-width: 780px; margin-inline: auto; padding: 64px 28px 56px; text-align: center; }
-    .article-breadcrumb {
-      font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-bottom: 20px;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
+    .nav-logo { font-size: 1.2rem; font-weight: 900; color: #fff; text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: linear-gradient(120deg, #b8891e, var(--gold), var(--gold2));
+      background-size: 200% auto;
+      color: var(--dark); font-weight: 800; font-size: 0.85rem;
+      padding: 0.6rem 1.4rem; border-radius: 100px; text-decoration: none;
+      transition: background-position 0.4s, box-shadow 0.3s;
     }
-    .article-breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-    .article-breadcrumb a:hover { color: var(--gold); }
-    .article-breadcrumb span { color: rgba(255,255,255,0.2); }
-    .article-cat-tag {
+    .nav-cta:hover { background-position: right center; box-shadow: 0 4px 20px rgba(201,160,53,0.4); }
+    @media (max-width: 700px) { .nav-links { display: none; } }
+
+    /* HERO */
+    .hero {
+      background: var(--dark);
+      background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px);
+      background-size: 22px 22px;
+      padding-top: 64px;
+    }
+    .hero-inner { max-width: 760px; margin-inline: auto; padding: 72px 1.5rem 60px; text-align: center; }
+    .breadcrumb { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+    .breadcrumb a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .cat-tag {
       display: inline-block;
-      background: rgba(201,160,53,0.12); border: 1px solid rgba(201,160,53,0.3);
-      color: var(--gold-lt); font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
+      background: rgba(201,160,53,0.1); border: 1px solid rgba(201,160,53,0.28);
+      color: var(--gold2); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
       padding: 5px 14px; border-radius: 100px; margin-bottom: 20px;
     }
-    .article-hero-title {
-      font-family: var(--head-font); font-weight: 900;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      line-height: 1.15; color: var(--white); letter-spacing: -0.025em; margin-bottom: 20px;
-    }
-    .article-hero-title em { font-style: normal; color: var(--gold); }
-    .article-meta {
-      display: flex; align-items: center; justify-content: center;
-      gap: 20px; flex-wrap: wrap; color: rgba(255,255,255,0.45); font-size: 0.82rem;
-    }
-    .article-meta span { display: flex; align-items: center; gap: 6px; }
+    .hero-h1 { font-size: clamp(1.9rem, 4.5vw, 3rem); font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 20px; }
+    .hero-h1 em { font-style: normal; color: var(--gold); }
+    .hero-meta { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; color: rgba(255,255,255,0.4); font-size: 0.82rem; }
 
-    /* Layout */
-    .article-layout {
-      display: grid; grid-template-columns: 1fr 300px;
-      gap: 56px; max-width: 1100px; margin-inline: auto;
-      padding: 64px 28px 88px; align-items: start;
-    }
-    @media (max-width: 860px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { display: none; } }
+    /* LAYOUT */
+    .page-body { max-width: 1100px; margin-inline: auto; padding: 64px 1.5rem 96px; display: grid; grid-template-columns: 1fr 280px; gap: 60px; align-items: start; }
+    @media (max-width: 860px) { .page-body { grid-template-columns: 1fr; } .sidebar { display: none; } }
 
-    /* Content */
-    .article-content h2 {
-      font-family: var(--head-font); font-weight: 800; font-size: 1.5rem; color: var(--teal-900);
-      letter-spacing: -0.02em; margin-top: 52px; margin-bottom: 16px; line-height: 1.25;
-    }
-    .article-content h3 {
-      font-family: var(--head-font); font-weight: 700; font-size: 1.1rem; color: var(--teal-900);
-      margin-top: 32px; margin-bottom: 10px;
-    }
-    .article-content p { font-size: 1rem; line-height: 1.85; color: var(--gray-700); margin-bottom: 20px; }
-    .article-content ul, .article-content ol { margin: 0 0 20px 0; padding-left: 24px; }
-    .article-content li { font-size: 1rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 8px; }
-    .article-content strong { color: var(--teal-900); }
-    .article-content a { color: var(--teal-400); text-decoration: underline; text-underline-offset: 3px; }
-    .article-content a:hover { color: var(--gold); }
-    .article-sep { border: none; border-top: 1px solid var(--gray-200); margin: 44px 0; }
+    /* ARTICLE CONTENT */
+    .content h2 { font-size: 1.5rem; font-weight: 800; color: var(--dark); letter-spacing: -0.025em; line-height: 1.2; margin: 52px 0 16px; }
+    .content h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin: 28px 0 10px; }
+    .content p { font-size: 1rem; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
+    .content ul, .content ol { margin: 0 0 20px 1.5rem; }
+    .content li { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 8px; }
+    .content strong { color: var(--dark); font-weight: 700; }
+    .content a { color: #1a7a6a; text-decoration: underline; text-underline-offset: 3px; }
+    .content a:hover { color: var(--gold); }
+    .sep { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
 
-    /* Callout box */
-    .callout { border-radius: 12px; padding: 24px 28px; margin: 32px 0; border-left: 4px solid; }
-    .callout-tip  { background: rgba(90,173,173,0.07); border-color: var(--teal-400); }
-    .callout-data { background: rgba(13,38,38,0.04); border-color: var(--teal-900); }
-    .callout-label {
-      font-family: var(--head-font); font-weight: 700; font-size: 0.72rem;
-      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px;
-    }
-    .callout-tip  .callout-label { color: var(--teal-400); }
-    .callout-data .callout-label { color: var(--teal-900); }
-    .callout p { margin-bottom: 0; font-size: 0.95rem; }
+    /* FADE */
+    .fade { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade.on { opacity: 1; transform: none; }
 
-    /* Steps */
-    .step-block { display: flex; gap: 20px; margin-bottom: 32px; align-items: flex-start; }
-    .step-num {
-      flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
-      background: var(--teal-900); color: var(--gold);
-      font-family: var(--head-font); font-weight: 900; font-size: 1.1rem;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .step-body h3 { margin-top: 6px; margin-bottom: 8px; }
-    .step-body p  { margin-bottom: 0; }
+    /* CALLOUT */
+    .callout { border-radius: 10px; padding: 20px 24px; margin: 28px 0; border-left: 4px solid; }
+    .callout-stat { background: rgba(13,38,38,0.05); border-color: var(--dark); }
+    .callout-tip  { background: rgba(26,122,106,0.06); border-color: #1a7a6a; }
+    .callout-label { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+    .callout-stat .callout-label { color: var(--dark); }
+    .callout-tip  .callout-label { color: #1a7a6a; }
+    .callout p { margin-bottom: 0; font-size: 0.95rem; color: var(--muted); }
 
-    /* Factor list */
-    .factor-item {
-      display: flex; gap: 1rem; padding: 1.25rem 0;
-      border-bottom: 1px solid var(--gray-200); align-items: flex-start;
-    }
-    .factor-num {
-      flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
-      background: var(--teal-900); color: var(--gold);
-      font-family: var(--head-font); font-weight: 900; font-size: 0.9rem;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .factor-body strong { display: block; font-family: var(--head-font); font-weight: 700; color: var(--teal-900); margin-bottom: 4px; font-size: 0.98rem; }
-    .factor-body p { margin-bottom: 0; font-size: 0.9rem; line-height: 1.7; color: var(--gray-700); }
+    /* FACTOR LIST */
+    .factors { margin: 28px 0; }
+    .factor { display: flex; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
+    .factor:first-child { border-top: 1px solid var(--border); }
+    .factor-n { flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px; background: var(--dark); color: var(--gold); font-weight: 900; font-size: 0.88rem; display: flex; align-items: center; justify-content: center; }
+    .factor-body strong { display: block; font-weight: 700; color: var(--dark); font-size: 0.97rem; margin-bottom: 4px; }
+    .factor-body p { margin: 0; font-size: 0.9rem; line-height: 1.7; }
 
-    /* Error list */
-    .error-item {
-      display: flex; gap: 1rem; padding: 1rem 0;
-      border-bottom: 1px solid var(--gray-200); align-items: flex-start;
-    }
-    .error-x {
-      flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px;
-      background: rgba(192,57,43,0.1); color: #c0392b;
-      font-weight: 900; font-size: 0.9rem;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .error-item p { margin-bottom: 0; font-size: 0.95rem; color: var(--gray-700); }
+    /* STEPS */
+    .step { display: flex; gap: 18px; margin-bottom: 28px; align-items: flex-start; }
+    .step-num { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--dark); color: var(--gold); font-weight: 900; font-size: 1rem; display: flex; align-items: center; justify-content: center; }
+    .step-body h3 { margin-top: 6px; margin-bottom: 6px; }
+    .step-body p { margin: 0; font-size: 0.93rem; }
 
-    /* Ironwood hero block */
-    .ironwood-block {
-      background: linear-gradient(140deg, #0D2626, #163030, #0D2626);
-      border-radius: 20px; padding: clamp(2rem, 5vw, 3rem);
-      margin: 40px 0; position: relative; overflow: hidden;
-    }
-    .ironwood-block::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 90% 20%, rgba(201,160,53,0.15) 0%, transparent 55%);
-      pointer-events: none;
-    }
-    .ironwood-eyebrow {
-      font-size: 0.68rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(201,160,53,0.7); margin-bottom: 1rem;
-    }
-    .ironwood-block h3 {
-      font-family: var(--head-font); font-weight: 900; font-size: clamp(1.3rem, 3vw, 1.8rem);
-      color: #fff; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1.5rem; margin-top: 0;
-    }
-    .ironwood-block h3 span { color: #C9A035; }
-    .ironwood-stats {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-      background: rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; margin-bottom: 2rem;
-    }
-    .iw-stat { text-align: center; padding: 1.25rem 1rem; background: rgba(255,255,255,0.02); }
-    .iw-stat-n { font-family: var(--head-font); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; color: #C9A035; line-height: 1; }
-    .iw-stat-l { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 0.4rem; }
-    .ironwood-quote {
-      border-left: 3px solid rgba(201,160,53,0.4); padding-left: 1.25rem; margin: 0;
-      font-style: italic; font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.65);
-    }
+    /* ERRORS */
+    .errors { margin: 24px 0; }
+    .err-item { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+    .err-item:first-child { border-top: 1px solid var(--border); }
+    .err-x { flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px; background: rgba(192,57,43,0.1); color: #c0392b; font-weight: 900; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; }
+    .err-item p { margin: 0; font-size: 0.93rem; }
 
-    /* Comparison table */
-    .comp-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.93rem; }
-    .comp-table th { background: var(--teal-900); color: var(--gold); font-family: var(--head-font); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px; text-align: left; }
-    .comp-table td { padding: 12px 16px; border-bottom: 1px solid var(--gray-200); color: var(--gray-700); vertical-align: top; }
-    .comp-table tr:last-child td { border-bottom: none; }
-    .comp-table tr:nth-child(even) td { background: var(--off-white); }
-    .comp-table td:first-child { font-weight: 600; color: var(--teal-900); }
-    .comp-table td.highlight { color: var(--teal-900); font-weight: 700; }
+    /* IRONWOOD BLOCK */
+    .ironwood {
+      background: linear-gradient(140deg, #0D2626 0%, #1a3535 50%, #0D2626 100%);
+      border-radius: 18px; padding: clamp(1.75rem, 4vw, 2.75rem); margin: 40px 0;
+      position: relative; overflow: hidden;
+    }
+    .ironwood::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 90% 20%, rgba(201,160,53,0.18) 0%, transparent 55%); pointer-events: none; }
+    .iw-eyebrow { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(201,160,53,0.65); margin-bottom: 12px; }
+    .ironwood h3 { font-size: clamp(1.2rem, 2.5vw, 1.65rem); font-weight: 900; color: #fff; letter-spacing: -0.025em; line-height: 1.2; margin-bottom: 24px; }
+    .ironwood h3 span { color: var(--gold); }
+    .iw-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
+    .iw-stat { text-align: center; padding: 1.1rem 0.75rem; background: rgba(255,255,255,0.025); }
+    .iw-stat-n { font-size: clamp(1.7rem, 3.5vw, 2.5rem); font-weight: 900; color: var(--gold); line-height: 1; }
+    .iw-stat-l { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 4px; }
+    .iw-quote { border-left: 3px solid rgba(201,160,53,0.35); padding-left: 1.1rem; font-style: italic; font-size: 0.97rem; line-height: 1.75; color: rgba(255,255,255,0.6); margin: 0; }
 
-    /* Timeline */
+    /* TIMELINE */
     .timeline { position: relative; padding-left: 2rem; margin: 24px 0; }
-    .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--gray-200); }
-    .tl-item { position: relative; margin-bottom: 1.5rem; }
-    .tl-dot { position: absolute; left: -1.75rem; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--teal-900); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--teal-900); }
-    .tl-item strong { font-family: var(--head-font); font-weight: 700; color: var(--teal-900); font-size: 0.95rem; }
-    .tl-item p { margin: 4px 0 0; font-size: 0.88rem; color: var(--gray-700); line-height: 1.6; }
+    .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+    .tl-item { position: relative; margin-bottom: 24px; }
+    .tl-dot { position: absolute; left: -1.75rem; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--dark); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--dark); }
+    .tl-item strong { display: block; font-weight: 700; color: var(--dark); font-size: 0.95rem; margin-bottom: 4px; }
+    .tl-item p { margin: 0; font-size: 0.88rem; line-height: 1.65; }
 
-    /* CTA final */
-    .article-cta-block {
-      background: linear-gradient(135deg, #0D2626, #163030);
-      border-radius: 20px; padding: clamp(2rem, 5vw, 3.5rem); text-align: center;
-      margin: 48px 0 0;
+    /* COMPARISON TABLE */
+    .comp-wrap { overflow-x: auto; margin: 24px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    thead th { background: var(--dark); color: var(--gold); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px; text-align: left; }
+    tbody td { padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even) td { background: var(--light); }
+    tbody td:first-child { font-weight: 600; color: var(--dark); }
+    td.hl { color: var(--dark); font-weight: 700; }
+
+    /* CTA FINAL */
+    .article-cta {
+      background: linear-gradient(135deg, var(--dark), var(--dark2));
+      border-radius: 18px; padding: clamp(2rem, 5vw, 3.25rem); text-align: center; margin: 48px 0 0;
     }
-    .article-cta-block h2 { font-family: var(--head-font); font-size: clamp(1.5rem, 3vw, 2rem); color: #fff; letter-spacing: -0.02em; margin-bottom: 1rem; margin-top: 0; }
-    .article-cta-block p { color: rgba(255,255,255,0.5); font-size: 1rem; max-width: 500px; margin-inline: auto; margin-bottom: 2rem; line-height: 1.75; }
-    .article-cta-block .trust-row { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
-    .article-cta-block .trust-row span { font-size: 0.78rem; color: rgba(255,255,255,0.3); display: flex; align-items: center; gap: 0.4rem; }
-    .article-cta-block .trust-row span::before { content: '✓'; color: #C9A035; font-weight: 900; }
-
-    .btn-gold-blog {
+    .article-cta h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 900; color: #fff; letter-spacing: -0.025em; margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.45); max-width: 480px; margin-inline: auto; margin-bottom: 28px; font-size: 0.97rem; line-height: 1.75; }
+    .btn-cta {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: linear-gradient(120deg, #b8891e, #C9A035, #e8c050, #C9A035);
+      background: linear-gradient(120deg, #b8891e, var(--gold), var(--gold2), var(--gold));
       background-size: 300% auto;
-      color: #0D2626; font-weight: 800; font-size: 1rem;
+      color: var(--dark); font-weight: 800; font-size: 1rem;
       padding: 1rem 2.25rem; border-radius: 100px; text-decoration: none;
       transition: background-position 0.5s, box-shadow 0.3s, transform 0.2s;
       box-shadow: 0 6px 28px rgba(201,160,53,0.35);
     }
-    .btn-gold-blog:hover { background-position: right center; box-shadow: 0 8px 40px rgba(201,160,53,0.55); transform: translateY(-2px); }
+    .btn-cta:hover { background-position: right center; box-shadow: 0 8px 40px rgba(201,160,53,0.55); transform: translateY(-2px); }
+    .cta-trust { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+    .cta-trust span { font-size: 0.78rem; color: rgba(255,255,255,0.28); display: flex; align-items: center; gap: 0.4rem; }
+    .cta-trust span::before { content: '✓'; color: var(--gold); font-weight: 900; }
 
-    /* Sidebar */
-    .article-sidebar { position: sticky; top: 90px; }
-    .sidebar-box {
-      border: 1px solid var(--gray-200); border-radius: 14px;
-      padding: 24px; margin-bottom: 24px; background: var(--off-white);
-    }
-    .sidebar-box h4 { font-family: var(--head-font); font-weight: 800; font-size: 0.88rem; color: var(--teal-900); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
-    .sidebar-toc a { display: block; font-size: 0.85rem; color: var(--gray-700); text-decoration: none; padding: 6px 0; border-bottom: 1px solid var(--gray-100); line-height: 1.4; transition: color 0.2s, padding-left 0.2s; }
-    .sidebar-toc a:last-child { border-bottom: none; }
-    .sidebar-toc a:hover { color: var(--teal-400); padding-left: 4px; }
-    .sidebar-cta {
-      background: linear-gradient(135deg, #0D2626, #163030);
-      border-radius: 14px; padding: 24px; text-align: center;
-    }
-    .sidebar-cta p { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 1rem; line-height: 1.65; }
-    .sidebar-cta a {
-      display: block; background: linear-gradient(120deg, #C9A035, #e8c050);
-      color: #0D2626; font-weight: 800; font-size: 0.88rem;
-      padding: 0.85rem 1rem; border-radius: 100px; text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .sidebar-cta a:hover { opacity: 0.9; transform: translateY(-1px); }
+    /* TAGS */
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 40px; }
+    .tag { background: var(--light); border: 1px solid var(--border); color: var(--muted); font-size: 0.78rem; padding: 5px 12px; border-radius: 100px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    .tag:hover { border-color: var(--dark); color: var(--dark); }
 
-    /* Tags relacionados */
-    .article-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 40px; }
-    .article-tag {
-      background: var(--off-white); border: 1px solid var(--gray-200);
-      color: var(--gray-700); font-size: 0.78rem; padding: 5px 12px; border-radius: 100px;
-      text-decoration: none; transition: border-color 0.2s, color 0.2s;
-    }
-    .article-tag:hover { border-color: var(--teal-400); color: var(--teal-400); }
+    /* RELATED */
+    .related { border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-top: 40px; background: var(--light); }
+    .related-title { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); margin-bottom: 16px; }
+    .related a { display: flex; align-items: center; gap: 12px; text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .related a:last-child { border-bottom: none; }
+    .related a:hover span { color: #1a7a6a; }
+    .related a .arr { color: var(--gold); flex-shrink: 0; }
+    .related a span { font-size: 0.9rem; font-weight: 600; color: var(--muted); line-height: 1.4; transition: color 0.2s; }
 
-    /* Related */
-    .related-box {
-      border: 1px solid var(--gray-200); border-radius: 14px; padding: 24px;
-      margin-top: 48px; background: var(--off-white);
-    }
-    .related-box h4 { font-family: var(--head-font); font-weight: 800; font-size: 0.88rem; color: var(--teal-900); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
-    .related-link { display: flex; align-items: center; gap: 12px; text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--gray-100); transition: color 0.2s; }
-    .related-link:last-child { border-bottom: none; }
-    .related-link-arrow { font-size: 1.1rem; color: var(--gold); }
-    .related-link-text { font-size: 0.9rem; color: var(--gray-700); line-height: 1.4; font-weight: 600; transition: color 0.2s; }
-    .related-link:hover .related-link-text { color: var(--teal-400); }
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 84px; }
+    .sb-box { border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 20px; background: var(--light); }
+    .sb-title { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); margin-bottom: 14px; }
+    .toc a { display: block; font-size: 0.84rem; color: var(--muted); text-decoration: none; padding: 7px 0; border-bottom: 1px solid var(--border); line-height: 1.4; transition: color 0.2s, padding-left 0.2s; }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--dark); padding-left: 4px; }
+    .sb-cta { background: var(--dark); border-radius: 12px; padding: 22px; text-align: center; }
+    .sb-cta p { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-bottom: 14px; line-height: 1.6; }
+    .sb-cta a { display: block; background: linear-gradient(120deg, var(--gold), var(--gold2)); color: var(--dark); font-weight: 800; font-size: 0.88rem; padding: 0.8rem 1rem; border-radius: 100px; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
+    .sb-cta a:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* FOOTER */
+    .site-footer { background: var(--dark); padding: 2rem clamp(1.25rem,4vw,2.5rem); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-size: 1.1rem; font-weight: 900; color: #fff; }
+    .footer-logo span { color: var(--gold); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.25); font-size: 0.8rem; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.6); }
+    .footer-copy { color: rgba(255,255,255,0.15); font-size: 0.75rem; }
   </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T7DH4TXB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T7DH4TXB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- NAV (reutiliza el componente global de styles.css) -->
-<header class="site-header" id="site-header">
-  <div class="container header-inner">
-    <a href="/" class="logo-link">
-      <span class="logo-text">Web<span class="logo-accent">Boost</span></span>
-    </a>
-    <nav class="main-nav" id="mainNav">
-      <a href="/#servicios" class="nav-link">Servicios</a>
-      <a href="/#casos" class="nav-link">Casos</a>
-      <a href="/blog" class="nav-link">Blog</a>
-      <a href="/#contacto" class="nav-link">Contacto</a>
-    </nav>
-    <a href="/seo-local-logrono" class="btn btn-primary header-cta">Consulta gratuita</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="nav-logo">Web<span>Boost</span></a>
+  <div class="nav-links">
+    <a href="/#servicios">Servicios</a>
+    <a href="/#casos">Casos</a>
+    <a href="/blog">Blog</a>
+    <a href="/#contacto">Contacto</a>
   </div>
-</header>
+  <a href="/seo-local-logrono" class="nav-cta">Consulta gratuita</a>
+</nav>
 
 <!-- HERO -->
-<section class="article-hero">
-  <div class="article-hero-inner fade-up">
-    <nav class="article-breadcrumb" aria-label="Ruta de navegación">
-      <a href="/">webboost.es</a>
-      <span>›</span>
-      <a href="/blog">Blog</a>
-      <span>›</span>
-      <span style="color:rgba(255,255,255,0.55)">Google Maps Logroño</span>
+<section class="hero">
+  <div class="hero-inner">
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <a href="/">webboost.es</a> › <a href="/blog">Blog</a> › <span style="color:rgba(255,255,255,0.5)">Google Maps Logroño</span>
     </nav>
-    <span class="article-cat-tag">📍 SEO Local · Google Maps</span>
-    <h1 class="article-hero-title">
+    <span class="cat-tag">📍 SEO Local · Google Maps</span>
+    <h1 class="hero-h1">
       Cómo aparecer en Google Maps en Logroño:<br>
       <em>la guía definitiva para pymes</em>
     </h1>
-    <div class="article-meta">
+    <div class="hero-meta">
       <span>✍️ Sergio De La Torre · WebBoost</span>
       <span>📅 1 julio 2026</span>
       <span>⏱ 8 min de lectura</span>
@@ -350,250 +282,134 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- MAIN LAYOUT -->
-<div class="article-layout">
+<!-- BODY -->
+<div class="page-body">
 
-  <!-- CONTENT -->
-  <main class="article-content">
+  <main class="content">
 
     <p>Si buscas tu negocio en Google Maps y no apareces en las primeras posiciones, estás perdiendo clientes a diario frente a tu competencia. En Logroño hay negocios que han pasado de ser completamente invisibles en Google Maps a dominar su sector en menos de 90 días, sin pagar un euro en publicidad. Esta guía te explica exactamente cómo funciona el posicionamiento en Google Maps, qué puedes hacer tú mismo y qué marca la diferencia entre un resultado mediocre y uno extraordinario.</p>
 
-    <hr class="article-sep" />
+    <hr class="sep" />
 
-    <!-- S1 -->
     <h2 id="por-que">Por qué Google Maps decide quién llama y quién no</h2>
 
     <p>Cuando alguien busca "fisioterapeuta Logroño" o "mecánico cerca de mí", Google no muestra primero las webs. Muestra el <strong>LocalPack</strong>: los 3 primeros resultados de Google Maps, con fotos, horario, valoraciones y botón de llamada directo. Estos tres resultados se llevan más del 70% de los clics de esa búsqueda.</p>
 
-    <div class="callout callout-data fade-up">
+    <div class="callout callout-stat fade">
       <div class="callout-label">Dato clave</div>
-      <p>El 46% de todas las búsquedas en Google tienen intención local. Y en móvil, las búsquedas de tipo "negocio cerca de mí" han crecido más de un 900% en los últimos 5 años.</p>
+      <p>El 46% de todas las búsquedas en Google tienen intención local. En móvil, las búsquedas "negocio cerca de mí" han crecido más de un 900% en los últimos 5 años.</p>
     </div>
 
     <p>En Logroño, la mayoría de pymes tienen fichas de Google Business Profile <strong>abandonadas o mal optimizadas</strong>: categorías genéricas, fotos de hace tres años, cero reseñas respondidas. Eso es una oportunidad directa para cualquier negocio que decida trabajarlo bien.</p>
 
-    <hr class="article-sep" />
+    <hr class="sep" />
 
-    <!-- S2 -->
     <h2 id="factores">Qué mira Google para decidir quién sale primero</h2>
 
     <p>Google no elige al azar. Usa un algoritmo con factores medibles y trabajables. Estos son los 7 que más pesan:</p>
 
-    <div style="margin: 28px 0;">
-      <div class="factor-item fade-up">
-        <div class="factor-num">1</div>
-        <div class="factor-body">
-          <strong>Relevancia de la ficha</strong>
-          <p>La categoría principal es el factor más importante. Muchos negocios eligen categorías genéricas y pierden posiciones frente a competidores más específicos. "Clínica de fisioterapia" rinde mejor que "Centro de salud".</p>
-        </div>
-      </div>
-      <div class="factor-item fade-up">
-        <div class="factor-num">2</div>
-        <div class="factor-body">
-          <strong>Distancia al usuario</strong>
-          <p>Google prioriza negocios más cercanos a quien busca. No puedes controlar esto, pero sí compensarlo trabajando los demás factores con más intensidad.</p>
-        </div>
-      </div>
-      <div class="factor-item fade-up">
-        <div class="factor-num">3</div>
-        <div class="factor-body">
-          <strong>Prominencia: reseñas y actividad</strong>
-          <p>El número de reseñas, la puntuación media y la frecuencia con la que el negocio publica en Maps son señales clave de confianza para el algoritmo. Sin reseñas, la ficha es invisible.</p>
-        </div>
-      </div>
-      <div class="factor-item fade-up">
-        <div class="factor-num">4</div>
-        <div class="factor-body">
-          <strong>Completitud de la ficha (NAP)</strong>
-          <p>Nombre, dirección y teléfono exactos y consistentes en toda la web. Un solo dato inconsistente en un directorio externo puede penalizar la posición.</p>
-        </div>
-      </div>
-      <div class="factor-item fade-up">
-        <div class="factor-num">5</div>
-        <div class="factor-body">
-          <strong>Posts y actualizaciones regulares</strong>
-          <p>Google premia las fichas activas. Publicar posts semanales en Maps (novedades, ofertas, servicios) aumenta la visibilidad de forma directa y constante.</p>
-        </div>
-      </div>
-      <div class="factor-item fade-up">
-        <div class="factor-num">6</div>
-        <div class="factor-body">
-          <strong>Fotos actualizadas y de calidad</strong>
-          <p>Las fichas con fotos recientes reciben un 42% más de solicitudes de cómo llegar. Fotos de hace tres años funcionan como una señal negativa para Google.</p>
-        </div>
-      </div>
-      <div class="factor-item fade-up">
-        <div class="factor-num">7</div>
-        <div class="factor-body">
-          <strong>Respuesta a reseñas</strong>
-          <p>Reseñas sin responder son una señal negativa. Responder en 24h a las positivas y en 12h a las negativas (con tono profesional) marca la diferencia frente a competidores que ignoran las suyas.</p>
-        </div>
-      </div>
+    <div class="factors fade">
+      <div class="factor"><div class="factor-n">1</div><div class="factor-body"><strong>Relevancia de la ficha</strong><p>La categoría principal es el factor más importante. Muchos negocios eligen categorías genéricas y pierden posiciones frente a competidores más específicos. "Clínica de fisioterapia" rinde mejor que "Centro de salud".</p></div></div>
+      <div class="factor"><div class="factor-n">2</div><div class="factor-body"><strong>Distancia al usuario</strong><p>Google prioriza negocios más cercanos a quien busca. No puedes controlarlo, pero sí compensarlo trabajando el resto de factores con más intensidad.</p></div></div>
+      <div class="factor"><div class="factor-n">3</div><div class="factor-body"><strong>Prominencia: reseñas y actividad</strong><p>El número de reseñas, la puntuación media y la frecuencia de publicación en Maps son señales clave de confianza para el algoritmo. Sin reseñas, la ficha es invisible.</p></div></div>
+      <div class="factor"><div class="factor-n">4</div><div class="factor-body"><strong>Completitud de la ficha (NAP)</strong><p>Nombre, dirección y teléfono exactos y consistentes en toda la web. Un solo dato inconsistente en un directorio externo puede penalizar la posición.</p></div></div>
+      <div class="factor"><div class="factor-n">5</div><div class="factor-body"><strong>Posts y actualizaciones regulares</strong><p>Google premia las fichas activas. Publicar posts semanales en Maps (novedades, ofertas, servicios) aumenta la visibilidad de forma directa y constante.</p></div></div>
+      <div class="factor"><div class="factor-n">6</div><div class="factor-body"><strong>Fotos actualizadas y de calidad</strong><p>Las fichas con fotos recientes reciben un 42% más de solicitudes de cómo llegar. Fotos de hace tres años son una señal negativa para Google.</p></div></div>
+      <div class="factor"><div class="factor-n">7</div><div class="factor-body"><strong>Respuesta a reseñas</strong><p>Reseñas sin responder son una señal negativa. Responder en 24h a las positivas y en 12h a las negativas con tono profesional marca la diferencia frente a competidores que las ignoran.</p></div></div>
     </div>
 
-    <hr class="article-sep" />
+    <hr class="sep" />
 
-    <!-- S3 — IRONWOOD -->
-    <h2 id="caso-ironwood">Cómo Ironwood Soluciones pasó de invisible a #1 entre 91 competidores</h2>
+    <h2 id="ironwood">Cómo Ironwood Soluciones pasó de invisible a #1 entre 91 competidores</h2>
 
     <p>La teoría está bien. Pero hay un caso real en Logroño que demuestra que estos factores, trabajados de forma sistemática, producen resultados en menos de 90 días.</p>
 
-    <div class="ironwood-block fade-up">
-      <div class="ironwood-eyebrow">Caso de éxito real · Logroño · La Rioja</div>
+    <div class="ironwood fade">
+      <div class="iw-eyebrow">Caso de éxito real · Logroño · La Rioja</div>
       <h3>Ironwood Soluciones: de 0 reseñas<br>a <span>#1 entre 91 competidores</span></h3>
-      <div class="ironwood-stats">
-        <div class="iw-stat"><div class="iw-stat-n">#1</div><div class="iw-stat-l">Posición en Google Maps</div></div>
+      <div class="iw-stats">
+        <div class="iw-stat"><div class="iw-stat-n">#1</div><div class="iw-stat-l">Posición en Maps</div></div>
         <div class="iw-stat"><div class="iw-stat-n">63</div><div class="iw-stat-l">Reseñas · 4.9★</div></div>
-        <div class="iw-stat"><div class="iw-stat-n">90d</div><div class="iw-stat-l">Resultado conseguido</div></div>
+        <div class="iw-stat"><div class="iw-stat-n">90d</div><div class="iw-stat-l">Tiempo conseguido</div></div>
       </div>
-      <blockquote class="ironwood-quote">
-        "Hoy Ironwood recibe solicitudes de presupuesto diarias desde Google Maps. Antes de trabajar con WebBoost, no aparecíamos ni en la décima posición."
-      </blockquote>
+      <blockquote class="iw-quote">"Hoy Ironwood recibe solicitudes de presupuesto diarias desde Google Maps. Antes de trabajar con WebBoost, no aparecíamos ni en la décima posición."</blockquote>
     </div>
 
     <p><strong>El punto de partida:</strong> empresa de carpintería metálica en Logroño con ficha a medias, 0 reseñas y ninguna llamada desde Google. 91 competidores directos en el mismo mercado.</p>
+    <p><strong>El proceso:</strong> optimización completa de la ficha (categorías específicas, descripción con keywords locales, servicios detallados, fotos actualizadas), auditoría de palabras clave locales, publicación de posts semanales y gestión activa de reseñas.</p>
+    <p><strong>El resultado:</strong> posición #1 entre 91 competidores en menos de 90 días. 63 reseñas con 4.9★. 100% de presencia en el LocalPack. Llamadas y presupuestos desde Google Maps diariamente, sin pagar publicidad.</p>
 
-    <p><strong>El proceso:</strong> optimización completa de la ficha (categorías específicas, descripción con keywords locales, servicios detallados, fotos profesionales actualizadas), auditoría de palabras clave locales para identificar cómo buscan los clientes en La Rioja, publicación de posts semanales y gestión activa de reseñas.</p>
+    <hr class="sep" />
 
-    <p><strong>El resultado:</strong> posición #1 entre 91 competidores en menos de 90 días. 63 reseñas con 4.9 estrellas. 100% de presencia en el LocalPack para las búsquedas clave del sector. Y lo más importante: llamadas y presupuestos entrantes desde Google Maps, sin pagar un euro en publicidad.</p>
-
-    <hr class="article-sep" />
-
-    <!-- S4 -->
-    <h2 id="guia-practica">Guía práctica para optimizar tu Google Business Profile en Logroño</h2>
+    <h2 id="guia">Guía práctica para optimizar tu Google Business Profile en Logroño</h2>
 
     <p>Si quieres empezar por tu cuenta, estos son los pasos en orden de impacto:</p>
 
-    <div class="step-block fade-up">
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <h3>Reclamar y verificar tu ficha</h3>
-        <p>Si no tienes ficha o no está verificada, empieza en <strong>business.google.com</strong>. La verificación suele hacerse por carta postal o videollamada. Sin verificar, la ficha no posiciona.</p>
-      </div>
-    </div>
-    <div class="step-block fade-up">
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <h3>Elegir la categoría correcta</h3>
-        <p>La categoría principal es el factor con más peso. Sé específico: "Clínica de fisioterapia" en vez de "Centro de salud", "Taller de mecánica" en vez de "Empresa de servicios". Puedes añadir hasta 9 categorías secundarias.</p>
-      </div>
-    </div>
-    <div class="step-block fade-up">
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <h3>Completar todos los campos al 100%</h3>
-        <p>Nombre exacto del negocio, dirección completa, teléfono, horario de apertura actualizado, web, descripción (con keywords locales de forma natural), servicios y productos con precios si aplica.</p>
-      </div>
-    </div>
-    <div class="step-block fade-up">
-      <div class="step-num">4</div>
-      <div class="step-body">
-        <h3>Subir fotos profesionales y recientes</h3>
-        <p>Mínimo 10 fotos: exterior del local, interior, equipo de trabajo, productos o servicios en acción. Actualizarlas cada 2-3 meses. Las fotos con luz natural funcionan mejor.</p>
-      </div>
-    </div>
-    <div class="step-block fade-up">
-      <div class="step-num">5</div>
-      <div class="step-body">
-        <h3>Conseguir y gestionar reseñas activamente</h3>
-        <p>Pedir reseñas a clientes satisfechos por WhatsApp, email o en persona. Crear un enlace directo a tu ficha para que sea sencillo. Responder siempre: positivas en 24h, negativas en 12h con respuesta profesional y constructiva.</p>
-      </div>
-    </div>
-    <div class="step-block fade-up">
-      <div class="step-num">6</div>
-      <div class="step-body">
-        <h3>Publicar posts semanales</h3>
-        <p>Google Maps permite publicar novedades, ofertas y eventos directamente en tu ficha. Un post semanal mantiene la ficha activa. Incluye keywords locales de forma natural ("servicio de X en Logroño", "disponible en La Rioja").</p>
-      </div>
-    </div>
-    <div class="step-block fade-up">
-      <div class="step-num">7</div>
-      <div class="step-body">
-        <h3>Monitorizar posiciones</h3>
-        <p>Herramientas como GeoRanker o BrightLocal permiten ver en qué posición apareces para distintas búsquedas desde distintos puntos de Logroño. Sin medición, no sabes si estás mejorando.</p>
-      </div>
+    <div class="fade">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Reclamar y verificar tu ficha</h3><p>Si no tienes ficha o no está verificada, empieza en <strong>business.google.com</strong>. La verificación suele hacerse por carta postal o videollamada. Sin verificar, la ficha no posiciona.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Elegir la categoría correcta</h3><p>La categoría principal tiene el mayor peso. Sé específico: "Clínica de fisioterapia" en vez de "Centro de salud". Puedes añadir hasta 9 categorías secundarias.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Completar todos los campos al 100%</h3><p>Nombre exacto, dirección, teléfono, horario actualizado, web, descripción con keywords locales, servicios y productos con precios si aplica.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Subir fotos profesionales y recientes</h3><p>Mínimo 10 fotos: exterior, interior, equipo, servicios en acción. Actualizarlas cada 2-3 meses. Luz natural, planos limpios.</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><h3>Conseguir y gestionar reseñas</h3><p>Pedir reseñas a clientes satisfechos por WhatsApp o en persona. Crear un enlace directo a tu ficha para que sea sencillo. Responder siempre: positivas en 24h, negativas en 12h.</p></div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-body"><h3>Publicar posts semanales</h3><p>Un post semanal mantiene la ficha activa. Incluye keywords locales de forma natural ("servicio de X en Logroño", "disponible en La Rioja").</p></div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-body"><h3>Monitorizar posiciones</h3><p>Herramientas como GeoRanker o BrightLocal permiten ver en qué posición apareces desde distintos puntos de Logroño. Sin medición, no sabes si estás mejorando.</p></div></div>
     </div>
 
-    <hr class="article-sep" />
+    <hr class="sep" />
 
-    <!-- S5 -->
     <h2 id="errores">Los 5 errores que impiden que aparezcas en Google Maps</h2>
 
-    <p>Estos son los fallos más comunes que encuentro en fichas de negocios de Logroño cuando hago una auditoría:</p>
-
-    <div style="margin: 20px 0;">
-      <div class="error-item fade-up"><div class="error-x">✕</div><p><strong>Ficha sin verificar o con datos desactualizados.</strong> Teléfono cambiado, horario de antes del COVID, dirección incorrecta. Todo cuenta como señal negativa.</p></div>
-      <div class="error-item fade-up"><div class="error-x">✕</div><p><strong>Categorías genéricas en vez de específicas.</strong> La categoría que eliges determina para qué búsquedas apareces. Ser demasiado genérico es perder posiciones frente a quienes son específicos.</p></div>
-      <div class="error-item fade-up"><div class="error-x">✕</div><p><strong>No responder a ninguna reseña.</strong> Ni las positivas ni las negativas. Google interpreta el silencio como inactividad, y los usuarios potenciales también.</p></div>
-      <div class="error-item fade-up"><div class="error-x">✕</div><p><strong>Ficha "muerta" sin contenido nuevo.</strong> Sin posts, sin fotos recientes, sin actualizaciones. Una ficha que lleva meses sin actividad pierde posiciones progresivamente.</p></div>
-      <div class="error-item fade-up"><div class="error-x">✕</div><p><strong>Ignorar la sección de servicios y productos.</strong> Esta sección es una oportunidad directa para incluir keywords locales que mejoran la relevancia de la ficha para búsquedas concretas.</p></div>
+    <div class="errors fade">
+      <div class="err-item"><div class="err-x">✕</div><p><strong>Ficha sin verificar o con datos desactualizados.</strong> Teléfono cambiado, horario del COVID, dirección incorrecta. Todo cuenta como señal negativa.</p></div>
+      <div class="err-item"><div class="err-x">✕</div><p><strong>Categorías genéricas en vez de específicas.</strong> La categoría que eliges determina para qué búsquedas apareces. Ser demasiado genérico es perder posiciones.</p></div>
+      <div class="err-item"><div class="err-x">✕</div><p><strong>No responder a ninguna reseña.</strong> Ni positivas ni negativas. Google interpreta el silencio como inactividad.</p></div>
+      <div class="err-item"><div class="err-x">✕</div><p><strong>Ficha "muerta" sin contenido nuevo.</strong> Sin posts, sin fotos recientes. Una ficha sin actividad durante meses pierde posiciones progresivamente.</p></div>
+      <div class="err-item"><div class="err-x">✕</div><p><strong>Ignorar la sección de servicios y productos.</strong> Esta sección es una oportunidad directa para incluir keywords locales que mejoran la relevancia.</p></div>
     </div>
 
-    <hr class="article-sep" />
+    <hr class="sep" />
 
-    <!-- S6 -->
     <h2 id="plazos">Resultados realistas: qué esperar y cuándo</h2>
 
-    <p>No existe el "posicionamiento express". Pero sí hay plazos realistas que cualquier negocio con ficha optimizada puede esperar:</p>
-
-    <div class="timeline fade-up">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <strong>Semanas 2-4: primeras señales</strong>
-        <p>Más impresiones en Google Search Console, subida en posiciones para búsquedas de cola larga, aumento de visitas al perfil de Google Maps.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <strong>Mes 2-3: posiciones consolidadas</strong>
-        <p>Aparición consistente en el top 5-10 del LocalPack para las keywords principales del sector en Logroño.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <strong>Mes 3-6: dominio del LocalPack</strong>
-        <p>Top 3 estable en mercados competitivos. Llamadas y solicitudes de presupuesto desde Google Maps de forma regular. Ironwood llegó al #1 en menos de 90 días, pero el punto de partida (historial de la ficha, competencia del sector, número de reseñas previas) influye en el ritmo.</p>
-      </div>
+    <div class="timeline fade">
+      <div class="tl-item"><div class="tl-dot"></div><strong>Semanas 2-4: primeras señales</strong><p>Más impresiones en Google Search Console, subida en posiciones para búsquedas de cola larga, más visitas al perfil de Google Maps.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><strong>Mes 2-3: posiciones consolidadas</strong><p>Aparición consistente en el top 5-10 del LocalPack para las keywords principales del sector en Logroño.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><strong>Mes 3-6: dominio del LocalPack</strong><p>Top 3 estable en mercados competitivos. Ironwood llegó al #1 en menos de 90 días, pero el punto de partida (competencia, historial de ficha) influye en el ritmo.</p></div>
     </div>
 
-    <div class="callout callout-tip fade-up">
+    <div class="callout callout-tip fade">
       <div class="callout-label">Consejo</div>
-      <p>La consistencia es más importante que la velocidad. Un mes de trabajo intenso seguido de 3 meses de inactividad no consolida nada. El algoritmo de Google Maps premia la actividad sostenida en el tiempo.</p>
+      <p>La consistencia es más importante que la velocidad. El algoritmo de Google Maps premia la actividad sostenida en el tiempo. Un mes intenso seguido de tres meses de silencio no consolida nada.</p>
     </div>
 
-    <hr class="article-sep" />
+    <hr class="sep" />
 
-    <!-- S7 -->
-    <h2 id="diy-vs-especialista">DIY vs. contratar un consultor SEO local en Logroño</h2>
+    <h2 id="diy">DIY vs. contratar un consultor SEO local en Logroño</h2>
 
-    <p>Puedes hacer todo esto tú mismo. La pregunta es si tienes el tiempo y si el coste de oportunidad merece la pena frente a lo que un especialista puede conseguir más rápido.</p>
+    <p>Puedes hacer todo esto tú mismo. La pregunta es si tienes el tiempo y si el coste de oportunidad merece la pena frente a lo que un especialista consigue más rápido.</p>
 
-    <table class="comp-table fade-up">
-      <thead>
-        <tr>
-          <th>Factor</th>
-          <th>Hacerlo tú</th>
-          <th>Contratar especialista</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Tiempo invertido</td><td>5-10h/mes</td><td class="highlight">0h — lo gestiona otro</td></tr>
-        <tr><td>Curva de aprendizaje</td><td>Alta (6-12 meses)</td><td class="highlight">Ninguna</td></tr>
-        <tr><td>Resultados</td><td>Variables, lentos</td><td class="highlight">Predecibles y más rápidos</td></tr>
-        <tr><td>Coste mensual</td><td>Solo tu tiempo</td><td>Desde 200€/mes</td></tr>
-        <tr><td>Garantía de resultados</td><td>Ninguna</td><td class="highlight">Metodología probada</td></tr>
-        <tr><td>Monitorización activa</td><td>Manual, si tienes tiempo</td><td class="highlight">Semanal, con informe</td></tr>
-      </tbody>
-    </table>
+    <div class="comp-wrap fade">
+      <table>
+        <thead><tr><th>Factor</th><th>Hacerlo tú</th><th>Contratar especialista</th></tr></thead>
+        <tbody>
+          <tr><td>Tiempo invertido</td><td>5-10h/mes</td><td class="hl">0h — lo gestiona otro</td></tr>
+          <tr><td>Curva de aprendizaje</td><td>Alta (6-12 meses)</td><td class="hl">Ninguna</td></tr>
+          <tr><td>Resultados</td><td>Variables, lentos</td><td class="hl">Predecibles y más rápidos</td></tr>
+          <tr><td>Coste mensual</td><td>Solo tu tiempo</td><td>Desde 200€/mes</td></tr>
+          <tr><td>Garantía de resultados</td><td>Ninguna</td><td class="hl">Metodología probada</td></tr>
+          <tr><td>Monitorización</td><td>Manual, si tienes tiempo</td><td class="hl">Semanal con informe</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-    <p>Si prefieres centrarte en tu negocio y dejar el posicionamiento en manos de alguien que ya lo ha hecho antes en Logroño, la <a href="/seo-local-logrono">gestión SEO local de WebBoost</a> incluye todo lo de esta guía, ejecutado de forma sistemática y con resultados verificables.</p>
-
-    <hr class="article-sep" />
+    <p>Si prefieres centrarte en tu negocio y dejar el posicionamiento en manos de alguien que ya lo ha hecho en Logroño, la <a href="/seo-local-logrono">gestión SEO local de WebBoost</a> incluye todo lo de esta guía, ejecutado de forma sistemática y con resultados verificables.</p>
 
     <!-- CTA -->
-    <div class="article-cta-block fade-up">
+    <div class="article-cta fade">
       <h2>¿Quieres aparecer primero en Google Maps en Logroño?</h2>
-      <p>WebBoost lleva a Ironwood al #1 entre 91 competidores. Sin permanencia. Con garantía de resultados verificables en 90 días o te devolvemos el primer mes.</p>
-      <a href="/seo-local-logrono" class="btn-gold-blog">Ver cómo lo hacemos →</a>
-      <div class="trust-row">
+      <p>WebBoost lleva a Ironwood al #1 entre 91 competidores. Sin permanencia. Garantía de resultados verificables en 90 días o te devolvemos el primer mes.</p>
+      <a href="/seo-local-logrono" class="btn-cta">Ver cómo lo hacemos →</a>
+      <div class="cta-trust">
         <span>Sin permanencia</span>
         <span>Garantía 90 días</span>
         <span>Solo pymes locales</span>
@@ -601,42 +417,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- TAGS -->
-    <div class="article-tags">
-      <a href="/blog" class="article-tag">SEO Local</a>
-      <a href="/blog" class="article-tag">Google Maps</a>
-      <a href="/blog" class="article-tag">Google Business Profile</a>
-      <a href="/blog" class="article-tag">Logroño</a>
-      <a href="/blog" class="article-tag">La Rioja</a>
-      <a href="/blog" class="article-tag">Pymes</a>
+    <div class="tags">
+      <a href="/blog" class="tag">SEO Local</a>
+      <a href="/blog" class="tag">Google Maps</a>
+      <a href="/blog" class="tag">Google Business Profile</a>
+      <a href="/blog" class="tag">Logroño</a>
+      <a href="/blog" class="tag">La Rioja</a>
+      <a href="/blog" class="tag">Pymes</a>
     </div>
 
     <!-- RELATED -->
-    <div class="related-box fade-up">
-      <h4>Artículos relacionados</h4>
-      <a href="/blog/consultor-seo-logrono" class="related-link">
-        <span class="related-link-arrow">→</span>
-        <span class="related-link-text">Consultor SEO en Logroño: cómo una pyme pasa a ser la primera en Google</span>
+    <div class="related fade">
+      <div class="related-title">Artículos relacionados</div>
+      <a href="/blog/consultor-seo-logrono">
+        <span class="arr">→</span>
+        <span>Consultor SEO en Logroño: cómo una pyme pasa a ser la primera en Google</span>
       </a>
     </div>
 
   </main>
 
   <!-- SIDEBAR -->
-  <aside class="article-sidebar">
-    <div class="sidebar-box">
-      <h4>Contenido</h4>
-      <nav class="sidebar-toc">
+  <aside class="sidebar">
+    <div class="sb-box">
+      <div class="sb-title">Contenido</div>
+      <nav class="toc">
         <a href="#por-que">Por qué Google Maps es clave</a>
         <a href="#factores">7 factores de posicionamiento</a>
-        <a href="#caso-ironwood">Caso real: Ironwood #1</a>
-        <a href="#guia-practica">Guía paso a paso</a>
+        <a href="#ironwood">Caso real: Ironwood #1</a>
+        <a href="#guia">Guía paso a paso</a>
         <a href="#errores">5 errores más comunes</a>
         <a href="#plazos">Plazos realistas</a>
-        <a href="#diy-vs-especialista">DIY vs. especialista</a>
+        <a href="#diy">DIY vs. especialista</a>
       </nav>
     </div>
-
-    <div class="sidebar-cta">
+    <div class="sb-cta">
       <p>¿Tu negocio no aparece en Google Maps en Logroño? Primera consulta gratuita.</p>
       <a href="/seo-local-logrono">Habla con Sergio →</a>
     </div>
@@ -644,47 +459,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-<!-- FOOTER (mismo que el resto del site) -->
+<!-- FOOTER -->
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <div class="footer-brand">
-      <span class="logo-text">Web<span class="logo-accent">Boost</span></span>
-      <p class="footer-tagline">SEO local para pymes en Logroño y La Rioja</p>
-    </div>
-    <nav class="footer-links">
-      <a href="/privacidad">Privacidad</a>
-      <a href="/aviso-legal">Aviso legal</a>
-      <a href="/cookies">Cookies</a>
-    </nav>
-    <p class="footer-copy">© 2026 WebBoost · Logroño, La Rioja · <a href="mailto:info@webboost.es">info@webboost.es</a></p>
+  <div class="footer-logo">Web<span>Boost</span></div>
+  <div class="footer-links">
+    <a href="/privacidad">Privacidad</a>
+    <a href="/aviso-legal">Aviso legal</a>
+    <a href="/cookies">Cookies</a>
+    <a href="mailto:info@webboost.es">info@webboost.es</a>
   </div>
+  <p class="footer-copy">© 2026 WebBoost · Logroño, La Rioja</p>
 </footer>
 
 <script>
-  // Nav mobile toggle
-  const menuToggle = document.getElementById('menuToggle');
-  const mainNav = document.getElementById('mainNav');
-  if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('open');
-      menuToggle.classList.toggle('active');
-    });
-  }
-
-  // Sticky header
-  const siteHeader = document.getElementById('site-header');
-  if (siteHeader) {
-    window.addEventListener('scroll', () => {
-      siteHeader.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
-  }
-
-  // Fade-up on scroll
-  const fadeEls = document.querySelectorAll('.fade-up');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  fadeEls.forEach(el => observer.observe(el));
+  const fades = document.querySelectorAll('.fade');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  fades.forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
