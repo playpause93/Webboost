@@ -15,6 +15,11 @@
       "has": [{ "type": "host", "value": "webboost.es" }],
       "destination": "https://www.webboost.es/$1",
       "permanent": true
+    },
+    {
+      "source": "/blog/seo-la-rioja",
+      "destination": "/seo-la-rioja",
+      "permanent": true
     }
   ]
 }
