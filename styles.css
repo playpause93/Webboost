@@ -6,6 +6,22 @@
 /* ── Reset ─────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── Fuentes (self-hosted) ────────────────────────────── */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/assets/fonts/montserrat-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url('/assets/fonts/opensans-latin.woff2') format('woff2');
+}
+
 /* ── Variables de diseño ────────────────────────────── */
 :root {
   --teal-900: #0D2626;
@@ -25,6 +41,7 @@
   --gray-200: #D4DCDC;
   --gray-300: #B0BFBF;
   --gray-500: #6B8080;
+  --gray-600: #5F7373;
   --gray-700: #374040;
   --head-font: 'Montserrat', sans-serif;
   --body-font: 'Open Sans', sans-serif;
