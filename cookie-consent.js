@@ -4,6 +4,7 @@
 
   var style = document.createElement('style');
   style.textContent = [
+    '#cookie-banner,#cookie-banner *{box-sizing:border-box;}',
     '#cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:9999;',
     'background:#0A2020;color:#fff;padding:18px 20px;',
     'box-shadow:0 -4px 24px rgba(0,0,0,0.25);',
@@ -15,7 +16,12 @@
     '#cookie-banner button{cursor:pointer;border-radius:8px;padding:10px 18px;font-size:0.85rem;font-weight:600;border:1px solid rgba(255,255,255,0.25);font-family:inherit;}',
     '#cookie-accept{background:#fff;color:#0A2020;border-color:#fff;}',
     '#cookie-reject{background:transparent;color:#fff;}',
-    '@media (max-width:600px){#cookie-banner{flex-direction:column;text-align:center;}}'
+    '@media (max-width:600px){',
+    '#cookie-banner{flex-direction:column;align-items:stretch;justify-content:center;padding:4px 12px;gap:4px;text-align:center;}',
+    '#cookie-banner p{font-size:0.875rem;line-height:1.15;}',
+    '#cookie-banner .cookie-actions{justify-content:center;gap:8px;}',
+    '#cookie-banner button{flex:1;max-width:150px;min-height:44px;padding:0 8px;font-size:1rem;line-height:1;display:inline-flex;align-items:center;justify-content:center;}',
+    '}'
   ].join('');
   document.head.appendChild(style);
 
@@ -24,7 +30,7 @@
   banner.setAttribute('role', 'dialog');
   banner.setAttribute('aria-label', 'Aviso de cookies');
   banner.innerHTML =
-    '<p>Usamos cookies propias y de terceros (Google Analytics) para analizar el tráfico del sitio. Puedes aceptarlas o rechazarlas. Más información en nuestra <a href="/cookies">Política de Cookies</a>.</p>' +
+    '<p>Usamos cookies propias y de terceros (Google Analytics) para analizar tráfico. <a href="/cookies">Política de cookies</a>.</p>' +
     '<div class="cookie-actions">' +
     '<button id="cookie-reject" type="button">Rechazar</button>' +
     '<button id="cookie-accept" type="button">Aceptar</button>' +

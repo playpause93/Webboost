@@ -576,9 +576,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </h1>
     <p class="hero-sub reveal" style="transition-delay:.2s">Gestión profesional de tu Google Business Profile. Resultados verificables en 90 días o te devuelvo el primer mes. Sin permanencia. Sin contratos.</p>
     <div class="hero-btns reveal" style="transition-delay:.3s">
+      <a href="#formulario" class="btn-gold">Diagnóstico gratuito</a>
       <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-gold" target="_blank" rel="noopener">💬 Habla con Sergio en WhatsApp</a>
       <a href="#ironwood" class="btn-ghost">Ver caso de éxito ↓</a>
     </div>
+    <p class="reveal" style="transition-delay:.35s; font-size:0.8rem; color:rgba(255,255,255,0.35); margin-bottom:2rem;">Ironwood Soluciones: #1 en Google Maps entre 91 competidores, en menos de 90 días.</p>
     <div class="hero-trust reveal" style="transition-delay:.4s">
       <span>Sin permanencia</span>
       <span>Garantía 90 días</span>
@@ -642,6 +644,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="svc-card"><span class="svc-icon">⭐</span><div class="svc-title">Gestión de reseñas</div><p class="svc-desc">Positivas respondidas en 24h. Negativas gestionadas en 12h.</p></div>
       <div class="svc-card"><span class="svc-icon">📊</span><div class="svc-title">Control semanal de posiciones</div><p class="svc-desc">Seguimiento en el LocalPack para las keywords clave de tu sector.</p></div>
       <div class="svc-card"><span class="svc-icon">📞</span><div class="svc-title">Llamada mensual de 30 minutos</div><p class="svc-desc">Repasamos avances juntos. Dashboard en tiempo real siempre disponible.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- FORMULARIO (mitad de página) -->
+<div class="panel contacto-panel" id="formulario">
+  <div class="wrap section-pad">
+    <div class="precio-solo reveal-l">
+      <div class="form-card">
+        <div class="form-card-title">📝 Envíame un mensaje</div>
+        <form id="contactFormMid" class="contact-form">
+          <div class="fg"><label for="nombre-mid">Tu nombre</label><input type="text" id="nombre-mid" name="nombre" required placeholder="Nombre" /></div>
+          <div class="fg"><label for="negocio-mid">Tu negocio</label><input type="text" id="negocio-mid" name="negocio" required placeholder="Nombre del negocio" /></div>
+          <div class="fg"><label for="tel-mid">WhatsApp o teléfono</label><input type="tel" id="tel-mid" name="telefono" required placeholder="+34 600 000 000" /></div>
+          <button type="submit" class="btn-gold" style="width:100%;justify-content:center;">Enviar mensaje →</button>
+          <p class="form-note">Sergio te contactará en menos de 24 horas.</p>
+        </form>
+      </div>
     </div>
   </div>
 </div>
@@ -762,7 +782,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="contacto-cols">
       <div class="form-card reveal-l">
         <div class="form-card-title">📝 Envíame un mensaje</div>
-        <form id="contactForm">
+        <form id="contactForm" class="contact-form">
           <div class="fg"><label for="nombre">Tu nombre</label><input type="text" id="nombre" name="nombre" required placeholder="Nombre" /></div>
           <div class="fg"><label for="negocio">Tu negocio</label><input type="text" id="negocio" name="negocio" required placeholder="Nombre del negocio" /></div>
           <div class="fg"><label for="tel">WhatsApp o teléfono</label><input type="tel" id="tel" name="telefono" required placeholder="+34 600 000 000" /></div>
@@ -814,28 +834,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
 
   // Formulario AJAX — evita redirección Formspree, permite tracking GTM
-  document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
-    const btn = form.querySelector('button[type="submit"]');
-    const orig = btn.textContent;
-    btn.textContent = 'Enviando...';
-    btn.disabled = true;
-    try {
-      const res = await fetch('https://formspree.io/f/meevolga', {
-        method: 'POST', body: data, headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        window.location.href = '/seo-local-logrono/gracias';
-      } else {
+  document.querySelectorAll('.contact-form').forEach(function(form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const btn = form.querySelector('button[type="submit"]');
+      const orig = btn.textContent;
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://formspree.io/f/meevolga', {
+          method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          window.location.href = '/seo-local-logrono/gracias';
+        } else {
+          btn.textContent = orig; btn.disabled = false;
+          alert('Hubo un error al enviar. Inténtalo de nuevo.');
+        }
+      } catch {
         btn.textContent = orig; btn.disabled = false;
         alert('Hubo un error al enviar. Inténtalo de nuevo.');
       }
-    } catch {
-      btn.textContent = orig; btn.disabled = false;
-      alert('Hubo un error al enviar. Inténtalo de nuevo.');
-    }
+    });
   });
 
   // FAQ
