@@ -59,6 +59,12 @@
 
   <!-- Artículos del blog -->
   <url>
+    <loc>https://www.webboost.es/blog/como-conseguir-resenas-en-google</loc>
+    <lastmod>2026-08-06</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.webboost.es/blog/consultor-seo-logrono</loc>
     <lastmod>2026-06-10</lastmod>
     <priority>0.8</priority>
