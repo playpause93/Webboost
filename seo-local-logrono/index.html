@@ -65,12 +65,20 @@
       --muted:  #5C5C5C;
       --border: #E5E2DC;
       --bg:     #F7F6F3;
+      --mask-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E");
     }
 
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', 'Inter Fallback', sans-serif; font-size: 1rem; line-height: 1.7;
       color: var(--white); background: var(--void); overflow-x: hidden;
+    }
+
+    /* ICONOS — sistema SVG: retícula 24, trazo 1.5, remates redondos */
+    .icon {
+      width: 1em; height: 1em; fill: none; stroke: currentColor;
+      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+      flex-shrink: 0; display: inline-block; vertical-align: -0.15em;
     }
 
     /* LAYOUT */
@@ -193,8 +201,6 @@
       color: var(--gold2); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
       text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-bottom: 2rem;
     }
-    .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease-in-out infinite; }
-    @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(0.8); } }
 
     .hero-h1 {
       font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 900; line-height: 0.95;
@@ -213,7 +219,7 @@
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
     .hero-trust { display: flex; gap: 2rem; flex-wrap: wrap; }
     .hero-trust span { font-size: 0.8rem; color: rgba(255,255,255,0.35); display: flex; align-items: center; gap: 0.5rem; }
-    .hero-trust span::before { content: '✓'; color: var(--gold); font-weight: 900; }
+    .hero-trust span::before { content: ''; width: 0.95em; height: 0.95em; flex-shrink: 0; background: var(--gold); -webkit-mask: var(--mask-check) center / contain no-repeat; mask: var(--mask-check) center / contain no-repeat; }
 
     /* ====== STATS PANEL ====== */
     .stats-panel {
@@ -244,10 +250,9 @@
     .dolor-item:first-child { border-top: 1px solid rgba(0,0,0,0.07); }
     .dolor-item:hover { padding-left: 0.5rem; }
     .dolor-icon {
-      width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
-      background: rgba(192,57,43,0.1); color: #c0392b; font-size: 0.8rem; font-weight: 800;
-      display: flex; align-items: center; justify-content: center; margin-top: 0.15rem;
+      flex-shrink: 0; color: #c0392b; display: flex; align-items: center; margin-top: 0.3rem;
     }
+    .dolor-icon .icon { width: 18px; height: 18px; }
     .dolor-text { font-size: 0.95rem; color: var(--muted); line-height: 1.6; }
     .dolor-cta-link { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 700; color: var(--dark); text-decoration: none; margin-top: 2rem; padding-bottom: 2px; border-bottom: 2px solid var(--gold); transition: gap 0.2s; }
     .dolor-cta-link:hover { gap: 0.9rem; }
@@ -294,7 +299,7 @@
     }
     .svc-card:hover { background: rgba(201,160,53,0.06); }
     .svc-card:hover::after { opacity: 1; }
-    .svc-icon { font-size: 2.25rem; margin-bottom: 1.25rem; display: block; }
+    .svc-icon { width: 28px; height: 28px; margin-bottom: 1.25rem; display: block; color: var(--gold); }
     .svc-title { font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: 0.6rem; letter-spacing: -0.01em; }
     .svc-desc { font-size: 0.85rem; color: rgba(255,255,255,0.38); line-height: 1.7; }
 
@@ -347,7 +352,6 @@
       color: var(--gold); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
       padding: 8px 18px; border-radius: 100px; margin-bottom: 2rem;
     }
-    .ironwood-badge::before { content: '✦'; }
 
     /* ====== PROCESO ====== */
     .proceso-panel { background: var(--bg); color: var(--text); }
@@ -413,7 +417,7 @@
     .precio-feats { list-style: none; margin-bottom: 2.5rem; }
     .precio-feats li { padding: 0.75rem 0; font-size: 0.95rem; color: rgba(255,255,255,0.6); display: flex; gap: 1rem; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.04); }
     .precio-feats li:last-child { border-bottom: none; }
-    .feat-check { color: var(--gold); font-weight: 900; font-size: 1rem; }
+    .feat-check { color: var(--gold); display: inline-flex; flex-shrink: 0; }
 
     /* ====== GARANTIA ====== */
     .garantia-panel {
@@ -427,15 +431,15 @@
     .garantia-ring {
       width: 140px; height: 140px; margin-inline: auto; margin-bottom: 2.5rem;
       border-radius: 50%; position: relative; display: flex; align-items: center; justify-content: center;
-      font-size: 3.5rem; z-index: 1;
+      z-index: 1;
     }
+    .garantia-ring .icon { width: 48px; height: 48px; color: var(--gold); position: relative; z-index: 1; }
     .garantia-ring::before {
       content: ''; position: absolute; inset: -4px; border-radius: 50%;
       background: conic-gradient(var(--gold) 0%, var(--gold2) 25%, transparent 50%, var(--gold) 75%, var(--gold2) 100%);
       animation: rotateBorder 4s linear infinite;
     }
     .garantia-ring::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: #0d2020; }
-    .garantia-ring span { position: relative; z-index: 1; }
     @keyframes rotateBorder { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     .garantia-h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 900; letter-spacing: -0.03em; color: #fff; margin-bottom: 1.5rem; position: relative; z-index: 1; line-height: 1.15; }
     .garantia-text { max-width: 540px; margin-inline: auto; color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.25rem; position: relative; z-index: 1; }
@@ -449,7 +453,8 @@
     .faq-item { border-radius: 12px; border: 1px solid #e5e2dc; background: #fff; margin-bottom: 0.75rem; overflow: hidden; transition: border-color 0.3s, box-shadow 0.3s; }
     .faq-item.open { border-color: rgba(201,160,53,0.4); box-shadow: 0 6px 28px rgba(201,160,53,0.1); }
     .faq-q { width: 100%; text-align: left; padding: 1.5rem 1.75rem; background: transparent; border: none; cursor: pointer; font-family: 'Inter', 'Inter Fallback', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--dark); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .faq-icon { width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid #e5e2dc; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.1rem; flex-shrink: 0; transition: transform 0.35s, background 0.3s, border-color 0.3s; }
+    .faq-icon { width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid #e5e2dc; display: flex; align-items: center; justify-content: center; color: var(--gold); flex-shrink: 0; transition: transform 0.35s, background 0.3s, border-color 0.3s; }
+    .faq-icon .icon { width: 14px; height: 14px; }
     .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--gold); color: var(--dark); border-color: var(--gold); }
     .faq-a { padding: 0 1.75rem 1.5rem; font-size: 0.92rem; color: var(--muted); line-height: 1.8; display: none; }
     .faq-item.open .faq-a { display: block; }
@@ -507,11 +512,11 @@
       display: flex; justify-content: center; gap: 1.5rem;
     }
     .wa-trust { font-size: 0.72rem; color: rgba(255,255,255,0.2); display: flex; align-items: center; gap: 0.35rem; }
-    .wa-trust::before { content: '✓'; color: var(--gold); font-size: 0.8rem; }
+    .wa-trust::before { content: ''; width: 0.9em; height: 0.9em; flex-shrink: 0; background: var(--gold); -webkit-mask: var(--mask-check) center / contain no-repeat; mask: var(--mask-check) center / contain no-repeat; }
 
     .trust-strip { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-top: 3rem; position: relative; z-index: 1; }
     .trust-strip span { font-size: 0.8rem; color: rgba(255,255,255,0.25); display: flex; align-items: center; gap: 0.5rem; }
-    .trust-strip span::before { content: '✓'; color: var(--gold); font-weight: 900; }
+    .trust-strip span::before { content: ''; width: 0.95em; height: 0.95em; flex-shrink: 0; background: var(--gold); -webkit-mask: var(--mask-check) center / contain no-repeat; mask: var(--mask-check) center / contain no-repeat; }
 
     /* ====== FOOTER ====== */
     .footer-wrap {
@@ -560,6 +565,25 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T7DH4TXB"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+<!-- Sprite de iconos — retícula 24px, trazo 1.5, currentColor -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><circle cx="15" cy="8" r="2"/><path d="M4 8h9M17 8h3"/><circle cx="9" cy="16" r="2"/><path d="M4 16h3M11 16h9"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 11.7l2 2 4-4.2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5l1.9 7.6 7.6 1.9-7.6 1.9-1.9 7.6-1.9-7.6L2.5 12l7.6-1.9L12 2.5z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></symbol>
+  <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow-d" viewBox="0 0 24 24"><path d="M12 4v15M6 13l6 6 6-6"/></symbol>
+</svg>
+
 <!-- NAV -->
 <nav class="nav" id="mainNav">
   <a href="/" class="nav-logo">Web<span>Boost</span></a>
@@ -575,7 +599,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="orb orb-3"></div>
   <div class="hero-grid"></div>
   <div class="wrap hero-content">
-    <div class="hero-tag reveal">📍 Especialista SEO Local · Logroño, La Rioja</div>
+    <div class="hero-tag reveal"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Especialista SEO Local · Logroño, La Rioja</div>
     <h1 class="hero-h1 reveal" style="transition-delay:.1s">
       Consultor SEO Logroño <br>
       <span class="line2">Experto en SEO Local</span>
@@ -583,8 +607,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="hero-sub reveal" style="transition-delay:.2s">Gestión profesional de tu Google Business Profile. Resultados verificables en 90 días o te devuelvo el primer mes. Sin permanencia. Sin contratos.</p>
     <div class="hero-btns reveal" style="transition-delay:.3s">
       <a href="#formulario" class="btn-gold">Diagnóstico gratuito</a>
-      <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-gold" target="_blank" rel="noopener">💬 Habla con Sergio en WhatsApp</a>
-      <a href="#ironwood" class="btn-ghost">Ver caso de éxito ↓</a>
+      <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-gold" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Habla con Sergio en WhatsApp</a>
+      <a href="#ironwood" class="btn-ghost">Ver caso de éxito <svg class="icon" aria-hidden="true"><use href="#i-arrow-d"/></svg></a>
     </div>
     <p class="reveal" style="transition-delay:.35s; font-size:0.8rem; color:rgba(255,255,255,0.35); margin-bottom:2rem;">Ironwood Soluciones: #1 en Google Maps entre 77 carpinterías, en menos de 90 días.</p>
     <div class="hero-trust reveal" style="transition-delay:.4s">
@@ -616,13 +640,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>Problemas comunes en negocios de Logroño antes de trabajar con WebBoost.</p>
         </div>
         <ul class="dolor-list">
-          <li class="dolor-item reveal" style="transition-delay:.1s"><div class="dolor-icon">✕</div><span class="dolor-text">Buscas tu negocio en Google Maps y apareces en la cuarta página</span></li>
-          <li class="dolor-item reveal" style="transition-delay:.15s"><div class="dolor-icon">✕</div><span class="dolor-text">Tu competencia sale antes aunque llevas más tiempo abierto</span></li>
-          <li class="dolor-item reveal" style="transition-delay:.2s"><div class="dolor-icon">✕</div><span class="dolor-text">Tu ficha de Google tiene fotos antiguas o está sin completar</span></li>
-          <li class="dolor-item reveal" style="transition-delay:.25s"><div class="dolor-icon">✕</div><span class="dolor-text">No sabes si Google Maps te está trayendo clientes o cuántos</span></li>
-          <li class="dolor-item reveal" style="transition-delay:.3s"><div class="dolor-icon">✕</div><span class="dolor-text">Has probado cosas pero no ves resultados claros ni medibles</span></li>
+          <li class="dolor-item reveal" style="transition-delay:.1s"><div class="dolor-icon" aria-hidden="true"><svg class="icon"><use href="#i-x"/></svg></div><span class="dolor-text">Buscas tu negocio en Google Maps y apareces en la cuarta página</span></li>
+          <li class="dolor-item reveal" style="transition-delay:.15s"><div class="dolor-icon" aria-hidden="true"><svg class="icon"><use href="#i-x"/></svg></div><span class="dolor-text">Tu competencia sale antes aunque llevas más tiempo abierto</span></li>
+          <li class="dolor-item reveal" style="transition-delay:.2s"><div class="dolor-icon" aria-hidden="true"><svg class="icon"><use href="#i-x"/></svg></div><span class="dolor-text">Tu ficha de Google tiene fotos antiguas o está sin completar</span></li>
+          <li class="dolor-item reveal" style="transition-delay:.25s"><div class="dolor-icon" aria-hidden="true"><svg class="icon"><use href="#i-x"/></svg></div><span class="dolor-text">No sabes si Google Maps te está trayendo clientes o cuántos</span></li>
+          <li class="dolor-item reveal" style="transition-delay:.3s"><div class="dolor-icon" aria-hidden="true"><svg class="icon"><use href="#i-x"/></svg></div><span class="dolor-text">Has probado cosas pero no ves resultados claros ni medibles</span></li>
         </ul>
-        <a href="#contacto" class="dolor-cta-link reveal" style="transition-delay:.35s">Eso tiene solución →</a>
+        <a href="#contacto" class="dolor-cta-link reveal" style="transition-delay:.35s">Eso tiene solución <svg class="icon" aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
       </div>
       <div class="dolor-deco reveal-r" style="transition-delay:.15s">
         <div class="dolor-deco-inner">
@@ -644,12 +668,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Gestión completa para que tú te olvides de Google Maps y yo me encargue de que funcione.</p>
     </div>
     <div class="servicios-grid reveal" style="transition-delay:.15s">
-      <div class="svc-card"><span class="svc-icon">⚙️</span><div class="svc-title">Setup y optimización completa</div><p class="svc-desc">Fotos, servicios, categorías, descripción, horarios. Ficha al 100%.</p></div>
-      <div class="svc-card"><span class="svc-icon">🔍</span><div class="svc-title">Auditoría de palabras clave locales</div><p class="svc-desc">Investigo cómo buscan tus clientes en La Rioja y optimizo para eso.</p></div>
-      <div class="svc-card"><span class="svc-icon">📝</span><div class="svc-title">Posts semanales en Google Maps</div><p class="svc-desc">Mantengo la ficha activa con contenido que Google valora.</p></div>
-      <div class="svc-card"><span class="svc-icon">⭐</span><div class="svc-title">Gestión de reseñas</div><p class="svc-desc">Positivas respondidas en 24h. Negativas gestionadas en 12h.</p></div>
-      <div class="svc-card"><span class="svc-icon">📊</span><div class="svc-title">Control semanal de posiciones</div><p class="svc-desc">Seguimiento en el LocalPack para las keywords clave de tu sector.</p></div>
-      <div class="svc-card"><span class="svc-icon">📞</span><div class="svc-title">Llamada mensual de 30 minutos</div><p class="svc-desc">Repasamos avances juntos. Dashboard en tiempo real siempre disponible.</p></div>
+      <div class="svc-card"><svg class="icon svc-icon" aria-hidden="true"><use href="#i-sliders"/></svg><div class="svc-title">Setup y optimización completa</div><p class="svc-desc">Fotos, servicios, categorías, descripción, horarios. Ficha al 100%.</p></div>
+      <div class="svc-card"><svg class="icon svc-icon" aria-hidden="true"><use href="#i-search"/></svg><div class="svc-title">Auditoría de palabras clave locales</div><p class="svc-desc">Investigo cómo buscan tus clientes en La Rioja y optimizo para eso.</p></div>
+      <div class="svc-card"><svg class="icon svc-icon" aria-hidden="true"><use href="#i-pencil"/></svg><div class="svc-title">Posts semanales en Google Maps</div><p class="svc-desc">Mantengo la ficha activa con contenido que Google valora.</p></div>
+      <div class="svc-card"><svg class="icon svc-icon" aria-hidden="true"><use href="#i-star"/></svg><div class="svc-title">Gestión de reseñas</div><p class="svc-desc">Positivas respondidas en 24h. Negativas gestionadas en 12h.</p></div>
+      <div class="svc-card"><svg class="icon svc-icon" aria-hidden="true"><use href="#i-trend"/></svg><div class="svc-title">Control semanal de posiciones</div><p class="svc-desc">Seguimiento en el LocalPack para las keywords clave de tu sector.</p></div>
+      <div class="svc-card"><svg class="icon svc-icon" aria-hidden="true"><use href="#i-phone"/></svg><div class="svc-title">Llamada mensual de 30 minutos</div><p class="svc-desc">Repasamos avances juntos. Dashboard en tiempo real siempre disponible.</p></div>
     </div>
   </div>
 </div>
@@ -659,7 +683,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap section-pad">
     <div class="precio-solo reveal-l">
       <div class="form-card">
-        <div class="form-card-title">📝 Envíame un mensaje</div>
+        <div class="form-card-title"><svg class="icon" aria-hidden="true"><use href="#i-pencil"/></svg> Envíame un mensaje</div>
         <form id="contactFormMid" class="contact-form">
           <div class="fg"><label for="nombre-mid">Tu nombre</label><input type="text" id="nombre-mid" name="nombre" required placeholder="Nombre" /></div>
           <div class="fg"><label for="negocio-mid">Tu negocio</label><input type="text" id="negocio-mid" name="negocio" required placeholder="Nombre del negocio" /></div>
@@ -694,7 +718,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <p class="cmp-foot">Datos de la cuadrícula de 81 puntos sobre 49 km², agosto de 2026.</p>
     </div>
-    <div class="ironwood-badge reveal" style="transition-delay:.2s">Resultado conseguido en menos de 90 días</div>
+    <div class="ironwood-badge reveal" style="transition-delay:.2s"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg> Resultado conseguido en menos de 90 días</div>
     <div class="ironwood-quote-box reveal" style="transition-delay:.25s">
       <p>"Hoy Ironwood recibe llamadas y solicitudes de presupuesto directamente desde Google Maps, sin pagar un euro en publicidad."</p>
     </div>
@@ -738,14 +762,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="precio-period">al mes · sin IVA · sin permanencia</div>
         <hr class="precio-divider" />
         <ul class="precio-feats">
-          <li><span class="feat-check">✓</span> Setup y optimización completa de tu ficha</li>
-          <li><span class="feat-check">✓</span> Auditoría de palabras clave locales</li>
-          <li><span class="feat-check">✓</span> Posts semanales en Google Maps</li>
-          <li><span class="feat-check">✓</span> Gestión de reseñas (positivas 24h / negativas 12h)</li>
-          <li><span class="feat-check">✓</span> Control semanal de posiciones</li>
-          <li><span class="feat-check">✓</span> Llamada mensual de seguimiento (30 min)</li>
+          <li><span class="feat-check" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span> Setup y optimización completa de tu ficha</li>
+          <li><span class="feat-check" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span> Auditoría de palabras clave locales</li>
+          <li><span class="feat-check" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span> Posts semanales en Google Maps</li>
+          <li><span class="feat-check" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span> Gestión de reseñas (positivas 24h / negativas 12h)</li>
+          <li><span class="feat-check" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span> Control semanal de posiciones</li>
+          <li><span class="feat-check" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span> Llamada mensual de seguimiento (30 min)</li>
         </ul>
-        <a href="#contacto" class="btn-gold" style="width:100%;justify-content:center;">Empezar ahora →</a>
+        <a href="#contacto" class="btn-gold" style="width:100%;justify-content:center;">Empezar ahora <svg class="icon" aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
       </div>
     </div>
   </div>
@@ -754,10 +778,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- GARANTIA -->
 <div class="panel garantia-panel" id="garantia">
   <div class="wrap section-pad">
-    <div class="garantia-ring reveal"><span>🛡️</span></div>
+    <div class="garantia-ring reveal" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg></div>
     <h2 class="garantia-h2 reveal" style="transition-delay:.1s">Garantía de resultados <br><span style="background:linear-gradient(120deg,#C9A035,#f0d070);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">90 días</span></h2>
     <p class="garantia-text reveal" style="transition-delay:.2s">Si sigues mi metodología durante 90 días y no ves una mejora verificable en tu visibilidad en Google Maps, te devuelvo el primer mes. Sin preguntas.</p>
-    <p class="garantia-sub reveal" style="transition-delay:.3s">✦ Porque si no hay resultados, no mereces pagar.</p>
+    <p class="garantia-sub reveal" style="transition-delay:.3s"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg> Porque si no hay resultados, no mereces pagar.</p>
   </div>
 </div>
 
@@ -769,11 +793,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>Preguntas frecuentes</h2>
     </div>
     <div class="faq-list">
-      <div class="faq-item open reveal"><button class="faq-q">¿Hay que pagar a Google para aparecer?<div class="faq-icon">+</div></button><div class="faq-a">No. Google Maps orgánico es gratuito. Pagas la gestión profesional, no a Google.</div></div>
-      <div class="faq-item reveal" style="transition-delay:.05s"><button class="faq-q">¿Cuánto tarda en verse resultados?<div class="faq-icon">+</div></button><div class="faq-a">Entre 60 y 90 días para posiciones consolidadas. Las primeras señales de mejora aparecen entre las 3 y las 6 semanas.</div></div>
-      <div class="faq-item reveal" style="transition-delay:.1s"><button class="faq-q">¿Puedo cancelar cuando quiera?<div class="faq-icon">+</div></button><div class="faq-a">Sí. Sin permanencia. Avisa antes de que empiece el siguiente mes. Sin penalizaciones.</div></div>
-      <div class="faq-item reveal" style="transition-delay:.15s"><button class="faq-q">¿Funciona para mi sector?<div class="faq-icon">+</div></button><div class="faq-a">Sí. Clínicas dentales, fisioterapeutas, mecánicos, estéticas, veterinarios, gimnasios... Cualquier negocio que dependa de clientes locales.</div></div>
-      <div class="faq-item reveal" style="transition-delay:.2s"><button class="faq-q">¿Qué necesito para empezar?<div class="faq-icon">+</div></button><div class="faq-a">Acceso a tu ficha de Google y 30 minutos para la primera reunión. Yo me encargo del resto.</div></div>
+      <div class="faq-item open reveal"><button class="faq-q">¿Hay que pagar a Google para aparecer?<div class="faq-icon" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></div></button><div class="faq-a">No. Google Maps orgánico es gratuito. Pagas la gestión profesional, no a Google.</div></div>
+      <div class="faq-item reveal" style="transition-delay:.05s"><button class="faq-q">¿Cuánto tarda en verse resultados?<div class="faq-icon" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></div></button><div class="faq-a">Entre 60 y 90 días para posiciones consolidadas. Las primeras señales de mejora aparecen entre las 3 y las 6 semanas.</div></div>
+      <div class="faq-item reveal" style="transition-delay:.1s"><button class="faq-q">¿Puedo cancelar cuando quiera?<div class="faq-icon" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></div></button><div class="faq-a">Sí. Sin permanencia. Avisa antes de que empiece el siguiente mes. Sin penalizaciones.</div></div>
+      <div class="faq-item reveal" style="transition-delay:.15s"><button class="faq-q">¿Funciona para mi sector?<div class="faq-icon" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></div></button><div class="faq-a">Sí. Clínicas dentales, fisioterapeutas, mecánicos, estéticas, veterinarios, gimnasios... Cualquier negocio que dependa de clientes locales.</div></div>
+      <div class="faq-item reveal" style="transition-delay:.2s"><button class="faq-q">¿Qué necesito para empezar?<div class="faq-icon" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></div></button><div class="faq-a">Acceso a tu ficha de Google y 30 minutos para la primera reunión. Yo me encargo del resto.</div></div>
     </div>
   </div>
 </div>
@@ -788,7 +812,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="contacto-cols">
       <div class="form-card reveal-l">
-        <div class="form-card-title">📝 Envíame un mensaje</div>
+        <div class="form-card-title"><svg class="icon" aria-hidden="true"><use href="#i-pencil"/></svg> Envíame un mensaje</div>
         <form id="contactForm" class="contact-form">
           <div class="fg"><label for="nombre">Tu nombre</label><input type="text" id="nombre" name="nombre" required placeholder="Nombre" /></div>
           <div class="fg"><label for="negocio">Tu negocio</label><input type="text" id="negocio" name="negocio" required placeholder="Nombre del negocio" /></div>
@@ -802,7 +826,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="wa-card-top">
           <div class="wa-title">¿Prefieres hablar directamente?</div>
           <div class="wa-sub">Escríbeme ahora. Respondo en menos de 24h.</div>
-          <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-wa" target="_blank" rel="noopener">💬 Escríbeme por WhatsApp</a>
+          <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-wa" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Escríbeme por WhatsApp</a>
         </div>
         <div class="wa-card-bottom">
           <span class="wa-trust">Sin compromiso</span>
