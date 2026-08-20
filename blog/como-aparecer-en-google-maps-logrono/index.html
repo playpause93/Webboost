@@ -54,6 +54,14 @@
       font-display: swap;
       src: url('/assets/fonts/inter-latin.woff2') format('woff2');
     }
+    @font-face {
+      font-family: 'Inter Fallback';
+      src: local('Arial');
+      size-adjust: 138.27%;
+      ascent-override: 70.06%;
+      descent-override: 17.44%;
+      line-gap-override: 0%;
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --dark:   #0D2626;
@@ -67,7 +75,7 @@
       --border: #E5E2DC;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.7; color: var(--text); background: #fff; overflow-x: hidden; }
+    body { font-family: 'Inter', 'Inter Fallback', sans-serif; font-size: 1rem; line-height: 1.7; color: var(--text); background: #fff; overflow-x: hidden; }
 
     /* NAV */
     .nav {

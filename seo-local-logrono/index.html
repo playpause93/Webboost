@@ -44,6 +44,14 @@
       font-display: swap;
       src: url('/assets/fonts/inter-latin.woff2') format('woff2');
     }
+    @font-face {
+      font-family: 'Inter Fallback';
+      src: local('Arial');
+      size-adjust: 138.27%;
+      ascent-override: 70.06%;
+      descent-override: 17.44%;
+      line-gap-override: 0%;
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -61,7 +69,7 @@
 
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.7;
+      font-family: 'Inter', 'Inter Fallback', sans-serif; font-size: 1rem; line-height: 1.7;
       color: var(--white); background: var(--void); overflow-x: hidden;
     }
 
@@ -100,7 +108,7 @@
       color: var(--dark); font-weight: 800; font-size: 1rem;
       padding: 1rem 2.5rem; border-radius: 100px; text-decoration: none;
       display: inline-flex; align-items: center; gap: 0.6rem; border: none; cursor: pointer;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', 'Inter Fallback', sans-serif;
       transition: background-position 0.5s, box-shadow 0.3s, transform 0.2s;
       box-shadow: 0 6px 32px rgba(201,160,53,0.4);
     }
@@ -446,7 +454,7 @@
     .faq-list { max-width: 740px; }
     .faq-item { border-radius: 12px; border: 1px solid #e5e2dc; background: #fff; margin-bottom: 0.75rem; overflow: hidden; transition: border-color 0.3s, box-shadow 0.3s; }
     .faq-item.open { border-color: rgba(201,160,53,0.4); box-shadow: 0 6px 28px rgba(201,160,53,0.1); }
-    .faq-q { width: 100%; text-align: left; padding: 1.5rem 1.75rem; background: transparent; border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--dark); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .faq-q { width: 100%; text-align: left; padding: 1.5rem 1.75rem; background: transparent; border: none; cursor: pointer; font-family: 'Inter', 'Inter Fallback', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--dark); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .faq-icon { width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid #e5e2dc; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.1rem; flex-shrink: 0; transition: transform 0.35s, background 0.3s, border-color 0.3s; }
     .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--gold); color: var(--dark); border-color: var(--gold); }
     .faq-a { padding: 0 1.75rem 1.5rem; font-size: 0.92rem; color: var(--muted); line-height: 1.8; display: none; }
@@ -475,7 +483,7 @@
     .fg label { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.5rem; }
     .fg input {
       width: 100%; padding: 0.9rem 1.1rem; border: 1.5px solid rgba(255,255,255,0.08); border-radius: 10px;
-      font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #fff;
+      font-family: 'Inter', 'Inter Fallback', sans-serif; font-size: 0.95rem; color: #fff;
       background: rgba(255,255,255,0.04); transition: border-color 0.2s, box-shadow 0.2s;
     }
     .fg input::placeholder { color: rgba(255,255,255,0.2); }
