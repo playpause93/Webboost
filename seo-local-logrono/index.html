@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Consultor SEO Logroño | Experto en SEO Local</title>
-  <meta name="description" content="Especialista en posicionamiento Google Maps en Logroño. Gestión completa de tu Google Business Profile. Resultados en 90 días o te devolvemos el primer mes." />
+  <meta name="description" content="Especialista en posicionamiento Google Maps en Logroño. Gestión completa de tu Google Business Profile. Resultados en 90 días o te devuelvo el primer mes." />
   <meta name="robots" content="noindex" />
   <link rel="canonical" href="https://www.webboost.es/seo-local-logrono" />
   <link rel="icon" type="image/png" href="/bnad_assets/favicon.png" />
@@ -311,35 +311,29 @@
     .ironwood-title { font-size: clamp(1.8rem, 4vw, 3.2rem); font-weight: 900; letter-spacing: -0.03em; color: #fff; line-height: 1.1; margin-bottom: 3rem; position: relative; z-index: 1; }
     .ironwood-title span { color: var(--gold); }
 
-    /* Split card */
-    .split-card {
-      display: grid; grid-template-columns: 1fr 1fr; border-radius: 20px; overflow: hidden;
-      margin-bottom: 3rem; position: relative; z-index: 1;
+    /* Comparativa con el sector */
+    .cmp-card {
+      border-radius: 20px; overflow: hidden; margin-bottom: 3rem; position: relative; z-index: 1;
+      background: linear-gradient(150deg, #0e1e1e, #162525);
+      padding: clamp(1.5rem, 4vw, 3rem);
       box-shadow: 0 0 0 1px rgba(201,160,53,0.2), 0 40px 80px rgba(0,0,0,0.5);
     }
-    .split-before {
-      background: linear-gradient(150deg, #0e1e1e, #162525);
-      padding: clamp(2rem, 4vw, 3rem); position: relative;
+    .cmp-title {
+      font-size: clamp(1rem, 2.2vw, 1.35rem); font-weight: 800; line-height: 1.3; color: #fff;
+      margin: 0 0 2rem; text-align: left;
     }
-    .split-before::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(transparent, rgba(201,160,53,0.25) 50%, transparent); }
-    .split-after {
-      background: linear-gradient(150deg, #b8891e, #C9A035, #d4ab38);
-      padding: clamp(2rem, 4vw, 3rem);
+    .cmp-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .cmp-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem; }
+    .cmp-table th, .cmp-table td { padding: 0.9rem 1rem; vertical-align: middle; }
+    .cmp-table thead th {
+      font-size: 0.65rem; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.25); border-bottom: 1px solid rgba(201,160,53,0.25); white-space: nowrap;
     }
-    .split-lbl { font-size: 0.65rem; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; }
-    .split-before .split-lbl { color: rgba(255,255,255,0.25); }
-    .split-after .split-lbl { color: rgba(13,38,38,0.5); }
-    .split-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
-    .split-row:last-child { margin-bottom: 0; }
-    .split-badge {
-      width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900;
-    }
-    .split-before .split-badge { background: rgba(192,57,43,0.15); color: #e74c3c; }
-    .split-after .split-badge { background: rgba(13,38,38,0.18); color: #0D2626; }
-    .split-before .split-txt { color: rgba(255,255,255,0.45); font-size: 0.92rem; line-height: 1.45; }
-    .split-after .split-txt { color: #0D2626; font-size: 0.92rem; font-weight: 700; line-height: 1.45; }
-
+    .cmp-table tbody tr + tr th, .cmp-table tbody tr + tr td { border-top: 1px solid rgba(255,255,255,0.06); }
+    .cmp-table tbody th { font-weight: 600; color: rgba(255,255,255,0.55); line-height: 1.45; }
+    .cmp-us { color: #C9A035; font-weight: 800; white-space: nowrap; }
+    .cmp-them { color: rgba(255,255,255,0.45); line-height: 1.45; }
+    .cmp-foot { margin: 1.75rem 0 0; font-size: 0.72rem; color: rgba(255,255,255,0.3); line-height: 1.5; text-align: left; }
     .ironwood-quote-box {
       background: rgba(201,160,53,0.07); border: 1px solid rgba(201,160,53,0.2);
       border-radius: 16px; padding: 2rem 2.5rem; margin-bottom: 2rem;
@@ -544,8 +538,6 @@
       .stats-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 700px) {
-      .split-card { grid-template-columns: 1fr; }
-      .split-before::after { display: none; }
       .contacto-cols { grid-template-columns: 1fr; }
       .contacto-divider { flex-direction: row; height: 40px; }
     }
@@ -594,7 +586,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-gold" target="_blank" rel="noopener">💬 Habla con Sergio en WhatsApp</a>
       <a href="#ironwood" class="btn-ghost">Ver caso de éxito ↓</a>
     </div>
-    <p class="reveal" style="transition-delay:.35s; font-size:0.8rem; color:rgba(255,255,255,0.35); margin-bottom:2rem;">Ironwood Soluciones: #1 en Google Maps entre 91 competidores, en menos de 90 días.</p>
+    <p class="reveal" style="transition-delay:.35s; font-size:0.8rem; color:rgba(255,255,255,0.35); margin-bottom:2rem;">Ironwood Soluciones: #1 en Google Maps entre 77 carpinterías, en menos de 90 días.</p>
     <div class="hero-trust reveal" style="transition-delay:.4s">
       <span>Sin permanencia</span>
       <span>Garantía 90 días</span>
@@ -606,9 +598,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- STATS -->
 <div class="panel stats-panel">
   <div class="stats-grid">
-    <div class="stat-item reveal"><div class="stat-num">#1</div><div class="stat-lbl">Entre 91 competidores</div></div>
-    <div class="stat-item reveal" style="transition-delay:.08s"><div class="stat-num">63</div><div class="stat-lbl">Reseñas · 4.9★</div></div>
-    <div class="stat-item reveal" style="transition-delay:.16s"><div class="stat-num">100%</div><div class="stat-lbl">Cobertura LocalPack</div></div>
+    <div class="stat-item reveal"><div class="stat-num">#1</div><div class="stat-lbl">Entre 77 carpinterías</div></div>
+    <div class="stat-item reveal" style="transition-delay:.08s"><div class="stat-num">+70</div><div class="stat-lbl">Reseñas · 4,9★</div></div>
+    <div class="stat-item reveal" style="transition-delay:.16s"><div class="stat-num">78/81</div><div class="stat-lbl">Puntos del mapa</div></div>
     <div class="stat-item reveal" style="transition-delay:.24s"><div class="stat-num">90d</div><div class="stat-lbl">Para resultados verificables</div></div>
   </div>
 </div>
@@ -648,13 +640,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap section-pad">
     <div class="servicios-head reveal">
       <span class="eyebrow">El servicio</span>
-      <h2>Lo que hacemos cada mes <br>por tu negocio</h2>
+      <h2>Lo que hago cada mes <br>por tu negocio</h2>
       <p>Gestión completa para que tú te olvides de Google Maps y yo me encargue de que funcione.</p>
     </div>
     <div class="servicios-grid reveal" style="transition-delay:.15s">
       <div class="svc-card"><span class="svc-icon">⚙️</span><div class="svc-title">Setup y optimización completa</div><p class="svc-desc">Fotos, servicios, categorías, descripción, horarios. Ficha al 100%.</p></div>
-      <div class="svc-card"><span class="svc-icon">🔍</span><div class="svc-title">Auditoría de palabras clave locales</div><p class="svc-desc">Investigamos cómo buscan tus clientes en La Rioja y optimizamos para eso.</p></div>
-      <div class="svc-card"><span class="svc-icon">📝</span><div class="svc-title">Posts semanales en Google Maps</div><p class="svc-desc">Mantenemos la ficha activa con contenido que Google valora.</p></div>
+      <div class="svc-card"><span class="svc-icon">🔍</span><div class="svc-title">Auditoría de palabras clave locales</div><p class="svc-desc">Investigo cómo buscan tus clientes en La Rioja y optimizo para eso.</p></div>
+      <div class="svc-card"><span class="svc-icon">📝</span><div class="svc-title">Posts semanales en Google Maps</div><p class="svc-desc">Mantengo la ficha activa con contenido que Google valora.</p></div>
       <div class="svc-card"><span class="svc-icon">⭐</span><div class="svc-title">Gestión de reseñas</div><p class="svc-desc">Positivas respondidas en 24h. Negativas gestionadas en 12h.</p></div>
       <div class="svc-card"><span class="svc-icon">📊</span><div class="svc-title">Control semanal de posiciones</div><p class="svc-desc">Seguimiento en el LocalPack para las keywords clave de tu sector.</p></div>
       <div class="svc-card"><span class="svc-icon">📞</span><div class="svc-title">Llamada mensual de 30 minutos</div><p class="svc-desc">Repasamos avances juntos. Dashboard en tiempo real siempre disponible.</p></div>
@@ -684,22 +676,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="panel ironwood-panel" id="ironwood">
   <div class="wrap section-pad">
     <div class="ironwood-label reveal"><span class="eyebrow">Caso de éxito real</span></div>
-    <h2 class="ironwood-title reveal" style="transition-delay:.1s">Ironwood Soluciones <br><span>De invisible a #1 en Google Maps</span></h2>
-    <div class="split-card reveal" style="transition-delay:.15s">
-      <div class="split-before">
-        <div class="split-lbl">Antes</div>
-        <div class="split-row"><div class="split-badge">✕</div><span class="split-txt">Sin visibilidad en Google Maps</span></div>
-        <div class="split-row"><div class="split-badge">✕</div><span class="split-txt">0 reseñas</span></div>
-        <div class="split-row"><div class="split-badge">✕</div><span class="split-txt">Sin posición en el LocalPack</span></div>
-        <div class="split-row"><div class="split-badge">✕</div><span class="split-txt">Llamadas desde Google: 0</span></div>
+    <h2 class="ironwood-title reveal" style="transition-delay:.1s">Ironwood Soluciones <br><span>Carpintería metálica · Albelda de Iregua</span></h2>
+    <div class="cmp-card reveal" style="transition-delay:.15s">
+      <h3 class="cmp-title">Ironwood frente a las otras 76 carpinterías de la zona</h3>
+      <div class="cmp-scroll">
+        <table class="cmp-table">
+          <thead>
+            <tr><th scope="col">Métrica</th><th scope="col">Ironwood</th><th scope="col">El resto del sector</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Reseñas</th><td class="cmp-us">+70</td><td class="cmp-them">mediana de 5</td></tr>
+            <tr><th scope="row">Valoración</th><td class="cmp-us">4,9★</td><td class="cmp-them">media de 4,4★</td></tr>
+            <tr><th scope="row">Presencia en el Pack Local</th><td class="cmp-us">70% de los puntos</td><td class="cmp-them">52% el segundo mejor</td></tr>
+            <tr><th scope="row">Negocios con más de 50 reseñas</th><td class="cmp-us">—</td><td class="cmp-them">1 de 77</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="split-after">
-        <div class="split-lbl">Después</div>
-        <div class="split-row"><div class="split-badge">✓</div><span class="split-txt">#1 entre 91 competidores</span></div>
-        <div class="split-row"><div class="split-badge">✓</div><span class="split-txt">63 reseñas · 4.9★</span></div>
-        <div class="split-row"><div class="split-badge">✓</div><span class="split-txt">100% cobertura LocalPack</span></div>
-        <div class="split-row"><div class="split-badge">✓</div><span class="split-txt">Llamadas y presupuestos diarios</span></div>
-      </div>
+      <p class="cmp-foot">Datos de la cuadrícula de 81 puntos sobre 49 km², agosto de 2026.</p>
     </div>
     <div class="ironwood-badge reveal" style="transition-delay:.2s">Resultado conseguido en menos de 90 días</div>
     <div class="ironwood-quote-box reveal" style="transition-delay:.25s">
@@ -777,7 +770,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="faq-list">
       <div class="faq-item open reveal"><button class="faq-q">¿Hay que pagar a Google para aparecer?<div class="faq-icon">+</div></button><div class="faq-a">No. Google Maps orgánico es gratuito. Pagas la gestión profesional, no a Google.</div></div>
-      <div class="faq-item reveal" style="transition-delay:.05s"><button class="faq-q">¿Cuánto tarda en verse resultados?<div class="faq-icon">+</div></button><div class="faq-a">Entre 2 y 3 meses para posiciones consolidadas. Las primeras señales de mejora aparecen antes.</div></div>
+      <div class="faq-item reveal" style="transition-delay:.05s"><button class="faq-q">¿Cuánto tarda en verse resultados?<div class="faq-icon">+</div></button><div class="faq-a">Entre 60 y 90 días para posiciones consolidadas. Las primeras señales de mejora aparecen entre las 3 y las 6 semanas.</div></div>
       <div class="faq-item reveal" style="transition-delay:.1s"><button class="faq-q">¿Puedo cancelar cuando quiera?<div class="faq-icon">+</div></button><div class="faq-a">Sí. Sin permanencia. Avisa antes de que empiece el siguiente mes. Sin penalizaciones.</div></div>
       <div class="faq-item reveal" style="transition-delay:.15s"><button class="faq-q">¿Funciona para mi sector?<div class="faq-icon">+</div></button><div class="faq-a">Sí. Clínicas dentales, fisioterapeutas, mecánicos, estéticas, veterinarios, gimnasios... Cualquier negocio que dependa de clientes locales.</div></div>
       <div class="faq-item reveal" style="transition-delay:.2s"><button class="faq-q">¿Qué necesito para empezar?<div class="faq-icon">+</div></button><div class="faq-a">Acceso a tu ficha de Google y 30 minutos para la primera reunión. Yo me encargo del resto.</div></div>
