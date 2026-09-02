@@ -187,17 +187,8 @@
     }
 
     .hero-content { position: relative; z-index: 2; padding-block: clamp(8rem, 15vw, 12rem) clamp(5rem, 8vw, 7rem); }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      background: rgba(201,160,53,0.1); border: 1px solid rgba(201,160,53,0.25);
-      color: var(--gold2); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-bottom: 2rem;
-    }
-    .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease-in-out infinite; }
-    @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(0.8); } }
-
     .hero-h1 {
-      font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 900; line-height: 0.95;
+      font-size: clamp(3rem, 8vw, 5.525rem); font-weight: 900; line-height: 0.95;
       letter-spacing: -0.04em; margin-bottom: 2rem; max-width: 900px;
     }
     .hero-h1 .line2 {
@@ -206,6 +197,9 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
       animation: textShimmer 5s linear infinite;
       display: block;
+      text-wrap: balance;
+      /* colchón para el background-clip: sin él, el descendente de la última línea (la g de Logroño) queda fuera de la caja y no se pinta */
+      padding-bottom: 0.15em;
     }
     @keyframes textShimmer { 0% { background-position: 0% center; } 100% { background-position: 300% center; } }
 
@@ -214,6 +208,33 @@
     .hero-trust { display: flex; gap: 2rem; flex-wrap: wrap; }
     .hero-trust span { font-size: 0.8rem; color: rgba(255,255,255,0.35); display: flex; align-items: center; gap: 0.5rem; }
     .hero-trust span::before { content: '✓'; color: var(--gold); font-weight: 900; }
+
+    /* Jerarquía de acciones del hero: contorno dorado (2º) y enlace de texto (3º) */
+    .btn-outline-gold {
+      background: transparent; border: 1.5px solid var(--gold);
+      color: var(--gold); font-weight: 700; font-size: 0.95rem;
+      padding: 0.95rem 2.25rem; border-radius: 100px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    }
+    .btn-outline-gold:hover { background: rgba(201,160,53,0.1); box-shadow: 0 6px 24px rgba(201,160,53,0.25); transform: translateY(-2px); }
+    .hero-caselink {
+      color: rgba(255,255,255,0.55); font-weight: 700; font-size: 0.95rem;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.95rem 0.5rem; align-self: center;
+    }
+    .hero-caselink:hover { text-decoration: underline; color: #fff; }
+
+    /* Foto del hero: solo escritorio, en móvil no existe visualmente */
+    .hero-photo { display: none; }
+    @media (min-width: 768px) {
+      .hero-content { display: grid; grid-template-columns: minmax(0, 1fr) clamp(240px, 26vw, 300px); gap: clamp(2rem, 4vw, 4rem); align-items: center; }
+      .hero-photo { display: block; }
+      .hero-photo img {
+        width: 100%; height: auto; display: block; border-radius: 24px;
+        box-shadow: 0 0 0 1px rgba(201,160,53,0.25), 0 40px 80px rgba(0,0,0,0.5);
+      }
+    }
 
     /* ====== STATS PANEL ====== */
     .stats-panel {
@@ -483,6 +504,10 @@
     .fg input::placeholder { color: rgba(255,255,255,0.2); }
     .fg input:focus { outline: none; border-color: rgba(201,160,53,0.5); box-shadow: 0 0 0 3px rgba(201,160,53,0.1); }
     .form-note { font-size: 0.72rem; color: rgba(255,255,255,0.2); margin-top: 1rem; text-align: center; }
+    .form-card-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+    .form-card-head .form-card-title { margin-bottom: 0.2rem; }
+    .form-avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; flex-shrink: 0; display: block; border: 2px solid rgba(201,160,53,0.35); }
+    .form-avatar-name { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.02em; }
 
     .wa-card {
       border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;
@@ -545,11 +570,11 @@
       .servicios-grid { grid-template-columns: 1fr; }
       .proceso-steps { grid-template-columns: 1fr; }
       .hero-btns { flex-direction: column; }
+      .hero-btns .btn-gold, .hero-btns .btn-outline-gold { width: 100%; justify-content: center; padding-inline: 1.25rem; }
       .orb-1, .orb-2, .orb-3 { display: none; }
     }
     @media (max-width: 600px) {
       .hero-content { padding-block: 6.5rem clamp(5rem, 8vw, 7rem); }
-      .hero-tag { margin-bottom: 0.875rem; }
       .hero-h1 { margin-bottom: 0.875rem; }
       .hero-sub { margin-bottom: 1rem; }
     }
@@ -575,22 +600,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="orb orb-3"></div>
   <div class="hero-grid"></div>
   <div class="wrap hero-content">
-    <div class="hero-tag reveal">📍 Especialista SEO Local · Logroño, La Rioja</div>
-    <h1 class="hero-h1 reveal" style="transition-delay:.1s">
-      Consultor SEO Logroño <br>
-      <span class="line2">Experto en SEO Local</span>
-    </h1>
-    <p class="hero-sub reveal" style="transition-delay:.2s">Gestión profesional de tu Google Business Profile. Resultados verificables en 90 días o te devuelvo el primer mes. Sin permanencia. Sin contratos.</p>
-    <div class="hero-btns reveal" style="transition-delay:.3s">
-      <a href="#formulario" class="btn-gold">Diagnóstico gratuito</a>
-      <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-gold" target="_blank" rel="noopener">💬 Habla con Sergio en WhatsApp</a>
-      <a href="#ironwood" class="btn-ghost">Ver caso de éxito ↓</a>
+    <div class="hero-copy">
+      <h1 class="hero-h1 reveal" style="transition-delay:.1s">
+        Aparece en Google Maps <br>
+        <span class="line2">cuando te buscan en Logroño</span>
+      </h1>
+      <p class="hero-sub reveal" style="transition-delay:.2s">Optimizo tu ficha de Google Business Profile para que salgas en el mapa cuando alguien busca lo que haces. Primeras señales en 3-6 semanas. Sin permanencia.</p>
+      <div class="hero-btns reveal" style="transition-delay:.3s">
+        <a href="#formulario" class="btn-gold">Diagnóstico gratuito de tu ficha</a>
+        <a href="https://wa.me/34686383794?text=Hola+Sergio%2C+me+interesa+el+SEO+Local+para+mi+negocio" class="btn-outline-gold" target="_blank" rel="noopener">💬 Habla con Sergio por WhatsApp</a>
+        <a href="#ironwood" class="hero-caselink">Ver caso de éxito ↓</a>
+      </div>
+      <p class="reveal" style="transition-delay:.35s; font-size:0.8rem; color:rgba(255,255,255,0.35); margin-bottom:2rem;">Ironwood Soluciones: #1 en Google Maps entre 77 carpinterías, en menos de 90 días.</p>
+      <div class="hero-trust reveal" style="transition-delay:.4s">
+        <span>Sin permanencia</span>
+        <span>Garantía 90 días</span>
+        <span>Solo pymes locales</span>
+      </div>
     </div>
-    <p class="reveal" style="transition-delay:.35s; font-size:0.8rem; color:rgba(255,255,255,0.35); margin-bottom:2rem;">Ironwood Soluciones: #1 en Google Maps entre 77 carpinterías, en menos de 90 días.</p>
-    <div class="hero-trust reveal" style="transition-delay:.4s">
-      <span>Sin permanencia</span>
-      <span>Garantía 90 días</span>
-      <span>Solo pymes locales</span>
+    <div class="hero-photo reveal-r" style="transition-delay:.3s">
+      <img src="/assets/img/sergio-hero-800.webp"
+           srcset="/assets/img/sergio-hero-400.webp 400w, /assets/img/sergio-hero-800.webp 800w"
+           sizes="(min-width: 768px) clamp(240px, 26vw, 300px), 1px"
+           width="800" height="1067"
+           alt="Sergio, consultor SEO local en Logroño, trabajando en su portátil">
     </div>
   </div>
 </section>
@@ -659,7 +692,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap section-pad">
     <div class="precio-solo reveal-l">
       <div class="form-card">
-        <div class="form-card-title">📝 Envíame un mensaje</div>
+        <div class="form-card-head">
+          <img src="/assets/img/sergio-form-144.webp" width="72" height="72" loading="lazy" class="form-avatar" alt="Sergio, consultor SEO local en Logroño">
+          <div>
+            <div class="form-card-title">📝 Envíame un mensaje</div>
+            <div class="form-avatar-name">Sergio · WebBoost Logroño</div>
+          </div>
+        </div>
         <form id="contactFormMid" class="contact-form">
           <div class="fg"><label for="nombre-mid">Tu nombre</label><input type="text" id="nombre-mid" name="nombre" required placeholder="Nombre" /></div>
           <div class="fg"><label for="negocio-mid">Tu negocio</label><input type="text" id="negocio-mid" name="negocio" required placeholder="Nombre del negocio" /></div>
@@ -788,7 +827,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="contacto-cols">
       <div class="form-card reveal-l">
-        <div class="form-card-title">📝 Envíame un mensaje</div>
+        <div class="form-card-head">
+          <img src="/assets/img/sergio-form-144.webp" width="72" height="72" loading="lazy" class="form-avatar" alt="Sergio, consultor SEO local en Logroño">
+          <div>
+            <div class="form-card-title">📝 Envíame un mensaje</div>
+            <div class="form-avatar-name">Sergio · WebBoost Logroño</div>
+          </div>
+        </div>
         <form id="contactForm" class="contact-form">
           <div class="fg"><label for="nombre">Tu nombre</label><input type="text" id="nombre" name="nombre" required placeholder="Nombre" /></div>
           <div class="fg"><label for="negocio">Tu negocio</label><input type="text" id="negocio" name="negocio" required placeholder="Nombre del negocio" /></div>
