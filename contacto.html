@@ -323,7 +323,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="form-subtitle">Rellena el formulario y te preparo un análisis personalizado de tu visibilidad local.</div>
 
 
-        <form id="contact-form" class="form-grid" method="POST" action="https://formspree.io/f/meevolga">
+        <form id="contact-form" class="form-grid" method="POST" action="https://formspree.io/f/meevolga" toolname="solicitar_diagnostico_seo" tooldescription="Envía a Sergio una solicitud de diagnóstico SEO local gratuito para un negocio de Logroño o La Rioja.">
           <!-- Campos ocultos para Formspree -->
           <input type="hidden" name="_subject" value="Nueva solicitud de diagnóstico SEO — WebBoost" />
           <input type="hidden" name="_language" value="es" />
@@ -335,30 +335,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="nombre">Nombre <span class="req">*</span></label>
-              <input class="form-input" type="text" id="nombre" name="Nombre" placeholder="Tu nombre" required />
+              <input class="form-input" type="text" id="nombre" toolparamdescription="Nombre de la persona de contacto" name="Nombre" placeholder="Tu nombre" required />
             </div>
             <div class="form-group">
               <label class="form-label" for="email">Correo electrónico <span class="req">*</span></label>
-              <input class="form-input" type="email" id="email" name="Correo" placeholder="tu@email.com" required />
+              <input class="form-input" type="email" id="email" toolparamdescription="Correo electrónico de contacto" name="Correo" placeholder="tu@email.com" required />
             </div>
           </div>
 
           <!-- Teléfono -->
           <div class="form-group">
             <label class="form-label" for="telefono">Teléfono</label>
-            <input class="form-input" type="tel" id="telefono" name="Telefono" placeholder="+34 600 000 000" />
+            <input class="form-input" type="tel" id="telefono" toolparamdescription="Teléfono de contacto (opcional)" name="Telefono" placeholder="+34 600 000 000" />
           </div>
 
           <!-- Web del negocio -->
           <div class="form-group">
             <label class="form-label" for="web">Web del negocio</label>
-            <input class="form-input" type="url" id="web" name="Web_del_negocio" placeholder="www.tunegocio.com" />
+            <input class="form-input" type="url" id="web" toolparamdescription="Web del negocio (opcional)" name="Web_del_negocio" placeholder="www.tunegocio.com" />
           </div>
 
           <!-- Ficha Google Maps -->
           <div class="form-group">
             <label class="form-label" for="maps">Link a tu ficha de Google Maps</label>
-            <input class="form-input" type="url" id="maps" name="Ficha_Google_Maps" placeholder="https://maps.app.goo.gl/..." />
+            <input class="form-input" type="url" id="maps" toolparamdescription="Enlace a la ficha de Google Maps del negocio (opcional)" name="Ficha_Google_Maps" placeholder="https://maps.app.goo.gl/..." />
             <span class="form-maps-hint">Busca tu negocio en Google Maps → Compartir → Copia el enlace</span>
           </div>
 
